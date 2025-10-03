@@ -64,12 +64,12 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <ul className="hidden lg:flex items-center space-x-6 text-white text-base font-semibold">
             <li>
-              <a href="#" className="hover:text-gray-200">
+              <a href="/" className="hover:text-gray-200">
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-200">
+              <a href="/about" className="hover:text-gray-200">
                 About Us
               </a>
             </li>
