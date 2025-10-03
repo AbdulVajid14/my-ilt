@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-function Footer() {
-  return (
-    <div>Footer</div>
-  )
-}
-
-export default Footer
-=======
 import React from "react";
 import {
   HiHome,
@@ -151,4 +140,4 @@ const Footer = () => {
 };
 
 export default Footer;
->>>>>>> 83506be93831205e7ab3586f844f9fc072beaa17
+
