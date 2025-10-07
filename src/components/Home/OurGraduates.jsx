@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 function OurGraduates() {
+    const navigate = useNavigate();
   return (
       <section className="bg-gray-50 py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between">
@@ -46,12 +48,14 @@ function OurGraduates() {
             {[
               {
                 name: "Rayon",
+                 slug: "rayon",
                 title: "Digital Marketing Executive at Wipro",
                 image:
                   "/images/WhatsApp Image 2025-09-20 at 10.53.48_197251bf.jpg",
               },
               {
                 name: "James",
+                 slug: "james",
                 title: "Junior Data Analyst at Netflix",
                 image:
                   "/images/WhatsApp Image 2025-09-20 at 10.53.48_02e1c4ba.jpg",
@@ -84,7 +88,9 @@ function OurGraduates() {
                 <p className="text-xs sm:text-sm text-gray-600 mb-4">
                   {graduate.title}
                 </p>
-                <button className="bg-green-600 text-white font-semibold py-1.5 px-4 sm:py-2 sm:px-6 rounded-lg hover:bg-green-700 transition duration-300">
+                <button
+                  onClick={() => navigate(`/testimonial/${graduate.slug}`)}
+                 className="bg-green-600 text-white font-semibold py-1.5 px-4 sm:py-2 sm:px-6 rounded-lg hover:bg-green-700 transition duration-300">
                   View Story
                 </button>
               </div>
