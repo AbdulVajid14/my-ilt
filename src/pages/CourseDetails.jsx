@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import {
@@ -17,28 +17,92 @@ import Questions from "../components/Home/Questions";
 import Instructor from "../components/CommonComponents/Instructor";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
 
-const courseFeatures = [
-  { icon: <FaCalendarAlt />, label: "Start date:", value: "Jun 15, 2016" },
-  { icon: <FaBook />, label: "Modules:", value: "5" },
-  { icon: <BiTimeFive />, label: "Time:", value: "09am - 11am" },
-  { icon: <FaClock />, label: "Duration:", value: "3 Months" },
-  { icon: <FaRupeeSign />, label: "Price:", value: "$2,000" },
-  { icon: <FaLaptop />, label: "Mode:", value: "Online / Offline / 1:1 Coaching" },
-];
-
-const weeklySchedule = [
-  { week: "Week 1", title: "SEO Fundamentals & Keyword Research" },
-  { week: "Week 2", title: "On-Page Optimization" },
-  { week: "Week 3", title: "Technical SEO Essentials" },
-  { week: "Week 5", title: "Analytics, Reporting & Final Project" },
-];
-
-const careerOpportunities = [
-  "SEO Specialist",
-  "Digital Marketing Analyst",
-  "SEO Consultant",
-  "Growth Marketer",
-];
+const coursesData = {
+  "seo-mastery": {
+    title: "SEO Mastery",
+    bannerImage: "/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg",
+    videoImage: "/images/WhatsApp Image 2025-10-03 at 16.34.23_b794fe71.jpg",
+    overview:
+      "SEO Mastery is designed to equip learners with the skills to make websites rank higher on search engines like Google. From keyword research and on-page optimization to off-page strategies and analytics, this course covers the complete SEO journey. Students gain practical experience through live projects, ensuring they can confidently apply techniques in real-world scenarios.",
+    learnPoints: [
+      "Perform keyword research and competitor analysis",
+      "Implement on-page & technical SEO strategies",
+      "Execute off-page SEO with link building & outreach",
+      "Use Google Analytics & Search Console for insights",
+      "Optimize websites for higher search engine rankings",
+      "Manage end-to-end SEO campaigns effectively",
+    ],
+    features: [
+      { icon: <FaCalendarAlt />, label: "Start date:", value: "Oct 15, 2025" },
+      { icon: <FaBook />, label: "Modules:", value: "5" },
+      { icon: <BiTimeFive />, label: "Time:", value: "09am - 11am" },
+      { icon: <FaClock />, label: "Duration:", value: "5 Months" },
+      { icon: <FaRupeeSign />, label: "Price:", value: "$2,000" },
+      {
+        icon: <FaLaptop />,
+        label: "Mode:",
+        value: "Online / Offline / 1:1 Coaching",
+      },
+    ],
+    certificationText:
+      "Upon successful completion, students receive an ILT Certified SEO Mastery Certificate, recognized by industry experts. This certification validates your SEO knowledge and boosts career opportunities in digital marketing roles.",
+    weeklySchedule: [
+      { week: "Week 1", title: "SEO Fundamentals & Keyword Research" },
+      { week: "Week 2", title: "On-Page Optimization" },
+      { week: "Week 3", title: "Technical SEO Essentials" },
+      { week: "Week 4", title: "Off-Page SEO & Link Building" },
+      { week: "Week 5", title: "Analytics, Reporting & Final Project" },
+    ],
+    careerOpportunities: [
+      "SEO Specialist",
+      "Digital Marketing Analyst",
+      "SEO Consultant",
+      "Growth Marketer",
+    ],
+  },
+  "social-media-marketing": {
+    title: "Social Media Marketing",
+    bannerImage: "/images/WhatsApp Image 2025-09-20 at 10.54.00_f2a20352.jpg",
+    videoImage: "/images/social-video-placeholder.jpg",   
+    overview:
+      "Master platforms like Instagram, Facebook, and LinkedIn to create engaging campaigns and grow audiences. This course covers content creation, ad management, audience targeting, and performance analytics to help you build effective social media strategies.",
+    learnPoints: [
+      "Develop social media strategies and content calendars",
+      "Create engaging content for various platforms",
+      "Run paid ad campaigns and optimize budgets",
+      "Analyze engagement metrics and audience insights",
+      "Build community management and influencer partnerships",
+      "Leverage trends and algorithms for maximum reach",
+    ],
+    features: [
+      { icon: <FaCalendarAlt />, label: "Start date:", value: "Oct 20, 2025" },
+      { icon: <FaBook />, label: "Modules:", value: "6" },
+      { icon: <BiTimeFive />, label: "Time:", value: "09am - 11am" },
+      { icon: <FaClock />, label: "Duration:", value: "5 Months" },
+      { icon: <FaRupeeSign />, label: "Price:", value: "$2,200" },
+      {
+        icon: <FaLaptop />,
+        label: "Mode:",
+        value: "Online / Offline / 1:1 Coaching",
+      },
+    ],
+    certificationText:
+      "Upon successful completion, students receive an ILT Certified Social Media Marketing Certificate, recognized by industry experts. This certification validates your social media expertise and boosts career opportunities in digital marketing roles.",
+    weeklySchedule: [
+      { week: "Week 1", title: "Introduction to Social Media Platforms" },
+      { week: "Week 2", title: "Content Creation & Strategy" },
+      { week: "Week 3", title: "Audience Targeting & Engagement" },
+      { week: "Week 4", title: "Paid Advertising & Campaigns" },
+      { week: "Week 5", title: "Analytics, Optimization & Final Project" },
+    ],
+    careerOpportunities: [
+      "Social Media Manager",
+      "Content Creator",
+      "Digital Marketer",
+      "Brand Strategist",
+    ],
+  },
+};
 
 const digitalMarketingTools = [
   {
@@ -46,27 +110,27 @@ const digitalMarketingTools = [
     alt: "Google",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Benchmark_logo.svg/2560px-Benchmark_logo.svg.png",
+    src: "/images/Benchmark.jpg",
     alt: "Benchmark",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Canva_Logo.png",
+    src: "/images/canva.jpg",
     alt: "Canva",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Google_Trends_Icon.svg/1024px-Google_Trends_Icon.svg.png",
+    src: "/images/google-trends.jpg",
     alt: "Google Trends",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Elementor_logo.svg",
+    src: "/images/elemenator.jpg",
     alt: "Elementor",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/4/45/Grammarly_logo.svg",
+    src: "/images/grammarly.jpg",
     alt: "Grammarly",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Google_Ads_Transparency_Center_logo.svg",
+    src: "/images/google-ads.jpg",
     alt: "Google Ads Transparency Center",
   },
   {
@@ -152,26 +216,33 @@ const digitalMarketingTools = [
 ];
 
 const CourseDetails = () => {
+  const { slug } = useParams();
+  const course = coursesData[slug];
+
   const [phone, setPhone] = useState("");
+
+  if (!course) {
+    return <div className="text-center py-12">Course not found</div>;
+  }
 
   return (
     <div className="mx-auto">
       {/* Hero Section */}
-      <section className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center justify-center
-      "
-      style={{
-          backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg')",
-        }}>
+      <section
+        className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: `url('${course.bannerImage}')`,
+        }}
+      >
         <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-center px-4">
-          SEO Mastery
+          {course.title}
         </h1>
       </section>
 
       {/* Trainer & Ratings + Overview & Query Form */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-6 lg:gap-10">
         {/* Left: Trainer + Overview + Video */}
-        <div className="flex-1 space-y-4 sm:space-y-6 order-2 lg:order-1">
+        <div className="flex-1 space-y-4 sm:space-y-6 order-1 lg:order-1">
           <div className="flex items-center space-x-3 sm:space-x-4">
             <img
               src="/images/WhatsApp Image 2025-10-03 at 16.34.35_be4e0ab4.jpg"
@@ -191,26 +262,25 @@ const CourseDetails = () => {
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.49 6.91l6.561-.955L10 0l2.949 5.955 6.561.955-4.755 4.635 1.123 6.545z" />
                   </svg>
                 ))}
-                <span className="text-gray-900 font-semibold ml-1 sm:ml-2 text-xs sm:text-sm">4.9/5</span>
+                <span className="text-gray-900 font-semibold ml-1 sm:ml-2 text-xs sm:text-sm">
+                  4.9/5
+                </span>
               </div>
             </div>
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">Course Overview</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
+              Course Overview
+            </h2>
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              SEO Mastery is designed to equip learners with the skills to make
-              websites rank higher on search engines like Google. From keyword
-              research and on-page optimization to off-page strategies and
-              analytics, this course covers the complete SEO journey. Students
-              gain practical experience through live projects, ensuring they can
-              confidently apply techniques in real-world scenarios.
+              {course.overview}
             </p>
           </div>
 
           <div className="relative w-full aspect-video max-w-full rounded-lg overflow-hidden cursor-pointer">
             <img
-              src="/images/WhatsApp Image 2025-10-03 at 16.34.23_b794fe71.jpg"
+              src={course.videoImage}
               alt="Course Presentation"
               className="w-full h-full object-cover"
             />
@@ -228,31 +298,33 @@ const CourseDetails = () => {
           </div>
         </div>
 
-        {/* Right: Query Form */}
-<QueriesForm/>
+        {/* Right: Query Form wrapped in a div */}
+        <div className="lg:w-[35%] w-full flex-shrink-0 order-2 lg:order-2">
+          <QueriesForm />
+        </div>
       </section>
 
       {/* What You'll Learn & Course Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
         {/* Left side - What You'll Learn */}
         <div className="flex-1 space-y-4 sm:space-y-5 order-2 lg:order-1">
-          <h2 className="text-2xl sm:text-3xl font-semibold">What You’ll Learn</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold">
+            What You’ll Learn
+          </h2>
           <p className="text-gray-700 text-base sm:text-lg">
             By the end of this course, you will be able to:
           </p>
 
           <ul className="space-y-3 sm:space-y-4">
-            {[
-              "Perform keyword research and competitor analysis",
-              "Implement on-page & technical SEO strategies",
-              "Execute off-page SEO with link building & outreach",
-              "Use Google Analytics & Search Console for insights",
-              "Optimize websites for higher search engine rankings",
-              "Manage end-to-end SEO campaigns effectively",
-            ].map((text, index) => (
-              <li key={index} className="flex items-start space-x-3 sm:space-x-3">
+            {course.learnPoints.map((text, index) => (
+              <li
+                key={index}
+                className="flex items-start space-x-3 sm:space-x-3"
+              >
                 <FaCheck className="text-green-600 mt-1 flex-shrink-0 text-lg sm:text-xl" />
-                <span className="font-semibold text-gray-800 text-sm sm:text-base leading-relaxed">{text}</span>
+                <span className="font-semibold text-gray-800 text-sm sm:text-base leading-relaxed">
+                  {text}
+                </span>
               </li>
             ))}
           </ul>
@@ -260,15 +332,26 @@ const CourseDetails = () => {
 
         {/* Right side - Course Features */}
         <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md order-1 lg:order-2">
-          <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Course Features</h3>
+          <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+            Course Features
+          </h3>
           <ul className="space-y-3 sm:space-y-4 text-gray-800">
-            {courseFeatures.map(({ icon, label, value }) => (
-              <li key={label} className="flex items-center justify-between space-x-2 sm:space-x-3">
+            {course.features.map(({ icon, label, value }) => (
+              <li
+                key={label}
+                className="flex items-center justify-between space-x-2 sm:space-x-3"
+              >
                 <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
-                  <span className="text-green-600 text-lg sm:text-xl flex-shrink-0">{icon}</span>
-                  <span className="font-semibold text-sm sm:text-base truncate">{label}</span>
+                  <span className="text-green-600 text-lg sm:text-xl flex-shrink-0">
+                    {icon}
+                  </span>
+                  <span className="font-semibold text-sm sm:text-base truncate">
+                    {label}
+                  </span>
                 </div>
-                <span className="text-sm sm:text-base text-right min-w-0 truncate">{value}</span>
+                <span className="text-sm sm:text-base text-right min-w-0 truncate">
+                  {value}
+                </span>
               </li>
             ))}
           </ul>
@@ -282,16 +365,7 @@ const CourseDetails = () => {
         </div>
 
         <p className="text-gray-700 text-sm sm:text-lg leading-relaxed max-w-4xl">
-          Upon successful completion, students receive an{" "}
-          <a
-            href="#"
-            className="text-green-600 font-semibold underline hover:text-green-700 transition"
-            tabIndex={0}
-          >
-            ILT Certified SEO Mastery Certificate
-          </a>
-          , recognized by industry experts. This certification validates your SEO
-          knowledge and boosts career opportunities in digital marketing roles.
+          {course.certificationText}
         </p>
       </section>
 
@@ -303,8 +377,11 @@ const CourseDetails = () => {
             Weekly Course Schedule
           </h3>
           <ul className="space-y-2 sm:space-y-3 text-gray-800">
-            {weeklySchedule.map(({ week, title }) => (
-              <li key={week} className="flex items-center space-x-2 sm:space-x-3">
+            {course.weeklySchedule.map(({ week, title }) => (
+              <li
+                key={week}
+                className="flex items-center space-x-2 sm:space-x-3"
+              >
                 <span className="block w-2 h-2 sm:w-3 sm:h-3 bg-green-600 rounded-full flex-shrink-0"></span>
                 <p className="text-sm sm:text-lg leading-relaxed">
                   <strong>{week}:</strong> {title}
@@ -320,11 +397,14 @@ const CourseDetails = () => {
             Career Opportunities
           </h3>
           <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-lg">
-            After completing SEO Mastery, students can work as:
+            After completing {course.title}, students can work as:
           </p>
           <ul className="space-y-2 sm:space-y-3 text-gray-900">
-            {careerOpportunities.map((role, index) => (
-              <li key={index} className="flex items-center space-x-2 sm:space-x-3 font-semibold">
+            {course.careerOpportunities.map((role, index) => (
+              <li
+                key={index}
+                className="flex items-center space-x-2 sm:space-x-3 font-semibold"
+              >
                 <FaStar className="text-yellow-500 text-lg sm:text-xl flex-shrink-0" />
                 <span className="text-sm sm:text-lg">{role}</span>
               </li>
@@ -346,13 +426,17 @@ const CourseDetails = () => {
               className="flex justify-center items-center p-2 sm:p-3 border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition w-full max-w-[120px] sm:max-w-none"
               title={alt}
             >
-              <img src={src} alt={alt} className="h-8 sm:h-10 lg:h-12 w-auto max-h-12 object-contain" />
+              <img
+                src={src}
+                alt={alt}
+                className="h-8 sm:h-10 lg:h-12 w-auto max-h-12 object-contain"
+              />
             </div>
           ))}
         </div>
       </section>
 
-<Instructor/>
+      <Instructor />
 
       {/* Download ILT App Section */}
       <section className="bg-black text-white p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-10 w-full">

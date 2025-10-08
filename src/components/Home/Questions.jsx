@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa";
 function Questions() {
   return (
-      <section className="bg-gray-50 py-12 sm:py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Have Questions? We've Got Answers.

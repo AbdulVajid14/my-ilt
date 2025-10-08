@@ -1,11 +1,10 @@
-
 import React from "react";
 import OurCourses from "../components/Home/OurCourses";
 import BookTrail from "../components/Home/BookTrail";
 import StudyAbroad from "../components/Home/StudyAbroad";
 import AppSection from "../components/Home/AppSection";
 import OurTrainers from "../components/Home/OurTrainers";
-import Certificate from "../components/Home/Certificate";
+import Certificate from "../components/Home/CertificateInHome";
 import OurGraduates from "../components/Home/OurGraduates";
 import HomeBlog from "../components/Home/HomeBlog";
 import { useState } from "react";
@@ -24,15 +23,13 @@ import {
   HiUsers,
   HiAcademicCap,
 } from "react-icons/hi2";
-import ReactCountryFlag from "react-country-flag";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [phone, setPhone] = useState("");
   const [phone1, setPhone1] = useState("");
 
-  
   return (
     <div className="bg-gray-50 font-sans">
       {/* 1. Hero Section */}
@@ -236,9 +233,11 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-6 sm:mt-8 bg-green-600 text-white font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
-              Explore Training Options
-            </button>
+            <Link to="/modal">
+              <button className="mt-6 sm:mt-8 bg-green-600 text-white font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
+                Explore Training Options
+              </button>
+            </Link>
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-0 space-y-6 sm:space-y-8">
             <div className="p-4 sm:p-6 bg-white rounded-lg shadow-xl">
@@ -306,15 +305,15 @@ const Home = () => {
       </section>
 
       {/* 5. Course Overview */}
-<OurCourses/>
+      <OurCourses />
 
       {/* 6. Learn & Grow With ILT */}
-  <BookTrail/>
+      <BookTrail />
 
       {/* 7. Study Digital Marketing Abroad */}
-<StudyAbroad/>
-{/* App Section */}
-   <AppSection/>
+      <StudyAbroad />
+      {/* App Section */}
+      <AppSection />
       {/* 9. Learn More Through Our Workshops */}
       <section className="relative text-white py-12 sm:py-16 px-4 min-h-[400px] sm:min-h-[600px] flex items-center overflow-hidden">
         <div
@@ -334,26 +333,27 @@ const Home = () => {
             Participate in interactive workshops to gain practical skills and
             hands-on experience guided by industry experts.
           </p>
-          <button className="bg-white text-gray-900 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300">
-            View Upcoming Workshops
-          </button>
+          <Link to="/workshop">
+            <button className="bg-white text-gray-900 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300">
+              View Upcoming Workshops
+            </button>
+          </Link>
         </div>
       </section>
 
       {/* 10. Our Trainers */}
-  <OurTrainers/>
-
+      <OurTrainers />
 
       {/* 11. Certifications */}
-<Certificate/>
+      <Certificate />
       {/* 12. Hear From Our Graduates */}
-<OurGraduates/>
+      <OurGraduates />
 
       {/* 13. Latest Insights & Tips */}
-  <HomeBlog/>
+      <HomeBlog />
 
       {/* 14. Have Questions? We've Got Answers. */}
-<Questions/>
+      <Questions />
     </div>
   );
 };

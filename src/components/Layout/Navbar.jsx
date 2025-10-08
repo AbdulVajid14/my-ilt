@@ -1,13 +1,20 @@
-
 import React, { useState } from "react";
 import { FaChevronDown, FaPhone, FaUser } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
+  const [showProgramModesDropdown, setShowProgramModesDropdown] = useState(false);
+  const [showCertificatesDropdown, setShowCertificatesDropdown] = useState(false);
   const [showMobileCoursesDropdown, setShowMobileCoursesDropdown] = useState(false);
+  const [showMobileProgramModesDropdown, setShowMobileProgramModesDropdown] = useState(false);
+  const [showMobileCertificatesDropdown, setShowMobileCertificatesDropdown] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState(null);
+  const [closeTimeoutProgram, setCloseTimeoutProgram] = useState(null);
+  const [closeTimeoutCert, setCloseTimeoutCert] = useState(null);
 
   const logoSrc = "/images/logo.jpg";
   const googlePlaySrc =
@@ -15,7 +22,13 @@ const Navbar = () => {
   const appStoreSrc =
     "/images/WhatsApp Image 2025-09-20 at 10.54.36_d69e2bc6.jpg";
 
-  const handleMouseEnter = () => {
+  const courses = [
+    { label: "SEO Mastery", slug: "seo-mastery" },
+    { label: "Social Media Marketing", slug: "social-media-marketing" },
+  ];
+
+  // ===== Courses Dropdown =====
+  const handleMouseEnterCourses = () => {
     if (closeTimeout) {
       clearTimeout(closeTimeout);
       setCloseTimeout(null);
@@ -23,19 +36,61 @@ const Navbar = () => {
     setShowCoursesDropdown(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeaveCourses = () => {
     const timeout = setTimeout(() => {
       setShowCoursesDropdown(false);
-    }, 250); // Delay closing by 250ms for smooth "stay open" feel
+    }, 250);
     setCloseTimeout(timeout);
+  };
+
+  // ===== Program Modes Dropdown =====
+  const handleMouseEnterProgramModes = () => {
+    if (closeTimeoutProgram) {
+      clearTimeout(closeTimeoutProgram);
+      setCloseTimeoutProgram(null);
+    }
+    setShowProgramModesDropdown(true);
+  };
+
+  const handleMouseLeaveProgramModes = () => {
+    const timeout = setTimeout(() => {
+      setShowProgramModesDropdown(false);
+    }, 250);
+    setCloseTimeoutProgram(timeout);
+  };
+
+  // ===== Certificates Dropdown =====
+  const handleMouseEnterCertificates = () => {
+    if (closeTimeoutCert) {
+      clearTimeout(closeTimeoutCert);
+      setCloseTimeoutCert(null);
+    }
+    setShowCertificatesDropdown(true);
+  };
+
+  const handleMouseLeaveCertificates = () => {
+    const timeout = setTimeout(() => {
+      setShowCertificatesDropdown(false);
+    }, 250);
+    setCloseTimeoutCert(timeout);
   };
 
   const toggleMobileCourses = () => {
     setShowMobileCoursesDropdown(!showMobileCoursesDropdown);
   };
 
+  const toggleMobileProgramModes = () => {
+    setShowMobileProgramModesDropdown(!showMobileProgramModesDropdown);
+  };
+
+  const toggleMobileCertificates = () => {
+    setShowMobileCertificatesDropdown(!showMobileCertificatesDropdown);
+  };
+
   const closeMobileMenu = () => {
     setShowMobileCoursesDropdown(false);
+    setShowMobileProgramModesDropdown(false);
+    setShowMobileCertificatesDropdown(false);
     setMenuOpen(false);
   };
 
@@ -45,11 +100,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between max-w-7xl mx-auto p-4 md:p-6">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img
-            src={logoSrc}
-            alt="Internet Leads Training Logo"
-            className="h-12 md:h-16"
-          />
+          <img src={logoSrc} alt="Internet Leads Training Logo" className="h-12 md:h-16" />
         </div>
 
         {/* Course Info (hidden on mobile) */}
@@ -81,6 +132,8 @@ const Navbar = () => {
             onClick={() => {
               if (menuOpen) {
                 setShowMobileCoursesDropdown(false);
+                setShowMobileProgramModesDropdown(false);
+                setShowMobileCertificatesDropdown(false);
               }
               setMenuOpen(!menuOpen);
             }}
@@ -97,114 +150,294 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <ul className="hidden lg:flex items-center space-x-6 text-white text-base font-semibold">
             <li>
-              <a href="/" className="hover:text-gray-200">
+              <Link to="/" className="hover:text-gray-200">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-gray-200">
+              <Link to="/about" className="hover:text-gray-200">
                 About Us
-              </a>
+              </Link>
             </li>
-            {/* Dropdown with Animation */}
-            <li 
+
+            {/* ===== Courses Dropdown ===== */}
+            <li
               className="group relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnterCourses}
+              onMouseLeave={handleMouseLeaveCourses}
             >
               <a href="#" className="flex items-center hover:text-gray-200">
                 Courses <FaChevronDown className="ml-1 text-xs" />
               </a>
-              <div 
-                className={`absolute left-0 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg z-10 transition-all duration-300 ease-in-out transform origin-top-left overflow-hidden ${
-                  showCoursesDropdown 
-                    ? 'opacity-100 scale-100 translate-y-0' 
-                    : 'opacity-0 scale-95 translate-y-1 pointer-events-none'
-                }`}
-              >
-                <a href="/course-details" className="block px-4 py-2 hover:bg-gray-100">
-                  SEO Mastery
-                </a>
-              </div>
+              <AnimatePresence>
+                {showCoursesDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -10, transformOrigin: "top left" }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="absolute left-1/2 mt-2 w-55 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+                  >
+                    {courses.map((course) => (
+                      <Link
+                        key={course.slug}
+                        to={`/courses/${course.slug}`}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        {course.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </li>
-            <li>
+
+            {/* ===== Program Modes Dropdown ===== */}
+            <li
+              className="group relative"
+              onMouseEnter={handleMouseEnterProgramModes}
+              onMouseLeave={handleMouseLeaveProgramModes}
+            >
               <a href="#" className="flex items-center hover:text-gray-200">
                 Program Modes <FaChevronDown className="ml-1 text-xs" />
               </a>
+              <AnimatePresence>
+                {showProgramModesDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -10, transformOrigin: "top left" }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="absolute left-1/2 mt-2 w-56 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+                  >
+                    {[
+                      { label: "Online", id: "online" },
+                      { label: "Offline", id: "offline" },
+                      { label: "Individual", id: "individual" },
+                      { label: "Self-Paced", id: "selfpaced" },
+                      { label: "Corporate", id: "corporate" },
+                      { label: "Workshop", id: "workshop" },
+                    ].map((mode) => (
+                      <Link
+                        key={mode.id}
+                        to={`/modal?mode=${mode.id}`}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        {mode.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </li>
-            <li>
+
+            {/* ===== Certificates Dropdown ===== */}
+            <li
+              className="group relative"
+              onMouseEnter={handleMouseEnterCertificates}
+              onMouseLeave={handleMouseLeaveCertificates}
+            >
               <a href="#" className="flex items-center hover:text-gray-200">
                 Certificates <FaChevronDown className="ml-1 text-xs" />
               </a>
+              <AnimatePresence>
+                {showCertificatesDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -10, transformOrigin: "top left" }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="absolute left-1/2 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+                  >
+                    <Link
+                      to="/certificate"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Google Certificate
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </li>
           </ul>
 
           {/* Contact + Sign In */}
           <div className="hidden lg:flex items-center text-white space-x-6">
-            <a href="#" className="flex items-center font-semibold hover:text-gray-200">
+            <Link to="/contact" className="flex items-center font-semibold hover:text-gray-200">
               <FaPhone className="mr-2" /> Contact Us
-            </a>
-            <a href="#" className="flex items-center font-semibold hover:text-gray-200">
+            </Link>
+            <Link to="#" className="flex items-center font-semibold hover:text-gray-200">
               <FaUser className="mr-2" /> Sign In
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="lg:hidden bg-green-700 text-white px-4 py-4 space-y-4">
-          <a href="/" className="block hover:text-gray-200" onClick={closeMobileMenu}>
-            Home
-          </a>
-          <a href="/about" className="block hover:text-gray-200" onClick={closeMobileMenu}>
-            About Us
-          </a>
-          <div className="space-y-2">
-            <button
-              onClick={toggleMobileCourses}
-              className="flex items-center justify-between w-full text-left hover:text-gray-200"
-            >
-              <span>Courses</span>
-              <FaChevronDown
-                className={`ml-2 text-xs transition-transform duration-300 ${
-                  showMobileCoursesDropdown ? 'rotate-180' : ''
-                }`}
-              />
-            </button>
-            {showMobileCoursesDropdown && (
-              <div className="pl-4 space-y-2 border-l-2 border-green-500">
-                <a href="/course-details" className="block text-sm hover:text-gray-200" onClick={closeMobileMenu}>
-                  SEO Mastery
-                </a>
-              </div>
-            )}
-          </div>
-          <a href="#" className="block hover:text-gray-200" onClick={closeMobileMenu}>
-            Program Modes
-          </a>
-          <a href="#" className="block hover:text-gray-200" onClick={closeMobileMenu}>
-            Certificates
-          </a>
-          <a href="#" className="block hover:text-gray-200" onClick={closeMobileMenu}>
-            Contact Us
-          </a>
-          <a href="#" className="block hover:text-gray-200" onClick={closeMobileMenu}>
-            Sign In
-          </a>
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden bg-green-700 text-white px-4 py-4 space-y-4 overflow-hidden"
+          >
+            <Link to="/" className="block hover:text-gray-200" onClick={closeMobileMenu}>
+              Home
+            </Link>
+            <Link to="/about" className="block hover:text-gray-200" onClick={closeMobileMenu}>
+              About Us
+            </Link>
+
+            {/* Mobile Courses Dropdown */}
+            <div className="space-y-2">
+              <button
+                onClick={toggleMobileCourses}
+                className="flex items-center justify-between w-full text-left hover:text-gray-200"
+              >
+                <span>Courses</span>
+                <FaChevronDown
+                  className={`ml-2 text-xs transition-transform duration-300 ${
+                    showMobileCoursesDropdown ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <AnimatePresence>
+                {showMobileCoursesDropdown && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="pl-4 space-y-2 border-l-2 border-green-500 overflow-hidden"
+                  >
+                    {courses.map((course) => (
+                      <Link
+                        key={course.slug}
+                        to={`/courses/${course.slug}`}
+                        className="block text-sm hover:text-gray-200"
+                        onClick={closeMobileMenu}
+                      >
+                        {course.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile Program Modes Dropdown */}
+            <div className="space-y-2">
+              <button
+                onClick={toggleMobileProgramModes}
+                className="flex items-center justify-between w-full text-left hover:text-gray-200"
+              >
+                <span>Program Modes</span>
+                <FaChevronDown
+                  className={`ml-2 text-xs transition-transform duration-300 ${
+                    showMobileProgramModesDropdown ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <AnimatePresence>
+                {showMobileProgramModesDropdown && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="pl-4 space-y-2 border-l-2 border-green-500 overflow-hidden"
+                  >
+                    {[
+                      { label: "Online", id: "online" },
+                      { label: "Offline", id: "offline" },
+                      { label: "Individual", id: "individual" },
+                      { label: "Self-Paced", id: "selfpaced" },
+                      { label: "Corporate", id: "corporate" },
+                      { label: "Workshop", id: "workshop" },
+                    ].map((mode) => (
+                      <Link
+                        key={mode.id}
+                        to={`/modal?mode=${mode.id}`}
+                        className="block text-sm hover:text-gray-200"
+                        onClick={closeMobileMenu}
+                      >
+                        {mode.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile Certificates Dropdown */}
+            <div className="space-y-2">
+              <button
+                onClick={toggleMobileCertificates}
+                className="flex items-center justify-between w-full text-left hover:text-gray-200"
+              >
+                <span>Certificates</span>
+                <FaChevronDown
+                  className={`ml-2 text-xs transition-transform duration-300 ${
+                    showMobileCertificatesDropdown ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <AnimatePresence>
+                {showMobileCertificatesDropdown && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="pl-4 space-y-2 border-l-2 border-green-500 overflow-hidden"
+                  >
+                    <Link
+                      to="/certificate"
+                      className="block text-sm hover:text-gray-200"
+                      onClick={closeMobileMenu}
+                    >
+                      Google Certificate
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link to="/contact" className="block hover:text-gray-200" onClick={closeMobileMenu}>
+              Contact Us
+            </Link>
+            <Link to="#" className="block hover:text-gray-200" onClick={closeMobileMenu}>
+              Sign In
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
 
 export default Navbar;
+
+
 // import React, { useState } from "react";
 // import { FaChevronDown, FaPhone, FaUser } from "react-icons/fa";
 // import { HiMenu, HiX } from "react-icons/hi";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { Link } from "react-router-dom";
 
 // const Navbar = () => {
 //   const [menuOpen, setMenuOpen] = useState(false);
+//   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
+//   const [showProgramModesDropdown, setShowProgramModesDropdown] = useState(false);
+//   const [showCertificatesDropdown, setShowCertificatesDropdown] = useState(false);
+//   const [showMobileCoursesDropdown, setShowMobileCoursesDropdown] = useState(false);
+//   const [showMobileProgramModesDropdown, setShowMobileProgramModesDropdown] = useState(false);
+//   const [showMobileCertificatesDropdown, setShowMobileCertificatesDropdown] = useState(false);
+//   const [closeTimeout, setCloseTimeout] = useState(null);
+//   const [closeTimeoutProgram, setCloseTimeoutProgram] = useState(null);
+//   const [closeTimeoutCert, setCloseTimeoutCert] = useState(null);
 
 //   const logoSrc = "/images/logo.jpg";
 //   const googlePlaySrc =
@@ -212,17 +445,85 @@ export default Navbar;
 //   const appStoreSrc =
 //     "/images/WhatsApp Image 2025-09-20 at 10.54.36_d69e2bc6.jpg";
 
+//   const courses = [
+//     { label: "SEO Mastery", slug: "seo-mastery" },
+//     { label: "Social Media Marketing", slug: "social-media-marketing" },
+//   ];
+
+//   // ===== Courses Dropdown =====
+//   const handleMouseEnterCourses = () => {
+//     if (closeTimeout) {
+//       clearTimeout(closeTimeout);
+//       setCloseTimeout(null);
+//     }
+//     setShowCoursesDropdown(true);
+//   };
+
+//   const handleMouseLeaveCourses = () => {
+//     const timeout = setTimeout(() => {
+//       setShowCoursesDropdown(false);
+//     }, 250);
+//     setCloseTimeout(timeout);
+//   };
+
+//   // ===== Program Modes Dropdown =====
+//   const handleMouseEnterProgramModes = () => {
+//     if (closeTimeoutProgram) {
+//       clearTimeout(closeTimeoutProgram);
+//       setCloseTimeoutProgram(null);
+//     }
+//     setShowProgramModesDropdown(true);
+//   };
+
+//   const handleMouseLeaveProgramModes = () => {
+//     const timeout = setTimeout(() => {
+//       setShowProgramModesDropdown(false);
+//     }, 250);
+//     setCloseTimeoutProgram(timeout);
+//   };
+
+//   // ===== Certificates Dropdown =====
+//   const handleMouseEnterCertificates = () => {
+//     if (closeTimeoutCert) {
+//       clearTimeout(closeTimeoutCert);
+//       setCloseTimeoutCert(null);
+//     }
+//     setShowCertificatesDropdown(true);
+//   };
+
+//   const handleMouseLeaveCertificates = () => {
+//     const timeout = setTimeout(() => {
+//       setShowCertificatesDropdown(false);
+//     }, 250);
+//     setCloseTimeoutCert(timeout);
+//   };
+
+//   const toggleMobileCourses = () => {
+//     setShowMobileCoursesDropdown(!showMobileCoursesDropdown);
+//   };
+
+//   const toggleMobileProgramModes = () => {
+//     setShowMobileProgramModesDropdown(!showMobileProgramModesDropdown);
+//   };
+
+//   const toggleMobileCertificates = () => {
+//     setShowMobileCertificatesDropdown(!showMobileCertificatesDropdown);
+//   };
+
+//   const closeMobileMenu = () => {
+//     setShowMobileCoursesDropdown(false);
+//     setShowMobileProgramModesDropdown(false);
+//     setShowMobileCertificatesDropdown(false);
+//     setMenuOpen(false);
+//   };
+
 //   return (
 //     <nav className="w-full shadow-md sticky top-0 z-50 bg-white">
 //       {/* Top Bar */}
 //       <div className="flex items-center justify-between max-w-7xl mx-auto p-4 md:p-6">
 //         {/* Logo */}
 //         <div className="flex-shrink-0">
-//           <img
-//             src={logoSrc}
-//             alt="Internet Leads Training Logo"
-//             className="h-12 md:h-16"
-//           />
+//           <img src={logoSrc} alt="Internet Leads Training Logo" className="h-12 md:h-16" />
 //         </div>
 
 //         {/* Course Info (hidden on mobile) */}
@@ -251,7 +552,14 @@ export default Navbar;
 //         {/* Mobile Menu Button */}
 //         <div className="lg:hidden">
 //           <button
-//             onClick={() => setMenuOpen(!menuOpen)}
+//             onClick={() => {
+//               if (menuOpen) {
+//                 setShowMobileCoursesDropdown(false);
+//                 setShowMobileProgramModesDropdown(false);
+//                 setShowMobileCertificatesDropdown(false);
+//               }
+//               setMenuOpen(!menuOpen);
+//             }}
 //             className="text-gray-700 text-2xl"
 //           >
 //             {menuOpen ? <HiX /> : <HiMenu />}
@@ -265,46 +573,125 @@ export default Navbar;
 //           {/* Desktop Nav */}
 //           <ul className="hidden lg:flex items-center space-x-6 text-white text-base font-semibold">
 //             <li>
-//               <a href="/" className="hover:text-gray-200">
+//               <Link to="/" className="hover:text-gray-200">
 //                 Home
-//               </a>
+//               </Link>
 //             </li>
 //             <li>
-//               <a href="/about" className="hover:text-gray-200">
+//               <Link to="/about" className="hover:text-gray-200">
 //                 About Us
-//               </a>
+//               </Link>
 //             </li>
-//             {/* Dropdown */}
-//             <li className="group relative">
+
+//             {/* ===== Courses Dropdown ===== */}
+//             <li
+//               className="group relative"
+//               onMouseEnter={handleMouseEnterCourses}
+//               onMouseLeave={handleMouseLeaveCourses}
+//             >
 //               <a href="#" className="flex items-center hover:text-gray-200">
 //                 Courses <FaChevronDown className="ml-1 text-xs" />
 //               </a>
-//               <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg hidden group-hover:block z-10">
-//                 <a href="/course-details" className="block px-4 py-2 hover:bg-gray-100">
-//                   SEO Mastery
-//                 </a>
-//               </div>
+//               <AnimatePresence>
+//                 {showCoursesDropdown && (
+//                   <motion.div
+//                     initial={{ opacity: 0, scale: 0.95, y: -10, transformOrigin: "top left" }}
+//                     animate={{ opacity: 1, scale: 1, y: 0 }}
+//                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
+//                     transition={{ duration: 0.3, ease: "easeInOut" }}
+// className="absolute left-1/2 mt-2 w-55 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+//                   >
+//                     {courses.map((course) => (
+//                       <Link
+//                         key={course.slug}
+//                         to={`/courses/${course.slug}`}
+//                         className="block px-4 py-2 hover:bg-gray-100"
+//                       >
+//                         {course.label}
+//                       </Link>
+//                     ))}
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
 //             </li>
-//             <li>
+
+//             {/* ===== Program Modes Dropdown ===== */}
+//             <li
+//               className="group relative"
+//               onMouseEnter={handleMouseEnterProgramModes}
+//               onMouseLeave={handleMouseLeaveProgramModes}
+//             >
 //               <a href="#" className="flex items-center hover:text-gray-200">
 //                 Program Modes <FaChevronDown className="ml-1 text-xs" />
 //               </a>
+//               <AnimatePresence>
+//                 {showProgramModesDropdown && (
+//                   <motion.div
+//                     initial={{ opacity: 0, scale: 0.95, y: -10, transformOrigin: "top left" }}
+//                     animate={{ opacity: 1, scale: 1, y: 0 }}
+//                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
+//                     transition={{ duration: 0.3, ease: "easeInOut" }}
+//   className="absolute left-1/2 mt-2 w-56 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+//                   >
+//                     {[
+//                       { label: "Online", id: "online" },
+//                       { label: "Offline", id: "offline" },
+//                       { label: "Individual", id: "individual" },
+//                       { label: "Self-Paced", id: "selfpaced" },
+//                       { label: "Corporate", id: "corporate" },
+//                       { label: "Workshop", id: "workshop" },
+//                     ].map((mode) => (
+//                       <Link
+//                         key={mode.id}
+//                         to={`/modal?mode=${mode.id}`}
+//                         className="block px-4 py-2 hover:bg-gray-100"
+//                       >
+//                         {mode.label}
+//                       </Link>
+//                     ))}
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
 //             </li>
-//             <li>
+
+//             {/* ===== Certificates Dropdown ===== */}
+//             <li
+//               className="group relative"
+//               onMouseEnter={handleMouseEnterCertificates}
+//               onMouseLeave={handleMouseLeaveCertificates}
+//             >
 //               <a href="#" className="flex items-center hover:text-gray-200">
 //                 Certificates <FaChevronDown className="ml-1 text-xs" />
 //               </a>
+//               <AnimatePresence>
+//                 {showCertificatesDropdown && (
+//                   <motion.div
+//                     initial={{ opacity: 0, scale: 0.95, y: -10, transformOrigin: "top left" }}
+//                     animate={{ opacity: 1, scale: 1, y: 0 }}
+//                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
+//                     transition={{ duration: 0.3, ease: "easeInOut" }}
+// className="absolute left-1/2 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+//                   >
+//                     <Link
+//                       to="/certificate"
+//                       className="block px-4 py-2 hover:bg-gray-100"
+//                     >
+//                       Google Certificate
+//                     </Link>
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
 //             </li>
 //           </ul>
 
 //           {/* Contact + Sign In */}
 //           <div className="hidden lg:flex items-center text-white space-x-6">
-//             <a href="#" className="flex items-center font-semibold hover:text-gray-200">
+//             <Link to="/contact" className="flex items-center font-semibold hover:text-gray-200">
 //               <FaPhone className="mr-2" /> Contact Us
-//             </a>
-//             <a href="#" className="flex items-center font-semibold hover:text-gray-200">
+//             </Link>
+//             <Link to="#" className="flex items-center font-semibold hover:text-gray-200">
 //               <FaUser className="mr-2" /> Sign In
-//             </a>
+//             </Link>
 //           </div>
 //         </div>
 //       </div>
@@ -312,27 +699,134 @@ export default Navbar;
 //       {/* Mobile Menu */}
 //       {menuOpen && (
 //         <div className="lg:hidden bg-green-700 text-white px-4 py-4 space-y-4">
-//           <a href="#" className="block hover:text-gray-200">
+//           <Link to="/" className="block hover:text-gray-200" onClick={closeMobileMenu}>
 //             Home
-//           </a>
-//           <a href="/about" className="block hover:text-gray-200">
+//           </Link>
+//           <Link to="/about" className="block hover:text-gray-200" onClick={closeMobileMenu}>
 //             About Us
-//           </a>
-//           <a href="#" className="block hover:text-gray-200">
-//             Courses
-//           </a>
-//           <a href="#" className="block hover:text-gray-200">
-//             Program Modes
-//           </a>
-//           <a href="#" className="block hover:text-gray-200">
-//             Certificates
-//           </a>
-//           <a href="#" className="block hover:text-gray-200">
+//           </Link>
+
+//           {/* Mobile Courses Dropdown */}
+//           <div className="space-y-2">
+//             <button
+//               onClick={toggleMobileCourses}
+//               className="flex items-center justify-between w-full text-left hover:text-gray-200"
+//             >
+//               <span>Courses</span>
+//               <FaChevronDown
+//                 className={`ml-2 text-xs transition-transform duration-300 ${
+//                   showMobileCoursesDropdown ? "rotate-180" : ""
+//                 }`}
+//               />
+//             </button>
+//             <AnimatePresence>
+//               {showMobileCoursesDropdown && (
+//                 <motion.div
+//                   initial={{ height: 0, opacity: 0 }}
+//                   animate={{ height: "auto", opacity: 1 }}
+//                   exit={{ height: 0, opacity: 0 }}
+//                   transition={{ duration: 0.3, ease: "easeInOut" }}
+//                   className="pl-4 space-y-2 border-l-2 border-green-500 overflow-hidden"
+//                 >
+//                   {courses.map((course) => (
+//                     <Link
+//                       key={course.slug}
+//                       to={`/courses/${course.slug}`}
+//                       className="block text-sm hover:text-gray-200"
+//                       onClick={closeMobileMenu}
+//                     >
+//                       {course.label}
+//                     </Link>
+//                   ))}
+//                 </motion.div>
+//               )}
+//             </AnimatePresence>
+//           </div>
+
+//           {/* Mobile Program Modes Dropdown */}
+//           <div className="space-y-2">
+//             <button
+//               onClick={toggleMobileProgramModes}
+//               className="flex items-center justify-between w-full text-left hover:text-gray-200"
+//             >
+//               <span>Program Modes</span>
+//               <FaChevronDown
+//                 className={`ml-2 text-xs transition-transform duration-300 ${
+//                   showMobileProgramModesDropdown ? "rotate-180" : ""
+//                 }`}
+//               />
+//             </button>
+//             <AnimatePresence>
+//               {showMobileProgramModesDropdown && (
+//                 <motion.div
+//                   initial={{ height: 0, opacity: 0 }}
+//                   animate={{ height: "auto", opacity: 1 }}
+//                   exit={{ height: 0, opacity: 0 }}
+//                   transition={{ duration: 0.3, ease: "easeInOut" }}
+//                   className="pl-4 space-y-2 border-l-2 border-green-500 overflow-hidden"
+//                 >
+//                   {[
+//                     { label: "Online", id: "online" },
+//                     { label: "Offline", id: "offline" },
+//                     { label: "Individual", id: "individual" },
+//                     { label: "Self-Paced", id: "selfpaced" },
+//                     { label: "Corporate", id: "corporate" },
+//                     { label: "Workshop", id: "workshop" },
+//                   ].map((mode) => (
+//                     <Link
+//                       key={mode.id}
+//                       to={`/modal?mode=${mode.id}`}
+//                       className="block text-sm hover:text-gray-200"
+//                       onClick={closeMobileMenu}
+//                     >
+//                       {mode.label}
+//                     </Link>
+//                   ))}
+//                 </motion.div>
+//               )}
+//             </AnimatePresence>
+//           </div>
+
+//           {/* Mobile Certificates Dropdown */}
+//           <div className="space-y-2">
+//             <button
+//               onClick={toggleMobileCertificates}
+//               className="flex items-center justify-between w-full text-left hover:text-gray-200"
+//             >
+//               <span>Certificates</span>
+//               <FaChevronDown
+//                 className={`ml-2 text-xs transition-transform duration-300 ${
+//                   showMobileCertificatesDropdown ? "rotate-180" : ""
+//                 }`}
+//               />
+//             </button>
+//             <AnimatePresence>
+//               {showMobileCertificatesDropdown && (
+//                 <motion.div
+//                   initial={{ height: 0, opacity: 0 }}
+//                   animate={{ height: "auto", opacity: 1 }}
+//                   exit={{ height: 0, opacity: 0 }}
+//                   transition={{ duration: 0.3, ease: "easeInOut" }}
+//                   className="pl-4 space-y-2 border-l-2 border-green-500 overflow-hidden"
+//                 >
+//                   <Link
+//                     to="/certificate"
+//                     className="block text-sm hover:text-gray-200"
+//                     onClick={closeMobileMenu}
+//                   >
+//                     Google Certificate
+//                   </Link>
+//                 </motion.div>
+//               )}
+//             </AnimatePresence>
+//           </div>
+
+//           <Link to="/contact" className="block hover:text-gray-200" onClick={closeMobileMenu}>
 //             Contact Us
-//           </a>
-//           <a href="#" className="block hover:text-gray-200">
+//           </Link>
+//           <Link to="#" className="block hover:text-gray-200" onClick={closeMobileMenu}>
 //             Sign In
-//           </a>
+//           </Link>
 //         </div>
 //       )}
 //     </nav>
