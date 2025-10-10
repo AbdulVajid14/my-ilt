@@ -11,6 +11,9 @@ import WorkshopDetails from "./pages/WorkshopDetails";
 import ContactPage from "./pages/ContactPage";
 import ModalPage from "./pages/ModalPage";
 import ScrollToTop from "./components/Layout/ScrollToTop";
+import Trainers from "./pages/Trainers";
+import TrainesrDetails from "./pages/TrainersDetails"; 
+import ILTAbroad from "./pages/ILTAbroad";
 function App() {
   return (
     <>
@@ -27,6 +30,9 @@ function App() {
         <Route path="/workshop/:slug" element={<WorkshopDetails/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="/modal" element={<ModalPage/>}/>
+        <Route path="/trainers" element={<Trainers/>}/>
+        <Route path="/trainers/:slug" element={<TrainesrDetails/>}/>
+        <Route path="/ilt-abroad" element={<ILTAbroad/>}/>
       </Route>
     </Routes>
     </>

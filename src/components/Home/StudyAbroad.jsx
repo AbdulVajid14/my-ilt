@@ -3,7 +3,7 @@ import ReactCountryFlag from "react-country-flag";
 import {
   FaCheckCircle,
 } from "react-icons/fa";
-
+import { Link } from 'react-router-dom';
 function StudyAbroad() {
   return (
       <section className="bg-black text-white py-12 sm:py-16 px-4">
@@ -56,9 +56,11 @@ function StudyAbroad() {
                 </li>
               ))}
             </ul>
+            <Link to="/ilt-abroad">
             <button className="mt-6 sm:mt-8 bg-green-600 text-white font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg hover:bg-green-700 transition duration-300">
               Apply Now
             </button>
+            </Link>
           </div>
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <img

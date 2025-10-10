@@ -163,9 +163,11 @@ const Home = () => {
                 </p>
               </div>
             </div>
+            <Link to="/about">
             <button className="w-full mt-6 bg-white text-green-700 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-colors text-base sm:text-lg">
               Know More About ILT
             </button>
+            </Link>
           </div>
         </div>
       </section>
