@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 function OurTrainers() {
     const trainers = [
@@ -9,6 +10,7 @@ function OurTrainers() {
       rating: "4.8★ Rating",
       skills: ["SEO", "Social Media Marketing"],
       imageUrl: "/images/WhatsApp Image 2025-10-01 at 14.31.43_91db6ff6.jpg",
+      slug: "david-mathews",
     },
     {
       name: "Anita Varghese",
@@ -17,6 +19,7 @@ function OurTrainers() {
       rating: "4.9★ Rating",
       skills: ["PPC", "Content Marketing"],
       imageUrl: "/images/WhatsApp Image 2025-10-01 at 14.31.44_db38e36e.jpg",
+      slug: "anita-varghese",
     },
     {
       name: "Rahul Menon",
@@ -25,6 +28,7 @@ function OurTrainers() {
       rating: "4.7★ Rating",
       skills: ["Data Visualization", "Python Analytics"],
       imageUrl: "/images/WhatsApp Image 2025-10-01 at 14.31.44_7292d380.jpg",
+      slug: "rahul-menon",
       darkBg: true,
     },
   ];
@@ -39,10 +43,11 @@ function OurTrainers() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {trainers.map((trainer, idx) => (
-            <div
-              key={idx}
-              className="relative rounded-xl overflow-hidden shadow-lg bg-gray-900 text-white"
-            >
+            <Link
+            key={idx}
+            to={`/trainers/${trainer.slug}`}
+            className="relative rounded-xl overflow-hidden shadow-lg bg-gray-900 text-white transform hover:scale-[1.02] transition-all duration-300"
+          >
               <img
                 src={trainer.imageUrl}
                 alt={trainer.name}
@@ -73,7 +78,7 @@ function OurTrainers() {
                 <h3 className="text-lg sm:text-xl font-bold">{trainer.name}</h3>
                 <p className="text-xs sm:text-sm mt-1">{trainer.title}</p>
               </div>
-            </div>
+              </Link>
           ))}
         </div>
       </section>

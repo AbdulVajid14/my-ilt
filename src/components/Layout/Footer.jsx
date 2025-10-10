@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   HiHome,
@@ -7,11 +6,8 @@ import {
   HiOutlineMail,
   HiOutlinePhone,
 } from "react-icons/hi";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -37,10 +33,7 @@ const Footer = () => {
           <div className="flex items-start gap-2.5 mb-3">
             <HiOutlineMail className="flex-shrink-0 mt-0.5 w-5 h-5 text-white" />
             <div className="text-sm leading-relaxed">
-              <a
-                href="mailto:support@ilt.com"
-                className="underline text-white"
-              >
+              <a href="mailto:support@ilt.com" className="underline text-white">
                 Customer Queries
               </a>
               <div>Support@ilt.com</div>
@@ -79,14 +72,44 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
+
         <div className="flex-1 min-w-[140px] mb-10">
           <h4 className="font-bold text-base mb-5">Quick Links</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
-            <li>Placement Support</li>
-            <li>Success Stories</li>
-            <li>About Us</li>
-            <li>Workshops</li>
-            <li>Blog</li>
+            <li>
+              <Link
+                to="/placement-support"
+                className="text-white hover:text-orange-300"
+              >
+                Placement Support
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/success-stories"
+                className="text-white hover:text-orange-300"
+              >
+                Success Stories
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="text-white hover:text-orange-300">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/workshop"
+                className="text-white hover:text-orange-300"
+              >
+                Workshops
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog" className="text-white hover:text-orange-300">
+                Blog
+              </Link>
+            </li>
           </ul>
         </div>
 
