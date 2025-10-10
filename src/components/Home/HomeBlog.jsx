@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 function HomeBlog() {
   return (
     <section className="bg-white py-12 sm:py-16 px-4">
@@ -17,9 +17,11 @@ function HomeBlog() {
               to tech trends and practical insights, our blogs keep you informed
               and ready to take the next step in your professional journey.
             </p>
+            <Link to="/blog">
             <button className="bg-green-600 text-white font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
               View All Blogs
             </button>
+            </Link>
           </div>
           <div className="w-full lg:w-2/3 relative">
             <div className="flex justify-end space-x-3 mb-6">

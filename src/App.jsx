@@ -14,6 +14,7 @@ import ScrollToTop from "./components/Layout/ScrollToTop";
 import Trainers from "./pages/Trainers";
 import TrainesrDetails from "./pages/TrainersDetails"; 
 import ILTAbroad from "./pages/ILTAbroad";
+import Courses from "./pages/Courses";
 function App() {
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
         <Route path="/trainers" element={<Trainers/>}/>
         <Route path="/trainers/:slug" element={<TrainesrDetails/>}/>
         <Route path="/ilt-abroad" element={<ILTAbroad/>}/>
+        <Route path="/courses" element={<Courses/>}/>
       </Route>
     </Routes>
     </>
