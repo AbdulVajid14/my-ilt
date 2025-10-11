@@ -44,17 +44,18 @@ const Home = () => {
           <div className="absolute inset-0 bg-black opacity-30"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4 py-12 sm:py-20 md:py-32">
-          <p className="text-base sm:text-lg mb-2">
-            Build Your Digital Career with Expert Training
-          </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Master SEO, Social Media, <br />
-            Ads & Analytics with hands-on <br />
-            training.
+           Kerala's #1 Practical Digital Marketing <br />
+           Training Institute
           </h1>
+           <p className="text-lg sm:text-lg mb-2">
+            1000+ Reviews <br /> 15+ Years Experienced Trainers <br /> Mobile Enabled Learning <br />Global Certification
+          </p>
+          <Link to="/courses">
           <button className="bg-white text-emerald-700 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
             View Courses
           </button>
+          </Link>
         </div>
       </section>
 
