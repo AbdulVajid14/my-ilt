@@ -134,83 +134,99 @@ const digitalMarketingTools = [
     alt: "Google Ads Transparency Center",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/52/Google_Images_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f4974b1e.jpg",
     alt: "Google Images",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Google_AdWords_Logo.svg/2560px-Google_AdWords_Logo.svg.png",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_8846116c.jpg",
     alt: "Google Ads",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/57/Mailchimp_Logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_b5dd8792.jpg",
     alt: "Mailchimp",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._Logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_4c3e0909.jpg",
     alt: "Meta",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Google_My_Business_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_aacd9588.jpg",
     alt: "Google My Business",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ahrefs_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f0f5265c.jpg",
     alt: "Ahrefs",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/9/97/Instamojo_Logo.png",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_8c979fae.jpg",
     alt: "Instamojo",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Ubersuggest_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.22_ae09daf4.jpg",
     alt: "Ubersuggest",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_f6f9394a.jpg",
     alt: "LinkedIn",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Google_Analytics_Logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_c6447243.jpg",
     alt: "Google Analytics",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/79/Visily_Logo.png",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_8ffed55c.jpg",
     alt: "Visily",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/68/WooCommerce_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_bdb0d988.jpg",
     alt: "Woo",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/36/MobileMonkey_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_54825314.jpg",
     alt: "MobileMonkey",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Moz_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_cffc6d7d.jpg",
     alt: "Moz",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_9aa2bf89.jpg",
     alt: "YouTube",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Semrush_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.24_d7acfbb7.jpg",
     alt: "SEMRUSH",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Google_Site_Kit_Logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_d2151896.jpg",
     alt: "Site Kit",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/c/c4/Snapchat_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_2425de78.jpg",
     alt: "Snapchat",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/37/Wati_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_a567b4c2.jpg",
     alt: "Wati",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Zapier_logo.svg",
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_859155bf.jpg",
+    alt: "Zapier",
+  },
+    {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.36_f4c1f889.jpg",
+    alt: "Site Kit",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.36_07dcfbf6.jpg",
+    alt: "Snapchat",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.46_905dcd3a.jpg",
+    alt: "Wati",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.46_5649feb9.jpg",
     alt: "Zapier",
   },
 ];

@@ -26,6 +26,7 @@ import {
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link } from "react-router-dom";
+import Button from "../components/Button/Button";
 
 const Home = () => {
   const [phone1, setPhone1] = useState("");
@@ -52,9 +53,10 @@ const Home = () => {
             1000+ Reviews <br /> 15+ Years Experienced Trainers <br /> Mobile Enabled Learning <br />Global Certification
           </p>
           <Link to="/courses">
-          <button className="bg-white text-emerald-700 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
+          {/* <button className="bg-white text-emerald-700 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
             View Courses
-          </button>
+          </button> */}
+                <Button variant="green-outline">View Courses</Button>
           </Link>
         </div>
       </section>
