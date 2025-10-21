@@ -612,7 +612,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnterCourses}
               onMouseLeave={handleMouseLeaveCourses}
             >
-              <a href="#" className="flex items-center hover:text-gray-200">
+              <a href="/courses" className="flex items-center hover:text-gray-200">
                 Courses <FaChevronDown className="ml-1 text-xs" />
               </a>
               <AnimatePresence>

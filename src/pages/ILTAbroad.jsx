@@ -4,6 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
 import CommonCourses from "../components/CommonComponents/CommonCourses";
 import Questions from "../components/Home/Questions";
+import { Link } from "react-router-dom";
 
 const ILTAbroad = () => {const countries = [
   { name: "UK", flag: "/images/uk.jpg" },
@@ -93,9 +94,11 @@ const ILTAbroad = () => {const countries = [
   {/* Row 2: Common Courses */}
  <div className="mt-16 flex items-center gap-4">
   <CommonCourses />
-  <span className="text-green-600 cursor-pointer flex items-center">
-    View All <span className="ml-1">→</span>
-  </span>
+
+<Link to="/courses" className="text-green-600 cursor-pointer flex items-center">
+  View All <span className="ml-1">→</span>
+</Link>
+
 </div>
 </section>
 <section className="w-full py-12 bg-white">
