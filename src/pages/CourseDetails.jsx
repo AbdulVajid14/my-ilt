@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -28,30 +27,102 @@ const digitalMarketingTools = [
   { src: "/images/elemenator.jpg", alt: "Elementor" },
   { src: "/images/grammarly.jpg", alt: "Grammarly" },
   { src: "/images/google-ads.jpg", alt: "Google Ads Transparency Center" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f4974b1e.jpg", alt: "Google Images" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_8846116c.jpg", alt: "Google Ads" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_b5dd8792.jpg", alt: "Mailchimp" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_4c3e0909.jpg", alt: "Meta" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_aacd9588.jpg", alt: "Google My Business" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f0f5265c.jpg", alt: "Ahrefs" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_8c979fae.jpg", alt: "Instamojo" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.22_ae09daf4.jpg", alt: "Ubersuggest" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_f6f9394a.jpg", alt: "LinkedIn" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_c6447243.jpg", alt: "Google Analytics" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_8ffed55c.jpg", alt: "Visily" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_bdb0d988.jpg", alt: "Woo" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_54825314.jpg", alt: "MobileMonkey" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_cffc6d7d.jpg", alt: "Moz" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_9aa2bf89.jpg", alt: "YouTube" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.24_d7acfbb7.jpg", alt: "SEMRUSH" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_d2151896.jpg", alt: "Site Kit" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_2425de78.jpg", alt: "Snapchat" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_a567b4c2.jpg", alt: "Wati" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_859155bf.jpg", alt: "Zapier" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.36_f4c1f889.jpg", alt: "Site Kit" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.36_07dcfbf6.jpg", alt: "Snapchat" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.46_905dcd3a.jpg", alt: "Wati" },
-  { src: "/images/WhatsApp Image 2025-09-20 at 10.54.46_5649feb9.jpg", alt: "Zapier" },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f4974b1e.jpg",
+    alt: "Google Images",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_8846116c.jpg",
+    alt: "Google Ads",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_b5dd8792.jpg",
+    alt: "Mailchimp",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_4c3e0909.jpg",
+    alt: "Meta",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_aacd9588.jpg",
+    alt: "Google My Business",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f0f5265c.jpg",
+    alt: "Ahrefs",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.13_8c979fae.jpg",
+    alt: "Instamojo",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.22_ae09daf4.jpg",
+    alt: "Ubersuggest",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_f6f9394a.jpg",
+    alt: "LinkedIn",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_c6447243.jpg",
+    alt: "Google Analytics",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_8ffed55c.jpg",
+    alt: "Visily",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_bdb0d988.jpg",
+    alt: "Woo",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_54825314.jpg",
+    alt: "MobileMonkey",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_cffc6d7d.jpg",
+    alt: "Moz",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_9aa2bf89.jpg",
+    alt: "YouTube",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.24_d7acfbb7.jpg",
+    alt: "SEMRUSH",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_d2151896.jpg",
+    alt: "Site Kit",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_2425de78.jpg",
+    alt: "Snapchat",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_a567b4c2.jpg",
+    alt: "Wati",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.35_859155bf.jpg",
+    alt: "Zapier",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.36_f4c1f889.jpg",
+    alt: "Site Kit",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.36_07dcfbf6.jpg",
+    alt: "Snapchat",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.46_905dcd3a.jpg",
+    alt: "Wati",
+  },
+  {
+    src: "/images/WhatsApp Image 2025-09-20 at 10.54.46_5649feb9.jpg",
+    alt: "Zapier",
+  },
 ];
 
 const CourseDetails = () => {
@@ -63,54 +134,74 @@ const CourseDetails = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/courses`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/courses`
+        );
         const result = response.data;
 
         if (result.success) {
-          const found = result.data.find(c => c.name.toLowerCase().replace(/\s+/g, "-") === slug);
+          const found = result.data.find(
+            (c) => c.name.toLowerCase().replace(/\s+/g, "-") === slug
+          );
           if (found) {
-            const learnPoints = found.program_modules.split('.\r\n').map(s => s.trim()).filter(s => s);
-            const outcomes = found.learning_outcomes.split('.\r\n').map(s => s.trim()).filter(s => s);
+            const learnPoints = found.program_modules
+              .split(".\r\n")
+              .map((s) => s.trim())
+              .filter((s) => s);
+            const outcomes = found.learning_outcomes
+              .split(".\r\n")
+              .map((s) => s.trim())
+              .filter((s) => s);
             const weeklySchedule = outcomes.map((title, i) => ({
               week: `Week ${i + 1}`,
               title,
             }));
-            const careerOpportunitiesMap = {
-              "seo-mastery": [
-                "SEO Specialist",
-                "Digital Marketing Analyst",
-                "SEO Consultant",
-                "Growth Marketer",
-              ],
-              "social-media-marketing": [
-                "Social Media Manager",
-                "Content Creator",
-                "Digital Marketer",
-                "Brand Strategist",
-              ],
-            };
-            const careerOpportunities = careerOpportunitiesMap[slug] || [
-              "Specialist",
-              "Analyst",
-              "Consultant",
-              "Marketer",
-            ];
+            const careerOpportunities = found.opportunities
+              ? found.opportunities
+                  .split(/\r?\n/)
+                  .map((s) => s.trim())
+                  .filter(Boolean)
+              : [];
             const features = [
-              { icon: <FaCalendarAlt />, label: "Start date:", value: "Oct 15, 2025" },
+              {
+                icon: <FaCalendarAlt />,
+                label: "Start date:",
+                value: found.date
+                  ? new Date(found.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })
+                  : "Soon",
+              },
               { icon: <FaBook />, label: "Modules:", value: outcomes.length },
-              { icon: <BiTimeFive />, label: "Time:", value: "09am - 11am" },
-              { icon: <FaClock />, label: "Duration:", value: `${found.duration} Months` },
-              { icon: <FaRupeeSign />, label: "Price:", value: `$${found.price}` },
+              {
+                icon: <BiTimeFive />,
+                label: "Time:",
+                value: found.time || "09am - 11am",
+              },
+              {
+                icon: <FaClock />,
+                label: "Duration:",
+                value: `${found.duration} Months`,
+              },
+              {
+                icon: <FaRupeeSign />,
+                label: "Price:",
+                value: `${found.price}`,
+              },
               {
                 icon: <FaLaptop />,
                 label: "Mode:",
-                value: "Online / Offline / 1:1 Coaching",
+                value: found.mode || "Online / Offline",
               },
             ];
             const processedCourse = {
               title: found.name,
               bannerImage: found.image,
-              videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${found.image}`,
+              videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${
+                found.image
+              }`,
               overview: found.description,
               learnPoints,
               features,
@@ -127,7 +218,7 @@ const CourseDetails = () => {
         }
       } catch (error) {
         setError("Error fetching course details.");
-        console.error('Error fetching courses:', error);
+        console.error("Error fetching courses:", error);
       } finally {
         setLoading(false);
       }
@@ -141,7 +232,9 @@ const CourseDetails = () => {
   }
 
   if (error || !course) {
-    return <div className="text-center py-12">{error || "Course not found"}</div>;
+    return (
+      <div className="text-center py-12">{error || "Course not found"}</div>
+    );
   }
 
   return (
@@ -408,7 +501,6 @@ const CourseDetails = () => {
 };
 
 export default CourseDetails;
-
 
 // import React, { useState, useEffect } from "react";
 // import { useParams } from "react-router-dom";
