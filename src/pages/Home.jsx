@@ -480,7 +480,7 @@ const Home = () => {
     tittle: "Kerala's #1 Practical Digital Marketing Training Institute",
     description:
       "1000+ Reviews | 15+ Years Experienced Trainers | Mobile Enabled Learning | Global Certification",
-    image: "/images/WhatsApp Image 2025-09-20 at 10.53.59_a95e9d3b.jpg",
+    image: "https://cvs-global.com/images/mschool/ilt-banner.jpg",
     url: "/courses",
   };
 
@@ -497,7 +497,7 @@ const Home = () => {
           <div
             className="absolute inset-0 bg-cover bg-center transition-all duration-700"
             style={{
-              backgroundImage: `url(${fallbackBanner.image})`,
+              backgroundImage: "url('https://cvs-global.com/images/mschool/ilt-banner.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -523,7 +523,7 @@ const Home = () => {
             <div
               className="absolute inset-0 bg-cover bg-center transition-all duration-700"
               style={{
-                backgroundImage: `url(${import.meta.env.VITE_BASE_URL_IMAGE}${banner.image})`,
+                backgroundImage: "url('https://cvs-global.com/images/mschool/ilt-banner.jpg')",
               }}
             >
               <div className="absolute inset-0 bg-black opacity-40"></div>
