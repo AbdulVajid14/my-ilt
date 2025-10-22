@@ -1,61 +1,72 @@
-import React from "react";
-import { FaCheck } from "react-icons/fa";
-import Questions from "../components/Home/Questions";
-import { useParams } from "react-router-dom";
-import CommonCourses from "../components/CommonComponents/CommonCourses";
 
-const workshopData = {
-  "master-seo-analytics": {
-    title: "Master SEO & Analytics",
-    image: "/images/WhatsApp Image 2025-10-08 at 10.27.53_65c77a16.jpg",
-    about:
-      "The Master SEO & Analytics Workshop is designed to give participants in-depth knowledge of SEO and analytics, combining theory with practical sessions to improve website performance and visibility.",
-    videoImage: "/images/WhatsApp Image 2025-10-08 at 10.27.53_637bf11b.jpg",
-    keyHighlights: [
-      "Advanced Keyword Research & Competitor Analysis",
-      "On-Page & Off-Page SEO Strategies",
-      "Hands-on Case Studies & Live Projects",
-      "Technical SEO: Site Audits & Fixes",
-      "Google Analytics & Search Console Deep Dive",
-      "Measuring KPIs & Creating Performance Reports",
-    ],
-    outcome:
-      "By the end of this workshop, participants will be able to design and execute successful SEO campaigns while using analytics to make data-driven decisions.",
-  },
-  "social-media-ads-strategy": {
-    title: "Social Media Ads Strategy",
-    image: "/images/WhatsApp Image 2025-10-08 at 10.27.54_abcdef12.jpg",
-    about:
-      "The Social Media Ads Strategy Workshop helps participants master paid advertising on platforms like Facebook, Instagram, and LinkedIn. Learn how to craft powerful campaigns that convert and grow your brand presence.",
-    videoImage: "/images/WhatsApp Image 2025-10-08 at 10.27.53_637bf11b.jpg",
-    keyHighlights: [
-      "Understanding Social Media Advertising Ecosystem",
-      "Facebook & Instagram Ads Setup & Targeting",
-      "Ad Creative Design & Copywriting Techniques",
-      "Budget Optimization & Bidding Strategies",
-      "A/B Testing for Ad Performance",
-      "Tracking Metrics & ROI with Meta Ads Manager",
-    ],
-    outcome:
-      "By the end of this workshop, participants will be able to create, run, and analyze high-performing ad campaigns across major social media platforms.",
-  },
-};
+
+import React, { useState, useEffect } from "react";
+import { FaCheck } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Questions from "../components/Home/Questions";
+import CommonCourses from "../components/CommonComponents/CommonCourses";
 
 const WorkshopDetails = () => {
   const { slug } = useParams();
-  const workshop = workshopData[slug];
+  const [workshop, setWorkshop] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!workshop) {
-    return <h2 className="text-center mt-10">Workshop not found.</h2>;
+  useEffect(() => {
+    const fetchWorkshop = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/Event`);
+        const result = response.data;
+
+        if (result.success) {
+          const workshops = result.data.filter(event => event.status === 1);
+          const selectedWorkshop = workshops.find(
+            event => event.tittle.toLowerCase().replace(/\s+/g, '-') === slug
+          );
+
+          if (selectedWorkshop) {
+            const formattedWorkshop = {
+              title: selectedWorkshop.tittle,
+              image: `${import.meta.env.VITE_BASE_URL_IMAGE}${selectedWorkshop.image}`,
+              about: selectedWorkshop.description,
+              videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${selectedWorkshop.image}`, // Using same image for video placeholder
+              keyHighlights: selectedWorkshop.highlights.split('\r\n').filter(item => item.trim() !== ''),
+              outcome: selectedWorkshop.outcome
+            };
+            setWorkshop(formattedWorkshop);
+          } else {
+            setError("Workshop not found.");
+          }
+        } else {
+          setError("Failed to fetch workshop data.");
+        }
+      } catch (err) {
+        setError("Error fetching workshop details.");
+        console.error("Error fetching workshop:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWorkshop();
+  }, [slug]);
+
+  if (loading) {
+    return <h2 className="text-center mt-10">Loading...</h2>;
   }
+
+  if (error || !workshop) {
+    return <h2 className="text-center mt-10">{error || "Workshop not found."}</h2>;
+  }
+
   return (
     <div className="mx-auto">
       {/* Header Section */}
       <div
         className="relative bg-center bg-cover h-64 sm:h-72 md:h-120 flex items-center justify-center mb-12"
         style={{
-          backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-08 at 10.27.53_65c77a16.jpg')",
+          backgroundImage: `url('/images/WhatsApp Image 2025-10-08 at 10.27.53_65c77a16.jpg')`,
         }}
       >
         <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold bg-opacity-50 px-6 py-3 rounded">
@@ -99,9 +110,9 @@ const WorkshopDetails = () => {
 
         {/* Split into two columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left Column (first 3 items) */}
+          {/* Left Column (first half of items) */}
           <ul className="space-y-4 text-gray-700 text-lg">
-            {workshop.keyHighlights.slice(0, 3).map((highlight, index) => (
+            {workshop.keyHighlights.slice(0, Math.ceil(workshop.keyHighlights.length / 2)).map((highlight, index) => (
               <li key={index} className="flex items-start">
                 <FaCheck className="text-green-600 mr-3 mt-1 w-5 h-5 flex-shrink-0" />
                 <span>{highlight}</span>
@@ -111,8 +122,8 @@ const WorkshopDetails = () => {
 
           {/* Right Column (remaining items) */}
           <ul className="space-y-4 text-gray-700 text-lg">
-            {workshop.keyHighlights.slice(3).map((highlight, index) => (
-              <li key={index + 3} className="flex items-start">
+            {workshop.keyHighlights.slice(Math.ceil(workshop.keyHighlights.length / 2)).map((highlight, index) => (
+              <li key={index + Math.ceil(workshop.keyHighlights.length / 2)} className="flex items-start">
                 <FaCheck className="text-green-600 mr-3 mt-1 w-5 h-5 flex-shrink-0" />
                 <span>{highlight}</span>
               </li>
@@ -130,8 +141,8 @@ const WorkshopDetails = () => {
       </section>
 
       {/* Explore More Courses */}
-      <section className="max-w-7xl mx-auto" >
-     <CommonCourses/>
+      <section className="max-w-7xl mx-auto">
+        <CommonCourses />
       </section>
 
       <Questions />
