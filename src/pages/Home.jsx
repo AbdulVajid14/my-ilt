@@ -271,7 +271,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-0 space-y-6 sm:space-y-8">
-            <div className="p-4 sm:p-6 bg-white rounded-lg shadow-xl">
+            {/* <div className="p-4 sm:p-6 bg-white rounded-lg shadow-xl">
               <h4 className="font-bold text-lg sm:text-xl mb-4 text-gray-800">
                 Find out if you're eligible
               </h4>
@@ -308,29 +308,29 @@ const Home = () => {
                   </a>
                 </p>
               </div>
-            </div>
-            <div className="p-4 sm:p-6 bg-white rounded-lg shadow-xl">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-bold text-gray-800 text-sm sm:text-base">
-                    Find out how people like you
-                  </p>
-                  <p className="font-bold text-gray-800 text-sm sm:text-base">
-                    achieved their goals
-                  </p>
-                  <button className="mt-3 bg-black text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-md hover:bg-gray-800 transition">
-                    View Alumni Stories
-                  </button>
-                </div>
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full flex items-center justify-center shadow-md">
-                  <img
-                    src="/images/WhatsApp Image 2025-10-03 at 09.59.09_485cfc7c.jpg"
-                    alt="People Illustration"
-                    className="w-8 h-8 sm:w-10 sm:h-10"
-                  />
-                </div>
-              </div>
-            </div>
+            </div> */}
+          <div className="p-4 sm:p-6 bg-white rounded-lg shadow-xl">
+  <div className="flex flex-col items-center justify-center text-center space-y-4">
+    <div>
+      <p className="font-bold text-gray-800 text-sm sm:text-base">
+        Find out how people like you
+      </p>
+      <p className="font-bold text-gray-800 text-sm sm:text-base">
+        achieved their goals
+      </p>
+    </div>
+    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full flex items-center justify-center shadow-md">
+      <img
+        src="/images/WhatsApp Image 2025-10-03 at 09.59.09_485cfc7c.jpg"
+        alt="People Illustration"
+        className="w-8 h-8 sm:w-10 sm:h-10"
+      />
+    </div>
+    <button className="bg-black text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-md hover:bg-gray-800 transition">
+      View Alumni Stories
+    </button>
+  </div>
+</div>
           </div>
         </div>
       </section>
