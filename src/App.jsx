@@ -15,6 +15,7 @@ import Trainers from "./pages/Trainers";
 import TrainesrDetails from "./pages/TrainersDetails"; 
 import ILTAbroad from "./pages/ILTAbroad";
 import Courses from "./pages/Courses";
+import BlogDetail from "./pages/BlogDetail";
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/courses/:slug" element={<CourseDetails/>}/>
         <Route path="/blog" element={<Blog/>}/>
+        <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/testimonial/:slug" element={<Testimonial/>}/>
         <Route path="/certificate" element={<Certificate/>}/>
         <Route path="/workshop" element={<Workshop/>}/>

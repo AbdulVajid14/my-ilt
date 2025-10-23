@@ -399,12 +399,12 @@ const Navbar = () => {
             >
               <FaPhone className="mr-2 rotate-90" /> Contact Us
             </Link>
-            <Link
+            {/* <Link
               to="#"
               className="flex items-center font-semibold hover:text-gray-200"
             >
               <FaUser className="mr-2" /> Sign In
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
@@ -604,13 +604,13 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
-            <Link
+            {/* <Link
               to="#"
               className="block hover:text-gray-200"
               onClick={closeMobileMenu}
             >
               Sign In
-            </Link>
+            </Link> */}
           </motion.div>
         )}
       </AnimatePresence>
