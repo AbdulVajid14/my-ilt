@@ -16,6 +16,7 @@ import TrainesrDetails from "./pages/TrainersDetails";
 import ILTAbroad from "./pages/ILTAbroad";
 import Courses from "./pages/Courses";
 import BlogDetail from "./pages/BlogDetail";
+import Questions from "./components/Home/Questions";
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
         <Route path="/trainers/:slug" element={<TrainesrDetails/>}/>
         <Route path="/ilt-abroad" element={<ILTAbroad/>}/>
         <Route path="/courses" element={<Courses/>}/>
+        {/* <Route path="/faqs" element={<Questions />} /> */}
       </Route>
     </Routes>
     </>

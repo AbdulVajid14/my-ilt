@@ -1,8 +1,45 @@
+
 // import React from "react";
 // import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 // import Questions from "../components/Home/Questions";
+// import axios from "axios";
 
 // const Trainers = () => {
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     const formData = new FormData();
+//     const form = e.target;
+
+//     formData.append("name", form.name.value);
+//     formData.append("email", form.email.value);
+//     formData.append("mobile", form.mobile.value);
+//     formData.append("experience", form.experience.value);
+//     if (form.cv.files[0]) {
+//       formData.append("cv", form.cv.files[0]);
+//     }
+
+//     try {
+//       const res = await axios.post(
+//         `${import.meta.env.VITE_BASE_URL}/InsertAdmission`,
+//         formData,
+//         { headers: { "Content-Type": "multipart/form-data" } }
+//       );
+
+//       if (res.data.success) {
+//         alert("Trainer application submitted successfully!");
+//         form.reset();
+//       } else {
+//         alert(res.data.message || "Submission failed");
+//       }
+
+//     } catch (error) {
+//       console.error("Error submitting form:", error);
+//       alert("An error occurred while submitting the form.");
+//     }
+//   };
+
 //   return (
 //     <div className="w-full">
 //       {/* ===== Banner Section - Full Width ===== */}
@@ -18,9 +55,8 @@
 //         </h1>
 //       </section>
 
-//       {/* ===== Content Section (max-w-7xl) ===== */}
+//       {/* ===== Content Section ===== */}
 //       <div className="max-w-7xl mx-auto px-6 py-16 space-y-20">
-//         {/* Why Hire ILT Trainers */}
 //         <section>
 //           <h2 className="text-3xl font-semibold mb-8">Why Hire ILT Trainers</h2>
 //           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-gray-800 text-xl">
@@ -39,7 +75,7 @@
 //         </section>
 //       </div>
 
-//       {/* ===== Roles & Opportunities - Full Width ===== */}
+//       {/* ===== Roles & Opportunities ===== */}
 //       <section
 //         className="relative py-20 px-8 text-white"
 //         style={{
@@ -71,13 +107,13 @@
 //         </div>
 //       </section>
 
-//       {/* ===== Application Form Section (max-w-7xl) ===== */}
+//       {/* ===== Application Form Section ===== */}
 //       <div className="max-w-7xl mx-auto px-6 py-16">
 //         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 //           {/* Form */}
 //           <form
 //             className="bg-white shadow-md rounded-lg p-8 space-y-6"
-//             onSubmit={(e) => e.preventDefault()}
+//             onSubmit={handleSubmit}
 //           >
 //             <h2 className="text-2xl font-bold mb-1 text-gray-800">
 //               Ready to Inspire the Next Generation?
@@ -162,15 +198,29 @@
 // };
 
 // export default Trainers;
-import React from "react";
+import React, { useState, useRef } from "react";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import Questions from "../components/Home/Questions";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import { Toaster, toast } from "sonner";
 
 const Trainers = () => {
+  const recaptchaRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("Verifying...");
+
+    // Get token from reCAPTCHA
+    const token = recaptchaRef.current.getValue();
+    if (!token) {
+      setStatus("Please complete the reCAPTCHA");
+      toast.error("Please complete the reCAPTCHA");
+      return;
+    }
 
     const formData = new FormData();
     const form = e.target;
@@ -179,9 +229,12 @@ const Trainers = () => {
     formData.append("email", form.email.value);
     formData.append("mobile", form.mobile.value);
     formData.append("experience", form.experience.value);
+    formData.append("token", token); // Include reCAPTCHA token
     if (form.cv.files[0]) {
       formData.append("cv", form.cv.files[0]);
     }
+
+    setLoading(true);
 
     try {
       const res = await axios.post(
@@ -191,20 +244,30 @@ const Trainers = () => {
       );
 
       if (res.data.success) {
-        alert("Trainer application submitted successfully!");
+        toast.success("Trainer application submitted successfully!");
         form.reset();
+        recaptchaRef.current.reset(); // Reset reCAPTCHA
+        setStatus("Form submitted successfully!");
       } else {
-        alert(res.data.message || "Submission failed");
+        toast.error(res.data.message || "Submission failed");
+        setStatus("reCAPTCHA verification failed.");
+        recaptchaRef.current.reset();
       }
-
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred while submitting the form.");
+      toast.error(
+        error.response?.data?.message || "An error occurred while submitting the form."
+      );
+      setStatus("Server error");
+      recaptchaRef.current.reset();
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="w-full">
+      <Toaster position="top-right" richColors />
       {/* ===== Banner Section - Full Width ===== */}
       <section
         className="w-full h-64 md:h-100 bg-cover bg-center flex items-center justify-center"
@@ -335,12 +398,20 @@ const Trainers = () => {
               ></textarea>
             </div>
 
+            <div className="mb-4">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+              />
+            </div>
+
             <button
               type="submit"
               className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded inline-flex items-center"
+              disabled={loading}
             >
-              Submit
-              <FaArrowRight className="ml-2" />
+              {loading ? "Submitting..." : "Submit"}
+              {!loading && <FaArrowRight className="ml-2" />}
             </button>
           </form>
 
