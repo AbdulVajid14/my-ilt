@@ -179,29 +179,6 @@ const BlogDetail = () => {
           <aside className="w-full md:w-80 mt-12 md:mt-0 space-y-10">
             <QueriesForm />
             <div className="bg-white p-6 rounded-md shadow-md">
-              <h3 className="text-lg font-bold mb-4">Recent Posts</h3>
-              <ul className="space-y-4">
-                {recentPosts.map((post) => (
-                  <li key={post.id} className="flex space-x-3 items-center">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-16 h-16 rounded-md object-cover"
-                    />
-                    <div>
-                      <p className="text-xs text-gray-500">{post.date}</p>
-                      <Link
-                        to={`/blog/${slugify(post.title)}`}
-                        className="font-semibold cursor-pointer hover:text-green-600"
-                      >
-                        {post.title}
-                      </Link>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-white p-6 rounded-md shadow-md">
               <h3 className="text-lg font-bold mb-4">Tags:</h3>
               <div className="flex flex-wrap gap-3">
                 {tags.map((tag) => (
