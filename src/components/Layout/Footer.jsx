@@ -183,12 +183,10 @@ const Footer = () => {
       .get(`${import.meta.env.VITE_BASE_URL}/courses`)
       .then((response) => {
         if (response.data.success) {
-          const sortedCourses = response.data.data
-            .slice(0, 5)
-            .map((c) => ({
-              name: c.name,
-              slug: c.name.toLowerCase().replace(/\s+/g, "-"),
-            }));
+          const sortedCourses = response.data.data.slice(0, 5).map((c) => ({
+            name: c.name,
+            slug: c.name.toLowerCase().replace(/\s+/g, "-"),
+          }));
           setCourses(sortedCourses);
         }
       })
@@ -315,8 +313,22 @@ const Footer = () => {
               </Link>
             </li>
             <li>Help Center</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
+            <li>
+              <Link
+                to="/privacy-policy"
+                className="text-gray-700 hover:underline"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/terms-and-conditions"
+                className="text-gray-700 hover:underline"
+              >
+                Terms & Conditions
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
