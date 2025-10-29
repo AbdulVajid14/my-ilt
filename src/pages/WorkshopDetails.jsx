@@ -89,7 +89,7 @@ const WorkshopDetails = () => {
           alt="Workshop Presentation"
           className="w-full rounded-lg shadow-lg"
         />
-        <button
+        {/* <button
           aria-label="Play Video"
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-600 hover:bg-green-700 text-white rounded-full p-6 shadow-lg focus:outline-none focus:ring-4 focus:ring-green-400"
         >
@@ -101,7 +101,7 @@ const WorkshopDetails = () => {
           >
             <path d="M8 5v14l11-7z" />
           </svg>
-        </button>
+        </button> */}
       </section>
 
       {/* Key Highlights */}

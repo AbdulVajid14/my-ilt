@@ -183,12 +183,10 @@ const Footer = () => {
       .get(`${import.meta.env.VITE_BASE_URL}/courses`)
       .then((response) => {
         if (response.data.success) {
-          const sortedCourses = response.data.data
-            .slice(0, 5)
-            .map((c) => ({
-              name: c.name,
-              slug: c.name.toLowerCase().replace(/\s+/g, "-"),
-            }));
+          const sortedCourses = response.data.data.slice(0, 5).map((c) => ({
+            name: c.name,
+            slug: c.name.toLowerCase().replace(/\s+/g, "-"),
+          }));
           setCourses(sortedCourses);
         }
       })
@@ -202,7 +200,7 @@ const Footer = () => {
         <div className="flex-1 min-w-[280px] mb-10">
           <div className="mb-5">
             <img
-              src="/images/logo.jpg"
+              src="/images/ilt logo 2.png"
               alt="Internet Leads Training Logo"
               className="w-[140px] h-auto"
             />
@@ -315,8 +313,22 @@ const Footer = () => {
               </Link>
             </li>
             <li>Help Center</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
+            <li>
+              <Link
+                to="/privacy-policy"
+                className="text-gray-700 hover:underline"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/terms-and-conditions"
+                className="text-gray-700 hover:underline"
+              >
+                Terms & Conditions
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -327,7 +339,7 @@ const Footer = () => {
         <div>Powered by Ektova Technologies Pvt Ltd</div>
         <div className="flex gap-4 text-white">
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/internetleadstraining/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -345,7 +357,7 @@ const Footer = () => {
             <FaTwitter size={20} />
           </a>
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/internet_leads_training/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
