@@ -19,9 +19,9 @@ import CommonCourses from "../components/CommonComponents/CommonCourses";
 
 const modes = [
   { id: "online", label: "Online", icon: <FaLaptop className="w-6 h-6" /> },
-  { id: "offline", label: "Offline", icon: <FaHome className="w-6 h-6" /> },
+  { id: "inhouse", label: "In-House Trainingline", icon: <FaHome className="w-6 h-6" /> },
   { id: "individual", label: "Individual", icon: <FaUserAlt className="w-6 h-6" /> },
-  { id: "selfpaced", label: "Self-Paced", icon: <FaClock className="w-6 h-6" /> },
+  { id: "privateseo", label: "Private SEO Training", icon: <FaClock className="w-6 h-6" /> },
   { id: "corporate", label: "Corporate", icon: <FaBuilding className="w-6 h-6" /> },
   { id: "workshop", label: "Workshop", icon: <FaChalkboardTeacher className="w-6 h-6" /> },
 ];
@@ -30,7 +30,7 @@ const trainings = {
   online: {
     title: "Online Training",
     description:
-      "Learn from anywhere with live interactive sessions and 24/7 access to resources.",
+      "The dedicated online training team of ILT is well equipped to offer very interactive training sessions via web irrespective of your location.",
     points: [
       "Live virtual classes with expert mentors",
       "Access recorded sessions anytime",
@@ -39,24 +39,22 @@ const trainings = {
       "Flexible schedules for working professionals",
       "Digital resources and support community",
     ],
-    image:
-      "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
+    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
-  offline: {
-    title: "Offline Classroom Training",
+  inhouse: {
+    title: "In-House Training",
     description:
-      "Get in-person mentorship and hands-on experience through classroom sessions.",
+      "In-house training provides hands-on-training experience in the most lucid and interactive manner and shall be conducted in the training center.",
     points: [
-      "Interactive classroom learning",
-      "Face-to-face mentor guidance",
-      "Group activities and discussions",
-      "Hands-on projects in real time",
-      "Personalized learning environment",
-      "Instant doubt clearing sessions",
+      "Interactive in-office training sessions",
+      "Mentor-led hands-on guidance",
+      "Group discussions and teamwork activities",
+      "Customized learning for your company needs",
+      "Real-time project-based learning",
+      "Instant doubt clarification and feedback",
     ],
-    image:
-      "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
+    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   individual: {
@@ -71,30 +69,28 @@ const trainings = {
       "Dedicated attention for better results",
       "Continuous performance tracking",
     ],
-    image:
-      "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
+    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
-  selfpaced: {
-    title: "Self-Paced Training",
+  privateseo: {
+    title: "Private SEO Training",
     description:
-      "Learn at your own pace with lifetime access to pre-recorded sessions and resources.",
+      "ILT team conducts corporate training sessions to educate employees and teams on various digital marketing concepts and projects.",
     points: [
-      "Access anytime, anywhere",
-      "Learn at your own speed",
-      "High-quality recorded lectures",
-      "Supplementary notes & resources",
-      "Lifetime access to materials",
-      "Quizzes & practice tasks included",
+      "SEO strategies for corporate teams",
+      "Understanding on-page & off-page optimization",
+      "Keyword research and competitor analysis",
+      "Real-time SEO tools and analytics training",
+      "Hands-on implementation on live projects",
+      "Improve overall digital marketing performance",
     ],
-    image:
-      "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
+    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   corporate: {
     title: "Corporate Training",
     description:
-      "Upskill your workforce with customized corporate training programs designed for teams.",
+      "Offers complete SEO training including the most advanced SEO techniques and practices in one-to-one mode.",
     points: [
       "Tailored curriculum for organizations",
       "On-site or remote corporate sessions",
@@ -103,8 +99,7 @@ const trainings = {
       "Real-world business case studies",
       "Performance reports & certification",
     ],
-    image:
-      "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
+    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   workshop: {
@@ -119,8 +114,7 @@ const trainings = {
       "Interactive Q&A and feedback",
       "Certificate of completion",
     ],
-    image:
-      "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
+    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 };
 

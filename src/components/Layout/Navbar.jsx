@@ -24,7 +24,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const logoSrc = "/images/logo.jpg";
+  const logoSrc = "/images/ilt logo 2.png";
   const googlePlaySrc =
     "/images/WhatsApp Image 2025-09-20 at 10.54.36_6c0650ca.jpg";
   const appStoreSrc =
@@ -172,10 +172,10 @@ const Navbar = () => {
 
         {/* App Links */}
         <div className="hidden md:flex items-center space-x-2 flex-shrink-0">
-          <a href="#" className="h-10 md:h-12">
+          <a href="https://play.google.com/store/apps/details?id=com.mindlabs.ilt" className="h-10 md:h-12">
             <img src={googlePlaySrc} alt="Google Play" className="h-full" />
           </a>
-          <a href="#" className="h-10 md:h-12">
+          <a href="https://apps.apple.com/in/app/internet-leads-training-ilt/id1548244062" className="h-10 md:h-12">
             <img src={appStoreSrc} alt="App Store" className="h-full" />
           </a>
         </div>
@@ -297,9 +297,9 @@ const Navbar = () => {
                   >
                     {[
                       { label: "Online", id: "online" },
-                      { label: "Offline", id: "offline" },
+                      { label: "In-House Trainingline", id: "inhouse" },
                       { label: "Individual", id: "individual" },
-                      { label: "Self-Paced", id: "selfpaced" },
+                      { label: "Private SEO Training", id: "privateseo" },
                       { label: "Corporate", id: "corporate" },
                       { label: "Workshop", id: "workshop" },
                     ].map((mode) => (
@@ -509,9 +509,9 @@ const Navbar = () => {
                   >
                     {[
                       { label: "Online", id: "online" },
-                      { label: "Offline", id: "offline" },
+                      { label: "In-House Trainingline", id: "inhouse" },
                       { label: "Individual", id: "individual" },
-                      { label: "Self-Paced", id: "selfpaced" },
+                      { label: "Private SEO Training", id: "privateseo" },
                       { label: "Corporate", id: "corporate" },
                       { label: "Workshop", id: "workshop" },
                     ].map((mode) => (

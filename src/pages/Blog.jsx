@@ -2,37 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import {
-  FaCalendarAlt,
-  FaUser,
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-} from 'react-icons/fa';
 import QueriesForm from '../components/CommonComponents/QueriesForm';
-
-const instructor = {
-  image: '/images/WhatsApp Image 2025-10-03 at 16.34.35_be4e0ab4.jpg',
-  name: 'Jitto Jose',
-  title: 'ILT Certified Trainer',
-  social: {
-    facebook: 'https://facebook.com',
-    twitter: 'https://twitter.com',
-    instagram: 'https://instagram.com',
-  },
-  description:
-    'At ILT, our instructors are certified professionals with years of industry experience. They bring real-world knowledge into the classroom, ensuring that every student learns practical, hands-on skills. From Digital Marketing to Data Analytics, SEO, Python, and Cybersecurity — our trainers guide you step by step with the latest tools, strategies, and casestudies to make you job-ready.',
-  points: [
-    'Designs industry-relevant course modules for ILT students',
-    'Provides hands-on training with live projects & case studies',
-    'Offers 1:1 mentorship and career guidance',
-    'Prepares students for certifications & placement interviews',
-    'Connects classroom learning with real-world business challenges',
-  ],
-  quote:
-    'My mission is to simplify complex concepts and help every student gain the confidence to solve real-world problems, not just pass exams." – ',
-  quoteAuthor: 'Jitto Jose',
-};
 
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
@@ -140,27 +110,7 @@ const Blog = () => {
           <aside className="w-full md:w-80 mt-12 md:mt-0 space-y-10">
             <QueriesForm />
             <div className="bg-white p-6">
-              {/* <h3 className="text-lg font-bold mb-4">Recent Posts</h3>
-              <ul className="space-y-4">
-                {recentPosts.map((post) => (
-                  <li key={post.id} className="flex space-x-3 items-center">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-16 h-16 rounded-md object-cover"
-                    />
-                    <div>
-                      <p className="text-xs text-gray-500">{post.date}</p>
-                      <Link
-                        to={`/blog/${slugify(post.title)}`}
-                        className="font-semibold cursor-pointer hover:text-green-600"
-                      >
-                        {post.title}
-                      </Link>
-                    </div>
-                  </li>
-                ))}
-              </ul> */}
+        
             </div>
           </aside>
         </div>

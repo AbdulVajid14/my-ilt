@@ -202,7 +202,7 @@ const Footer = () => {
         <div className="flex-1 min-w-[280px] mb-10">
           <div className="mb-5">
             <img
-              src="/images/logo.jpg"
+              src="/images/ilt logo 2.png"
               alt="Internet Leads Training Logo"
               className="w-[140px] h-auto"
             />
@@ -327,7 +327,7 @@ const Footer = () => {
         <div>Powered by Ektova Technologies Pvt Ltd</div>
         <div className="flex gap-4 text-white">
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/internetleadstraining/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -345,7 +345,7 @@ const Footer = () => {
             <FaTwitter size={20} />
           </a>
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/internet_leads_training/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
