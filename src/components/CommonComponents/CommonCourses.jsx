@@ -10,7 +10,7 @@ const CommonCourses = () => {
       .get(`${import.meta.env.VITE_BASE_URL}/courses`)
       .then((response) => {
         if (response.data.success) {
-          const sortedCourses = response.data.data.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+          const sortedCourses = response.data.data
           const primaryCourses = sortedCourses
             .filter((c) => c.category_id === 1)
             .slice(0, 2)
@@ -19,7 +19,8 @@ const CommonCourses = () => {
               image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
               desc: c.description.length > 100 ? c.description.slice(0, 100) + "..." : c.description,
               modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-              duration: `${c.duration} Months`,
+              duration: `${c.duration}`,
+              price:c.price.toLocaleString()
             }));
           setCourses(primaryCourses);
         }
@@ -49,7 +50,7 @@ const CommonCourses = () => {
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/90 to-transparent rounded-b-lg"></div>
+              <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
 
               {/* Text Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
@@ -65,8 +66,8 @@ const CommonCourses = () => {
                     </button>
                   </Link>
 
-                  <div className="flex items-center space-x-2 text-[11px] sm:text-xs">
-                    <span>{course.modules} Modules</span>
+                  <div className="flex items-center space-x-2 text-[11px] sm:text-lg">
+                    <span>₹ {course.prices}</span>
                     <span>{course.duration}</span>
                   </div>
                 </div>

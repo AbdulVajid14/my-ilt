@@ -329,7 +329,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
-import { FaCalendarAlt, FaBookOpen } from "react-icons/fa";
+import { FaCalendarAlt ,FaRupeeSign} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import OurGraduates from "../components/Home/OurGraduates";
 import Questions from "../components/Home/Questions";
@@ -386,7 +386,8 @@ const Courses = () => {
             ? c.description.slice(0, 100) + "..."
             : c.description,
         modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-        duration: `${c.duration} Months`,
+        duration: `${c.duration}`,
+        price:c.price.toLocaleString()
       })),
     searchTerm
   );
@@ -404,7 +405,8 @@ const Courses = () => {
             ? c.description.slice(0, 100) + "..."
             : c.description,
         modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-        duration: `${c.duration} Months`,
+        duration: `${c.duration}`,
+        price:c.price.toLocaleString()
       })),
     searchTerm
   );
@@ -422,7 +424,8 @@ const Courses = () => {
             ? c.description.slice(0, 100) + "..."
             : c.description,
         modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-        duration: `${c.duration} Months`,
+        duration: `${c.duration}`,
+        price:c.price.toLocaleString()
       })),
     searchTerm
   );
@@ -501,7 +504,7 @@ const Courses = () => {
                     alt={course.title}
                     className="w-full h-56 sm:h-64 md:h-100 object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/90 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent"></div>
                   <div className="absolute inset-0 p-5 flex flex-col justify-end text-white z-10">
                     <h4 className="text-lg font-bold mb-1">{course.title}</h4>
                     <p className="text-xs sm:text-sm leading-snug line-clamp-2">
@@ -513,8 +516,8 @@ const Courses = () => {
                           Learn More
                         </button>
                       </Link>
-                      <div className="flex items-center space-x-2 text-[11px] sm:text-xs opacity-90">
-                        <span>{course.modules} Modules</span>
+                      <div className="flex items-center space-x-2 text-[11px] sm:text-lg opacity-90">
+                        <span>₹ {course.price} </span>
                         <span>{course.duration}</span>
                       </div>
                     </div>
@@ -557,8 +560,8 @@ const Courses = () => {
                   </p>
                   <div className="flex justify-between text-gray-700 text-sm mb-4">
                     <span className="flex items-center gap-2">
-                      <FaBookOpen className="text-green-600" />
-                      {course.modules} Modules
+                      <FaRupeeSign className="text-green-600" />
+                      {course.price} 
                     </span>
                     <span className="flex items-center gap-2">
                       <FaCalendarAlt className="text-green-600" />
@@ -606,7 +609,7 @@ const Courses = () => {
                     alt={course.title}
                     className="w-full h-56 sm:h-64 md:h-100 object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/90 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent"></div>
                   <div className="absolute inset-0 p-5 flex flex-col justify-end text-white z-10">
                     <h4 className="text-lg font-bold mb-1">{course.title}</h4>
                     <p className="text-xs sm:text-sm leading-snug line-clamp-2">
@@ -618,8 +621,8 @@ const Courses = () => {
                           Learn More
                         </button>
                       </Link>
-                      <div className="flex items-center space-x-2 text-[11px] sm:text-xs opacity-90">
-                        <span>{course.modules} Modules</span>
+                      <div className="flex items-center space-x-2 text-[11px] sm:text-lg opacity-90">
+                        <span>₹ {course.price} </span>
                         <span>{course.duration}</span>
                       </div>
                     </div>

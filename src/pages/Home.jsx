@@ -140,7 +140,6 @@ const Home = () => {
     description:
       "1000+ Reviews | 15+ Years Experienced Trainers | Mobile Enabled Learning | Global Certification",
     image: "/images/WhatsApp Image 2025-09-20 at 10.53.59_a95e9d3b.jpg",
-    url: "/courses",
   };
 
   useEffect(() => {
@@ -165,50 +164,49 @@ const Home = () => {
 
   return (
     <div className="bg-gray-50 font-sans">
-      <section className="relative text-white h-screen flex items-center overflow-hidden">
-        {loading ? (
-          <div className="absolute inset-0 bg-gray-300 animate-pulse">
+  <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[70vh] flex items-center overflow-hidden">
+  {loading ? (
+    <div className="absolute inset-0 bg-gray-300 animate-pulse">
+      <div className="absolute inset-0 bg-black opacity-40" />
+    </div>
+  ) : (
+    <Swiper
+      modules={[Autoplay, EffectFade]}
+      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      effect="fade"
+      fadeEffect={{ crossFade: true }}
+      loop={slides.length > 1}
+      speed={800}
+      className="w-full h-full"
+    >
+      {slides.map((banner) => (
+        <SwiperSlide key={banner.id}>
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url("${import.meta.env.VITE_BASE_URL_IMAGE}${banner.image}")`,
+            }}
+          >
             <div className="absolute inset-0 bg-black opacity-40" />
           </div>
-        ) : (
-          <Swiper
-            modules={[Autoplay, EffectFade]}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
-            loop={slides.length > 1}
-            speed={800}
-            className="w-full h-full"
-          >
-            {slides.map((banner) => (
-              <SwiperSlide key={banner.id}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url("${
-                      import.meta.env.VITE_BASE_URL_IMAGE
-                    }${banner.image}")`,
-                  }}
-                >
-                  <div className="absolute inset-0 bg-black opacity-40" />
-                </div>
 
-                <div className="relative z-10 flex flex-col text-left px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-20 md:py-32 max-w-3xl">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6">
-                    {banner.tittle}
-                  </h1>
-                  <p className="text-lg sm:text-xl mb-6">
-                    {banner.description}
-                  </p>
-                  <Link to="/courses">
-                    <Button variant="green-outline">View More</Button>
-                  </Link>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
-      </section>
+          <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+              {banner.tittle}
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl mb-6">
+              {banner.description}
+            </p>
+            <Link to="/courses">
+              <Button variant="green-outline">View More</Button>
+            </Link>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )}
+</section>
+
 
       {/* ==================== REST OF YOUR PAGE ==================== */}
       <WhyChoose />

@@ -10,7 +10,7 @@ const AbroadCourses = () => {
       .get(`${import.meta.env.VITE_BASE_URL}/courses`)
       .then((response) => {
         if (response.data.success) {
-          const sortedCourses = response.data.data.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+          const sortedCourses = response.data.data
           const primaryCourses = sortedCourses
             .filter((c) => c.category_id === 3)
             .slice(0, 2)
@@ -19,7 +19,7 @@ const AbroadCourses = () => {
               image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
               desc: c.description.length > 100 ? c.description.slice(0, 100) + "..." : c.description,
               modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-              duration: `${c.duration} Months`,
+              duration: `${c.duration}`,
             }));
           setCourses(primaryCourses);
         }
@@ -49,7 +49,7 @@ const AbroadCourses = () => {
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/90 to-transparent rounded-b-lg"></div>
+              <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
 
               {/* Text Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">

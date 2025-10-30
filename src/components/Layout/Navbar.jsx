@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { FaChevronDown, FaPhone, FaUser } from "react-icons/fa";
@@ -9,13 +8,19 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
-  const [showProgramModesDropdown, setShowProgramModesDropdown] = useState(false);
-  const [showCertificatesDropdown, setShowCertificatesDropdown] = useState(false);
+  const [showProgramModesDropdown, setShowProgramModesDropdown] =
+    useState(false);
+  const [showCertificatesDropdown, setShowCertificatesDropdown] =
+    useState(false);
   const [showTrainersDropdown, setShowTrainersDropdown] = useState(false);
-  const [showMobileCoursesDropdown, setShowMobileCoursesDropdown] = useState(false);
-  const [showMobileProgramModesDropdown, setShowMobileProgramModesDropdown] = useState(false);
-  const [showMobileCertificatesDropdown, setShowMobileCertificatesDropdown] = useState(false);
-  const [showMobileTrainersDropdown, setShowMobileTrainersDropdown] = useState(false);
+  const [showMobileCoursesDropdown, setShowMobileCoursesDropdown] =
+    useState(false);
+  const [showMobileProgramModesDropdown, setShowMobileProgramModesDropdown] =
+    useState(false);
+  const [showMobileCertificatesDropdown, setShowMobileCertificatesDropdown] =
+    useState(false);
+  const [showMobileTrainersDropdown, setShowMobileTrainersDropdown] =
+    useState(false);
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [closeTimeoutProgram, setCloseTimeoutProgram] = useState(null);
   const [closeTimeoutCert, setCloseTimeoutCert] = useState(null);
@@ -39,7 +44,7 @@ const Navbar = () => {
     setError(null);
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/courses?status=1&limit=10&offset=0`
+        `${import.meta.env.VITE_BASE_URL}/courses?status=1&limit=100&offset=0`
       );
       const fetchedCourses = res.data.data.map((course) => ({
         id: course.id,
@@ -172,10 +177,16 @@ const Navbar = () => {
 
         {/* App Links */}
         <div className="hidden md:flex items-center space-x-2 flex-shrink-0">
-          <a href="https://play.google.com/store/apps/details?id=com.mindlabs.ilt" className="h-10 md:h-12">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.mindlabs.ilt"
+            className="h-10 md:h-12"
+          >
             <img src={googlePlaySrc} alt="Google Play" className="h-full" />
           </a>
-          <a href="https://apps.apple.com/in/app/internet-leads-training-ilt/id1548244062" className="h-10 md:h-12">
+          <a
+            href="https://apps.apple.com/in/app/internet-leads-training-ilt/id1548244062"
+            className="h-10 md:h-12"
+          >
             <img src={appStoreSrc} alt="App Store" className="h-full" />
           </a>
         </div>
@@ -216,7 +227,7 @@ const Navbar = () => {
             </li>
 
             {/* Courses Dropdown */}
-            <li
+            {/* <li
               className="group relative"
               onMouseEnter={handleMouseEnterCourses}
               onMouseLeave={handleMouseLeaveCourses}
@@ -227,19 +238,20 @@ const Navbar = () => {
               >
                 Courses <FaChevronDown className="ml-1 text-xs" />
               </a>
+
               <AnimatePresence>
                 {showCoursesDropdown && (
                   <motion.div
-                    initial={{
-                      opacity: 0,
-                      scale: 0.95,
-                      y: -10,
-                      transformOrigin: "top left",
-                    }}
+                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute left-1/2 mt-2 w-56 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+                    className="absolute left-1/2 mt-2 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+                    style={{
+                      minWidth: "600px",
+                      maxWidth: "800px",
+                      padding: "10px 0",
+                    }}
                   >
                     {loading ? (
                       <div className="px-4 py-2 text-gray-600">
@@ -254,15 +266,96 @@ const Navbar = () => {
                         No courses available
                       </div>
                     ) : (
-                      courses.map((course) => (
-                        <Link
-                          key={course.id}
-                          to={`/courses/${course.slug}`}
-                          className="block px-4 py-2 hover:bg-gray-100"
-                        >
-                          {course.label}
-                        </Link>
-                      ))
+                      <div
+                        className="grid gap-y-1 gap-x-4 px-4"
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: `repeat(${Math.ceil(
+                            courses.length / 8
+                          )}, minmax(150px, 1fr))`,
+                        }}
+                      >
+                        {courses.map((course) => (
+                          <Link
+                            key={course.id}
+                            to={`/courses/${course.slug}`}
+                            className="block py-2 text-sm hover:bg-gray-100 rounded px-2"
+                          >
+                            {course.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li> */}
+            <li
+              className="group relative"
+              onMouseEnter={handleMouseEnterCourses}
+              onMouseLeave={handleMouseLeaveCourses}
+            >
+              <a
+                href="/courses"
+                className="flex items-center hover:text-gray-200"
+              >
+                Courses <FaChevronDown className="ml-1 text-xs" />
+              </a>
+
+              <AnimatePresence>
+                {showCoursesDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="absolute left-1/2 mt-2 bg-white text-gray-800 rounded-md shadow-lg z-10 overflow-hidden transform -translate-x-1/2"
+                    style={{
+                      // Dynamic width based on number of courses
+                      width:
+                        courses.length <= 8
+                          ? "250px"
+                          : courses.length <= 16
+                          ? "500px"
+                          : "750px",
+                      padding: "10px 0",
+                    }}
+                  >
+                    {loading ? (
+                      <div className="px-4 py-2 text-gray-600">
+                        Loading courses...
+                      </div>
+                    ) : error ? (
+                      <div className="px-4 py-2 text-red-600">
+                        Error loading courses
+                      </div>
+                    ) : courses.length === 0 ? (
+                      <div className="px-4 py-2 text-gray-600">
+                        No courses available
+                      </div>
+                    ) : (
+                      <div
+                        className="grid gap-y-1 gap-x-4 px-4"
+                        style={{
+                          // 1 column if <= 8, 2 columns if <= 16, 3 columns if >16
+                          gridTemplateColumns:
+                            courses.length <= 8
+                              ? "repeat(1, minmax(150px, 1fr))"
+                              : courses.length <= 16
+                              ? "repeat(2, minmax(150px, 1fr))"
+                              : "repeat(3, minmax(150px, 1fr))",
+                        }}
+                      >
+                        {courses.map((course) => (
+                          <Link
+                            key={course.id}
+                            to={`/courses/${course.slug}`}
+                            className="block py-2 text-sm hover:bg-gray-100 rounded px-2"
+                          >
+                            {course.label}
+                          </Link>
+                        ))}
+                      </div>
                     )}
                   </motion.div>
                 )}
@@ -275,10 +368,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnterProgramModes}
               onMouseLeave={handleMouseLeaveProgramModes}
             >
-              <a
-                href="#"
-                className="flex items-center hover:text-gray-200"
-              >
+              <a href="#" className="flex items-center hover:text-gray-200">
                 Program Modes <FaChevronDown className="ml-1 text-xs" />
               </a>
               <AnimatePresence>
@@ -322,10 +412,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnterCertificates}
               onMouseLeave={handleMouseLeaveCertificates}
             >
-              <a
-                href="#"
-                className="flex items-center hover:text-gray-200"
-              >
+              <a href="#" className="flex items-center hover:text-gray-200">
                 Certificates <FaChevronDown className="ml-1 text-xs" />
               </a>
               <AnimatePresence>
@@ -359,10 +446,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnterTrainers}
               onMouseLeave={handleMouseLeaveTrainers}
             >
-              <a
-                href="#"
-                className="flex items-center hover:text-gray-200"
-              >
+              <a href="#" className="flex items-center hover:text-gray-200">
                 Trainers <FaChevronDown className="ml-1 text-xs" />
               </a>
               <AnimatePresence>
@@ -619,7 +703,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 
 // import React, { useState } from "react";
 // import { FaChevronDown, FaPhone, FaUser } from "react-icons/fa";
