@@ -178,22 +178,22 @@ const CourseDetails = () => {
               {
                 icon: <BiTimeFive />,
                 label: "Time:",
-                value: found.time || "09am - 11am",
+                value: found.time,
               },
               {
                 icon: <FaClock />,
                 label: "Duration:",
-                value: `${found.duration} Months`,
+                value: `${found.duration}`,
               },
               {
                 icon: <FaRupeeSign />,
                 label: "Price:",
-                value: `${found.price}`,
+                value: `${found.price.toLocaleString()}`,
               },
               {
                 icon: <FaLaptop />,
                 label: "Mode:",
-                value: found.mode || "Online / Offline",
+                value: found.mode || "Online / In-House Trainingline",
               },
             ];
             const processedCourse = {
@@ -296,7 +296,7 @@ const CourseDetails = () => {
               alt="Course Presentation"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
+            {/* <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500 bg-opacity-90 rounded-full flex items-center justify-center">
                 <svg
                   className="w-6 h-6 sm:w-8 sm:h-8 text-white"
@@ -306,7 +306,7 @@ const CourseDetails = () => {
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -342,8 +342,7 @@ const CourseDetails = () => {
           </ul>
         </div>
 
-        {/* Right side - Course Features */}
-        <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md order-1 lg:order-2">
+        {/* <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md order-1 lg:order-2">
           <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
             Course Features
           </h3>
@@ -367,13 +366,45 @@ const CourseDetails = () => {
               </li>
             ))}
           </ul>
+        </div> */}
+        {/* Right side - Course Features */}
+        <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md order-1 lg:order-2">
+          <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+            Course Features
+          </h3>
+
+          <ul className="space-y-3 sm:space-y-4 text-gray-800">
+            {course.features
+              .filter(
+                ({ value }) => value != null && value !== "" && value !== "Soon"
+              )
+              .map(({ icon, label, value }) => (
+                <li
+                  key={label}
+                  className="flex items-center justify-between space-x-2 sm:space-x-3"
+                >
+                  <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+                    <span className="text-green-600 text-lg sm:text-xl flex-shrink-0">
+                      {icon}
+                    </span>
+                    <span className="font-semibold text-sm sm:text-base truncate">
+                      {label}
+                    </span>
+                  </div>
+
+                  <span className="text-sm sm:text-base text-right min-w-0 truncate">
+                    {value}
+                  </span>
+                </li>
+              ))}
+          </ul>
         </div>
       </section>
 
       {/* Certification */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Certification</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold">Details</h2>
         </div>
 
         <p className="text-gray-700 text-sm sm:text-lg leading-relaxed max-w-4xl">

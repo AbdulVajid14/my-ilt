@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaRupeeSign} from "react-icons/fa";
 
 function OurCourses() {
   const [courses, setCourses] = useState([]);
@@ -12,7 +13,7 @@ function OurCourses() {
       .then((response) => {
         if (response.data.success) {
           // Sort by sequence if needed
-          const sortedCourses = response.data.data.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+          const sortedCourses = response.data.data
           setCourses(sortedCourses);
         }
       })
@@ -28,7 +29,8 @@ function OurCourses() {
       image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
       desc: c.description.length > 100 ? c.description.slice(0, 100) + "..." : c.description,
       modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-      duration: `${c.duration} Months`,
+      duration: `${c.duration}`,
+      price:c.price.toLocaleString()
     }));
 
   // Secondary courses (category_id: 2) for right side, limit to 3
@@ -40,7 +42,8 @@ function OurCourses() {
       image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
       desc: c.description.length > 100 ? c.description.slice(0, 50) + "..." : c.description,
       modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-      duration: `${c.duration} Months`,
+      duration: `${c.duration}`,
+      price:c.price.toLocaleString()
     }));
 
   return (
@@ -70,7 +73,7 @@ function OurCourses() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 h-50 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
                   <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end text-white z-10">
                     <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
                       {course.title}
@@ -84,8 +87,8 @@ function OurCourses() {
                         </button>
                       </Link>
 
-                      <div className="flex items-center space-x-2 text-xs sm:text-sm">
-                        <span>{course.modules} Modules</span>
+                      <div className="flex items-center space-x-2 text-xs sm:text-lg">
+                        <span>₹ {course.price} </span>
                         <span>{course.duration}</span>
                       </div>
                     </div>
@@ -123,7 +126,9 @@ function OurCourses() {
                     {course.desc}
                   </p>
                   <div className="flex items-center justify-between w-full text-xs text-gray-500 mb-2">
-                    <span>{course.modules} Modules</span>
+                    <span>
+                      <FaRupeeSign className="text-green-600" />
+                      {course.price} </span>
                     <span>{course.duration}</span>
                   </div>
                   <Link to={`/courses/${slug}`}>

@@ -316,7 +316,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/privacy-policy"
-                className="text-gray-700 hover:underline"
+                className="text-white-700 hover:underline"
               >
                 Privacy Policy
               </Link>
@@ -324,7 +324,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/terms-and-conditions"
-                className="text-gray-700 hover:underline"
+                className="text-white-700 hover:underline"
               >
                 Terms & Conditions
               </Link>
