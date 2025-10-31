@@ -1,3 +1,4 @@
+import { useState,useEffect } from "react";
 import React from "react";
 import {
   FaBullseye,
@@ -9,6 +10,36 @@ import {
 } from "react-icons/fa";
 
 const About = () => {
+   useEffect(() => {
+    document.title = "Kerala's Leading Digital Marketing Training Institute";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "More than 15 years of experience as a digital marketing consultant and trainer, Jitto is a proven authority in terms of digital marketing."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "SEO Training, google adwords training, ppc training"
+    );
+  }, []);
+
   return (
     <div>
       {/* Hero Section - Full Width */}

@@ -335,7 +335,7 @@ const Navbar = () => {
                       </div>
                     ) : (
                       <div
-                        className="grid gap-y-1 gap-x-4 px-4"
+                        className="grid gap-y-1 gap-x-4 px-4 pl-10"
                         style={{
                           // 1 column if <= 8, 2 columns if <= 16, 3 columns if >16
                           gridTemplateColumns:

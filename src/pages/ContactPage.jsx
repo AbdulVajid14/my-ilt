@@ -1,9 +1,40 @@
 import React from 'react';
+import { useState ,useEffect} from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'; 
 import BookTrail from '../components/Home/BookTrail';
 import Questions from '../components/Home/Questions';
 
 const ContactPage = () => {
+     useEffect(() => {
+      document.title = "Contact ILT for Digital Marketing Class.";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "Kerala's No'1 SEO Training Institute. Email is admin@internetleadstraining.com and phone number is 9539070845. We are located in Cochin, Kerala"
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute(
+        "content",
+        "Contact Us"
+      );
+    }, []);
+  
   const socialLinks = [
     { icon: FaFacebookF, color: 'bg-green-600', href: '#', aria: 'Facebook' }, 
     { icon: FaTwitter, color: 'bg-green-600', href: '#', aria: 'Twitter' },

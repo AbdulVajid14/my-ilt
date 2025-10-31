@@ -16,7 +16,6 @@ import QueriesForm from "../components/CommonComponents/QueriesForm";
 import Questions from "../components/Home/Questions";
 import OurGraduates from "../components/Home/OurGraduates";
 import CommonCourses from "../components/CommonComponents/CommonCourses";
-
 const modes = [
   { id: "online", label: "Online", icon: <FaLaptop className="w-6 h-6" /> },
   { id: "inhouse", label: "In-House Trainingline", icon: <FaHome className="w-6 h-6" /> },
@@ -119,6 +118,35 @@ const trainings = {
 };
 
 function ModalPage() {
+       useEffect(() => {
+      document.title = "Private and Group SEO and Digital Marketing Training in Cochin, Kerala";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "Internet Leads Training offers private seo training for individuals.  Corporate and Group training is also provided."
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute(
+        "content",
+        "Modes of Training"
+      );
+    }, []);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const modeFromQuery = params.get("mode");

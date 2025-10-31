@@ -57,6 +57,36 @@ const Blog = () => {
       .catch((error) => console.error('Error fetching news:', error));
   }, []);
 
+       useEffect(() => {
+      document.title = "Digital Marketing Blogs Cochin (Kochi), Kerala - Internet Leads Training";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "Welcome to Official blog of Internet Leads Training (ILT). We update the latest digital marketing related blogs on a regular basis. Keep visiting"
+      );
+      // const metaKeywords =
+      //   document.querySelector("meta[name='keywords']") ||
+      //   (() => {
+      //     const meta = document.createElement("meta");
+      //     meta.name = "keywords";
+      //     document.head.appendChild(meta);
+      //     return meta;
+      //   })();
+  
+      // metaKeywords.setAttribute(
+      //   "content",
+      //   ""
+      // );
+    }, []);
+
   return (
     <div className="">
       <div className="relative w-full h-60 sm:h-72 md:h-96 overflow-hidden mb-10">

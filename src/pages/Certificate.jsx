@@ -1,11 +1,41 @@
 
 import React from "react";
+import { useEffect } from "react";
 import { FaDotCircle, FaCheck } from "react-icons/fa";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
 import Instructor from "../components/CommonComponents/Instructor";
 import Questions from "../components/Home/Questions";
 
 const Certificate = () => {
+       useEffect(() => {
+      document.title = "Google Adwords & Analytics Certification Cochin, Kerala";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "Internet Leads Training provides certification in Google Adwords and Google Analytics. Join for SEO Training at  ILT."
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute(
+        "content",
+        'Certification'
+      );
+    }, []);
   return (
     <div className="w-full">
       {/* Banner Section */}
@@ -26,7 +56,7 @@ const Certificate = () => {
       <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
         <div className="flex justify-center">
           <img
-            src="/images/WhatsApp Image 2025-09-20 at 10.54.36_c7e0c520.jpg"
+            src="/images/Google Analytics.png"
             alt="Google Analytics Certificate"
             className="rounded-lg shadow-md w-full max-w-md"
           />
@@ -118,7 +148,7 @@ const Certificate = () => {
           {/* New Image Block */}
           <div className="flex justify-start">
             <img
-              src="/images/WhatsApp Image 2025-09-20 at 10.54.35_aa661123.jpg"
+              src="/images/Google Ads.png"
               alt="Google Ads Certificate"
               className="rounded-lg shadow-md w-full max-w-md"
             />
