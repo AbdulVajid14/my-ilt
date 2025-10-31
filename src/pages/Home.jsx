@@ -129,6 +129,36 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 const Home = () => {
+     useEffect(() => {
+      document.title = "Digital Marketing Institute in Kochi (Cochin), Kerala | Best SEO Training in Ernakulam";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "Best Digital Marketing Institute in Kochi(Cochin). Internet Leads Training (ILT) is a top SEO & Digital Marketing Course Provider in Kerala. Learn Google Ads, Social Medial Marketing, Email Marketing, Facebook Ads, Google Analytics & Linkedin Ads in Ernakulam."
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute(
+        "content",
+        "seo training in cochin, google adwords training, google analytics training"
+      );
+    }, []);
+    
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

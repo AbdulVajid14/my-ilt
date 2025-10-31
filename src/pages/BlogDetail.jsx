@@ -117,6 +117,33 @@ const BlogDetail = () => {
       .catch((error) => console.error('Error fetching news:', error));
   }, [slug]);
 
+  useEffect(() => {
+    if (!post) return;
+    document.title = post.metaTitle || post.title || "blogssssss";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      post.metaDescription
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute("content", post.metaKeywords || "");
+  }, [post]);
   if (!post) {
     return <div className="text-center py-12">Loading...</div>;
   }

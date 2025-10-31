@@ -335,6 +335,35 @@ import OurGraduates from "../components/Home/OurGraduates";
 import Questions from "../components/Home/Questions";
 
 const Courses = () => {
+       useEffect(() => {
+      document.title = "SEO Training, Digital Marketing Class, Pay Per Click Certification & Social Media Class in Cochin, Kerala";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "ILT offers foundation class for digital marketing, advanced digital marketing training, social media marketing, Email Marketing class, Affiliate marketing training, Blogging Training & Google Analytics Class in Cochin, Kerala."
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute(
+        "content",
+        "Training Courses"
+      );
+    }, []);
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 

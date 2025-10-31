@@ -32,7 +32,10 @@ const WorkshopDetails = () => {
               about: selectedWorkshop.description,
               videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${selectedWorkshop.image}`, // Using same image for video placeholder
               keyHighlights: selectedWorkshop.highlights.split('\r\n').filter(item => item.trim() !== ''),
-              outcome: selectedWorkshop.outcome
+              outcome: selectedWorkshop.outcome,
+              metaTitle: selectedWorkshop.metaTitle || selectedWorkshop.tittle,
+  metaDescription: selectedWorkshop.metaDescription || selectedWorkshop.description?.slice(0, 150),
+  metaKeywords: selectedWorkshop.metaKeywords || selectedWorkshop.tittle
             };
             setWorkshop(formattedWorkshop);
           } else {
@@ -51,6 +54,34 @@ const WorkshopDetails = () => {
 
     fetchWorkshop();
   }, [slug]);
+
+    useEffect(() => {
+      if (!workshop) return;
+      document.title = workshop.metaTitle || workshop.title ;
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        workshop.metaDescription
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute("content", workshop.metaKeywords || "");
+    }, [workshop]);
 
   if (loading) {
     return <h2 className="text-center mt-10">Loading...</h2>;
@@ -89,19 +120,6 @@ const WorkshopDetails = () => {
           alt="Workshop Presentation"
           className="w-full rounded-lg shadow-lg"
         />
-        {/* <button
-          aria-label="Play Video"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-600 hover:bg-green-700 text-white rounded-full p-6 shadow-lg focus:outline-none focus:ring-4 focus:ring-green-400"
-        >
-          <svg
-            className="w-10 h-10"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button> */}
       </section>
 
       {/* Key Highlights */}

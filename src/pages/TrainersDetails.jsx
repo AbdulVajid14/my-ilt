@@ -231,6 +231,34 @@ const TrainersDetails = () => {
     }
   };
 
+      useEffect(() => {
+        if (!trainer) return;
+        document.title = trainer.metaTitle ;
+        const metaDescription =
+          document.querySelector("meta[name='description']") ||
+          (() => {
+            const meta = document.createElement("meta");
+            meta.name = "description";
+            document.head.appendChild(meta);
+            return meta;
+          })();
+    
+        metaDescription.setAttribute(
+          "content",
+          trainer.metaDescription
+        );
+        const metaKeywords =
+          document.querySelector("meta[name='keywords']") ||
+          (() => {
+            const meta = document.createElement("meta");
+            meta.name = "keywords";
+            document.head.appendChild(meta);
+            return meta;
+          })();
+    
+        metaKeywords.setAttribute("content", trainer.metaKeywords || "");
+      }, [trainer]);
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
