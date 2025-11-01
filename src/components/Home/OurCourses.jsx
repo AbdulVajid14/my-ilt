@@ -36,7 +36,7 @@ function OurCourses() {
   // Secondary courses (category_id: 2) for right side, limit to 3
   const coursesRight = courses
     .filter((c) => c.category_id === 2)
-    .slice(0, 3)
+    .slice(0, 2)
     .map((c) => ({
       title: c.name,
       image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
@@ -127,8 +127,8 @@ function OurCourses() {
                   </p>
                   <div className="flex items-center justify-between w-full text-xs text-gray-500 mb-2">
                     <span>
-                      <FaRupeeSign className="text-green-600" />
-                      {course.price} </span>
+                      {/* <FaRupeeSign className="text-green-600" /> */}
+                      ₹ {course.price} </span>
                     <span>{course.duration}</span>
                   </div>
                   <Link to={`/courses/${slug}`}>

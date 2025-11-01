@@ -212,7 +212,7 @@ const OurGraduates = () => {
           transition={{ duration: 0.5 }}
           className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8"
         >
-          {graduates.slice(0, 4).map((graduate) => (
+          {graduates.slice(0, 2).map((graduate) => (
             <div
               key={graduate.id}
               className="p-4 sm:p-6 bg-white rounded-lg shadow-lg text-center"
