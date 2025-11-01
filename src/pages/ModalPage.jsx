@@ -183,6 +183,14 @@ function ModalPage() {
   const scrollRight = () => {
     scrollRef.current?.scrollBy({ left: 150, behavior: "smooth" });
   };
+const handleModeChange = (modeId) => {
+  setSelectedMode(modeId);
+
+  // update the URL without reloading
+  const searchParams = new URLSearchParams(location.search);
+  searchParams.set("mode", modeId);
+  window.history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`);
+};
 
   return (
     <div className="min-h-screen bg-white">
@@ -211,7 +219,7 @@ function ModalPage() {
             {modes.map((mode, idx) => (
               <button
                 key={mode.id}
-                onClick={() => setSelectedMode(mode.id)}
+                onClick={() => handleModeChange(mode.id)}
                 className={`flex-none md:flex-1 p-4 flex flex-col items-center space-y-2 cursor-pointer transition-all duration-300
                   ${
                     selectedMode === mode.id

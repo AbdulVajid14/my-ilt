@@ -166,8 +166,6 @@
 import React, { useState, useEffect } from "react";
 import {
   HiHome,
-  HiMail,
-  HiPhone,
   HiOutlineMail,
   HiOutlinePhone,
 } from "react-icons/hi";

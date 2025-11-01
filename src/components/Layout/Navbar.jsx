@@ -1,6 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { FaChevronDown, FaPhone, FaUser } from "react-icons/fa";
+import {
+  FaChevronDown,
+  FaPhone,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -190,6 +196,38 @@ const Navbar = () => {
             <img src={appStoreSrc} alt="App Store" className="h-full" />
           </a>
         </div>
+       <div className="flex items-center space-x-4">
+  <a
+    href="https://www.facebook.com/internetleadstraining/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="hover:text-green-300"
+  >
+    <FaFacebookF size={20} />
+  </a>
+
+  <a
+    href="https://www.twitter.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Twitter"
+    className="hover:text-green-300"
+  >
+    <FaTwitter size={20} />
+  </a>
+
+  <a
+    href="https://www.instagram.com/internet_leads_training/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="hover:text-green-300"
+  >
+    <FaInstagram size={20} />
+  </a>
+</div>
+
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
@@ -395,7 +433,7 @@ const Navbar = () => {
                     ].map((mode) => (
                       <Link
                         key={mode.id}
-                        to={`/modal?mode=${mode.id}`}
+                        to={`/mode?mode=${mode.id}`}
                         className="block px-4 py-2 hover:bg-gray-100"
                       >
                         {mode.label}
@@ -601,7 +639,7 @@ const Navbar = () => {
                     ].map((mode) => (
                       <Link
                         key={mode.id}
-                        to={`/modal?mode=${mode.id}`}
+                        to={`/mode?mode=${mode.id}`}
                         className="block text-sm hover:text-gray-200"
                         onClick={closeMobileMenu}
                       >

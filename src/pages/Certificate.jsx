@@ -141,19 +141,17 @@ const Certificate = () => {
               profile with a globally recognized certification
             </li>
           </ul>
-        </div>
-
-        {/* Right side — Image + Form */}
-        <div className="space-y-10 md:ml-10">
-          {/* New Image Block */}
-          <div className="flex justify-start">
+            <div className="flex justify-start md:ml-10 mt-10">
             <img
               src="/images/Google Ads.png"
               alt="Google Ads Certificate"
               className="rounded-lg shadow-md w-full max-w-md"
             />
           </div>
+        </div>
 
+        {/* Right side — Image + Form */}
+        <div className="space-y-10 md:ml-10">
           {/* Form Section */}
           <QueriesForm />
         </div>

@@ -36,7 +36,7 @@ function App() {
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/workshop/:slug" element={<WorkshopDetails />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/modal" element={<ModalPage />} />
+          <Route path="/mode" element={<ModalPage />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/trainers/:slug" element={<TrainesrDetails />} />
           <Route path="/ilt-abroad" element={<ILTAbroad />} />
