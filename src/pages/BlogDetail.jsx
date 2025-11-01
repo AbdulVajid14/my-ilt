@@ -334,14 +334,7 @@ const formatDate = (dateStr) => {
 };
 
 const getShortDesc = (desc) => {
-  if (!desc) return "";
-
-  let cleaned = desc.replace(/^.*?(<\/strong>|<\/b>)/i, "").trim();
-
-  const paragraphs = cleaned.split(/\r?\n\r?\n/);
-  const firstParagraph = paragraphs[0] || "";
-
-  return firstParagraph.slice(0, 100) + "...";
+  return desc.split("\r\n\r\n")[0].slice(0, 100) + "...";
 };
 
 const slugify = (text) =>
@@ -522,7 +515,11 @@ const BlogDetail = () => {
                 />
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="font-bold text-lg mb-2">{title}</h3>
-                  <p className="text-gray-700 flex-grow">{description}</p>
+                  <p
+                    className="text-gray-700 flex-grow"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  ></p>
+
                   <div className="flex justify-between items-center mt-4">
                     <button
                       type="button"

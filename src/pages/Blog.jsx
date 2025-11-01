@@ -13,13 +13,7 @@ const formatDate = (dateStr) => {
 };
 
 const getShortDesc = (desc) => {
-  if (!desc) return "";
-
-  let cleaned = desc.replace(/^.*?(<\/strong>|<\/b>)/i, "").trim();
-  const paragraphs = cleaned.split(/\r?\n\r?\n/);
-  const firstParagraph = paragraphs[0] || "";
-
-  return firstParagraph.slice(0, 100) + "...";
+  return desc.split("\r\n\r\n")[0].slice(0, 100) + "...";
 };
 
 const slugify = (text) =>
