@@ -496,9 +496,11 @@ const CourseDetails = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-6">
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.mindlabs.ilt"
               className="inline-block"
               aria-label="Get it on Google Play"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
@@ -507,9 +509,11 @@ const CourseDetails = () => {
               />
             </a>
             <a
-              href="#"
+              href="https://apps.apple.com/in/app/internet-leads-training-ilt/id1548244062"
               className="inline-block"
               aria-label="Download on the App Store"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"

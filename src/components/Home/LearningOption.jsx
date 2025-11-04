@@ -70,7 +70,7 @@ function LearningOption() {
       ))}
     </div>
       <div className="text-center">
-    <Link to="/modal">
+    <Link to="/mode">
       <button className="mt-8 bg-green-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
         Explore Training Options
       </button>

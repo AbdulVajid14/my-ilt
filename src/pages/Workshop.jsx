@@ -205,94 +205,99 @@ function Workshop() {
         </div>
 
         {/* Registration Form */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col items-center gap-8 sm:gap-12">
-            <div className="text-center max-w-lg">
-              <h3 className="text-2xl font-semibold mb-2">Registration Form</h3>
-              <p className="text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Fill out the form to reserve your spot in our upcoming workshop.{" "}
-                <span className="text-green-600 font-semibold">
-                  Limited seats available!
-                </span>
-              </p>
-            </div>
-            <Toaster position="top-right" richColors />
-            <form
-              onSubmit={handleSubmit}
-              className="w-full max-w-md bg-white shadow-md rounded-lg p-4 sm:p-6 space-y-4"
-            >
-              <input
-                type="text"
-                name="subject"
-                placeholder="Program interested"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-                value={formData.subject}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <div className="border border-gray-300 rounded-md">
-                <PhoneInput
-                  country={"in"}
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  inputClass="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border-2 border-green-200 bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
-                  buttonClass="border-2 border-green-200 bg-green-100 rounded-l-md"
-                  containerClass="w-full"
-                  dropdownClass="rounded-md border border-green-200 bg-white"
-                  specialLabel=""
-                  inputStyle={{
-                    width: "100%",
-                    borderRadius: "0.375rem",
-                    border: "2px solid #bbf7d0",
-                  }}
-                  enableSearch
-                  placeholder="Phone"
-                  required
-                />
-              </div>
-              <textarea
-                name="message"
-                rows="3"
-                placeholder="Message"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              />
-              <div className="mb-4">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 text-sm rounded-md transition"
-                disabled={loading}
-              >
-                {loading ? "Submitting..." : "Join Workshop"}
-              </button>
-            </form>
-          </div>
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+    {/* LEFT SIDE - TEXT */}
+    <div className="flex-1 text-center lg:text-left">
+      <h3 className="text-3xl font-semibold mb-3">Registration Form</h3>
+      <p className="text-gray-600 text-lg sm:text-xl leading-relaxed">
+        Fill out the form to reserve your spot in our upcoming workshop.{" "}
+        <span className="text-green-600 font-semibold">
+          Limited seats available!
+        </span>
+      </p>
+    </div>
+
+    {/* RIGHT SIDE - FORM */}
+    <div className="flex-1 w-full">
+      <Toaster position="top-right" richColors />
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-white shadow-md rounded-lg p-4 sm:p-6 space-y-4 mx-auto lg:mx-0"
+      >
+        <input
+          type="text"
+          name="subject"
+          placeholder="Program interested"
+          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+          value={formData.subject}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+        <div className="border border-gray-300 rounded-md">
+          <PhoneInput
+            country={"in"}
+            value={formData.phone}
+            onChange={handlePhoneChange}
+            inputClass="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border-2 border-green-200 bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+            buttonClass="border-2 border-green-200 bg-green-100 rounded-l-md"
+            containerClass="w-full"
+            dropdownClass="rounded-md border border-green-200 bg-white"
+            specialLabel=""
+            inputStyle={{
+              width: "100%",
+              borderRadius: "0.375rem",
+              border: "2px solid #bbf7d0",
+            }}
+            enableSearch
+            placeholder="Phone"
+            required
+          />
         </div>
+        <textarea
+          name="message"
+          rows="3"
+          placeholder="Message"
+          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
+          value={formData.message}
+          onChange={handleInputChange}
+          required
+        />
+        <div className="mb-4">
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 text-sm rounded-md transition"
+          disabled={loading}
+        >
+          {loading ? "Submitting..." : "Join Workshop"}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 
         {/* Previous Workshops */}
         <div className="max-w-7xl space-y-4">

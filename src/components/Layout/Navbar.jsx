@@ -161,11 +161,13 @@ const Navbar = () => {
       <div className="flex items-center justify-between max-w-7xl mx-auto p-4 md:p-6">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img
-            src={logoSrc}
-            alt="Internet Leads Training Logo"
-            className="h-12 md:h-16"
-          />
+          <Link to="/">
+            <img
+              src={logoSrc}
+              alt="Internet Leads Training Logo"
+              className="h-12 md:h-16 cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* Course Info (hidden on mobile) */}
@@ -196,38 +198,37 @@ const Navbar = () => {
             <img src={appStoreSrc} alt="App Store" className="h-full" />
           </a>
         </div>
-       <div className="flex items-center space-x-4">
-  <a
-    href="https://www.facebook.com/internetleadstraining/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-    className="hover:text-green-300"
-  >
-    <FaFacebookF size={20} />
-  </a>
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://www.facebook.com/internetleadstraining/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="hover:text-green-300"
+          >
+            <FaFacebookF size={20} />
+          </a>
 
-  <a
-    href="https://www.twitter.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Twitter"
-    className="hover:text-green-300"
-  >
-    <FaTwitter size={20} />
-  </a>
+          <a
+            href="https://www.twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            className="hover:text-green-300"
+          >
+            <FaTwitter size={20} />
+          </a>
 
-  <a
-    href="https://www.instagram.com/internet_leads_training/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    className="hover:text-green-300"
-  >
-    <FaInstagram size={20} />
-  </a>
-</div>
-
+          <a
+            href="https://www.instagram.com/internet_leads_training/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="hover:text-green-300"
+          >
+            <FaInstagram size={20} />
+          </a>
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
@@ -406,7 +407,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnterProgramModes}
               onMouseLeave={handleMouseLeaveProgramModes}
             >
-              <a href="#" className="flex items-center hover:text-gray-200">
+              <a href="/mode" className="flex items-center hover:text-gray-200">
                 Program Modes <FaChevronDown className="ml-1 text-xs" />
               </a>
               <AnimatePresence>
