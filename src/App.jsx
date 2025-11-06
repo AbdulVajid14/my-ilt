@@ -20,6 +20,9 @@ import Questions from "./components/Home/Questions";
 import TermsAndCondition from "./pages/TermsAndCondition";
 import HelpCenter from "./pages/HelpCenter";
 import PrivacyAndPolicy from "./pages/PrivacyAndPolicy";
+import EventsDetails from "./pages/EventsDetails";
+import Events from "./pages/Events";
+import CancelationAndRefund from "./pages/CancelationAndRefund";
 function App() {
   return (
     <>
@@ -44,6 +47,11 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyAndPolicy />} />
           <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
+          <Route path="/events" element={<Events/>}/>
+          <Route path="/events/:slug" element={<EventsDetails/>}/>
+                    <Route path="/cancelation-refund" element={<CancelationAndRefund/>}/>
+
+
 
           {/* <Route path="/faqs" element={<Questions />} /> */}
         </Route>

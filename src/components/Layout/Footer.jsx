@@ -164,11 +164,7 @@
 
 // export default Footer;
 import React, { useState, useEffect } from "react";
-import {
-  HiHome,
-  HiOutlineMail,
-  HiOutlinePhone,
-} from "react-icons/hi";
+import { HiHome, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -178,10 +174,10 @@ const Footer = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/courses`)
+      .get(`${import.meta.env.VITE_BASE_URL}/admin/Samples`)
       .then((response) => {
         if (response.data.success) {
-          const sortedCourses = response.data.data.slice(0, 5).map((c) => ({
+          const sortedCourses = response.data.data.slice(0, 6).map((c) => ({
             name: c.name,
             slug: c.name.toLowerCase().replace(/\s+/g, "-"),
           }));
@@ -306,12 +302,6 @@ const Footer = () => {
           <h4 className="font-bold text-base mb-5">Support & Resources</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             <li>
-              <Link to="#" className="text-white hover:text-orange-300">
-                FAQs
-              </Link>
-            </li>
-            <li>Help Center</li>
-            <li>
               <Link
                 to="/privacy-policy"
                 className="text-white-700 hover:underline"
@@ -325,6 +315,14 @@ const Footer = () => {
                 className="text-white-700 hover:underline"
               >
                 Terms & Conditions
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cancelation-refund"
+                className="text-white-700 hover:underline"
+              >
+                Cancellation & Refund
               </Link>
             </li>
           </ul>

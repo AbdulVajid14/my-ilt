@@ -127,6 +127,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import Events from "../components/Home/Events";
 
 const Home = () => {
      useEffect(() => {
@@ -194,7 +195,7 @@ const Home = () => {
 
   return (
     <div className="bg-gray-50 font-sans">
-  <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[70vh] flex items-center overflow-hidden">
+  <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
   {loading ? (
     <div className="absolute inset-0 bg-gray-300 animate-pulse">
       <div className="absolute inset-0 bg-black opacity-40" />
@@ -217,7 +218,6 @@ const Home = () => {
               backgroundImage: `url("${import.meta.env.VITE_BASE_URL_IMAGE}${banner.image}")`,
             }}
           >
-            <div className="absolute inset-0 bg-black opacity-40" />
           </div>
 
           <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
@@ -248,6 +248,7 @@ const Home = () => {
       <AppSection />
       <HomeWorkshop />
       <OurTrainers />
+      <Events/>
       <Certificate />
       <OurGraduates />
       <HomeBlog />
