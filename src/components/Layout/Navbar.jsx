@@ -780,26 +780,31 @@ const Navbar = () => {
     };
   }, [menuOpen]);
 
-  const fetchCourses = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/courses?status=1&limit=100&offset=0`
-      );
-      const fetchedCourses = res.data.data.map((course) => ({
+const fetchCourses = async () => {
+  setLoading(true);
+  setError(null);
+  try {
+    const res = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/courses?status=1&limit=100&offset=0`
+    );
+
+    const fetchedCourses = res.data.data
+      .filter((course) => course.category_id !== 4) // ✅ Exclude category 4
+      .map((course) => ({
         id: course.id,
         label: course.name,
         slug: course.slug || course.name.toLowerCase().replace(/\s+/g, "-"),
       }));
-      setCourses(fetchedCourses);
-    } catch (err) {
-      setError(err.message);
-      console.error("Error fetching courses:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+
+    setCourses(fetchedCourses);
+  } catch (err) {
+    setError(err.message);
+    console.error("Error fetching courses:", err);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   // ===== Desktop Dropdown Handlers =====
   const handleMouseEnterCourses = () => {

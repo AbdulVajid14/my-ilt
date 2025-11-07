@@ -105,7 +105,7 @@
 // export default Home;
 import React, { useState, useEffect } from "react";
 import OurCourses from "../components/Home/OurCourses";
-import BookTrail from "../components/Home/BookTrail";
+import PlacementHighlights from "../components/Home/PlacementHighlights";
 import StudyAbroad from "../components/Home/StudyAbroad";
 import AppSection from "../components/Home/AppSection";
 import OurTrainers from "../components/Home/OurTrainers";
@@ -243,7 +243,7 @@ const Home = () => {
       <TrainerSection />
       <LearningOption />
       <OurCourses />
-      <BookTrail />
+      <PlacementHighlights />
       <StudyAbroad />
       <AppSection />
       <HomeWorkshop />

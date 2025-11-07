@@ -632,6 +632,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import OurGraduates from "../components/Home/OurGraduates";
 import Instructor from "../components/CommonComponents/Instructor";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
+import PlacementHighlights from "../components/Home/PlacementHighlights";
 
 const digitalMarketingTools = [
   {
@@ -798,7 +799,7 @@ const CourseDetails = () => {
                 question: q,
                 answer: rawAnswers[i] || "",
               }))
-              .filter(faq => faq.question && faq.answer); // Only include valid FAQs
+              .filter((faq) => faq.question && faq.answer); // Only include valid FAQs
 
             const features = [
               {
@@ -812,7 +813,7 @@ const CourseDetails = () => {
                     })
                   : "Soon",
               },
-              { icon: <FaBook />, label: "Modules:", value: outcomes.length },
+              { icon: <FaBook />, label: "Modules:", value: found.modules },
               {
                 icon: <BiTimeFive />,
                 label: "Time:",
@@ -837,7 +838,9 @@ const CourseDetails = () => {
             const processedCourse = {
               title: found.name,
               bannerImage: found.image,
-              videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${found.image}`,
+              videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${
+                found.image
+              }`,
               overview: found.description,
               learnPoints,
               features,
@@ -848,6 +851,8 @@ const CourseDetails = () => {
               metaDescription: found.metaDescription,
               metaKeywords: found.metaKeywords,
               faqs,
+              rating: found.rating,
+              reviews: found.reviews,
             };
             setCourse(processedCourse);
           } else {
@@ -913,20 +918,24 @@ const CourseDetails = () => {
     <div className="mx-auto">
       {/* Hero Section */}
       <section
-        className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center justify-center"
-        style={{
-          backgroundImage: `url('/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg')`,
-        }}
-      >
-        <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-center px-4">
-          {course.title}
-        </h1>
-      </section>
+  className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center"
+  style={{
+    backgroundImage: `url('/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg')`,
+  }}
+>
+  <div className="max-w-7xl mx-auto w-full px-6">
+    <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
+      {course.title}
+    </h1>
+  </div>
+</section>
+
 
       {/* Trainer & Ratings + Overview & Query Form */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-6 lg:gap-10">
         {/* Left: Trainer + Overview + Video */}
         <div className="flex-1 space-y-4 sm:space-y-6 order-1 lg:order-1">
+          {/* Trainer & Dynamic Rating + Reviews */}
           <div className="flex items-center space-x-3 sm:space-x-4">
             <img
               src="/images/WhatsApp Image 2025-10-03 at 16.34.35_be4e0ab4.jpg"
@@ -936,19 +945,28 @@ const CourseDetails = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-sm font-medium text-gray-700 min-w-0">
               <span className="truncate">ILT Certified Trainer</span>
               <div className="flex items-center space-x-1 flex-shrink-0">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.49 6.91l6.561-.955L10 0l2.949 5.955 6.561.955-4.755 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
+                {/* Dynamic Stars */}
+                {[...Array(5)].map((_, i) => {
+                  const ratingValue = parseFloat(course.rating) || 4.9;
+                  return (
+                    <FaStar
+                      key={i}
+                      className={`${
+                        i < Math.round(ratingValue)
+                          ? "text-yellow-400"
+                          : "text-gray-300"
+                      } w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0`}
+                    />
+                  );
+                })}
                 <span className="text-gray-900 font-semibold ml-1 sm:ml-2 text-xs sm:text-sm">
-                  4.9/5
+                  {course.rating ? `${course.rating}/5` : "4.9/5"}
                 </span>
+                {course.reviews && (
+                  <span className="text-gray-500 text-xs sm:text-sm ml-1">
+                    ({course.reviews ? course.reviews : "150"} reviews)
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -1118,7 +1136,7 @@ const CourseDetails = () => {
       <Instructor />
 
       {/* Download ILT App Section */}
-      <section className="bg-black text-white p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-10 w-full">
+      {/* <section className="bg-black text-white p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-10 w-full">
         <div className="md:w-1/3 flex justify-center md:justify-center">
           <img
             src="/images/WhatsApp Image 2025-09-20 at 10.54.24_04457969.jpg"
@@ -1164,7 +1182,8 @@ const CourseDetails = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
+      <PlacementHighlights/>
 
       <OurGraduates />
 
@@ -1182,8 +1201,8 @@ const CourseDetails = () => {
               Have Questions? We've Got Answers.
             </motion.h2>
             <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12">
-              Here are some quick answers to help you choose the right course and
-              learning mode.
+              Here are some quick answers to help you choose the right course
+              and learning mode.
             </p>
 
             <div className="space-y-4 text-left">

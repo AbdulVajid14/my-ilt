@@ -50,6 +50,9 @@ function AppSection() {
         </div>
         <div className="hidden lg:block border-l border-gray-300 mx-4"></div>
         <div className="w-full lg:w-2/5 flex flex-col pt-4 lg:pt-0">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">
+            Your Classroom in Your Pocket !
+          </h2>
           <img src="/images/Group 40.png" alt="app" className="mb-4 h-40" />
 
           <div className="flex justify-start gap-4">

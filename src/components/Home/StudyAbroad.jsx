@@ -8,7 +8,7 @@ function StudyAbroad() {
 <section
   className="bg-black text-white py-12 sm:py-16 px-4 bg-cover bg-center"
   style={{
-    backgroundImage: "url('/images/Study Abroad Final.png')",
+    backgroundImage: "url('/images/Study Abroad.png')",
   }}
 >
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-14 px-4 md:px-8">

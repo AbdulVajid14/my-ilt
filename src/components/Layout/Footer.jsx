@@ -172,20 +172,23 @@ import axios from "axios";
 const Footer = () => {
   const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BASE_URL}/admin/Samples`)
-      .then((response) => {
-        if (response.data.success) {
-          const sortedCourses = response.data.data.slice(0, 6).map((c) => ({
+useEffect(() => {
+  axios
+    .get(`${import.meta.env.VITE_BASE_URL}/Courses`)
+    .then((response) => {
+      if (response.data.success) {
+        const filteredCourses = response.data.data
+          .filter((c) => c.category_id === 4) 
+          .map((c) => ({
             name: c.name,
             slug: c.name.toLowerCase().replace(/\s+/g, "-"),
           }));
-          setCourses(sortedCourses);
-        }
-      })
-      .catch((error) => console.error("Error fetching courses:", error));
-  }, []);
+
+        setCourses(filteredCourses);
+      }
+    })
+    .catch((error) => console.error("Error fetching courses:", error));
+}, []);
 
   return (
     <footer className="bg-green-700 text-white px-14 py-10 font-sans">
