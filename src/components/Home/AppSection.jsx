@@ -3,8 +3,8 @@ import React from "react";
 function AppSection() {
   return (
     <section className="bg-white py-12 sm:py-16 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch">
-        <div className="w-full lg:w-3/5 flex flex-col pr-0 lg:pr-8 pb-8 lg:pb-0">
+      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-stretch px-10">
+        <div className="w-full lg:w-[30%]flex flex-col pr-0 lg:pr-8 pb-8 lg:pb-0">
           <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
             <div className="flex-shrink-0">
               <img
@@ -40,7 +40,7 @@ function AppSection() {
                 "Backed by 20+ years of ILT expertise.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start">
-                  <span className="text-green-600 text-base sm:text-lg mr-2 mt-1 flex-shrink-0">
+                  <span className="text-green-600 text-lg sm:text-lg mr-2 mt-1 flex-shrink-0">
                     ✓
                   </span>
                   <p className="text-gray-700">{item}</p>
@@ -50,14 +50,14 @@ function AppSection() {
           </div>
         </div>
         <div className="hidden lg:block border-l border-gray-300 mx-4"></div>
-        <div className="w-full lg:w-2/5 flex flex-col pt-4 lg:pt-0">
+        <div className="w-full lg:w-[70%] flex flex-col pt-4 lg:pt-0">
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">
             India's First Digital Marketing Learning App
           </h2>
           <img
-            src="/images/App Design section.png"
+            src="/images/App Design Final.png"
             alt="app"
-            className="mb-4 h-40"
+            className="mb-4"
           />
 
           <div className="flex items-center justify-start gap-4">
