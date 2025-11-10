@@ -104,7 +104,7 @@ function OurCourses() {
         <div className="w-full lg:w-1/3 mt-8 lg:mt-0 lg:pl-8">
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6">
             Start with Digital Marketing, <br />
-            Grow with Python, Cybersecurity & Data Analytics
+            Grow with Python & Data Analytics
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {coursesRight.map((course, idx) => {

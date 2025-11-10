@@ -79,10 +79,10 @@ const ContactPage = () => {
               <p>
                 <span className="font-semibold text-gray-900">Phone: </span>
                 <a
-                  href="tel:+914844038845"
+                  href="tel:+919539070845"
                   className="hover:text-blue-500 transition"
                 >
-                  +91 484 4038845
+                  +91 95390 70845
                 </a>
               </p>
               <p>

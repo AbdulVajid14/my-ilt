@@ -21,7 +21,7 @@ const Questions = () => {
         `${import.meta.env.VITE_BASE_URL}/admin/faqs?status=1&limit=10&offset=0`
       );
       const fetchedFaqs = res.data.data || [];
-      setFaqs(fetchedFaqs.reverse());
+      setFaqs(fetchedFaqs);
     } catch (err) {
       setError(err.message);
       console.error("Error fetching FAQs:", err);

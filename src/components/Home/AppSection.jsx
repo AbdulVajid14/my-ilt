@@ -15,14 +15,15 @@ function AppSection() {
             </div>
             <div className="flex flex-col">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                Exclusive Job Site for ILT Students
+                Exclusive Job Portal for Digital Marketers
               </h2>
-              <p className="text-sm sm:text-base text-gray-700">
-                <span className="font-bold text-green-600">ILT offers</span> an
-                exclusive job portal designed for our students whether you study
-                online or offline. This platform connects learners directly with
-                hiring companies, ensuring a smoother transition from training
-                to career.
+              <p className="text-sm sm:text-lg text-gray-700 font-medium">
+                Internet Leads Training (ILT), Kerala's #1 Digital Marketing
+                Institute, provides expert training along with dedicated
+                placement support. Our exclusive job platform{" "}
+                <span className="font-bold text-green-600">iltjobs.com</span>
+                connects skilled digital marketers with top companies across
+                India and overseas.
               </p>
             </div>
           </div>
@@ -30,13 +31,13 @@ function AppSection() {
             <h3 className="font-bold text-base sm:text-lg mb-4 text-gray-900">
               Key Highlights:
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-lg">
               {[
-                "Dedicated job site only for ILT students",
-                "Verified job postings from partner companies",
-                "Placement support with resume & interview prep",
-                "Access for both online & offline learners",
-                "Real success stories from ILT graduates",
+                "1000+ verified digital marketing jobs, updated regularly.",
+                "Trusted by top employers seeking skilled digital marketers.",
+                "Filter jobs by country, company, and role.",
+                "Exclusive for ILT students and alumni.",
+                "Backed by 20+ years of ILT expertise.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start">
                   <span className="text-green-600 text-base sm:text-lg mr-2 mt-1 flex-shrink-0">
@@ -51,11 +52,17 @@ function AppSection() {
         <div className="hidden lg:block border-l border-gray-300 mx-4"></div>
         <div className="w-full lg:w-2/5 flex flex-col pt-4 lg:pt-0">
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">
-            Your Classroom in Your Pocket !
+            India's First Digital Marketing Learning App
           </h2>
-          <img src="/images/Group 40.png" alt="app" className="mb-4 h-40" />
+          <img
+            src="/images/App Design section.png"
+            alt="app"
+            className="mb-4 h-40"
+          />
 
-          <div className="flex justify-start gap-4">
+          <div className="flex items-center justify-start gap-4">
+            <p className="text-xl font-semibold">Download Now</p>
+
             <a
               href="https://play.google.com/store/apps/details?id=com.mindlabs.ilt"
               target="_blank"
@@ -64,7 +71,7 @@ function AppSection() {
               <img
                 src="/images/WhatsApp Image 2025-09-20 at 10.54.36_6c0650ca.jpg"
                 alt="second"
-                className="object-contain hover:opacity-90 transition"
+                className="h-15 object-contain hover:opacity-90 transition"
               />
             </a>
 
@@ -76,7 +83,7 @@ function AppSection() {
               <img
                 src="/images/WhatsApp Image 2025-09-20 at 10.54.36_d69e2bc6.jpg"
                 alt="third"
-                className="object-contain hover:opacity-90 transition"
+                className="h-15 object-contain hover:opacity-90 transition"
               />
             </a>
           </div>
