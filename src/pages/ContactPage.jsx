@@ -47,13 +47,12 @@ const ContactPage = () => {
             "url('/images/WhatsApp Image 2025-10-08 at 17.29.14_a33a28ea.jpg')",
         }}
       >
-        <div className="absolute inset-0 opacity-60"></div>
+       <div className="relative h-full flex flex-col justify-center items-start text-white pl-4 sm:pl-12 lg:pl-24">
+  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+    Contact Us
+  </h1>
+</div>
 
-        <div className="relative h-full flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
-            Contact Us
-          </h1>
-        </div>
       </div>
       <BookTrail />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">

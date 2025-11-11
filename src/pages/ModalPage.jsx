@@ -203,9 +203,15 @@ const handleModeChange = (modeId) => {
           height: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-white text-4xl font-bold">Modes of Training</h1>
-        </div>
+       <div
+  className="absolute inset-0 flex items-center justify-start pl-4 sm:pl-12 lg:pl-24"
+>
+  <h1 className="text-white text-4xl font-bold">
+    Modes of Training
+  </h1>
+</div>
+
+
       </div>
 
       {/* ===== Content ===== */}

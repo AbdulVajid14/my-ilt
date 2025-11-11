@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import QueriesForm from "../components/CommonComponents/QueriesForm";
@@ -329,41 +328,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
-import { FaCalendarAlt ,FaRupeeSign} from "react-icons/fa";
+import { FaCalendarAlt, FaRupeeSign } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import OurGraduates from "../components/Home/OurGraduates";
 import Questions from "../components/Home/Questions";
 
 const Courses = () => {
-       useEffect(() => {
-      document.title = "SEO Training, Digital Marketing Class, Pay Per Click Certification & Social Media Class in Cochin, Kerala";
-      const metaDescription =
-        document.querySelector("meta[name='description']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "description";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaDescription.setAttribute(
-        "content",
-        "ILT offers foundation class for digital marketing, advanced digital marketing training, social media marketing, Email Marketing class, Affiliate marketing training, Blogging Training & Google Analytics Class in Cochin, Kerala."
-      );
-      const metaKeywords =
-        document.querySelector("meta[name='keywords']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "keywords";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaKeywords.setAttribute(
-        "content",
-        "Training Courses"
-      );
-    }, []);
+  useEffect(() => {
+    document.title =
+      "SEO Training, Digital Marketing Class, Pay Per Click Certification & Social Media Class in Cochin, Kerala";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "ILT offers foundation class for digital marketing, advanced digital marketing training, social media marketing, Email Marketing class, Affiliate marketing training, Blogging Training & Google Analytics Class in Cochin, Kerala."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute("content", "Training Courses");
+  }, []);
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -414,9 +411,10 @@ const Courses = () => {
           c.description.length > 100
             ? c.description.slice(0, 100) + "..."
             : c.description,
-        modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
+        modules: c.program_modules.split(".\r\n").filter((s) => s.trim())
+          .length,
         duration: `${c.duration}`,
-        price:c.price.toLocaleString()
+        price: c.price.toLocaleString(),
       })),
     searchTerm
   );
@@ -433,9 +431,10 @@ const Courses = () => {
           c.description.length > 100
             ? c.description.slice(0, 100) + "..."
             : c.description,
-        modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
+        modules: c.program_modules.split(".\r\n").filter((s) => s.trim())
+          .length,
         duration: `${c.duration}`,
-        price:c.price.toLocaleString()
+        price: c.price.toLocaleString(),
       })),
     searchTerm
   );
@@ -452,9 +451,10 @@ const Courses = () => {
           c.description.length > 100
             ? c.description.slice(0, 100) + "..."
             : c.description,
-        modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
+        modules: c.program_modules.split(".\r\n").filter((s) => s.trim())
+          .length,
         duration: `${c.duration}`,
-        price:c.price.toLocaleString()
+        price: c.price.toLocaleString(),
       })),
     searchTerm
   );
@@ -463,12 +463,12 @@ const Courses = () => {
     <div className="w-full">
       {/* Banner Section */}
       <div
-        className="w-full h-[400px] flex items-center justify-center bg-center bg-cover relative"
+        className="w-full h-[400px] flex items-center justify-start bg-center bg-cover relative"
         style={{
           backgroundImage: `url('/images/WhatsApp Image 2025-10-09 at 12.16.37_d35ed120.jpg')`,
         }}
       >
-        <h1 className="text-white text-4xl font-bold drop-shadow-lg">
+        <h1 className="text-white text-4xl font-bold drop-shadow-lg pl-4 sm:pl-12 lg:pl-24">
           All Courses
         </h1>
       </div>
@@ -476,41 +476,71 @@ const Courses = () => {
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-6 py-12 space-y-14">
         {/* Search Section */}
-        <section className="text-center max-w-xl mx-auto space-y-3">
-          <h2 className="text-2xl font-semibold">
+        <section className="text-center max-w-xl mx-auto space-y-4 py-6">
+          <h2 className="text-2xl font-semibold text-gray-800">
             Find the Right Course for You
           </h2>
           <p className="text-gray-600">
             Explore ILT’s expert-led programs and choose the one that fits your
             career goals.
           </p>
+
           <form
-            className="flex items-center border border-gray-300 rounded-md overflow-hidden max-w-md mx-auto"
+            className="relative flex items-center max-w-md mx-auto"
             onSubmit={(e) => e.preventDefault()}
           >
+            {/* Search Icon */}
+            <span className="absolute left-3 text-green-600 pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </span>
+
+            {/* Input Field */}
             <input
               type="text"
-              placeholder="Search course"
-              className="flex-grow py-2 px-4 focus:outline-none"
+              placeholder="Search Courses"
+              className="w-full py-3 pl-10 pr-12 text-gray-700 bg-white border-2 border-green-500 rounded-full focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-green-600 transition-all duration-200 shadow-sm"
               value={searchTerm}
               onChange={handleSearchChange}
             />
+
+            {/* Clear Button (appears when there's input) */}
             {searchTerm && (
               <button
                 type="button"
-                className="px-3 text-gray-600 hover:text-gray-800"
+                className="absolute right-2 p-1.5 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-full transition-colors duration-150"
                 onClick={handleClearSearch}
                 title="Clear search"
+                aria-label="Clear search"
               >
-                ✕
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
             )}
-            <button
-              type="submit"
-              className="bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2"
-            >
-              Search
-            </button>
           </form>
         </section>
 
@@ -518,7 +548,9 @@ const Courses = () => {
         <section className="px-4 sm:px-8 py-12">
           <h3 className="text-xl font-semibold mb-4">Primary Course</h3>
           {primaryCourses.length === 0 && searchTerm && (
-            <p className="text-gray-600 text-center">No primary courses found.</p>
+            <p className="text-gray-600 text-center">
+              No primary courses found.
+            </p>
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {primaryCourses.map((course, idx) => {
@@ -533,7 +565,7 @@ const Courses = () => {
                     alt={course.title}
                     className="w-full h-56 sm:h-64 md:h-100 object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-50 bg-gradient-to-t from-black/100 to-transparent"></div>
                   <div className="absolute inset-0 p-5 flex flex-col justify-end text-white z-10">
                     <h4 className="text-lg font-bold mb-1">{course.title}</h4>
                     <p className="text-xs sm:text-sm leading-snug line-clamp-2">
@@ -590,7 +622,7 @@ const Courses = () => {
                   <div className="flex justify-between text-gray-700 text-sm mb-4">
                     <span className="flex items-center gap-2">
                       <FaRupeeSign className="text-green-600" />
-                      {course.price} 
+                      {course.price}
                     </span>
                     <span className="flex items-center gap-2">
                       <FaCalendarAlt className="text-green-600" />
@@ -616,9 +648,7 @@ const Courses = () => {
         <section className="px-4 sm:px-8 py-12">
           <h3 className="text-xl font-semibold mb-6">
             Study{" "}
-            <span className="text-green-600">
-              Digital Marketing Abroad
-            </span>
+            <span className="text-green-600">Digital Marketing Abroad</span>
           </h3>
           {abroadCourses.length === 0 && searchTerm && (
             <p className="text-gray-600 text-center">
@@ -638,7 +668,7 @@ const Courses = () => {
                     alt={course.title}
                     className="w-full h-56 sm:h-64 md:h-100 object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-50 bg-gradient-to-t from-black/100 to-transparent"></div>
                   <div className="absolute inset-0 p-5 flex flex-col justify-end text-white z-10">
                     <h4 className="text-lg font-bold mb-1">{course.title}</h4>
                     <p className="text-xs sm:text-sm leading-snug line-clamp-2">

@@ -1,4 +1,3 @@
-
 // import React from "react";
 // import { useParams } from "react-router-dom";
 // import { FaStar, FaUsers, FaTrophy } from "react-icons/fa";
@@ -211,7 +210,9 @@ const TrainersDetails = () => {
     setError(null);
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/admin/trainers?status=1&limit=10&offset=0`
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/admin/trainers?status=1&limit=10&offset=0`
       );
       const trainers = res.data.data.map((t) => ({
         ...t,
@@ -231,33 +232,30 @@ const TrainersDetails = () => {
     }
   };
 
-      useEffect(() => {
-        if (!trainer) return;
-        document.title = trainer.metaTitle ;
-        const metaDescription =
-          document.querySelector("meta[name='description']") ||
-          (() => {
-            const meta = document.createElement("meta");
-            meta.name = "description";
-            document.head.appendChild(meta);
-            return meta;
-          })();
-    
-        metaDescription.setAttribute(
-          "content",
-          trainer.metaDescription
-        );
-        const metaKeywords =
-          document.querySelector("meta[name='keywords']") ||
-          (() => {
-            const meta = document.createElement("meta");
-            meta.name = "keywords";
-            document.head.appendChild(meta);
-            return meta;
-          })();
-    
-        metaKeywords.setAttribute("content", trainer.metaKeywords || "");
-      }, [trainer]);
+  useEffect(() => {
+    if (!trainer) return;
+    document.title = trainer.metaTitle;
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute("content", trainer.metaDescription);
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute("content", trainer.metaKeywords || "");
+  }, [trainer]);
 
   if (loading) {
     return (
@@ -304,8 +302,10 @@ const TrainersDetails = () => {
           height: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-opacity-60 flex items-center justify-center">
-          <h1 className="text-white text-4xl md:text-5xl font-bold">Trainers</h1>
+        <div className="absolute inset-0 bg-opacity-60 flex items-center justify-start px-4 sm:px-12 lg:px-24">
+          <h1 className="text-white text-4xl md:text-5xl font-bold">
+            Trainers
+          </h1>
         </div>
       </section>
 
@@ -324,7 +324,9 @@ const TrainersDetails = () => {
           <p className="text-lg font-semibold">Hi, I am</p>
           <h2 className="text-3xl font-extrabold mb-1">{trainer.name}</h2>
           <p className="text-gray-500 mb-6">{trainer.post}</p>
-          <p className="mb-8 text-gray-800 leading-relaxed">{trainer.details}</p>
+          <p className="mb-8 text-gray-800 leading-relaxed">
+            {trainer.details}
+          </p>
 
           {/* Stats */}
           <div className="w-full flex flex-wrap md:flex-nowrap justify-between items-center bg-white border rounded-xl shadow-sm py-6 px-8 gap-6">
@@ -337,7 +339,9 @@ const TrainersDetails = () => {
                   {item.icon}
                 </div>
                 <div className="text-center md:text-left">
-                  <p className="font-bold text-xl text-gray-900">{item.value}</p>
+                  <p className="font-bold text-xl text-gray-900">
+                    {item.value}
+                  </p>
                   <p className="text-gray-700 text-sm">{item.label}</p>
                 </div>
               </div>

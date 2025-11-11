@@ -95,14 +95,15 @@ const WorkshopDetails = () => {
     <div className="mx-auto">
       {/* Header Section */}
       <div
-        className="relative bg-center bg-cover h-64 sm:h-72 md:h-120 flex items-center justify-center mb-12"
+        className="relative bg-center bg-cover h-64 sm:h-72 md:h-120 flex items-center justify-start mb-12"
         style={{
           backgroundImage: `url('/images/WhatsApp Image 2025-10-08 at 10.27.53_65c77a16.jpg')`,
         }}
       >
-        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold bg-opacity-50 px-6 py-3 rounded">
-          {workshop.title}
-        </h1>
+        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold bg-opacity-50 px-4 sm:px-12 lg:px-24 py-3 rounded text-left">
+  {workshop.title}
+</h1>
+
       </div>
 
       {/* About the Workshop */}

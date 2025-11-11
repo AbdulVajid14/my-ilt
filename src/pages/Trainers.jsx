@@ -71,15 +71,16 @@ const Trainers = () => {
       <Toaster position="top-right" richColors />
       {/* ===== Banner Section - Full Width ===== */}
       <section
-        className="w-full h-64 md:h-100 bg-cover bg-center flex items-center justify-center"
+        className="w-full h-64 md:h-100 bg-cover bg-center flex items-center justify-start"
         style={{
           backgroundImage:
             "url('/images/WhatsApp Image 2025-10-09 at 09.28.15_0ca754ec.jpg')",
         }}
       >
-        <h1 className="text-white text-3xl md:text-5xl font-bold px-4 py-2 rounded">
-          Join ILT as a Certified Trainer
-        </h1>
+       <h1 className="text-white text-3xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 py-2 rounded">
+  Join ILT as a Certified Trainer
+</h1>
+
       </section>
 
       {/* ===== Content Section ===== */}

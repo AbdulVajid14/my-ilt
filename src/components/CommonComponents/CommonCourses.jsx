@@ -23,6 +23,7 @@ const CommonCourses = () => {
               price:c.price.toLocaleString()
             }));
           setCourses(primaryCourses);
+          console.log("rhwerh",primaryCourses)
         }
       })
       .catch((error) => console.error("Error fetching courses:", error));
@@ -50,7 +51,7 @@ const CommonCourses = () => {
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
+              <div className="absolute inset-x-0 bottom-0 h-50 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
 
               {/* Text Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
@@ -67,7 +68,7 @@ const CommonCourses = () => {
                   </Link>
 
                   <div className="flex items-center space-x-2 text-[11px] sm:text-lg">
-                    <span>₹ {course.prices}</span>
+                    <span>₹ {course.price}</span>
                     <span>{course.duration}</span>
                   </div>
                 </div>

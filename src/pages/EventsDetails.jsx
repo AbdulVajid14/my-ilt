@@ -333,15 +333,16 @@ const EventsDetails = () => {
     <div className="w-full min-h-screen bg-white text-black font-sans">
       {/* Hero */}
       <section
-        className="relative w-full h-72 bg-center bg-cover flex items-center justify-center"
+        className="relative w-full h-72 bg-center bg-cover flex items-center justify-start  "
         style={{
           backgroundImage: heroImage ? `url('${heroImage}')` : "none",
           backgroundColor: heroImage ? "transparent" : "#e5e7eb",
         }}
       >
-        <h1 className="relative text-white text-4xl md:text-5xl font-bold text-center px-4 max-w-5xl">
-          {data.name}
-        </h1>
+     <h1 className="relative text-white text-4xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 max-w-5xl text-left">
+  {data.name}
+</h1>
+
       </section>
 
       {/* Content */}

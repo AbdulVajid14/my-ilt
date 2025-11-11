@@ -61,21 +61,22 @@ const Testimonial = () => {
   return (
     <div className="mx-auto">
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="w-full h-[300px] sm:h-[400px] flex items-center justify-center text-white text-3xl sm:text-4xl font-bold text-center"
-        style={{
-          backgroundImage:
-            'url("/images/WhatsApp Image 2025-10-07 at 16.33.40_5fe85d1d.jpg")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {graduate.name} works as a <br /> {graduate.post} at {graduate.company}
-      </motion.div>
+  <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  className="w-full h-[300px] sm:h-[400px] flex items-center justify-start text-white text-3xl sm:text-4xl font-bold text-left px-4 sm:px-12 lg:px-24"
+  style={{
+    backgroundImage:
+      'url("/images/WhatsApp Image 2025-10-07 at 16.33.40_5fe85d1d.jpg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {graduate.name} works as a <br /> {graduate.post} at {graduate.company}
+</motion.div>
+
 
       {/* Body */}
       <div className="max-w-7xl mx-auto px-4 mt-12">

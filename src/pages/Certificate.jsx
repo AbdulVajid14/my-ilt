@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useEffect } from "react";
 import { FaDotCircle, FaCheck } from "react-icons/fa";
@@ -7,50 +6,47 @@ import Instructor from "../components/CommonComponents/Instructor";
 import Questions from "../components/Home/Questions";
 
 const Certificate = () => {
-       useEffect(() => {
-      document.title = "Google Adwords & Analytics Certification Cochin, Kerala";
-      const metaDescription =
-        document.querySelector("meta[name='description']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "description";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaDescription.setAttribute(
-        "content",
-        "Internet Leads Training provides certification in Google Adwords and Google Analytics. Join for SEO Training at  ILT."
-      );
-      const metaKeywords =
-        document.querySelector("meta[name='keywords']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "keywords";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaKeywords.setAttribute(
-        "content",
-        'Certification'
-      );
-    }, []);
+  useEffect(() => {
+    document.title = "Google Adwords & Analytics Certification Cochin, Kerala";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Internet Leads Training provides certification in Google Adwords and Google Analytics. Join for SEO Training at  ILT."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute("content", "Certification");
+  }, []);
   return (
     <div className="w-full">
       {/* Banner Section */}
       <div
-        className="relative w-full h-[400px] bg-cover bg-center flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-07 at 16.35.15_11807fe8.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-opacity-40"></div>
-        <h1 className="relative text-white text-4xl md:text-5xl font-bold">
-          Certifications
-        </h1>
-      </div>
+  className="relative w-full h-[400px] bg-cover bg-center flex items-center justify-start"
+  style={{
+    backgroundImage:
+      "url('/images/WhatsApp Image 2025-10-07 at 16.35.15_11807fe8.jpg')",
+  }}
+>
+  <h1 className="relative text-white text-4xl md:text-5xl font-bold pl-4 sm:pl-12 lg:pl-24">
+    Certifications
+  </h1>
+</div>
+
 
       {/* Google Analytics Certification */}
       <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
@@ -141,7 +137,7 @@ const Certificate = () => {
               profile with a globally recognized certification
             </li>
           </ul>
-            <div className="flex justify-start md:ml-10 mt-10">
+          <div className="flex justify-start md:ml-10 mt-10">
             <img
               src="/images/Google Ads.png"
               alt="Google Ads Certificate"
@@ -156,8 +152,8 @@ const Certificate = () => {
           <QueriesForm />
         </div>
       </section>
-      <Instructor/>
-      <Questions/>
+      <Instructor />
+      <Questions />
     </div>
   );
 };

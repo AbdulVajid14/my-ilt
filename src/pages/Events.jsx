@@ -128,18 +128,19 @@ function Events() {
   return (
     <div className="w-full">
       {/* Banner */}
-      <section className="relative w-full h-72 md:h-96 flex items-center justify-center overflow-hidden bg-gray-900 text-white">
+      <section className="relative w-full h-72 md:h-96 flex items-center justify-start overflow-hidden bg-gray-900 text-white">
         <img
           src="/images/Frame 580.png"
           alt="Events Banner"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         />
-        <div className="relative z-10 text-center px-6">
-          <h1 className="text-3xl md:text-5xl font-bold mb-3">Our Events</h1>
-          <p className="text-base md:text-lg max-w-2xl mx-auto text-gray-200">
-            Explore our recent celebrations, moments, and community highlights.
-          </p>
-        </div>
+        <div className="relative z-10 text-left px-4 sm:px-12 lg:px-24">
+  <h1 className="text-3xl md:text-5xl font-bold mb-3">Our Events</h1>
+  <p className="text-base md:text-lg max-w-2xl text-gray-200">
+    Explore our recent celebrations, moments, and community highlights.
+  </p>
+</div>
+
       </section>
 
       {/* List */}

@@ -73,7 +73,7 @@ function OurCourses() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-50 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
                   <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end text-white z-10">
                     <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
                       {course.title}

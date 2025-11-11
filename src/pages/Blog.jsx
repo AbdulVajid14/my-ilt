@@ -95,9 +95,10 @@ const Blog = () => {
           alt="Blogs"
           className="w-full h-full object-cover"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl sm:text-3xl md:text-5xl font-extrabold bg-opacity-40 text-center px-4">
-          All Blogs
-        </h1>
+       <h1 className="absolute inset-0 flex items-center justify-start text-white text-2xl sm:text-3xl md:text-5xl font-extrabold bg-opacity-40 px-4 sm:px-12 lg:px-24">
+  All Blogs
+</h1>
+
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

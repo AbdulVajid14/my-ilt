@@ -44,15 +44,17 @@ const About = () => {
     <div>
       {/* Hero Section - Full Width */}
       <div
-        className="relative w-full h-64 sm:h-96 flex items-center justify-center bg-center bg-cover"
+        className="relative w-full h-64 sm:h-96 flex items-center justify-start bg-center bg-cover"
         style={{
           backgroundImage:
             "url('/images/WhatsApp Image 2025-10-03 at 16.09.27_906d37b7.jpg')",
         }}
       >
-        <h1 className="text-white text-4xl sm:text-5xl font-extrabold drop-shadow-lg">
-          About Us
-        </h1>
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8">
+    <h1 className="text-white text-4xl sm:text-5xl font-extrabold drop-shadow-lg">
+      About Us
+    </h1>
+  </div>
       </div>
 
       {/* Page Content - inside container */}

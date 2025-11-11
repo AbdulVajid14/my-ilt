@@ -132,16 +132,17 @@ function Workshop() {
     <div className="w-full">
       {/* Banner */}
       <section
-        className="w-full bg-center bg-cover relative flex items-center justify-center"
+        className="w-full bg-center bg-cover relative flex items-center justify-start"
         style={{
           backgroundImage:
             "url('/images/WhatsApp Image 2025-10-08 at 10.26.04_33022baf.jpg')",
           height: "400px",
         }}
       >
-        <h1 className="text-white font-extrabold text-5xl md:text-6xl drop-shadow-lg">
-          Workshops
-        </h1>
+        <h1 className="text-white font-extrabold text-5xl md:text-6xl drop-shadow-lg pl-4 sm:pl-12 lg:pl-24">
+  Workshops
+</h1>
+
       </section>
 
       {/* Content wrapper */}
