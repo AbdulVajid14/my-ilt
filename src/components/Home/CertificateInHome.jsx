@@ -31,13 +31,16 @@ function Certificate() {
   const certificates = [
     "/images/Google Ads.png",
     "/images/Google Analytics.png",
-    "/images/Google Ads.png",
+    "/images/certficate-1.png",
+    "/images/certficate-2.png",
+    "/images/certficate-3.png",
+    "/images/certficate-4.png",
+     "/images/Google Ads.png",
     "/images/Google Analytics.png",
-    // Duplicate for seamless loop
-    "/images/Google Ads.png",
-    "/images/Google Analytics.png",
-    "/images/Google Ads.png",
-    "/images/Google Analytics.png",
+    "/images/certficate-1.png",
+    "/images/certficate-2.png",
+    "/images/certficate-3.png",
+    "/images/certficate-4.png",
   ];
 
   return (
@@ -49,7 +52,7 @@ function Certificate() {
       </h2>
 
       {/* 700px container */}
-      <div className="max-w-[700px] mx-auto overflow-hidden">
+      <div className="max-w-[1300px] mx-auto overflow-hidden">
         <motion.div
           className="flex gap-4 sm:gap-6 md:gap-8"
           animate={{ x: [0, "-100%"] }}
@@ -67,7 +70,7 @@ function Certificate() {
               key={idx}
               src={src}
               alt="Certification"
-              className="h-16 sm:h-20 object-contain flex-shrink-0"
+              className="h-20 sm:h-30 object-contain flex-shrink-0"
             />
           ))}
         </motion.div>

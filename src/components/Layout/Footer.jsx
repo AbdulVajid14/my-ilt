@@ -26,7 +26,7 @@ const Footer = () => {
             "Python Full Stack Developer",
             "Business Analytics",
             "Data Analytics",
-            "Digital Marketing In-depth",
+            "Best Digital Marketing Course & Institute in Kochi, Kerala",
             "Core Python"
           ];
 
@@ -106,7 +106,7 @@ const Footer = () => {
         </div>
 
         <div className="flex-1 min-w-[140px] mb-10">
-          <h4 className="font-bold text-base mb-5">New Courses</h4>
+          <h4 className="font-bold text-base mb-5">Career Mastery</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             {newCourses.length > 0 ? (
               newCourses.map((course, idx) => (

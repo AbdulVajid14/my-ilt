@@ -184,7 +184,7 @@ const CourseDetails = () => {
                 question: q,
                 answer: rawAnswers[i] || "",
               }))
-              .filter((faq) => faq.question && faq.answer); 
+              .filter((faq) => faq.question && faq.answer);
 
             const features = [
               {
@@ -303,24 +303,193 @@ const CourseDetails = () => {
     <div className="mx-auto">
       {/* Hero Section */}
       <section
-  className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center"
-  style={{
-    backgroundImage: `url('/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg')`,
-  }}
->
-  <div className="max-w-7xl mx-auto w-full px-6">
-    <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
-      {course.title}
-    </h1>
-  </div>
-</section>
+        className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center"
+        style={{
+          backgroundImage: `url('/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg')`,
+        }}
+      >
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
+            {course.title}
+          </h1>
+        </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10">
+        {/* Left Column */}
+        <div className="flex-1 space-y-8 lg:pr-6 order-1">
+          {/* Trainer Info */}
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <img
+              src="/images/WhatsApp Image 2025-10-09 at 09.28.17_89e65d6b.jpg"
+              alt="Trainer"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover flex-shrink-0"
+            />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-sm font-medium text-gray-700 min-w-0">
+              <span className="truncate">ILT Certified Trainer</span>
+              <div className="flex items-center space-x-1 flex-shrink-0">
+                {[...Array(5)].map((_, i) => {
+                  const ratingValue = parseFloat(course.rating) || 4.9;
+                  return (
+                    <FaStar
+                      key={i}
+                      className={`${
+                        i < Math.round(ratingValue)
+                          ? "text-yellow-400"
+                          : "text-gray-300"
+                      } w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0`}
+                    />
+                  );
+                })}
+                <span className="text-gray-900 font-semibold ml-1 sm:ml-2 text-xs sm:text-sm">
+                  {course.rating ? `${course.rating}/5` : "4.9/5"}
+                </span>
+                {course.reviews && (
+                  <span className="text-gray-500 text-xs sm:text-sm ml-1">
+                    ({course.reviews ? course.reviews : "150"} reviews)
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
 
+          {/* Course Overview */}
+          <div className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
+              Course Overview
+            </h2>
+            <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+              {course.overview}
+            </p>
+          </div>
 
-      {/* Trainer & Ratings + Overview & Query Form */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-6 lg:gap-10">
-        {/* Left: Trainer + Overview + Video */}
+          {/* Video/Image */}
+          <div className="relative w-full aspect-video max-w-full rounded-lg overflow-hidden cursor-pointer">
+            <img
+              src={course.videoImage}
+              alt="Course Presentation"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* What You'll Learn */}
+          <div className="space-y-4 sm:space-y-5">
+            <h2 className="text-2xl sm:text-3xl font-semibold">
+              What You’ll Learn
+            </h2>
+            <p className="text-gray-700 text-base sm:text-lg">
+              By the end of this course, you will be able to:
+            </p>
+
+            <ul className="space-y-3 sm:space-y-4">
+              {course.learnPoints.map((text, index) => (
+                <li
+                  key={index}
+                  className="flex items-start space-x-3 sm:space-x-3"
+                >
+                  <FaCheck className="text-green-600 mt-1 flex-shrink-0 text-lg sm:text-xl" />
+                  <span className="font-semibold text-gray-800 text-sm sm:text-base leading-relaxed">
+                    {text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Details / Certification */}
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">
+              Details
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-lg leading-relaxed max-w-4xl">
+              {course.certificationText}
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2">
+          <QueriesForm />
+          <div className="bg-gray-50 rounded-lg p-4 sm:p-6 flex flex-col items-center text-center space-y-4">
+            <img
+              src="/images/CEO Pic.png"
+              alt="CEO"
+              className="w-60 h-55 sm:w-80 sm:h-70 object-cover rounded-lg"
+            />
+            <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
+              {[
+                "20+ Years Experience",
+                "MBA with Digital Marketing London",
+                "Ex Digital Marketing Manager Jet Airways",
+                "50 Cr Ad Spend on Digital",
+              ].map((point, index) => (
+                <li key={index} className="flex items-start space-x-2">
+                  <FaCheck className="text-green-600 mt-1 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* <div className="bg-gray-50 rounded-lg p-4 sm:p-6 flex flex-col items-center text-center space-y-4">
+            <img
+              src="/images/CEO Pic.png"
+              alt="CEO"
+              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover"
+            />
+            <h3 className="text-lg sm:text-xl font-semibold">
+            Founder & Leader - Internet Leads Training (ILT)
+            </h3>
+            <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
+              {[
+                "20+ Years Experience",
+                "MBA with Digital Marketing London",
+                "Ex Digital Marketing Manager Jet Airways",
+                "50 Cr Ad Spend on Digital",
+              ].map((point, index) => (
+                <li key={index} className="flex items-start space-x-2">
+                  <FaCheck className="text-green-600 mt-1 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div> */}
+          <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md bg-gray-50">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+              Course Features
+            </h3>
+
+            <ul className="space-y-3 sm:space-y-4 text-gray-800">
+              {course.features
+                .filter(
+                  ({ value }) =>
+                    value != null && value !== "" && value !== "Soon"
+                )
+                .map(({ icon, label, value }) => (
+                  <li
+                    key={label}
+                    className="flex items-center justify-between space-x-2 sm:space-x-3"
+                  >
+                    <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+                      <span className="text-green-600 text-lg sm:text-xl flex-shrink-0">
+                        {icon}
+                      </span>
+                      <span className="font-semibold text-sm sm:text-base truncate">
+                        {label}
+                      </span>
+                    </div>
+
+                    <span className="text-sm sm:text-base text-right min-w-0 truncate">
+                      {value}
+                    </span>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-6 lg:gap-10">
         <div className="flex-1 space-y-4 sm:space-y-6 order-1 lg:order-1">
-          {/* Trainer & Dynamic Rating + Reviews */}
           <div className="flex items-center space-x-3 sm:space-x-4">
             <img
               src="/images/WhatsApp Image 2025-10-03 at 16.34.35_be4e0ab4.jpg"
@@ -330,7 +499,6 @@ const CourseDetails = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-sm font-medium text-gray-700 min-w-0">
               <span className="truncate">ILT Certified Trainer</span>
               <div className="flex items-center space-x-1 flex-shrink-0">
-                {/* Dynamic Stars */}
                 {[...Array(5)].map((_, i) => {
                   const ratingValue = parseFloat(course.rating) || 4.9;
                   return (
@@ -374,15 +542,13 @@ const CourseDetails = () => {
           </div>
         </div>
 
-        {/* Right: Query Form */}
         <div className="lg:w-[35%] w-full flex-shrink-0 order-2 lg:order-2">
           <QueriesForm />
+          <img src="/images/CEO Pic.png" alt="" />
         </div>
-      </section>
+      </section> */}
 
-      {/* What You'll Learn & Course Feature */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
-        {/* Left side - What You'll Learn */}
+      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
         <div className="flex-1 space-y-4 sm:space-y-5 order-2 lg:order-1">
           <h2 className="text-2xl sm:text-3xl font-semibold">
             What You’ll Learn
@@ -406,7 +572,6 @@ const CourseDetails = () => {
           </ul>
         </div>
 
-        {/* Right side - Course Features */}
         <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md order-1 lg:order-2">
           <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
             Course Features
@@ -438,10 +603,9 @@ const CourseDetails = () => {
               ))}
           </ul>
         </div>
-      </section>
+      </section> */}
 
-      {/* Certification */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
           <h2 className="text-2xl sm:text-3xl font-semibold">Details</h2>
         </div>
@@ -449,7 +613,7 @@ const CourseDetails = () => {
         <p className="text-gray-700 text-sm sm:text-lg leading-relaxed max-w-4xl">
           {course.certificationText}
         </p>
-      </section>
+      </section> */}
 
       {/* Weekly Course Schedule & Career Opportunities */}
       <section className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12">
@@ -520,55 +684,7 @@ const CourseDetails = () => {
 
       <Instructor />
 
-      {/* Download ILT App Section */}
-      {/* <section className="bg-black text-white p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-10 w-full">
-        <div className="md:w-1/3 flex justify-center md:justify-center">
-          <img
-            src="/images/WhatsApp Image 2025-09-20 at 10.54.24_04457969.jpg"
-            alt="Person with laptop"
-            className="rounded-full object-cover w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80"
-          />
-        </div>
-        <div className="md:w-2/3 space-y-4 sm:space-y-6 text-center md:text-left">
-          <h2 className="text-2xl sm:text-3xl font-bold">
-            Download the <span className="text-green-500">ILT App</span>
-          </h2>
-          <p className="text-gray-300 max-w-xl mx-auto md:mx-0 text-sm sm:text-base">
-            Learn anywhere, anytime! Access courses, assignments, and resources
-            on the go with the ILT mobile app — available on Play Store and App
-            Store.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-6">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.mindlabs.ilt"
-              className="inline-block"
-              aria-label="Get it on Google Play"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                alt="Get it on Google Play"
-                className="h-10 sm:h-12"
-              />
-            </a>
-            <a
-              href="https://apps.apple.com/in/app/internet-leads-training-ilt/id1548244062"
-              className="inline-block"
-              aria-label="Download on the App Store"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                alt="Download on the App Store"
-                className="h-10 sm:h-12"
-              />
-            </a>
-          </div>
-        </div>
-      </section> */}
-      <PlacementHighlights/>
+      <PlacementHighlights />
 
       <OurGraduates />
 
