@@ -1,7 +1,6 @@
-
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
 import Questions from "../components/Home/Questions";
 import { motion } from "framer-motion";
@@ -22,7 +21,9 @@ const Testimonial = () => {
     setError(null);
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/admin/graduates?status=1&limit=10&offset=0`
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/admin/graduates?status=1&limit=10&offset=0`
       );
       const graduates = res.data.data.map((g) => ({
         ...g,
@@ -61,22 +62,21 @@ const Testimonial = () => {
   return (
     <div className="mx-auto">
       {/* Header */}
-  <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.5 }}
-  className="w-full h-[300px] sm:h-[400px] flex items-center justify-start text-white text-3xl sm:text-4xl font-bold text-left px-4 sm:px-12 lg:px-24"
-  style={{
-    backgroundImage:
-      'url("/images/WhatsApp Image 2025-10-07 at 16.33.40_5fe85d1d.jpg")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  {graduate.name} works as a <br /> {graduate.post} at {graduate.company}
-</motion.div>
-
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="w-full h-[300px] sm:h-[400px] flex items-center justify-start text-white text-3xl sm:text-4xl font-bold text-left px-4 sm:px-12 lg:px-24"
+        style={{
+          backgroundImage:
+            'url("/images/WhatsApp Image 2025-10-07 at 16.33.40_5fe85d1d.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {graduate.name} works as a <br /> {graduate.post} at {graduate.company}
+      </motion.div>
 
       {/* Body */}
       <div className="max-w-7xl mx-auto px-4 mt-12">
@@ -94,9 +94,15 @@ const Testimonial = () => {
               className="w-24 h-24 rounded-full mx-auto"
               loading="lazy"
             />
-            <h2 className="font-bold text-xl mt-4 text-center">{graduate.name}</h2>
-            <p className="text-sm text-gray-600 text-center">Organizations he works with</p>
-            <h1 className="text-2xl font-bold text-center uppercase mt-2">{graduate.company}</h1>
+            <h2 className="font-bold text-xl mt-4 text-center">
+              {graduate.name}
+            </h2>
+            <p className="text-sm text-gray-600 text-center">
+              Organizations he works with
+            </p>
+            <h1 className="text-2xl font-bold text-center uppercase mt-2">
+              {graduate.company}
+            </h1>
           </motion.div>
 
           <motion.div
@@ -128,36 +134,38 @@ const Testimonial = () => {
             className="space-y-8"
           >
             <QueriesForm />
-    <div className="rounded-lg p-6 shadow-md flex flex-col gap-6">
-  {/* Clickable Other Graduates Grid */}
-  <div className="grid grid-cols-2 gap-4">
-    {otherGraduates.map((student) => (
-      <Link
-        key={student.id}
-        to={`/testimonial/${student.slug}`}
-        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
-      >
-        <img
-          className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
-          src={`${import.meta.env.VITE_BASE_URL_IMAGE}${student.image}`}
-          alt={student.name}
-          loading="lazy"
-        />
-        <p className="mt-2 font-medium text-center text-sm hover:text-blue-600">
-          {student.name}
-        </p>
-      </Link>
-    ))}
-  </div>
+            <div className="rounded-lg p-6 shadow-md flex flex-col gap-6">
+              {/* Clickable Other Graduates Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {otherGraduates.map((student) => (
+                  <Link
+                    key={student.id}
+                    to={`/testimonial/${student.slug}`}
+                    className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                  >
+                    <img
+                      className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+                      src={`${import.meta.env.VITE_BASE_URL_IMAGE}${
+                        student.image
+                      }`}
+                      alt={student.name}
+                      loading="lazy"
+                    />
+                    <p className="mt-2 font-medium text-center text-sm hover:text-blue-600">
+                      {student.name}
+                    </p>
+                  </Link>
+                ))}
+              </div>
 
-  {/* Stats */}
-  <div className="flex items-center justify-between">
-    <p className="text-4xl font-extrabold">100+</p>
-    <p className="text-green-600 font-semibold">
-      Students Trained, Many Successfully Hired!
-    </p>
-  </div>
-</div>
+              {/* Stats */}
+              <div className="flex items-center justify-between">
+                <p className="text-4xl font-extrabold">100+</p>
+                <p className="text-green-600 font-semibold">
+                  Students Trained, Many Successfully Hired!
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
 

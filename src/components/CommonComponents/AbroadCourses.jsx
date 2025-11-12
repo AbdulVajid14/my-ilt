@@ -12,7 +12,7 @@ const AbroadCourses = () => {
         if (response.data.success) {
           const sortedCourses = response.data.data
           const primaryCourses = sortedCourses
-            .filter((c) => c.category_id === 3)
+            .filter((c) => c.category_id === 1)
             .slice(0, 2)
             .map((c) => ({
               title: c.name,
@@ -49,7 +49,7 @@ const AbroadCourses = () => {
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-150 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
+              <div className="absolute inset-x-0 bottom-0 h-50 bg-gradient-to-t from-black/100 to-transparent rounded-b-lg"></div>
 
               {/* Text Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">

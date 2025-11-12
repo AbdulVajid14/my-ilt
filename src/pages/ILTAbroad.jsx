@@ -196,10 +196,9 @@ const ILTAbroad = () => {
             "url('/images/WhatsApp Image 2025-10-09 at 12.16.37_3518825f.jpg')",
         }}
       >
-      <h1 className="text-left px-4 sm:px-12 lg:px-24">
-  Study Digital Marketing <br /> Abroad with ILT
-</h1>
-
+        <h1 className="text-left px-4 sm:px-12 lg:px-24">
+          Study Digital Marketing <br /> Abroad with ILT
+        </h1>
       </section>
 
       {/* Overview */}

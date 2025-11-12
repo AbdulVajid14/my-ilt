@@ -645,7 +645,7 @@ const Courses = () => {
         </section>
 
         {/* Study Abroad Section */}
-        <section className="px-4 sm:px-8 py-12">
+        {/* <section className="px-4 sm:px-8 py-12">
           <h3 className="text-xl font-semibold mb-6">
             Study{" "}
             <span className="text-green-600">Digital Marketing Abroad</span>
@@ -690,7 +690,7 @@ const Courses = () => {
               );
             })}
           </div>
-        </section>
+        </section> */}
 
         {/* Queries Section */}
         <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
