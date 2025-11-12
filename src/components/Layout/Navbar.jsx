@@ -1092,43 +1092,13 @@ const Navbar = () => {
             </li>
 
             {/* Trainers */}
-            <li
-              className="relative"
-              onMouseEnter={handleMouseEnterTrainers}
-              onMouseLeave={handleMouseLeaveTrainers}
-            >
-              <a
-                href="#"
+            <li className="relative">
+              <Link
+                to="/trainers"
                 className="flex items-center hover:text-green-200 transition cursor-pointer"
               >
-                Trainers <FaChevronDown className="ml-1 text-xs" />
-              </a>
-              <AnimatePresence>
-                {showTrainersDropdown && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -15, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -15, scale: 0.95 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-xl shadow-2xl z-50 border border-gray-100"
-                  >
-                    <div className="p-3">
-                      <motion.div
-                        whileHover={{ x: 8 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <Link
-                          to="/trainers"
-                          className="block px-5 py-3 text-gray-800 font-medium rounded-lg transition-all duration-300 hover:bg-green-50 hover:text-green-700 relative overflow-hidden group"
-                        >
-                          <span className="relative z-10">Hire Trainers</span>
-                          <span className="absolute left-0 top-0 bottom-0 w-1 bg-green-600 transition-all duration-300 group-hover:w-full opacity-10"></span>
-                        </Link>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                Hire Digital Marketers
+              </Link>
             </li>
           </ul>
 
@@ -1339,38 +1309,13 @@ const Navbar = () => {
 
                 {/* Mobile Trainers Dropdown */}
                 <div className="space-y-2">
-                  <button
-                    onClick={toggleMobileTrainers}
+                  <Link
+                    to="/trainers"
                     className="flex items-center justify-between w-full text-left text-lg font-medium hover:text-gray-200 transition"
+                    onClick={closeMobileMenu}
                   >
-                    Trainers
-                    <motion.div
-                      animate={{ rotate: showMobileTrainersDropdown ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <FaChevronDown className="ml-2 text-sm" />
-                    </motion.div>
-                  </button>
-
-                  <AnimatePresence>
-                    {showMobileTrainersDropdown && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="pl-4 space-y-1 overflow-hidden"
-                      >
-                        <Link
-                          to="/trainers"
-                          className="block py-2 text-sm hover:text-gray-200 transition pl-2 border-l border-green-500"
-                          onClick={closeMobileMenu}
-                        >
-                          Hire Trainers
-                        </Link>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                    Hire Digital Marketers
+                  </Link>
                 </div>
 
                 <Link

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaRupeeSign} from "react-icons/fa";
 
 function OurCourses() {
   const [courses, setCourses] = useState([]);
@@ -20,18 +19,25 @@ function OurCourses() {
       .catch((error) => console.error("Error fetching courses:", error));
   }, []);
 
-  // Primary courses (category_id: 1) for left side, limit to 2
-  const coursesLeft = courses
-    .filter((c) => c.category_id === 1)
-    .slice(0, 2)
-    .map((c) => ({
-      title: c.name,
-      image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
-      desc: c.description.length > 100 ? c.description.slice(0, 100) + "..." : c.description,
-      modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-      duration: `${c.duration}`,
-      price:c.price.toLocaleString()
-    }));
+// Left section: Show only specific courses by name
+const coursesLeft = courses
+  .filter(
+    (c) =>
+      c.name === "Data Driven AI Digital Marketing Course" ||
+      c.name === "Meta Ads Training"
+  ).reverse()
+  .map((c) => ({
+    title: c.name,
+    image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
+    desc:
+      c.description.length > 100
+        ? c.description.slice(0, 100) + "..."
+        : c.description,
+    modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
+    duration: `${c.duration}`,
+    price: c.price.toLocaleString(),
+  }));
+
 
   // Secondary courses (category_id: 2) for right side, limit to 3
   const coursesRight = courses

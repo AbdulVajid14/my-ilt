@@ -312,7 +312,7 @@ const OurTrainers = () => {
                   <img
                     src={`${import.meta.env.VITE_BASE_URL_IMAGE}${trainer.image}`}
                     alt={trainer.name}
-                    className="w-full h-80 sm:h-120 object-cover"
+                    className="w-full h-110 sm:h-120 object-cover"
                     loading="lazy"
                   />
                   <div className="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-2 sm:px-3 py-1 rounded-full">

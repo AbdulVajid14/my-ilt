@@ -1,10 +1,11 @@
-
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import Questions from "../components/Home/Questions";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Toaster, toast } from "sonner";
+import Instructor from "../components/CommonComponents/Instructor";
+import PlacementHighlights from "../components/Home/PlacementHighlights";
 
 const Trainers = () => {
   const recaptchaRef = useRef(null);
@@ -57,7 +58,8 @@ const Trainers = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error(
-        error.response?.data?.message || "An error occurred while submitting the form."
+        error.response?.data?.message ||
+          "An error occurred while submitting the form."
       );
       setStatus("Server error");
       recaptchaRef.current.reset();
@@ -77,22 +79,43 @@ const Trainers = () => {
             "url('/images/WhatsApp Image 2025-10-09 at 09.28.15_0ca754ec.jpg')",
         }}
       >
-       <h1 className="text-white text-3xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 py-2 rounded">
-  Join ILT as a Certified Trainer
-</h1>
-
+        <h1 className="text-white text-3xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 py-2 rounded">
+          Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute –
+          Internet Leads Training (ILT), Kochi
+        </h1>
       </section>
 
       {/* ===== Content Section ===== */}
       <div className="max-w-7xl mx-auto px-6 py-16 space-y-20">
+        {/* ILT Introduction Section */}
+        <section className="text-left">
+          <h2 className="text-3xl font-semibold mb-6">
+            Internet Leads Training (ILT)
+          </h2>
+          <p className="text-gray-800 text-lg leading-relaxed max-w-7xl">
+            Internet Leads Training (ILT) — Kerala’s first{" "}
+            <span className="font-semibold">
+              Data-Driven AI Digital Marketing Institute
+            </span>
+            with <span className="font-semibold">2000+ reviews</span> and
+            <span className="font-semibold"> 4000+ trained students</span> —
+            helps companies hire skilled and certified digital marketers.
+          </p>
+          <p className="text-gray-800 text-lg leading-relaxed mt-4 max-w-3xl">
+            Whether you need freshers or experienced professionals, ILT makes
+            hiring simple and effective.
+          </p>
+        </section>
+
+        {/* Hire Trainers Section */}
         <section>
-          <h2 className="text-3xl font-semibold mb-8">Why Hire ILT Trainers</h2>
+          <h2 className="text-3xl font-semibold mb-8">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-gray-800 text-xl">
             {[
-              "Be part of a reputed training institute.",
-              "Share your expertise with passionate learners.",
-              "Teach in flexible modes: Online, Offline, or Workshops.",
-              "Earn competitive pay & recognition.",
+              "Hire freshers free of cost.",
+              "Experienced candidates available with minimal hiring fee.",
+              "Virtual marketing team working remotely from our Kochi office.",
+              "Trained in SEO, Social Media, Google Ads, CRM, and Data Analytics.",
             ].map((point, i) => (
               <div key={i} className="flex items-start space-x-3">
                 <FaCheckCircle className="text-green-500 mt-1 text-xl flex-shrink-0" />
@@ -114,17 +137,13 @@ const Trainers = () => {
         }}
       >
         <div className="p-8 rounded-lg max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Roles & Opportunities
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-12 text-lg font-medium">
+          <h2 className="text-3xl font-bold mb-12 text-center">Benefits</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-6 gap-x-12 text-lg font-medium">
             {[
-              "Digital Marketing Trainer",
-              "SEO Trainer",
-              "Social Media Trainer",
-              "Data Analytics Trainer",
-              "Cybersecurity Trainer",
-              "Python Programming Trainer",
+              "Ready-to-work marketers trained in real agency environment",
+              "Save time and recruitment cost",
+              "Access to digital marketing experts from Kerala's top institute",
+              "Continuous performance support from ILT team",
             ].map((role, i) => (
               <div key={i} className="flex items-center space-x-3">
                 <span className="inline-block w-4 h-4 rounded-full bg-green-500"></span>
@@ -227,7 +246,8 @@ const Trainers = () => {
           </div>
         </section>
       </div>
-
+      <Instructor />
+      <PlacementHighlights />
       <Questions />
     </div>
   );
