@@ -23,11 +23,11 @@ const Footer = () => {
             }));
 
           const newCourseNames = [
-            "Python Full Stack Developer",
-            "Business Analytics",
-            "Data Analytics",
-            "Best Digital Marketing Course & Institute in Kochi, Kerala",
-            "Core Python"
+            "Python Full Stack Course",
+            "Business Analytics Course",
+            "Data Analytics Course",
+            "Digital Marketing Course Kochi",
+            "Core Python Course"
           ];
 
           const filteredNewCourses = allCourses
@@ -129,11 +129,11 @@ const Footer = () => {
         <div className="flex-1 min-w-[140px] mb-10">
           <h4 className="font-bold text-base mb-5">Quick Links</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
-            {/* <li>
-              <Link to="#" className="text-white hover:text-orange-300">
-                Placement Support
+            <li>
+              <Link to="/certificate" className="text-white hover:text-orange-300">
+                Certificate
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/about" className="text-white hover:text-orange-300">
                 Success Stories

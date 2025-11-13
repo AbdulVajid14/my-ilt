@@ -33,9 +33,9 @@ const ContactPage = () => {
   }, []);
 
   const socialLinks = [
-    { icon: FaFacebookF, color: "bg-green-600", href: "#", aria: "Facebook" },
-    { icon: FaTwitter, color: "bg-green-600", href: "#", aria: "Twitter" },
-    { icon: FaInstagram, color: "bg-green-600", href: "#", aria: "Instagram" },
+    { icon: FaFacebookF, color: "bg-green-600", href: "https://www.facebook.com/internetleadstraining/", aria: "Facebook" },
+    { icon: FaTwitter, color: "bg-green-600", href: "https://www.twitter.com", aria: "Twitter" },
+    { icon: FaInstagram, color: "bg-green-600", href: "https://www.instagram.com/internet_leads_training/", aria: "Instagram" },
   ];
 
   return (

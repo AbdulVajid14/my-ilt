@@ -72,13 +72,13 @@ const OurGraduates = () => {
             </div>
             <p className="text-gray-600 text-lg">
               Based on{" "}
-              <span className="font-semibold text-gray-800">2000+ reviews</span>
+              <span className="font-semibold text-gray-800 text-2xl">2000+ reviews</span>
             </p>
             <div className="flex justify-start mt-3">
               <img
                 src="/images/images.png"
                 alt="Google"
-                className="h-12 object-contain"
+                className="h-18 object-contain"
               />
             </div>
           </div>

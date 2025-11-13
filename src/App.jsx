@@ -23,6 +23,7 @@ import PrivacyAndPolicy from "./pages/PrivacyAndPolicy";
 import EventsDetails from "./pages/EventsDetails";
 import Events from "./pages/Events";
 import CancelationAndRefund from "./pages/CancelationAndRefund";
+import PlacementPage from "./pages/PlacementPage";
 function App() {
   return (
     <>
@@ -47,11 +48,13 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyAndPolicy />} />
           <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
-          <Route path="/events" element={<Events/>}/>
-          <Route path="/events/:slug" element={<EventsDetails/>}/>
-                    <Route path="/cancelation-refund" element={<CancelationAndRefund/>}/>
-
-
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/:slug" element={<EventsDetails />} />
+          <Route
+            path="/cancelation-refund"
+            element={<CancelationAndRefund />}
+          />
+          <Route path="/placements" element={<PlacementPage />} />
 
           {/* <Route path="/faqs" element={<Questions />} /> */}
         </Route>
