@@ -21,6 +21,7 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import Events from "../components/Home/Events";
+import ILTSection from "../components/Home/ILTSection";
 
 const Home = () => {
      useEffect(() => {
@@ -145,6 +146,7 @@ const Home = () => {
       <OurGraduates />
       <HomeBlog />
       <Questions />
+      <ILTSection/>
     </div>
   );
 };

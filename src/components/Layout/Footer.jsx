@@ -27,7 +27,7 @@ const Footer = () => {
             "Business Analytics Course",
             "Data Analytics Course",
             "Digital Marketing Course Kochi",
-            "Core Python Course"
+            "Core Python Course",
           ];
 
           const filteredNewCourses = allCourses
@@ -122,6 +122,14 @@ const Footer = () => {
             ) : (
               <li>Loading...</li>
             )}
+            <li>
+              <Link
+                to={`/ilt-abroad`}
+                className="text-white hover:text-orange-300"
+              >
+                Study MBA/MSC Digital Marketing Abroad
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -130,7 +138,10 @@ const Footer = () => {
           <h4 className="font-bold text-base mb-5">Quick Links</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             <li>
-              <Link to="/certificate" className="text-white hover:text-orange-300">
+              <Link
+                to="/certificate"
+                className="text-white hover:text-orange-300"
+              >
                 Certificate
               </Link>
             </li>
