@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import ReCAPTCHA from "react-google-recaptcha";
+import AbroadFaq from "../components/CommonComponents/AbroadFaq";
+import TopUniversities from "../components/CommonComponents/TopUniversities";
 
 const ILTAbroad = () => {
   const recaptchaRef = useRef(null);
@@ -48,6 +50,35 @@ const ILTAbroad = () => {
   const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(true);
   const [reviewsError, setReviewsError] = useState(null);
+
+  useEffect(() => {
+    document.title =
+      "MBA/MSc Digital Marketing Abroad | UK, Canada, Australia, USA, Germany Consultant";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Study MBA/MSc Digital Marketing in the UK, Canada, Australia, USA & Germany with Internet Leads Training (ILT)—the exclusive study abroad consultant only for Digital Marketing programs."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute("content", "Training Courses");
+  }, []);
+
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -193,74 +224,111 @@ const ILTAbroad = () => {
         className="w-full bg-cover bg-center h-[400px] flex items-center justify-start text-white text-4xl font-bold"
         style={{
           backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-09 at 12.16.37_3518825f.jpg')",
+            "url('/images/IMG-20251115-WA0049.jpg')",
         }}
       >
         <h1 className="text-left px-4 sm:px-12 lg:px-24">
-          Study Digital Marketing <br /> Abroad with ILT
+          MBA / MSc Digital Marketing Abroad – Study in the UK, Canada,
+          Australia, USA, Germany & New Zealand
         </h1>
       </section>
 
       {/* Overview */}
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-semibold mb-4">Overview</h2>
-        <p className="text-gray-700 mb-8 max-w-4xl">
-          Take your digital marketing career global!{" "}
-          <span className="text-green-600 font-semibold">
-            With ILT’s specialized
-          </span>{" "}
-          Study Abroad programs, you can gain international exposure, advanced
-          certifications, and industry experience in top countries around the
-          world. Whether you want to master SEO, social media, PPC, or
-          analytics, our partnerships with reputed institutions ensure
-          world-class training with real global opportunities.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <img
-            src="/images/WhatsApp Image 2025-10-09 at 12.16.37_bbff8d42.jpg"
-            alt="Group meeting"
-            className="w-full h-64 object-cover rounded-md"
-          />
-          <img
-            src="/images/WhatsApp Image 2025-10-09 at 12.16.37_b662e1b3.jpg"
-            alt="Working on laptop"
-            className="w-full h-64 object-cover rounded-md"
-          />
-          <img
-            src="/images/WhatsApp Image 2025-10-09 at 12.16.37_eb5a450c.jpg"
-            alt="Handshake agreement"
-            className="w-full h-64 object-cover rounded-md"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* LEFT SECTION */}
+          <div className="md:col-span-2">
+            <h2 className="text-3xl font-semibold mb-4">Overview</h2>
+            <p className="text-gray-700 mb-8 max-w-4xl">
+              The MBA / MSc Digital Marketing Abroad Program prepares students
+              to study advanced digital marketing in top countries like the UK,
+              Canada, Australia, USA, Germany, and New Zealand. Internet Leads
+              Training (ILT), India’s #1 Digital Marketing Institute,
+              specializes exclusively in guiding students for Masters-level
+              Digital Marketing programs abroad. We help students choose the
+              right course, apply to top universities, prepare for interviews,
+              and build a strong academic + digital marketing portfolio. Our CEO
+              & Founder Jitto Jose, who completed his MBA in Digital Marketing
+              in London and worked as a Digital Marketing Head in London, brings
+              deep expertise to help students settle abroad. The program is
+              ideal for students and working professionals who want to build an
+              international digital marketing career with high-paying
+              opportunities. Our support includes admission guidance, SOP prep,
+              profile building, internship assistance, and digital marketing
+              skill training to boost employability in foreign countries.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <img
+                src="/images/IMG-20251115-WA0050.jpg"
+                alt="Group meeting"
+                className="w-full h-64 object-cover rounded-md"
+              />
+              <img
+                src="/images/IMG-20251115-WA0047.jpg"
+                alt="Working on laptop"
+                className="w-full h-64 object-cover rounded-md"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT SECTION (FORM) */}
+          <div className="w-full">
+            <QueriesForm />
+          </div>
         </div>
       </section>
 
       {/* Why Choose ILT */}
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-24">
-          <div className="flex-1">
-            <h2 className="text-3xl font-semibold mb-6">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+          {/* LEFT CONTENT */}
+          <div className="flex-[1.3]">
+            <h2 className="text-4xl font-semibold mb-8">
               Why Choose ILT for Abroad Studies?
             </h2>
-            <ul className="list-disc list-inside space-y-3 text-gray-800 text-lg">
-              <li>Specialized Digital Marketing Programs</li>
-              <li>International Certifications Recognized Globally</li>
-              <li>Job Placement Assistance After Course Completion</li>
-              <li>Exposure to Global Industry Standards</li>
-              <li>Guidance for Visa & Admission Support</li>
+
+            <ul className="space-y-4 text-gray-800 text-lg">
+              {[
+                "Specialized Digital Marketing Programs",
+                "International Certifications Recognized Globally",
+                "Job Placement Assistance After Course Completion",
+                "Exposure to Global Industry Standards",
+                "Guidance for Visa & Admission Support",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6 text-blue-600 mt-1"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="w-full md:w-[35%]">
-            <QueriesForm />
+
+          {/* RIGHT CONTENT */}
+          <div className="flex flex-col items-center text-center md:text-left md:ml-[-40px]">
+            <img
+              src="/images/ceo.jpg"
+              alt="CEO"
+              className="w-56 h-56 md:w-64 md:h-64 object-cover rounded-xl shadow-md"
+            />
+            <h1 className="text-xl font-semibold mt-4">
+              Jitto Jose - CEO & Founder
+            </h1>
+            <h3 className="text-gray-700">MBA Digital Marketing, London</h3>
           </div>
-        </div>
-        <div className="mt-16 flex items-center gap-4">
-          <AbroadCourses />
-          <Link
-            to="/courses"
-            className="text-green-600 cursor-pointer flex items-center"
-          >
-            View All <span className="ml-1">→</span>
-          </Link>
         </div>
       </section>
 
@@ -284,16 +352,22 @@ const ILTAbroad = () => {
           </div>
         </div>
       </section>
-
+      <TopUniversities />
       {/* How ILT Helps You */}
-      <section className="px-6 py-28 md:py-20 bg-black text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
+      <section
+        className="px-6 py-28 md:py-24 bg-black text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/pointsBanner.jpg')",
+        }}
+      >
         <div className="absolute top-0 left-0 w-48 h-32 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-green-600 rounded-full opacity-80 flex items-center justify-center -translate-y-[60%]">
           <h2 className="text-xl md:text-2xl font-bold text-white text-center px-4 translate-y-10 md:translate-y-14">
             How ILT Helps You
           </h2>
         </div>
-        <div className="flex-1 z-10 mt-0 sm:mt-20 md:mt-0 md:ml-64 lg:ml-80">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-base md:text-lg">
+
+        <div className="flex-1 z-10 mt-0 sm:mt-20 md:mt-0 md:ml-64 lg:ml-96">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 text-lg md:text-xl font-medium">
             {[
               "Personalized counseling to choose the right country and program",
               "Assistance with applications, admissions & scholarships",
@@ -301,131 +375,59 @@ const ILTAbroad = () => {
               "Pre-departure orientation for a smooth transition",
               "Ongoing mentorship and placement guidance",
             ].map((text, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <FaCheck className="text-green-600 mt-1 text-lg flex-shrink-0" />
-                <p>{text}</p>
+              <div key={index} className="flex items-start gap-4">
+                <FaCheck className="text-green-500 mt-1 text-2xl flex-shrink-0" />
+                <p className="leading-relaxed">{text}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="relative flex-1 z-10 mt-40 md:mt-0">
-          <div className="absolute top-1/2 right-0 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-green-600 rounded-full opacity-80 translate-x-1/3 -translate-y-1/2 flex items-center justify-center">
-            <img
-              src="/images/WhatsApp Image 2025-09-20 at 10.54.24_04457969.jpg"
-              alt="Student with laptop"
-              className="rounded-full w-56 md:w-72 lg:w-80 relative z-20"
-            />
           </div>
         </div>
       </section>
 
       {/* Student Success Stories */}
-      {/* <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-semibold mb-8 text-center">Student Success Stories</h2>
-        <div className="bg-white border border-gray-300 rounded p-8 max-w-4xl mx-auto shadow-md">
-          <div className="flex items-center gap-4 mb-4">
-            <img
-              src="/images/WhatsApp Image 2025-10-09 at 12.16.34_eaed36f3.jpg"
-              alt="Ayesha P."
-              className="rounded-full w-16 h-16 object-cover"
-            />
-            <h3 className="font-semibold text-lg">Ayesha P.</h3>
-          </div>
-          <p className="text-gray-700 mb-6">
-            “Studying{" "}
-            <span className="text-green-600 font-semibold">Digital Marketing</span> in
-            Canada through ILT was the best decision. I got exposure to real
-            international projects and landed my first job in Toronto.”
-          </p>
-          <p className="text-gray-700 italic mb-6 pl-6">
-            “<span className="text-green-600 font-semibold">ILT’s support</span> with
-            admissions and visa made my dream to study in Australia a reality. Today,
-            I’m working as a Social Media Specialist at a top agency.”
-          </p>
-          <div className="flex items-center justify-end gap-3">
-            <p className="font-semibold text-right">Rahul K</p>
-            <img
-              src="/images/WhatsApp Image 2025-10-09 at 12.16.34_eaed36f3.jpg"
-              alt="Rahul K."
-              className="rounded-full w-12 h-12 object-cover"
-            />
-          </div>
-        </div>
-      </section> */}
-      {/* ==== DYNAMIC Student Success Stories ==== */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-semibold mb-8 text-center">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Student Success Stories
         </h2>
 
-        {/* Loading / Error / Empty States */}
-        {(() => {
-          if (reviewsLoading) {
-            return (
-              <div className="flex justify-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-green-600"></div>
-              </div>
-            );
-          }
-
-          if (reviewsError) {
-            return <p className="text-center text-red-600">{reviewsError}</p>;
-          }
-
-          if (!reviews?.length) {
-            return (
-              <p className="text-center text-gray-600">
-                No success stories to show at the moment.
-              </p>
-            );
-          }
-
-          return null;
-        })()}
-
-        {/* Single Review Card */}
-        {reviews?.length > 0 && (
-          <div className="bg-white border border-gray-300 rounded p-8 max-w-4xl mx-auto shadow-md">
-            {/* First Student */}
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src={`${import.meta.env.VITE_BASE_URL_IMAGE}${
-                  reviews[0].image
-                }`}
-                alt={reviews[0].name}
-                className="rounded-full w-16 h-16 object-cover"
-                onError={(e) =>
-                  (e.currentTarget.src = "/images/placeholder-avatar.jpg")
-                }
-              />
-              <h3 className="font-semibold text-lg">{reviews[0].name}</h3>
-            </div>
-
-            <p className="text-gray-700 mb-6">“{reviews[0].details}”</p>
-            {reviews[1] && (
-              <>
-                <p className="text-gray-700 italic mb-6 pl-6">
-                  “{reviews[1].details}”
-                </p>
-
-                <div className="flex items-center justify-end gap-3">
-                  <p className="font-semibold text-right">{reviews[1].name}</p>
-                  <img
-                    src={`${import.meta.env.VITE_BASE_URL_IMAGE}${
-                      reviews[1].image
-                    }`}
-                    alt={reviews[1].name}
-                    className="rounded-full w-12 h-12 object-cover"
-                    onError={(e) =>
-                      (e.currentTarget.src = "/images/placeholder-avatar.jpg")
-                    }
-                  />
-                </div>
-              </>
-            )}
-          </div>
+        {/* Loading State */}
+        {reviewsLoading && (
+          <p className="text-center text-gray-600">Loading...</p>
         )}
+
+        {/* Error State */}
+        {reviewsError && (
+          <p className="text-center text-red-500">{reviewsError}</p>
+        )}
+
+        {/* If no reviews */}
+        {!reviewsLoading && reviews.length === 0 && (
+          <p className="text-center text-gray-500">No reviews found.</p>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {reviews.map((review) => (
+            <div key={review.id} className="grid grid-cols-1 sm:grid-cols-2">
+              {/* Image */}
+              <img
+                src={`${import.meta.env.VITE_BASE_URL_IMAGE}${review.image}`}
+                alt={review.name}
+                className="w-full h-full object-cover"
+              />
+
+              {/* Text Box */}
+              <div className="bg-black text-white p-6 flex flex-col justify-center">
+                <p className="leading-relaxed mb-4">“{review.details}”</p>
+
+                <p className="text-right font-semibold">{review.name}</p>
+
+                <p className="text-right text-green-400 text-sm">
+                  {review.post}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Application Section */}
@@ -544,8 +546,7 @@ const ILTAbroad = () => {
           </form>
         </div>
       </section>
-
-      <Questions />
+      <AbroadFaq />
     </div>
   );
 };

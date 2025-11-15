@@ -85,7 +85,7 @@ const Footer = () => {
         </div>
 
         {/* Career Programs */}
-        <div className="flex-1 min-w-[160px] mb-10">
+        <div className="flex-1 min-w-[250px] mb-10">
           <h4 className="font-bold text-base mb-5">Career Programs</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             {courses.length > 0 ? (
@@ -105,7 +105,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex-1 min-w-[140px] mb-10">
+        <div className="flex-1 min-w-[250px] mb-10">
           <h4 className="font-bold text-base mb-5">Career Mastery</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             {newCourses.length > 0 ? (
@@ -127,14 +127,14 @@ const Footer = () => {
                 to={`/ilt-abroad`}
                 className="text-white hover:text-orange-300"
               >
-                Study MBA/MSC Digital Marketing Abroad
+                MBA/MSC Digital Marketing Abroad
               </Link>
             </li>
           </ul>
         </div>
 
         {/* Quick Links */}
-        <div className="flex-1 min-w-[140px] mb-10">
+        <div className="flex-1 min-w-[80px] mb-10">
           <h4 className="font-bold text-base mb-5">Quick Links</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             <li>
@@ -165,11 +165,16 @@ const Footer = () => {
                 Blog
               </Link>
             </li>
+             <li>
+              <Link to="/placements" className="text-white hover:text-orange-300">
+                Placement
+              </Link>
+            </li>
           </ul>
         </div>
 
         {/* Support & Resources */}
-        <div className="flex-1 min-w-[180px] mb-10">
+        <div className="flex-1 min-w-[150px] mb-10">
           <h4 className="font-bold text-base mb-5">Support & Resources</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             <li>
