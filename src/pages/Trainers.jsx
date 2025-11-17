@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
-import Questions from "../components/Home/Questions";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Toaster, toast } from "sonner";
 import Instructor from "../components/CommonComponents/Instructor";
 import PlacementHighlights from "../components/Home/PlacementHighlights";
+import HireFaq from "../components/CommonComponents/HireFaq";
 
 const Trainers = () => {
   const recaptchaRef = useRef(null);
@@ -16,7 +16,6 @@ const Trainers = () => {
     e.preventDefault();
     setStatus("Verifying...");
 
-    // Get token from reCAPTCHA
     const token = recaptchaRef.current.getValue();
     if (!token) {
       setStatus("Please complete the reCAPTCHA");
@@ -31,7 +30,8 @@ const Trainers = () => {
     formData.append("email", form.email.value);
     formData.append("mobile", form.mobile.value);
     formData.append("experience", form.experience.value);
-    formData.append("token", token); // Include reCAPTCHA token
+    formData.append("token", token);
+
     if (form.cv.files[0]) {
       formData.append("cv", form.cv.files[0]);
     }
@@ -48,7 +48,7 @@ const Trainers = () => {
       if (res.data.success) {
         toast.success("Trainer application submitted successfully!");
         form.reset();
-        recaptchaRef.current.reset(); // Reset reCAPTCHA
+        recaptchaRef.current.reset();
         setStatus("Form submitted successfully!");
       } else {
         toast.error(res.data.message || "Submission failed");
@@ -56,7 +56,6 @@ const Trainers = () => {
         recaptchaRef.current.reset();
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
       toast.error(
         error.response?.data?.message ||
           "An error occurred while submitting the form."
@@ -71,7 +70,8 @@ const Trainers = () => {
   return (
     <div className="w-full">
       <Toaster position="top-right" richColors />
-      {/* ===== Banner Section - Full Width ===== */}
+
+      {/* ===== Banner Section ===== */}
       <section
         className="w-full h-64 md:h-100 bg-cover bg-center flex items-center justify-start"
         style={{
@@ -80,34 +80,37 @@ const Trainers = () => {
         }}
       >
         <h1 className="text-white text-3xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 py-2 rounded">
-          Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute –
-          Internet Leads Training (ILT), Kochi
+          Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute – Internet Leads Training (ILT), Kochi
         </h1>
       </section>
 
-      {/* ===== Content Section ===== */}
+      {/* ===== ILT Introduction Section ===== */}
       <div className="max-w-7xl mx-auto px-6 py-16 space-y-20">
-        {/* ILT Introduction Section */}
         <section className="text-left">
           <h2 className="text-3xl font-semibold mb-6">
             Internet Leads Training (ILT)
           </h2>
+
           <p className="text-gray-800 text-lg leading-relaxed max-w-7xl">
-            Internet Leads Training (ILT) — Kerala’s first{" "}
-            <span className="font-semibold">
-              Data-Driven AI Digital Marketing Institute
-            </span>
-            with <span className="font-semibold">2000+ reviews</span> and
-            <span className="font-semibold"> 4000+ trained students</span> —
-            helps companies hire skilled and certified digital marketers.
+            Internet Leads Training (ILT) not only delivers expert digital marketing
+            education—we also provide trained and experienced digital marketers as
+            virtual employees for companies. You can hire freshers or senior
+            professionals who work full-time from our office under expert supervision.
+            No HR issues, no training burden, and no downtime—if someone leaves, we
+            replace them immediately so your business never gets affected.
           </p>
-          <p className="text-gray-800 text-lg leading-relaxed mt-4 max-w-3xl">
-            Whether you need freshers or experienced professionals, ILT makes
-            hiring simple and effective.
+
+          <p className="text-gray-800 text-lg leading-relaxed mt-4 max-w-7xl">
+            This model is highly cost-effective compared to hiring in-house staff.
+            You get a dedicated digital marketer working exclusively for your company,
+            with no deposit, no long-term contract, and the freedom to terminate anytime.
+            All our candidates are verified, skill-checked, and capable of generating
+            quality leads, managing campaigns, and delivering consistent results for
+            your business.
           </p>
         </section>
 
-        {/* Hire Trainers Section */}
+        {/* ===== Hire Trainers Section ===== */}
         <section>
           <h2 className="text-3xl font-semibold mb-8">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-gray-800 text-xl">
@@ -126,7 +129,7 @@ const Trainers = () => {
         </section>
       </div>
 
-      {/* ===== Roles & Opportunities ===== */}
+      {/* ===== Benefits Section ===== */}
       <section
         className="relative py-20 px-8 text-white"
         style={{
@@ -170,6 +173,7 @@ const Trainers = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Inputs */}
               <input
                 type="text"
                 name="name"
@@ -177,6 +181,7 @@ const Trainers = () => {
                 className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"
                 required
               />
+
               <input
                 type="email"
                 name="email"
@@ -184,6 +189,7 @@ const Trainers = () => {
                 className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"
                 required
               />
+
               <input
                 type="tel"
                 name="mobile"
@@ -246,9 +252,10 @@ const Trainers = () => {
           </div>
         </section>
       </div>
+
       <Instructor />
       <PlacementHighlights />
-      <Questions />
+      <HireFaq/>
     </div>
   );
 };

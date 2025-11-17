@@ -28,6 +28,7 @@ const Footer = () => {
             "Data Analytics Course",
             "Digital Marketing Course Kochi",
             "Core Python Course",
+            "Data Driven AI Digital Marketing Course"
           ];
 
           const filteredNewCourses = allCourses
@@ -105,7 +106,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex-1 min-w-[250px] mb-10">
+        <div className="flex-1 min-w-[280px] mb-10">
           <h4 className="font-bold text-base mb-5">Career Mastery</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             {newCourses.length > 0 ? (
@@ -134,7 +135,7 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div className="flex-1 min-w-[80px] mb-10">
+        <div className="flex-1 min-w-[60px] mb-10">
           <h4 className="font-bold text-base mb-5">Quick Links</h4>
           <ul className="list-none p-0 m-0 text-sm leading-7">
             <li>
