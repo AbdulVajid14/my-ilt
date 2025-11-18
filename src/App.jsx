@@ -41,7 +41,7 @@ function App() {
           <Route path="/workshop/:slug" element={<WorkshopDetails />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/mode" element={<ModalPage />} />
-          <Route path="/trainers" element={<Trainers />} />
+          <Route path="/hire-digital-marketers-in-india" element={<Trainers />} />
           <Route path="/trainers/:slug" element={<TrainesrDetails />} />
           <Route path="/ilt-abroad" element={<ILTAbroad />} />
           <Route path="/courses" element={<Courses />} />

@@ -397,7 +397,7 @@ const Navbar = () => {
             {/* Trainers */}
             <li className="relative">
               <Link
-                to="/trainers"
+                to="/hire-digital-marketers-in-india"
                 className="flex items-center hover:text-green-200 transition cursor-pointer"
               >
                 Hire Digital Marketers
@@ -595,7 +595,7 @@ const Navbar = () => {
                 {/* Mobile Trainers Dropdown */}
                 <div className="space-y-2">
                   <Link
-                    to="/trainers"
+                    to="/hire-digital-marketers-in-india"
                     className="flex items-center justify-between w-full text-left text-lg font-medium hover:text-gray-200 transition"
                     onClick={closeMobileMenu}
                   >

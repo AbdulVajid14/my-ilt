@@ -25,7 +25,7 @@ import ILTSection from "../components/Home/ILTSection";
 
 const Home = () => {
      useEffect(() => {
-      document.title = "Digital Marketing Institute in Kochi (Cochin), Kerala | Best SEO Training in Ernakulam";
+      document.title = "Digital Marketing Course in Cochin |Kerala's Best Training Institute";
       const metaDescription =
         document.querySelector("meta[name='description']") ||
         (() => {
@@ -37,7 +37,7 @@ const Home = () => {
   
       metaDescription.setAttribute(
         "content",
-        "Best Digital Marketing Institute in Kochi(Cochin). Internet Leads Training (ILT) is a top SEO & Digital Marketing Course Provider in Kerala. Learn Google Ads, Social Medial Marketing, Email Marketing, Facebook Ads, Google Analytics & Linkedin Ads in Ernakulam."
+        "Internet Leads Training (ILT)is Kerala's best Digital Marketing training institute in Kochi, offering 100% practical course training for career and business growth"
       );
       const metaKeywords =
         document.querySelector("meta[name='keywords']") ||
