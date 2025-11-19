@@ -25,7 +25,7 @@ function TrainerSection() {
                 </div>
                 <div className="flex-grow relative overflow-hidden h-180 sm:h-96 md:h-auto">
                   <img
-                    src="/images/WhatsApp Image 2025-09-20 at 10.53.59_635566b4.jpg"
+                    src="public/images/jitto-jose-ceo.jpg"
                     alt="Jitto Jose, Founder & Lead Trainer"
                     className="w-full h-full object-cover"
                   />

@@ -18,12 +18,13 @@ import Courses from "./pages/Courses";
 import BlogDetail from "./pages/BlogDetail";
 import Questions from "./components/Home/Questions";
 import TermsAndCondition from "./pages/TermsAndCondition";
-import HelpCenter from "./pages/HelpCenter";
 import PrivacyAndPolicy from "./pages/PrivacyAndPolicy";
 import EventsDetails from "./pages/EventsDetails";
 import Events from "./pages/Events";
-import CancelationAndRefund from "./pages/CancelationAndRefund";
+import RefundPolicy from "./pages/RefundPolicy";
 import PlacementPage from "./pages/PlacementPage";
+import Disclaimer from "./pages/Disclaimer";
+import CookiePolicy from "./pages/CookiePolicy";
 function App() {
   return (
     <>
@@ -46,15 +47,16 @@ function App() {
           <Route path="/ilt-abroad" element={<ILTAbroad />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/privacy-policy" element={<PrivacyAndPolicy />} />
-          <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:slug" element={<EventsDetails />} />
           <Route
-            path="/cancelation-refund"
-            element={<CancelationAndRefund />}
+            path="/refund-cancellation-policy"
+            element={<RefundPolicy />}
           />
           <Route path="/placements" element={<PlacementPage />} />
+          <Route path="/website-disclaimer" element={<Disclaimer />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
 
           {/* <Route path="/faqs" element={<Questions />} /> */}
         </Route>

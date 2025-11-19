@@ -200,7 +200,7 @@ const BlogDetail = () => {
       <BlogPopularSection />
 
       {/* Instructor Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 font-sans text-gray-900">
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 font-sans text-gray-900">
         <section className="flex flex-col md:flex-row gap-14">
           <div className="flex flex-col items-center md:items-start">
             <img
@@ -258,7 +258,7 @@ const BlogDetail = () => {
             </ul>
           </div>
         </section>
-      </div>
+      </div> */}
 
       {/* FAQ Section - Only show if valid FAQs exist */}
       {faqs.length > 0 && (

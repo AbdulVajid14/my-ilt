@@ -1,36 +1,38 @@
 import React from 'react';
 import { useEffect } from 'react';
-const TermsAndCondition = () => {
 
-       useEffect(() => {
-      document.title = "Kerala's Leading Digital Marketing Training Institute";
-      const metaDescription =
-        document.querySelector("meta[name='description']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "description";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaDescription.setAttribute(
-        "content",
-        "More than 15 years of experience as a digital marketing consultant and trainer, Jitto is a proven authority in terms of digital marketing."
-      );
-      const metaKeywords =
-        document.querySelector("meta[name='keywords']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "keywords";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaKeywords.setAttribute(
-        "content",
-        'SEO Training, google adwords training, ppc training'
-      );
-    }, []);
+const TermsAndCondition = () => {
+  useEffect(() => {
+    document.title = "Terms & Conditions - Internet Leads Training Institute";
+
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Read the official Terms & Conditions of Internet Leads Training Institute (ILT), Kerala's leading digital marketing training institute."
+    );
+
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "Terms and Conditions Internet Leads Training, Digital Marketing Course Kochi, SEO Training Kerala"
+    );
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -45,59 +47,115 @@ const TermsAndCondition = () => {
 
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-6 py-12 prose prose-lg text-gray-800">
-        <p className="mb-6">
-          The Website Owner, including subsidiaries and affiliates ("Website" or "Website Owner" or "we" or "us" or "our") provides the information contained on the website or any of the pages comprising the website ("website") to visitors ("visitors") (cumulatively referred to as "you" or "your" hereinafter) subject to the terms and conditions set out in these website terms and conditions, the privacy policy and any other relevant terms and conditions, policies and notices which may be applicable to a specific section or module of the website.
-        </p>
 
-        <h2 className="text-2xl font-semibold mt-10 mb-4">Terms & Conditions</h2>
-        <p className="mb-6">
-          Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern <strong>DOPTIT Pvt. Ltd</strong> relationship with you in relation to this website.
-        </p>
+        <h2 className="text-3xl font-bold mt-12 mb-6">Terms & Conditions – Internet Leads Training (ILT)</h2>
+        <p className="text-lg opacity-90">November 19, 2025</p><br />
 
         <p className="mb-6">
-          The term <strong>'DOPTIT Pvt. Ltd'</strong> or <strong>'us'</strong> or <strong>'we'</strong> refers to the owner of the website whose registered office is <em>Internet Leads Training, 36/2686, Azad Road, Kaloor, Cochin - 682017, Kerala, India</em>. Our company registration number is <strong>U72900KL2016PTC047303</strong> at Registrar of Companies, Kerala and Lakshadweep. The term <strong>'you'</strong> refers to the user or viewer of our website.
+          Welcome to <strong>Internet Leads Training</strong> (“ILT”, “we”, “our”, or “us”). By accessing our website, enrolling in our courses, or using any of our services, you agree to the Terms & Conditions outlined below. Please read these terms carefully before using our platform.
         </p>
 
-        <p className="mb-6">
-          The use of this website is subject to the following terms of use:
+        <h3 className="text-2xl font-semibold mt-10 mb-4">1. Acceptance of Terms</h3>
+        <p>
+          By accessing or using ILT’s website or services, you confirm that you have read, understood, and accepted these Terms & Conditions. If you do not agree with these terms, kindly stop using the platform.
         </p>
 
-        <ul className="list-disc pl-8 mb-6 space-y-3">
-          <li>
-            The content of the pages of this website is for your general information and use only. It is subject to change without notice.
-          </li>
-          <li>
-            Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.
-          </li>
-          <li>
-            Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.
-          </li>
-          <li>
-            This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.
-          </li>
-          <li>
-            All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.
-          </li>
-          <li>
-            Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.
-          </li>
-          <li>
-            From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).
-          </li>
-          <li>
-            You may not create a link to this website from another website or document without <strong>DOPTIT Pvt. Ltd</strong> prior written consent.
-          </li>
-          <li>
-            Your use of this website and any dispute arising out of such use of the website is subject to the laws of India or other regulatory authority.
-          </li>
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">2. Services Provided</h3>
+        <p>
+          ILT provides training programs, digital courses, webinars, and educational content in digital marketing and related domains.<br />
+          We may update, improve, or stop providing certain services at any time, and we are not required to give prior notice before doing so.
+        </p>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">3. User Responsibilities</h3>
+        <p>Users must:</p>
+        <ul className="list-disc pl-8 mb-6 space-y-2">
+          <li>Provide accurate and complete registration information</li>
+          <li>Maintain the confidentiality of their login credentials</li>
+          <li>Use ILT services for lawful and educational purposes only</li>
+          <li>Avoid copying, distributing, or sharing course content without permission</li>
         </ul>
 
-        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6">
-          <p className="font-medium text-amber-900">
-            "We as a merchant shall be under no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any Transaction, on Account of the Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time to time"
-          </p>
+        <h3 className="text-2xl font-semibold mt-10 mb-4">4. Intellectual Property</h3>
+        <p>
+          All content, including videos, text, graphics, course modules, logos, trademarks, and materials, are the intellectual property of ILT.<br />
+          Students may not reproduce, resell, or distribute any content without formal written consent.
+        </p>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">5. Payments & Billing</h3>
+        <ul className="list-disc pl-8 mb-6 space-y-2">
+          <li>Course fees should be settled either in full or according to the mutually agreed installment schedule.</li>
+          <li>All payments made are subject to ILT’s Refund & Cancellation Policy.</li>
+          <li>ILT uses secure third-party payment gateways; we do not store sensitive banking details.</li>
+        </ul>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">6. Course Access</h3>
+        <p>Students receive access to course materials as per the course plan chosen.</p>
+        <p>ILT reserves the right to revoke access if:</p>
+        <ul className="list-disc pl-8 mb-6 space-y-2">
+          <li>Payment is incomplete</li>
+          <li>User violates policies</li>
+          <li>Misuse or content piracy is detected</li>
+        </ul>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">7. Certifications</h3>
+        <p>Certificates will be issued only upon:</p>
+        <ul className="list-disc pl-8 mb-6 space-y-2">
+          <li>Successful completion of course requirements</li>
+          <li>Meeting ILT’s assessment criteria</li>
+        </ul>
+        <p>ILT reserves the right to withhold certificates in case of non-compliance.</p>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">8. Prohibited Activities</h3>
+        <p>Users must not:</p>
+        <ul className="list-disc pl-8 mb-6 space-y-2">
+          <li>Engage in hacking, unauthorized access, or attempts to damage ILT’s platform</li>
+          <li>Share login credentials with others</li>
+          <li>Record or download course content illegally</li>
+          <li>Post harmful or inappropriate content</li>
+        </ul>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">9. Limitation of Liability</h3>
+        <p>ILT shall not be responsible for:</p>
+        <ul className="list-disc pl-8 mb-6 space-y-2">
+          <li>Loss of data</li>
+          <li>Service interruption</li>
+          <li>Student performance or results</li>
+          <li>External factors beyond our control</li>
+        </ul>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">10. Modifications to Terms</h3>
+        <p>
+          ILT may update these Terms periodically. Continued use of the platform indicates acceptance of updated terms.
+        </p>
+
+        <hr className="my-6" />
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4">11. Contact Us</h3>
+        <div className="bg-gray-100 p-6 rounded-lg not-prose">
+          <p className="font-semibold">Internet Leads Training (ILT)</p>
+          <p>Email: info@internetleadstraining.com</p>
+          <p>Phone: +91 95390 70845</p>
         </div>
 
+        <p className="mt-12 text-sm text-gray-600">
+          Last Updated: November 19, 2025
+        </p>
       </div>
     </div>
   );

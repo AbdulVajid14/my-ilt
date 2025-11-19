@@ -28,7 +28,7 @@ const Footer = () => {
             "Data Analytics Course",
             "Digital Marketing Course Kochi",
             "Core Python Course",
-            "Data Driven AI Digital Marketing Course"
+            "Data Driven AI Digital Marketing Course",
           ];
 
           const filteredNewCourses = allCourses
@@ -60,9 +60,9 @@ const Footer = () => {
           <div className="flex items-start gap-2.5 mb-4">
             <HiHome className="flex-shrink-0 mt-0.5 w-5 h-5 text-white" />
             <p className="text-sm leading-relaxed">
-              LTI Academy, Tech Park Building,
-              <br />
-              Kochi, Kerala, India
+              Internet Leads Training Jigsaw Co-Working Space 6th Floor,
+              Kandamkulathy Towers, Mahatma Gandhi Rd, KPCC Junction, Opp
+              Maharaja's Ground, Shenoys, Ernakulam, Kerala 682011
             </p>
           </div>
           <div className="flex items-start gap-2.5 mb-3">
@@ -71,7 +71,7 @@ const Footer = () => {
               <a href="mailto:support@ilt.com" className="underline text-white">
                 Customer Queries
               </a>
-              <div>Support@ilt.com</div>
+              <div>info@internetleadstraining.com</div>
             </div>
           </div>
           <div className="flex items-start gap-2.5">
@@ -80,7 +80,7 @@ const Footer = () => {
               <a href="tel:+917013453050" className="underline text-white">
                 General Queries
               </a>
-              <div>Ph: 9539070845</div>
+              <div>Ph: +91 95390 70845</div>
             </div>
           </div>
         </div>
@@ -166,8 +166,11 @@ const Footer = () => {
                 Blog
               </Link>
             </li>
-             <li>
-              <Link to="/placements" className="text-white hover:text-orange-300">
+            <li>
+              <Link
+                to="/placements"
+                className="text-white hover:text-orange-300"
+              >
                 Placement
               </Link>
             </li>
@@ -196,10 +199,26 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/cancelation-refund"
+                to="/refund-cancellation-policy"
                 className="text-white-700 hover:underline"
               >
-                Cancellation & Refund
+                Refund Cancellation Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cookie-policy"
+                className="text-white-700 hover:underline"
+              >
+                Cookie Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/website-disclaimer"
+                className="text-white-700 hover:underline"
+              >
+                Website Disclaimer
               </Link>
             </li>
           </ul>

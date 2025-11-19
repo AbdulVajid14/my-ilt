@@ -25,7 +25,7 @@ import ILTSection from "../components/Home/ILTSection";
 
 const Home = () => {
      useEffect(() => {
-      document.title = "Digital Marketing Course in Cochin |Kerala's Best Training Institute";
+      document.title = "Digital Marketing Course in Kochi(Cochin) | Kerala's Best Training Institute";
       const metaDescription =
         document.querySelector("meta[name='description']") ||
         (() => {
@@ -50,7 +50,7 @@ const Home = () => {
   
       metaKeywords.setAttribute(
         "content",
-        "seo training in cochin, google adwords training, google analytics training"
+        "seo training in kochi, google adwords training, google analytics training"
       );
     }, []);
     
@@ -120,7 +120,7 @@ const Home = () => {
             <p className="text-base sm:text-lg md:text-xl mb-6">
               {banner.description}
             </p>
-            <Link to="/courses">
+            <Link to={banner.url ? banner.url : "/courses"}>
               <Button variant="green-outline">View More</Button>
             </Link>
           </div>

@@ -33,9 +33,24 @@ const ContactPage = () => {
   }, []);
 
   const socialLinks = [
-    { icon: FaFacebookF, color: "bg-green-600", href: "https://www.facebook.com/internetleadstraining/", aria: "Facebook" },
-    { icon: FaTwitter, color: "bg-green-600", href: "https://www.twitter.com", aria: "Twitter" },
-    { icon: FaInstagram, color: "bg-green-600", href: "https://www.instagram.com/internet_leads_training/", aria: "Instagram" },
+    {
+      icon: FaFacebookF,
+      color: "bg-green-600",
+      href: "https://www.facebook.com/internetleadstraining/",
+      aria: "Facebook",
+    },
+    {
+      icon: FaTwitter,
+      color: "bg-green-600",
+      href: "https://www.twitter.com",
+      aria: "Twitter",
+    },
+    {
+      icon: FaInstagram,
+      color: "bg-green-600",
+      href: "https://www.instagram.com/internet_leads_training/",
+      aria: "Instagram",
+    },
   ];
 
   return (
@@ -47,12 +62,11 @@ const ContactPage = () => {
             "url('/images/WhatsApp Image 2025-10-08 at 17.29.14_a33a28ea.jpg')",
         }}
       >
-       <div className="relative h-full flex flex-col justify-center items-start text-white pl-4 sm:pl-12 lg:pl-24">
-  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
-    Contact Us
-  </h1>
-</div>
-
+        <div className="relative h-full flex flex-col justify-center items-start text-white pl-4 sm:pl-12 lg:pl-24">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+            Contact Us
+          </h1>
+        </div>
       </div>
       <BookTrail />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -63,9 +77,11 @@ const ContactPage = () => {
               Address
             </h2>
             <address className="text-gray-600 not-italic leading-relaxed">
-              <p className="font-medium">Internet Leads Training, 36/2686,</p>
-              <p>Azad Road, Kaloor, Cochin -</p>
-              <p>682017, Kerala, India</p>
+              <p className="font-medium">
+                Internet Leads Training Jigsaw Co-Working Space 6th Floor,
+                Kandamkulathy Towers, Mahatma Gandhi Rd, KPCC Junction, Opp
+                Maharaja's Ground, Shenoys, Ernakulam, Kerala 682011
+              </p>
             </address>
           </div>
 
@@ -127,7 +143,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <Questions />
+      {/* <Questions /> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef ,useEffect} from "react";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -11,6 +11,37 @@ const Trainers = () => {
   const recaptchaRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
+
+       useEffect(() => {
+        document.title = "Title - Hire & Outsource Digital Marketers Experts in India | Internet Leads Training";
+        const metaDescription =
+          document.querySelector("meta[name='description']") ||
+          (() => {
+            const meta = document.createElement("meta");
+            meta.name = "description";
+            document.head.appendChild(meta);
+            return meta;
+          })();
+    
+        metaDescription.setAttribute(
+          "content",
+          "Hire and outsource digital marketing experts from India with Internet Leads Training (ILT). Get skilled, trained, and dedicated marketers working full-time for your business."
+        );
+        const metaKeywords =
+          document.querySelector("meta[name='keywords']") ||
+          (() => {
+            const meta = document.createElement("meta");
+            meta.name = "keywords";
+            document.head.appendChild(meta);
+            return meta;
+          })();
+    
+        metaKeywords.setAttribute(
+          "content",
+          "seo training in kochi, google adwords training, google analytics training"
+        );
+      }, []);
+      
 
   const handleSubmit = async (e) => {
     e.preventDefault();
