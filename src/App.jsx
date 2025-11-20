@@ -44,7 +44,7 @@ function App() {
           <Route path="/mode" element={<ModalPage />} />
           <Route path="/hire-digital-marketers-in-india" element={<Trainers />} />
           <Route path="/trainers/:slug" element={<TrainesrDetails />} />
-          <Route path="/ilt-abroad" element={<ILTAbroad />} />
+          <Route path="/MBA-MSC-Digital-Marketing-Abroad" element={<ILTAbroad />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/privacy-policy" element={<PrivacyAndPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndCondition />} />

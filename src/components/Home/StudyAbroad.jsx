@@ -157,7 +157,7 @@ function StudyAbroad() {
 
   {/* BUTTON */}
   <div className="relative flex justify-start px-10">
-    <Link to="/ilt-abroad">
+    <Link to="/MBA-MSC-Digital-Marketing-Abroad">
       <button className="bg-green-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-green-700 transition duration-300 text-base sm:text-lg">
         Apply Now
       </button>

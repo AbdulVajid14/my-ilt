@@ -125,7 +125,7 @@ const Footer = () => {
             )}
             <li>
               <Link
-                to={`/ilt-abroad`}
+                to={`/MBA-MSC-Digital-Marketing-Abroad`}
                 className="text-white hover:text-orange-300"
               >
                 MBA/MSC Digital Marketing Abroad
