@@ -234,19 +234,19 @@ function WhyChoose() {
     e.preventDefault();
     setStatus("Verifying...");
 
-    const token = recaptchaRef.current.getValue();
-    if (!token) {
-      setStatus("Please complete the reCAPTCHA");
-      toast.error("Please complete the reCAPTCHA");
-      return;
-    }
+    // const token = recaptchaRef.current.getValue();
+    // if (!token) {
+    //   setStatus("Please complete the reCAPTCHA");
+    //   toast.error("Please complete the reCAPTCHA");
+    //   return;
+    // }
 
     setLoading(true);
 
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/InsertContact`,
-        { ...formData, token }
+        { ...formData }
       );
 
       if (response.data.success) {
@@ -258,20 +258,21 @@ function WhyChoose() {
           phone: "",
           message: "",
         });
-        recaptchaRef.current.reset();
+        // recaptchaRef.current.reset();
         setStatus("Form submitted successfully!");
       } else {
         toast.error("Failed to send message.");
         setStatus("reCAPTCHA verification failed.");
-        recaptchaRef.current.reset();
+        // recaptchaRef.current.reset();
       }
     } catch (error) {
       toast.error(
         error.response?.data?.message ||
           "Failed to send message. Please try again later."
       );
+      console.error("Error details:", error);
       setStatus("Server error");
-      recaptchaRef.current.reset();
+      // recaptchaRef.current.reset();
     } finally {
       setLoading(false);
     }
@@ -387,12 +388,12 @@ function WhyChoose() {
             </div>
 
             {/* reCAPTCHA */}
-            <div className="mb-2">
+            {/* <div className="mb-2">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               />
-            </div>
+            </div> */}
 
             {/* Submit Button */}
             <button

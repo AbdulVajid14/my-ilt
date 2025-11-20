@@ -142,7 +142,7 @@ const Home = () => {
       <HomeWorkshop />
       <OurTrainers />
       <Events/>
-      <Certificate />
+      {/* <Certificate /> */}
       <OurGraduates />
       <HomeBlog />
       <Questions />

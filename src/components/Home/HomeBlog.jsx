@@ -19,7 +19,7 @@ function HomeBlog() {
           const all = res.data.data.sort(
             (a, b) => new Date(b.date) - new Date(a.date)
           );
-          setBlogs(all.slice(0, 9));
+          setBlogs(all.slice(0, 3));
         }
       })
       .catch((err) => {
@@ -95,7 +95,7 @@ function HomeBlog() {
             <p className="text-center text-gray-500">No blogs available.</p>
           ) : (
             <>
-              <div className="flex justify-end space-x-3 mb-6">
+              {/* <div className="flex justify-end space-x-3 mb-6">
                 <button
                   className="swiper-blog-prev p-2 sm:p-3 border border-green-600 rounded-full text-green-600 bg-white shadow-md hover:bg-gray-100 transition duration-300 flex items-center justify-center"
                   aria-label="Previous slide"
@@ -108,7 +108,7 @@ function HomeBlog() {
                 >
                   <span className="text-lg sm:text-xl leading-none">&gt;</span>
                 </button>
-              </div>
+              </div> */}
 
               <Swiper
                 modules={[Navigation]}
