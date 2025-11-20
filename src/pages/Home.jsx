@@ -24,36 +24,37 @@ import Events from "../components/Home/Events";
 import ILTSection from "../components/Home/ILTSection";
 
 const Home = () => {
-     useEffect(() => {
-      document.title = "Digital Marketing Course in Kochi(Cochin) | Kerala's Best Training Institute";
-      const metaDescription =
-        document.querySelector("meta[name='description']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "description";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaDescription.setAttribute(
-        "content",
-        "Internet Leads Training (ILT)is Kerala's best Digital Marketing training institute in Kochi, offering 100% practical course training for career and business growth"
-      );
-      const metaKeywords =
-        document.querySelector("meta[name='keywords']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "keywords";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaKeywords.setAttribute(
-        "content",
-        "seo training in kochi, google adwords training, google analytics training"
-      );
-    }, []);
-    
+  useEffect(() => {
+    document.title =
+      "Digital Marketing Course in Kochi(Cochin) | Kerala's Best Training Institute";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Internet Leads Training (ILT)is Kerala's best Digital Marketing training institute in Kochi, offering 100% practical course training for career and business growth"
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "seo training in kochi, google adwords training, google analytics training"
+    );
+  }, []);
+
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -88,7 +89,7 @@ const Home = () => {
 
   return (
     <div className="bg-gray-50 font-sans">
-  <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
+      {/* <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
   {loading ? (
     <div className="absolute inset-0 bg-gray-300 animate-pulse">
       <div className="absolute inset-0 bg-black opacity-40" />
@@ -128,8 +129,41 @@ const Home = () => {
       ))}
     </Swiper>
   )}
-</section>
+</section> */}
+      <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
+        {loading ? (
+          <div className="absolute inset-0 bg-white animate-pulse">
+            <div className="absolute inset-0 bg-white" />
+          </div>
+        ) : (
+          slides.length > 0 && (
+            <>
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url("${
+                    import.meta.env.VITE_BASE_URL_IMAGE
+                  }${slides[0].image}")`,
+                }}
+              ></div>
+              {/* Content */}
+              <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+                  {slides[0].tittle}
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl mb-6">
+                  {slides[0].description}
+                </p>
 
+                <Link to={slides[0].url ? slides[0].url : "/courses"}>
+                  <Button variant="green-outline">View More</Button>
+                </Link>
+              </div>
+            </>
+          )
+        )}
+      </section>
 
       {/* ==================== REST OF YOUR PAGE ==================== */}
       <WhyChoose />
@@ -141,12 +175,12 @@ const Home = () => {
       <AppSection />
       <HomeWorkshop />
       <OurTrainers />
-      <Events/>
+      <Events />
       {/* <Certificate /> */}
       <OurGraduates />
       <HomeBlog />
       <Questions />
-      <ILTSection/>
+      <ILTSection />
     </div>
   );
 };

@@ -167,14 +167,28 @@ function ModalPage() {
     setShowRightArrow(el.scrollLeft + el.clientWidth < el.scrollWidth - 1); // -1 for floating point precision
   };
 
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener("scroll", handleScroll);
-      handleScroll(); // Initial check
-      return () => el.removeEventListener("scroll", handleScroll);
+useEffect(() => {
+  const el = scrollRef.current;
+  if (!el) return;
+
+  let ticking = false;
+
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
     }
-  }, []);
+  };
+
+  el.addEventListener("scroll", onScroll);
+  handleScroll();
+
+  return () => el.removeEventListener("scroll", onScroll);
+}, []);
+
 
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -150, behavior: "smooth" });
