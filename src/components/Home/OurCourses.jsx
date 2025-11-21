@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -12,32 +11,32 @@ function OurCourses() {
       .then((response) => {
         if (response.data.success) {
           // Sort by sequence if needed
-          const sortedCourses = response.data.data
+          const sortedCourses = response.data.data;
           setCourses(sortedCourses);
         }
       })
       .catch((error) => console.error("Error fetching courses:", error));
   }, []);
 
-// Left section: Show only specific courses by name
-const coursesLeft = courses
-  .filter(
-    (c) =>
-      c.name === "Data Driven AI Digital Marketing Course" ||
-      c.name === "Meta Ads Training"
-  ).reverse()
-  .map((c) => ({
-    title: c.name,
-    image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
-    desc:
-      c.description.length > 100
-        ? c.description.slice(0, 100) + "..."
-        : c.description,
-    modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
-    duration: `${c.duration}`,
-    price: c.price.toLocaleString(),
-  }));
-
+  // Left section: Show only specific courses by name
+  const coursesLeft = courses
+    .filter(
+      (c) =>
+        c.name === "Data Driven AI Digital Marketing Course" ||
+        c.name === "Meta Ads Training"
+    )
+    .reverse()
+    .map((c) => ({
+      title: c.name,
+      image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
+      desc:
+        c.description.length > 100
+          ? c.description.slice(0, 100) + "..."
+          : c.description,
+      modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
+      duration: `${c.duration}`,
+      price: c.price.toLocaleString(),
+    }));
 
   // Secondary courses (category_id: 2) for right side, limit to 3
   const coursesRight = courses
@@ -46,10 +45,13 @@ const coursesLeft = courses
     .map((c) => ({
       title: c.name,
       image: `${import.meta.env.VITE_BASE_URL_IMAGE}/${c.image}`,
-      desc: c.description.length > 100 ? c.description.slice(0, 50) + "..." : c.description,
+      desc:
+        c.description.length > 100
+          ? c.description.slice(0, 50) + "..."
+          : c.description,
       modules: c.program_modules.split(".\r\n").filter((s) => s.trim()).length,
       duration: `${c.duration}`,
-      price:c.price.toLocaleString()
+      price: c.price.toLocaleString(),
     }));
 
   return (
@@ -88,8 +90,11 @@ const coursesLeft = courses
 
                     <div className="flex items-center justify-between mt-4">
                       <Link to={`/courses/${slug}`}>
-                        <button className="bg-green-600 hover:bg-green-700 text-white py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:shadow-md hover:scale-105">
-                          Learn More
+                        <button
+                          className="bg-green-600 hover:bg-green-700 text-white py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:shadow-md hover:scale-105 
+             w-28 sm:w-32 truncate"
+                        >
+                          Learn More {course.title}
                         </button>
                       </Link>
 
@@ -133,13 +138,18 @@ const coursesLeft = courses
                   </p>
                   <div className="flex items-center justify-between w-full text-xs text-gray-500 mb-2">
                     <span>
-                      {/* <FaRupeeSign className="text-green-600" /> */}
-                      ₹ {course.price} </span>
+                      {/* <FaRupeeSign className="text-green-600" /> */}₹{" "}
+                      {course.price}{" "}
+                    </span>
                     <span>{course.duration}</span>
                   </div>
                   <Link to={`/courses/${slug}`}>
-                    <button className="text-green-600 font-semibold text-xs sm:text-sm border border-green-600 rounded px-3 py-1">
-                      Learn More
+                    <button
+                      className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg 
+               text-xs sm:text-sm transition-all duration-300 hover:shadow-md 
+               hover:scale-105 w-28 truncate"
+                    >
+                      Learn More {course.title}
                     </button>
                   </Link>
                 </div>

@@ -128,7 +128,7 @@ function StudyAbroad() {
     <section
   className="relative bg-black text-white py-12 md:py-16 px-4 bg-cover bg-center"
   style={{
-    backgroundImage: "url('/images/abroad-banner.jpg')",
+    backgroundImage: "url('/images/abroad-banner.webp')",
   }}
 >
   {/* GRADIENT OVERLAY */}

@@ -133,7 +133,7 @@ const Home = () => {
       <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/hero-banner.png" 
+            src="/images/hero-banner.webp" 
             alt="Hero background"
             fetchpriority="high"
             decoding="async"

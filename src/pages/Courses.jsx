@@ -573,8 +573,11 @@ const Courses = () => {
                     </p>
                     <div className="flex items-center justify-between mt-4">
                       <Link to={`/courses/${slug}`}>
-                        <button className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md text-xs sm:text-sm transition-all duration-300 hover:shadow-md">
-                          Learn More
+                        <button
+                          className="bg-green-600 hover:bg-green-700 text-white py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:shadow-md hover:scale-105 
+                                   w-28 sm:w-32 truncate"
+                        >
+                          Learn More {course.title}
                         </button>
                       </Link>
                       <div className="flex items-center space-x-2 text-[11px] sm:text-lg opacity-90">

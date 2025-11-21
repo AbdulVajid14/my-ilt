@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -49,7 +48,6 @@ function HomeBlog() {
       year: "numeric",
     });
   };
-
 
   const chunkSize = 3;
   const slides = [];
@@ -158,10 +156,15 @@ function HomeBlog() {
 
                             <div className="flex justify-between items-center text-xs pt-2 border-t border-gray-700">
                               <Link to={`/blog/${slugify(blog.tittle)}`}>
-                                <button className="bg-white text-black border border-green-600 font-semibold py-1.5 px-3 rounded-md hover:bg-black hover:text-green-500 transition duration-300">
-                                  Read More
+                                <button
+                                  className="bg-white text-black border border-green-600 font-semibold py-2 px-4 rounded-lg
+               text-xs sm:text-sm transition-all duration-300 hover:shadow-md 
+               hover:scale-105 truncate max-w-[130px]"
+                                >
+                                  Read More {blog.tittle}
                                 </button>
                               </Link>
+
                               <span className="text-xs text-gray-400">
                                 {formatDate(blog.date)}
                               </span>

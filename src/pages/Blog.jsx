@@ -134,10 +134,13 @@ const Blog = () => {
                       <div className="flex justify-between items-center mt-4">
                         <button
                           type="button"
-                          className="bg-green-600 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition transform hover:scale-105 shadow-md"
+                          className="bg-green-600 text-white px-5 py-2 rounded-md text-sm font-medium 
+             hover:bg-green-700 transition-all duration-300 transform hover:scale-105 
+             shadow-md truncate max-w-[130px]"
                         >
-                          Read More
+                          Read More – {title}
                         </button>
+
                         <span className="text-gray-500 text-sm">{date}</span>
                       </div>
                     </div>

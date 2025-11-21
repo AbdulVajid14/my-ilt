@@ -25,8 +25,10 @@ function TrainerSection() {
                 </div>
                 <div className="flex-grow relative overflow-hidden h-180 sm:h-96 md:h-auto">
                   <img
-                    src="/images/jitto-jose-ceo.jpg"
+                    src="/images/jitto-jose-ceo.webp"
                     alt="Jitto Jose, Founder & Lead Trainer"
+                    fetchpriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
