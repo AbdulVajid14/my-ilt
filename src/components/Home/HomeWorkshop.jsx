@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function HomeWorkshop() {
   return (
-<section className="relative text-white py-12 sm:py-16 px-4 min-h-[300px] sm:min-h-[500px] flex items-center overflow-hidden">
+<section className="relative text-white py-12 sm:py-16 px-4 min-h-[500px] sm:min-h-[680px] flex items-center overflow-hidden">
 
   {/* Background Image */}
   <img
