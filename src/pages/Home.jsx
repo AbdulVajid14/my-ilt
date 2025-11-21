@@ -55,37 +55,37 @@ const Home = () => {
     );
   }, []);
 
-  const [banners, setBanners] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [banners, setBanners] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
-  const fallbackBanner = {
-    id: "fallback",
-    tittle: "Kerala's #1 Practical Digital Marketing Training Institute",
-    description:
-      "1000+ Reviews | 15+ Years Experienced Trainers | Mobile Enabled Learning | Global Certification",
-    image: "/images/WhatsApp Image 2025-09-20 at 10.53.59_a95e9d3b.jpg",
-  };
+  // const fallbackBanner = {
+  //   id: "fallback",
+  //   tittle: "Kerala's #1 Practical Digital Marketing Training Institute",
+  //   description:
+  //     "1000+ Reviews | 15+ Years Experienced Trainers | Mobile Enabled Learning | Global Certification",
+  //   image: "/images/WhatsApp Image 2025-09-20 at 10.53.59_a95e9d3b.jpg",
+  // };
 
-  useEffect(() => {
-    const fetchBanners = async () => {
-      try {
-        const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/Banner`);
-        const fetched = res.data.data || [];
-        setBanners(fetched.length > 0 ? fetched : [fallbackBanner]);
-      } catch (err) {
-        console.error("Error fetching banners:", err);
-        setError(err.message);
-        setBanners([fallbackBanner]);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchBanners = async () => {
+  //     try {
+  //       const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/Banner`);
+  //       const fetched = res.data.data || [];
+  //       setBanners(fetched.length > 0 ? fetched : [fallbackBanner]);
+  //     } catch (err) {
+  //       console.error("Error fetching banners:", err);
+  //       setError(err.message);
+  //       setBanners([fallbackBanner]);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchBanners();
-  }, []);
+  //   fetchBanners();
+  // }, []);
 
-  const slides = banners.length > 0 ? banners : [fallbackBanner];
+  // const slides = banners.length > 0 ? banners : [fallbackBanner];
 
   return (
     <div className="bg-gray-50 font-sans">
@@ -131,42 +131,30 @@ const Home = () => {
   )}
 </section> */}
       <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
-        {loading ? (
-          <div className="absolute inset-0 bg-white animate-pulse">
-            <div className="absolute inset-0 bg-white" />
-          </div>
-        ) : (
-          slides.length > 0 && (
-            <>
-              {/* Background Image */}
-              <div className="absolute inset-0">
-                <img
-                  src={`${import.meta.env.VITE_BASE_URL_IMAGE}${
-                    slides[0].image
-                  }`}
-                  alt="Hero background"
-                  fetchpriority="high"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+        <div className="absolute inset-0">
+          <img
+            src="/images/hero-banner.png" 
+            alt="Hero background"
+            fetchpriority="high"
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-              {/* Content */}
-              <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
-                  {slides[0].tittle}
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl mb-6">
-                  {slides[0].description}
-                </p>
+        <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+            Kerala's #1 Practical Digital Marketing Training Institute
+          </h1>
 
-                <Link to={slides[0].url ? slides[0].url : "/courses"}>
-                  <Button variant="green-outline">View More</Button>
-                </Link>
-              </div>
-            </>
-          )
-        )}
+          <p className="text-base sm:text-lg md:text-xl mb-6">
+            1000+ Reviews | 15+ Years Experienced Trainers | Mobile Enabled
+            Learning | Global Certification
+          </p>
+
+          <Link to="/courses/digital-marketing-course-kochi">
+            <Button variant="green-outline">View More</Button>
+          </Link>
+        </div>
       </section>
 
       {/* ==================== REST OF YOUR PAGE ==================== */}
