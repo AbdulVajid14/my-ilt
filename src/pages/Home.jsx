@@ -139,14 +139,18 @@ const Home = () => {
           slides.length > 0 && (
             <>
               {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url("${
-                    import.meta.env.VITE_BASE_URL_IMAGE
-                  }${slides[0].image}")`,
-                }}
-              ></div>
+              <div className="absolute inset-0">
+                <img
+                  src={`${import.meta.env.VITE_BASE_URL_IMAGE}${
+                    slides[0].image
+                  }`}
+                  alt="Hero background"
+                  fetchpriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
               {/* Content */}
               <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">

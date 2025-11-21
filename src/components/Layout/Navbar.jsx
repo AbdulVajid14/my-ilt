@@ -215,6 +215,8 @@ const Navbar = () => {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-gray-700 text-2xl relative z-50"
+              aria-label="Open menu"
+             aria-expanded="false"
           >
             <motion.div
               animate={{ rotate: menuOpen ? 180 : 0 }}
@@ -443,6 +445,8 @@ const Navbar = () => {
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="text-white text-3xl"
+                   aria-label="Open menu"
+                   aria-expanded="false"
                 >
                   <motion.div
                     animate={{ rotate: menuOpen ? 180 : 0 }}
