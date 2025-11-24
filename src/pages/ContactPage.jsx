@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram,FaLinkedinIn } from "react-icons/fa";
 import BookTrail from "../components/Home/BookTrail";
-import Questions from "../components/Home/Questions";
 
 const ContactPage = () => {
   useEffect(() => {
@@ -40,9 +39,9 @@ const ContactPage = () => {
       aria: "Facebook",
     },
     {
-      icon: FaTwitter,
+      icon: FaLinkedinIn,
       color: "bg-green-600",
-      href: "https://www.twitter.com",
+      href: "https://www.linkedin.com/company/internet-leads-training/",
       aria: "Twitter",
     },
     {
@@ -143,7 +142,6 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      {/* <Questions /> */}
     </div>
   );
 };
