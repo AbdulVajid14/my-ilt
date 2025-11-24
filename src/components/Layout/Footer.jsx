@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { HiHome, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import { FaFacebookF, FaTwitter, FaInstagram ,FaLinkedinIn} from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -54,6 +59,8 @@ const Footer = () => {
             <img
               src="/images/ilt logo 2.png"
               alt="Internet Leads Training Logo"
+              width="140"
+              height="40"
               className="w-[140px] h-auto"
             />
           </div>
@@ -221,8 +228,12 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/30 mt-5 pt-5 max-w-[1200px] mx-auto flex justify-between items-center text-xs opacity-80">
-        <div>
+      <div
+        className="border-t border-white/30 mt-5 pt-5 max-w-[1200px] mx-auto 
+  flex flex-col lg:flex-row justify-between items-center text-xs opacity-80 gap-4 lg:gap-0"
+      >
+        {/* Powered By */}
+        <div className="text-center lg:text-left">
           Powered by{" "}
           <a
             href="https://ektova.com"
@@ -234,20 +245,22 @@ const Footer = () => {
           </a>
         </div>
 
-        <div>
+        {/* Copyright */}
+        <div className="text-center lg:text-left">
           Copyright © 2025–2026 Internet Leads Training (ILT) | Developed &
-          Promoted by
+          Promoted by{" "}
           <a
             href="https://www.doptit.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="underline"
+            className="underline"
           >
             DOPTIT PVT LTD
           </a>
         </div>
 
-        <div className="flex gap-4 text-white">
+        {/* Social Icons */}
+        <div className="flex gap-4 text-white justify-center">
           <a
             href="https://www.facebook.com/internetleadstraining/"
             target="_blank"

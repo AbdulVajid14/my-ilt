@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {
@@ -14,11 +14,18 @@ import {
 } from "react-icons/fa";
 import { BiTimeFive } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
-import OurGraduates from "../components/Home/OurGraduates";
+// import OurGraduates from "../components/Home/OurGraduates";
 import Instructor from "../components/CommonComponents/Instructor";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
-import PlacementHighlights from "../components/Home/PlacementHighlights";
-import OurTrainers from "../components/Home/OurTrainers";
+// import PlacementHighlights from "../components/Home/PlacementHighlights";
+// import OurTrainers from "../components/Home/OurTrainers";
+const OurTrainers = React.lazy(() => import("../components/Home/OurTrainers"));
+const OurGraduates = React.lazy(() =>
+  import("../components/Home/OurGraduates")
+);
+const PlacementHighlights = React.lazy(() =>
+  import("../components/Home/PlacementHighlights")
+);
 
 const digitalMarketingTools = [
   {
@@ -286,6 +293,14 @@ const CourseDetails = () => {
     metaKeywords.setAttribute("content", course.metaKeywords || "");
   }, [course]);
 
+  if (!course) {
+    return (
+      <div>
+        <section className="relative w-full h-64 sm:h-80 md:h-96 bg-gray-200 animate-pulse" />
+      </div>
+    );
+  }
+
   if (loading) {
     return <div className="text-center py-12">Loading...</div>;
   }
@@ -303,19 +318,22 @@ const CourseDetails = () => {
   return (
     <div className="mx-auto">
       {/* Hero Section */}
-      <section
-        className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center flex items-center"
-        style={{
-          backgroundImage: `url('/images/WhatsApp Image 2025-10-03 at 16.34.22_189f080b.jpg')`,
-        }}
-      >
-        <div className="max-w-7xl mx-auto w-full px-6">
+      <section className="relative w-full h-64 sm:h-80 md:h-96 flex items-center">
+        <img
+          src="/images/course-detail.webp"
+          alt="Course Banner"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <div className="relative max-w-7xl mx-auto w-full px-6">
           <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
             {course.title}
           </h1>
         </div>
       </section>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10">
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10"
+      style={{ contentVisibility: "auto" }}>
         {/* Left Column */}
         <div className="flex-1 space-y-8 lg:pr-6 order-1">
           {/* Trainer Info */}
@@ -358,9 +376,7 @@ const CourseDetails = () => {
             <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
               {course.title}
             </h2>
-            <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              {course.overview}
-            </p>
+            <p className="text-gray-700 leading-relaxed">{course.overview}</p>
           </div>
 
           {/* Video/Image */}
@@ -408,7 +424,8 @@ const CourseDetails = () => {
         </div>
 
         {/* Right Column */}
-        <div className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2">
+        <div className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2"
+        style={{ contentVisibility: "auto" }}>
           <QueriesForm />
           <div className="bg-gray-50 rounded-lg p-4 sm:p-6 flex flex-col items-center text-center space-y-4">
             <img
@@ -472,7 +489,8 @@ const CourseDetails = () => {
       </section>
 
       {/* Weekly Course Schedule & Career Opportunities */}
-      <section className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12">
+      <section className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12"
+      style={{ contentVisibility: "auto" }}>
         {/* Left Side - Weekly Schedule */}
         <div className="flex-1">
           <h3 className="font-semibold text-xl sm:text-2xl mb-4 sm:mb-5 text-gray-900">
@@ -516,7 +534,8 @@ const CourseDetails = () => {
       </section>
 
       {/* Digital Marketing Tools */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12"
+      style={{ contentVisibility: "auto" }}>
         <h2 className="text-center font-semibold text-xl sm:text-2xl mb-6 sm:mb-8 text-gray-900">
           Digital Marketing Tools You’ll Master
         </h2>
@@ -539,14 +558,23 @@ const CourseDetails = () => {
       </section>
 
       {/* <Instructor /> */}
-      <OurTrainers />
-      <PlacementHighlights />
+      {/* <OurTrainers /> */}
+      <Suspense fallback={null}>
+        <OurTrainers />
+      </Suspense>
 
-      <OurGraduates />
+      <Suspense fallback={null}>
+        <PlacementHighlights />
+      </Suspense>
+      <Suspense fallback={null}>
+        <OurGraduates />
+      </Suspense>
+      {/* <OurGraduates /> */}
 
       {/* FAQ Section - Only render if faqs exist and have valid Q&A */}
       {course.faqs && course.faqs.length > 0 && (
-        <section className="py-12 sm:py-16 px-4">
+        <section className="py-12 sm:py-16 px-4"
+        style={{ contentVisibility: "auto" }}>
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
