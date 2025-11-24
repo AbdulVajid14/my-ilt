@@ -284,7 +284,7 @@ const Trainers = () => {
         </section>
       </div>
 
-      <Instructor />
+      {/* <Instructor /> */}
       <PlacementHighlights />
       <HireFaq/>
     </div>

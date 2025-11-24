@@ -20,7 +20,8 @@ function TrainerSection() {
                     Jitto Jose
                   </h2>
                   <p className="text-green-600 font-medium">
-                    Founder & Lead Trainer
+                    CEO & Founder <br />
+                   <span className="text-black font-medium">MBA Digital Marketing in London</span> 
                   </p>
                 </div>
                 <div className="flex-grow relative overflow-hidden h-180 sm:h-96 md:h-auto">
@@ -34,8 +35,8 @@ function TrainerSection() {
                 </div>
                 <div className="absolute bottom-0 left-0 w-full flex flex-col sm:flex-row justify-between items-center text-center p-4 bg-gray-900 bg-opacity-70 text-white z-20">
                   <div className="flex-1 px-2 sm:border-r sm:border-gray-600 mb-2 sm:mb-0">
-                    <p className="text-xl sm:text-2xl font-bold">2000+</p>
-                    <p className="text-xs sm:text-sm">Students Trained</p>
+                    <p className="text-xl sm:text-2xl font-bold">100k</p>
+                    <p className="text-xs sm:text-sm">FREE Webinar</p>
                   </div>
                   <div className="flex-1 px-2 sm:border-r sm:border-gray-600 mb-2 sm:mb-0">
                     <p className="text-xl sm:text-2xl font-bold">100%</p>

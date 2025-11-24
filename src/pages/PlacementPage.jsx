@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import Questions from "../components/Home/Questions";
+import OurGraduates from "../components/Home/OurGraduates";
 
 function PlacementPage() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -176,7 +176,7 @@ function PlacementPage() {
           )}
         </div>
       </section>
-      <Questions />
+            <OurGraduates />
     </>
   );
 }

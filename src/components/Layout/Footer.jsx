@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HiHome, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram ,FaLinkedinIn} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -148,11 +148,6 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/about" className="text-white hover:text-orange-300">
-                Success Stories
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="text-white hover:text-orange-300">
                 About Us
               </Link>
             </li>
@@ -227,7 +222,6 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/30 mt-5 pt-5 max-w-[1200px] mx-auto flex justify-between items-center text-xs opacity-80">
-        <div>@2025 ILT Institute</div>
         <div>
           Powered by{" "}
           <a
@@ -237,6 +231,19 @@ const Footer = () => {
             className="hover:underline"
           >
             Ektova Technologies Pvt Ltd
+          </a>
+        </div>
+
+        <div>
+          Copyright © 2025–2026 Internet Leads Training (ILT) | Developed &
+          Promoted by
+          <a
+            href="https://www.doptit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline"
+          >
+            DOPTIT PVT LTD
           </a>
         </div>
 
@@ -251,13 +258,13 @@ const Footer = () => {
             <FaFacebookF size={20} />
           </a>
           <a
-            href="https://www.twitter.com"
+            href="https://www.linkedin.com/company/internet-leads-training/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Twitter"
+            aria-label="linkedIn"
             className="hover:text-green-300"
           >
-            <FaTwitter size={20} />
+            <FaLinkedinIn size={20} />
           </a>
           <a
             href="https://www.instagram.com/internet_leads_training/"

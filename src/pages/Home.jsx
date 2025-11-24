@@ -147,8 +147,7 @@ const Home = () => {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl mb-6">
-            1000+ Reviews | 15+ Years Experienced Trainers | Mobile Enabled
-            Learning | Global Certification
+           10,000+ Students | 2000+ Reviews | 15+ Years Experience
           </p>
 
           <Link to="/courses/digital-marketing-course-kochi">

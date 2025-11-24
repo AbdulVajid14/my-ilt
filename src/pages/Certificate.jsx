@@ -4,6 +4,8 @@ import { FaDotCircle, FaCheck } from "react-icons/fa";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
 import Instructor from "../components/CommonComponents/Instructor";
 import Questions from "../components/Home/Questions";
+import PlacementHighlights from "../components/Home/PlacementHighlights";
+import OurGraduates from "../components/Home/OurGraduates";
 
 const Certificate = () => {
   useEffect(() => {
@@ -152,8 +154,11 @@ const Certificate = () => {
           <QueriesForm />
         </div>
       </section>
-      <Instructor />
-      <Questions />
+      {/* <Instructor />
+      <Questions /> */}
+            <PlacementHighlights />
+                  <OurGraduates />
+
     </div>
   );
 };

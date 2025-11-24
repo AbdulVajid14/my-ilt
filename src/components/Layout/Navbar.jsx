@@ -6,6 +6,8 @@ import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
+  FaLinkedinIn,
+  FaBlog,
 } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
@@ -156,12 +158,9 @@ const Navbar = () => {
 
         <div className="hidden lg:flex flex-col text-right text-gray-700 text-sm px-4">
           <span className="mb-1">
-            Next Professional Diploma Marketing Course : Start Date:{" "}
-            <b className="font-bold">Day Course</b>: Starts 25th March
-          </span>
-          <span className="text-sm">
-            <b className="font-bold">Evening Course</b>: Starts 21st August
-            (Thursday, 6:30pm - 9:30pm){" "}
+            Next Professional <b>Diploma Marketing Course Starts on Monday</b>{" "}
+            <br />
+            Course FEE (Online) INR 40,000 & Offline INR 60,000.
             <b className="text-green-600">Enrol Now!</b>
           </span>
         </div>
@@ -191,15 +190,7 @@ const Navbar = () => {
           >
             <FaFacebookF size={20} />
           </a>
-          <a
-            href="https://www.twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="hover:text-green-600 transition"
-          >
-            <FaTwitter size={20} />
-          </a>
+
           <a
             href="https://www.instagram.com/internet_leads_training/"
             target="_blank"
@@ -209,14 +200,34 @@ const Navbar = () => {
           >
             <FaInstagram size={20} />
           </a>
+
+          <a
+            href="https://www.linkedin.com/company/internet-leads-training/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="hover:text-green-600 transition"
+          >
+            <FaLinkedinIn size={20} />
+          </a>
+
+          <a
+            href="https://ilt.ektova.com/blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Blog"
+            className="hover:text-green-600 transition"
+          >
+            <FaBlog size={20} />
+          </a>
         </div>
 
         <div className="lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-gray-700 text-2xl relative z-50"
-              aria-label="Open menu"
-             aria-expanded="false"
+            aria-label="Open menu"
+            aria-expanded="false"
           >
             <motion.div
               animate={{ rotate: menuOpen ? 180 : 0 }}
@@ -445,8 +456,8 @@ const Navbar = () => {
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="text-white text-3xl"
-                   aria-label="Open menu"
-                   aria-expanded="false"
+                  aria-label="Open menu"
+                  aria-expanded="false"
                 >
                   <motion.div
                     animate={{ rotate: menuOpen ? 180 : 0 }}

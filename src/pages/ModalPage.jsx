@@ -13,9 +13,9 @@ import {
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
-import Questions from "../components/Home/Questions";
 import OurGraduates from "../components/Home/OurGraduates";
 import CommonCourses from "../components/CommonComponents/CommonCourses";
+import ModeFaq from "../components/CommonComponents/ModeFaq";
 const modes = [
   { id: "online", label: "Online", icon: <FaLaptop className="w-6 h-6" /> },
   { id: "inhouse", label: "In-House Trainingline", icon: <FaHome className="w-6 h-6" /> },
@@ -317,7 +317,7 @@ const handleModeChange = (modeId) => {
       </div>
 
       <OurGraduates/>
-      <Questions/>
+      <ModeFaq/>
     </div>
   );
 }
