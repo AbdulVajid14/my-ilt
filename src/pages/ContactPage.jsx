@@ -6,7 +6,7 @@ import Questions from "../components/Home/Questions";
 
 const ContactPage = () => {
   useEffect(() => {
-    document.title = "Contact ILT for Digital Marketing Class.";
+    document.title = "Contact ILT |Best Digital Marketing Institute in Cochin, Kerala";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -18,7 +18,7 @@ const ContactPage = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Kerala's No'1 SEO Training Institute. Email is admin@internetleadstraining.com and phone number is 9539070845. We are located in Cochin, Kerala"
+      "Contact Internet Leads Training (ILT) for course details, admissions, and support. Reach Kerala’s trusted digital marketing institute located in Cochin."
     );
     const metaKeywords =
       document.querySelector("meta[name='keywords']") ||
@@ -29,7 +29,7 @@ const ContactPage = () => {
         return meta;
       })();
 
-    metaKeywords.setAttribute("content", "Contact Us");
+    metaKeywords.setAttribute("content", "Contact ILT |Best Digital Marketing Institute in Cochin, Kerala");
   }, []);
 
   const socialLinks = [

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const PrivacyAndPolicy = () => {
   useEffect(() => {
-    document.title = "Privacy & Policy - Internet Leads Training Institute";
+    document.title = "Privacy Policy | Internet Leads Training (ILT) Kerala";
 
     const metaDescription =
       document.querySelector("meta[name='description']") ||
@@ -16,7 +16,7 @@ const PrivacyAndPolicy = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Read the Privacy Policy of Internet Leads Training Institute (ILT), Kerala's leading digital marketing training institute."
+      "Read the Privacy Policy of Internet Leads Training (ILT) to understand how we collect, use, and protect your data across our courses and services in Kerala."
     );
 
     const metaKeywords =
@@ -30,7 +30,7 @@ const PrivacyAndPolicy = () => {
 
     metaKeywords.setAttribute(
       "content",
-      "Privacy Policy, Internet Leads Training, Digital Marketing Course Kochi, SEO Training Kerala"
+      "Privacy Policy | Internet Leads Training (ILT) Kerala"
     );
   }, []);
 

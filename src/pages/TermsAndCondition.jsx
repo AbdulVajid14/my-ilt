@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const TermsAndCondition = () => {
   useEffect(() => {
-    document.title = "Terms & Conditions - Internet Leads Training Institute";
+    document.title = "Terms & Conditions | Internet Leads Training (ILT) Digital Marketing Institute";
 
     const metaDescription =
       document.querySelector("meta[name='description']") ||
@@ -16,7 +16,7 @@ const TermsAndCondition = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Read the official Terms & Conditions of Internet Leads Training Institute (ILT), Kerala's leading digital marketing training institute."
+      "Review the Terms and Conditions of Internet Leads Training (ILT). Learn about our policies, course guidelines, user responsibilities, and institute regulations."
     );
 
     const metaKeywords =
@@ -30,7 +30,7 @@ const TermsAndCondition = () => {
 
     metaKeywords.setAttribute(
       "content",
-      "Terms and Conditions Internet Leads Training, Digital Marketing Course Kochi, SEO Training Kerala"
+      "Terms & Conditions | Internet Leads Training (ILT) Digital Marketing Institute"
     );
   }, []);
 
