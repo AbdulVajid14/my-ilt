@@ -5,6 +5,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaYoutube 
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -288,6 +289,15 @@ const Footer = () => {
             className="hover:text-green-300"
           >
             <FaInstagram size={20} />
+          </a>
+           <a
+            href="https://www.youtube.com/c/InternetLeadsTraining/featured"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="youtube"
+            className="hover:text-green-300"
+          >
+            <FaYoutube size={20} />
           </a>
         </div>
       </div>

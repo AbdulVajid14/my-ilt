@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaBlog,
+  FaYoutube,
 } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
@@ -209,6 +210,15 @@ const Navbar = () => {
             className="hover:text-green-600 transition"
           >
             <FaLinkedinIn size={20} />
+          </a>
+          <a
+            href="https://www.youtube.com/c/InternetLeadsTraining/featured"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            className="hover:text-green-600 transition"
+          >
+            <FaYoutube size={20} />
           </a>
 
           <a
