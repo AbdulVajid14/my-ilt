@@ -165,13 +165,12 @@ const CourseDetails = () => {
               .map((s) => s.trim())
               .filter((s) => s);
             const weeklySchedule = outcomes.map((title, i) => ({
-              week: `Week ${i + 1}`,
               title,
             }));
             const careerOpportunities = found.opportunities
               ? found.opportunities
                   .split(/\r?\n/)
-                  .map((s) => s.trim())
+                  .map(s => s.trim().replace(/\.$/, ""))
                   .filter(Boolean)
               : [];
             const rawQuestions = found.question
@@ -494,17 +493,17 @@ const CourseDetails = () => {
         {/* Left Side - Weekly Schedule */}
         <div className="flex-1">
           <h3 className="font-semibold text-xl sm:text-2xl mb-4 sm:mb-5 text-gray-900">
-            Weekly Course Schedule
+            Course Topics
           </h3>
           <ul className="space-y-2 sm:space-y-3 text-gray-800">
-            {course.weeklySchedule.map(({ week, title }) => (
+            {course.weeklySchedule.map(({ id, title }) => (
               <li
-                key={week}
+                key={id}
                 className="flex items-center space-x-2 sm:space-x-3"
               >
                 <span className="block w-2 h-2 sm:w-3 sm:h-3 bg-green-600 rounded-full flex-shrink-0"></span>
                 <p className="text-sm sm:text-lg leading-relaxed">
-                  <strong>{week}:</strong> {title}
+                  {title}
                 </p>
               </li>
             ))}

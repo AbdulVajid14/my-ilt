@@ -34,6 +34,7 @@ const Footer = () => {
             "Digital Marketing Course Kochi",
             "Core Python Course",
             "Data Driven AI Digital Marketing Course",
+            "Buisness Analytics Course"
           ];
 
           const filteredNewCourses = allCourses
@@ -55,21 +56,12 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto flex flex-wrap justify-between">
         {/* Left Section */}
         <div className="flex-1 min-w-[280px] mb-10">
-          <div className="mb-5">
-            <img
-              src="/images/ilt logo 2.png"
-              alt="Internet Leads Training Logo"
-              width="140"
-              height="40"
-              className="w-[140px] h-auto"
-            />
-          </div>
           <div className="flex items-start gap-2.5 mb-4">
             <HiHome className="flex-shrink-0 mt-0.5 w-5 h-5 text-white" />
             <p className="text-sm leading-relaxed">
-              Internet Leads Training Jigsaw Co-Working Space 6th Floor,
-              Kandamkulathy Towers, Mahatma Gandhi Rd, KPCC Junction, Opp
-              Maharaja's Ground, Shenoys, Ernakulam, Kerala 682011
+              Internet Leads Training <br />Jigsaw Co-Working Space 6th Floor,
+              Kandamkulathy Towers,<br /> Mahatma Gandhi Rd, KPCC Junction, Opp
+              Maharaja's Ground, <br /> Ernakulam, Kerala 682011
             </p>
           </div>
           <div className="flex items-start gap-2.5 mb-3">
@@ -223,6 +215,15 @@ const Footer = () => {
                 Website Disclaimer
               </Link>
             </li>
+            <div className="mb-5">
+              <img
+                src="/images/ilt logo 2.png"
+                alt="Internet Leads Training Logo"
+                width="140"
+                height="40"
+                className="w-[140px] h-auto"
+              />
+            </div>
           </ul>
         </div>
       </div>

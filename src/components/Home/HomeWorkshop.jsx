@@ -8,7 +8,7 @@ function HomeWorkshop() {
 
   {/* Background Image */}
   <img
-    src="/images/warkshop-bg.jpg"
+    src="/images/warkshop-bg.webp"
     alt="Workshop Banner"
     className="absolute inset-0 w-full h-full object-cover"
   />

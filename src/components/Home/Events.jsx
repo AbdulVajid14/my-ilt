@@ -6,7 +6,7 @@ const Events = () => {
     <section
       className="relative w-full h-[500px] bg-cover bg-center flex items-center"
       style={{
-        backgroundImage: "url('/images/Events & Celebration section.png')",
+        backgroundImage: "url('/images/Events & Celebration section.webp')",
       }}
     >
       {/* Content */}   
