@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const RefundPolicy = () => {
   useEffect(() => {
-    document.title = "Refund & Cancellation Policy - Internet Leads Training Institute";
+    document.title = "Refund & Cancellation Policy | Internet Leads Training (ILT)";
 
     const metaDescription =
       document.querySelector("meta[name='description']") ||
@@ -16,7 +16,7 @@ const RefundPolicy = () => {
 
     metaDescription.setAttribute(
       "content",
-      "View the Refund & Cancellation Policy of Internet Leads Training Institute (ILT), Kerala's leading digital marketing training institute."
+      "Read Internet Leads Training (ILT)’s refund and cancellation policy for all course enrollments. Clear, transparent terms to help students understand payment and refund procedures."
     );
 
     const metaKeywords =
@@ -30,7 +30,7 @@ const RefundPolicy = () => {
 
     metaKeywords.setAttribute(
       "content",
-      "Refund Policy, Cancellation Policy, Internet Leads Training, Digital Marketing Course Kochi, ILT Refund"
+      "Refund & Cancellation Policy | Internet Leads Training (ILT)"
     );
   }, []);
 

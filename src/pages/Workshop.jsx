@@ -65,6 +65,36 @@ function Workshop() {
     fetchWorkshops();
   }, []);
 
+  useEffect(() => {
+      document.title = "Professional Digital Marketing Workshops by ILT Cochin";
+      const metaDescription =
+        document.querySelector("meta[name='description']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "description";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaDescription.setAttribute(
+        "content",
+        "Join ILT’s hands-on digital marketing workshops in Kerala. Practical sessions, expert trainers, and real project learning to enhance your marketing skills."
+      );
+      const metaKeywords =
+        document.querySelector("meta[name='keywords']") ||
+        (() => {
+          const meta = document.createElement("meta");
+          meta.name = "keywords";
+          document.head.appendChild(meta);
+          return meta;
+        })();
+  
+      metaKeywords.setAttribute(
+        "content",
+        "Professional Digital Marketing Workshops by ILT Cochin"
+      );
+    }, []);
+
   const [formData, setFormData] = useState({
     subject: "",
     name: "",

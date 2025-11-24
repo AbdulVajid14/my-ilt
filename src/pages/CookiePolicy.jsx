@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const CookiePolicy = () => {
   useEffect(() => {
-    document.title = "Cookie Policy - Internet Leads Training Institute";
+    document.title = "Cookie Policy | Internet Leads Training (ILT)";
 
     const metaDescription =
       document.querySelector("meta[name='description']") ||
@@ -16,7 +16,7 @@ const CookiePolicy = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Understand how Internet Leads Training Institute (ILT) uses cookies to enhance your browsing experience. Read our Cookie Policy."
+      "Read the Cookie Policy of Internet Leads Training (ILT) to understand how cookies enhance your browsing experience and support site performance."
     );
 
     const metaKeywords =
@@ -30,7 +30,7 @@ const CookiePolicy = () => {
 
     metaKeywords.setAttribute(
       "content",
-      "Cookie Policy, Cookies, Internet Leads Training, ILT Cookies, Digital Marketing Training Kochi"
+      "Cookie Policy | Internet Leads Training (ILT)"
     );
   }, []);
 

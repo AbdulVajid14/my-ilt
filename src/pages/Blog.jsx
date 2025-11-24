@@ -51,8 +51,7 @@ const Blog = () => {
   }, []);
 
   useEffect(() => {
-    document.title =
-      "Digital Marketing Blogs Cochin (Kochi), Kerala - Internet Leads Training";
+    document.title = "ILT Blog | Digital Marketing Insights, Trends & Learning Resources";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -64,7 +63,20 @@ const Blog = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Welcome to Official blog of Internet Leads Training (ILT). We update the latest digital marketing related blogs on a regular basis. Keep visiting"
+      "Explore expert articles, guides, and industry updates on digital marketing from Internet Leads Training (ILT). Stay informed with tips, strategies, and the latest trends."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "ILT Blog | Digital Marketing Insights, Trends & Learning Resources"
     );
   }, []);
 

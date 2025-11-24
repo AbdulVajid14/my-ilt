@@ -7,7 +7,7 @@ import Questions from "../components/Home/Questions";
 
 const Certificate = () => {
   useEffect(() => {
-    document.title = "Google Adwords & Analytics Certification Cochin, Kerala";
+    document.title = "Digital Marketing Course Certificate | Internet Leads Training (ILT)";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -19,7 +19,7 @@ const Certificate = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Internet Leads Training provides certification in Google Adwords and Google Analytics. Join for SEO Training at  ILT."
+      "Get your verified digital marketing certification from Internet Leads Training (ILT). Our course certificate validates your skills and supports better career opportunities."
     );
     const metaKeywords =
       document.querySelector("meta[name='keywords']") ||
@@ -30,7 +30,7 @@ const Certificate = () => {
         return meta;
       })();
 
-    metaKeywords.setAttribute("content", "Certification");
+    metaKeywords.setAttribute("content", "Digital Marketing Course Certificate | Internet Leads Training (ILT)");
   }, []);
   return (
     <div className="w-full">

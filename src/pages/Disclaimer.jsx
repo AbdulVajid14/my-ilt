@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const Disclaimer = () => {
   useEffect(() => {
-    document.title = "Website Disclaimer - Internet Leads Training Institute";
+    document.title = "Website Disclaimer | Internet Leads Training (ILT)";
 
     const metaDescription =
       document.querySelector("meta[name='description']") ||
@@ -16,7 +16,7 @@ const Disclaimer = () => {
 
     metaDescription.setAttribute(
       "content",
-      "Read the official Website Disclaimer of Internet Leads Training Institute (ILT), Kerala's leading digital marketing training institute."
+      "Internet Leads Training (ILT) Website Disclaimer outlines content accuracy, responsibilities, and limitations of liability for users accessing our official site."
     );
 
     const metaKeywords =
@@ -30,7 +30,7 @@ const Disclaimer = () => {
 
     metaKeywords.setAttribute(
       "content",
-      "Website Disclaimer, ILT Disclaimer, Internet Leads Training, Digital Marketing Course Kochi, Legal Disclaimer"
+      "Website Disclaimer | Internet Leads Training (ILT)"
     );
   }, []);
 
