@@ -66,7 +66,7 @@ const About = () => {
             <div className="bg-green-600 p-6 text-white font-bold text-center text-xl sm:text-2xl">
               Jitto Jose
               <div className="text-sm font-normal mt-1">
-                Founder & Lead Trainer
+                CEO & Founder
               </div>
             </div>
             <img

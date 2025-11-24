@@ -234,7 +234,7 @@ const Footer = () => {
   flex flex-col lg:flex-row justify-between items-center text-xs opacity-80 gap-4 lg:gap-0"
       >
         {/* Powered By */}
-        <div className="text-center lg:text-left">
+        {/* <div className="text-center lg:text-left">
           Powered by{" "}
           <a
             href="https://ektova.com"
@@ -244,19 +244,19 @@ const Footer = () => {
           >
             Ektova Technologies Pvt Ltd
           </a>
-        </div>
+        </div> */}
 
         {/* Copyright */}
         <div className="text-center lg:text-left">
           Copyright © 2025–2026 Internet Leads Training (ILT) | Developed &
           Promoted by{" "}
           <a
-            href="https://www.doptit.com"
+            href="https://ektova.com"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
           >
-            DOPTIT PVT LTD
+            Ektova Technologies Pvt Ltd
           </a>
         </div>
 
