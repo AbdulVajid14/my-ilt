@@ -1,9 +1,8 @@
-import React, { useState, useRef ,useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import { Toaster, toast } from "sonner";
-import Instructor from "../components/CommonComponents/Instructor";
 import PlacementHighlights from "../components/Home/PlacementHighlights";
 import HireFaq from "../components/CommonComponents/HireFaq";
 
@@ -12,47 +11,47 @@ const Trainers = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
-       useEffect(() => {
-        document.title = "Hire & Outsource Digital Marketers Experts in India | Internet Leads Training";
-        const metaDescription =
-          document.querySelector("meta[name='description']") ||
-          (() => {
-            const meta = document.createElement("meta");
-            meta.name = "description";
-            document.head.appendChild(meta);
-            return meta;
-          })();
-    
-        metaDescription.setAttribute(
-          "content",
-          "Hire and outsource digital marketing experts from India with Internet Leads Training (ILT). Get skilled, trained, and dedicated marketers working full-time for your business."
-        );
-        const metaKeywords =
-          document.querySelector("meta[name='keywords']") ||
-          (() => {
-            const meta = document.createElement("meta");
-            meta.name = "keywords";
-            document.head.appendChild(meta);
-            return meta;
-          })();
-    
-        metaKeywords.setAttribute(
-          "content",
-          "Hire & Outsource Digital Marketers Experts in India | Internet Leads Training"
-        );
-      }, []);
-      
+  useEffect(() => {
+    document.title =
+      "Hire & Outsource Digital Marketers Experts in India | Internet Leads Training";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Hire and outsource digital marketing experts from India with Internet Leads Training (ILT). Get skilled, trained, and dedicated marketers working full-time for your business."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "Hire & Outsource Digital Marketers Experts in India | Internet Leads Training"
+    );
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Verifying...");
 
-    const token = recaptchaRef.current.getValue();
-    if (!token) {
-      setStatus("Please complete the reCAPTCHA");
-      toast.error("Please complete the reCAPTCHA");
-      return;
-    }
+    // const token = recaptchaRef.current.getValue();
+    // if (!token) {
+    //   setStatus("Please complete the reCAPTCHA");
+    //   toast.error("Please complete the reCAPTCHA");
+    //   return;
+    // }
 
     const formData = new FormData();
     const form = e.target;
@@ -61,7 +60,7 @@ const Trainers = () => {
     formData.append("email", form.email.value);
     formData.append("mobile", form.mobile.value);
     formData.append("experience", form.experience.value);
-    formData.append("token", token);
+    // formData.append("token", token);
 
     if (form.cv.files[0]) {
       formData.append("cv", form.cv.files[0]);
@@ -79,12 +78,12 @@ const Trainers = () => {
       if (res.data.success) {
         toast.success("Trainer application submitted successfully!");
         form.reset();
-        recaptchaRef.current.reset();
+        // recaptchaRef.current.reset();
         setStatus("Form submitted successfully!");
       } else {
         toast.error(res.data.message || "Submission failed");
-        setStatus("reCAPTCHA verification failed.");
-        recaptchaRef.current.reset();
+        // setStatus("reCAPTCHA verification failed.");
+        // recaptchaRef.current.reset();
       }
     } catch (error) {
       toast.error(
@@ -92,7 +91,7 @@ const Trainers = () => {
           "An error occurred while submitting the form."
       );
       setStatus("Server error");
-      recaptchaRef.current.reset();
+      // recaptchaRef.current.reset();
     } finally {
       setLoading(false);
     }
@@ -107,11 +106,12 @@ const Trainers = () => {
         className="w-full h-64 md:h-100 bg-cover bg-center flex items-center justify-start"
         style={{
           backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-09 at 09.28.15_0ca754ec.jpg')",
+            "url('/images/abroad-banners.webp')",
         }}
       >
         <h1 className="text-white text-3xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 py-2 rounded">
-          Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute – Internet Leads Training (ILT), Kochi
+          Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute –
+          Internet Leads Training (ILT), Kochi
         </h1>
       </section>
 
@@ -123,21 +123,22 @@ const Trainers = () => {
           </h2>
 
           <p className="text-gray-800 text-lg leading-relaxed max-w-7xl">
-            Internet Leads Training (ILT) not only delivers expert digital marketing
-            education—we also provide trained and experienced digital marketers as
-            virtual employees for companies. You can hire freshers or senior
-            professionals who work full-time from our office under expert supervision.
-            No HR issues, no training burden, and no downtime—if someone leaves, we
-            replace them immediately so your business never gets affected.
+            Internet Leads Training (ILT) not only delivers expert digital
+            marketing education—we also provide trained and experienced digital
+            marketers as virtual employees for companies. You can hire freshers
+            or senior professionals who work full-time from our office under
+            expert supervision. No HR issues, no training burden, and no
+            downtime—if someone leaves, we replace them immediately so your
+            business never gets affected.
           </p>
 
           <p className="text-gray-800 text-lg leading-relaxed mt-4 max-w-7xl">
-            This model is highly cost-effective compared to hiring in-house staff.
-            You get a dedicated digital marketer working exclusively for your company,
-            with no deposit, no long-term contract, and the freedom to terminate anytime.
-            All our candidates are verified, skill-checked, and capable of generating
-            quality leads, managing campaigns, and delivering consistent results for
-            your business.
+            This model is highly cost-effective compared to hiring in-house
+            staff. You get a dedicated digital marketer working exclusively for
+            your company, with no deposit, no long-term contract, and the
+            freedom to terminate anytime. All our candidates are verified,
+            skill-checked, and capable of generating quality leads, managing
+            campaigns, and delivering consistent results for your business.
           </p>
         </section>
 
@@ -165,7 +166,7 @@ const Trainers = () => {
         className="relative py-20 px-8 text-white"
         style={{
           backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-09 at 09.28.16_15cc1fcd.jpg')",
+            "url('/images/abroad-banners-2.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -256,12 +257,12 @@ const Trainers = () => {
               ></textarea>
             </div>
 
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               />
-            </div>
+            </div> */}
 
             <button
               type="submit"
@@ -276,17 +277,17 @@ const Trainers = () => {
           {/* Image */}
           <div className="flex justify-center md:justify-end">
             <img
-              src="/images/WhatsApp Image 2025-10-09 at 09.28.16_84a7b9c3.jpg"
+              src="/images/abroad-3.webp"
               alt="Trainer at whiteboard"
+              loading="lazy"
               className="rounded-lg shadow-lg w-full max-w-md object-cover"
             />
           </div>
         </section>
       </div>
 
-      {/* <Instructor /> */}
       <PlacementHighlights />
-      <HireFaq/>
+      <HireFaq />
     </div>
   );
 };

@@ -5,10 +5,10 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 function BookTrail() {
-  const recaptchaRef = useRef(null);
+  // const recaptchaRef = useRef(null);
   const [formData, setFormData] = useState({
     subject: "",
     name: "",
@@ -33,19 +33,21 @@ function BookTrail() {
     setStatus("Verifying...");
 
     // Get token from reCAPTCHA
-    const token = recaptchaRef.current.getValue();
-    if (!token) {
-      setStatus("Please complete the reCAPTCHA");
-      toast.error("Please complete the reCAPTCHA");
-      return;
-    }
+    // const token = recaptchaRef.current.getValue();
+    // if (!token) {
+    //   setStatus("Please complete the reCAPTCHA");
+    //   toast.error("Please complete the reCAPTCHA");
+    //   return;
+    // }
 
     setLoading(true);
 
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/InsertContact`,
-        { ...formData, token } // Include reCAPTCHA token in the request
+        { ...formData, 
+          // token 
+        } 
       );
       if (response.data.success) {
         toast.success("Message sent successfully!");
@@ -56,19 +58,19 @@ function BookTrail() {
           phone: "",
           message: "",
         });
-        recaptchaRef.current.reset(); // Reset reCAPTCHA after successful submission
+        // recaptchaRef.current.reset(); 
         setStatus("Form submitted successfully!");
       } else {
         toast.error("Failed to send message.");
-        setStatus("reCAPTCHA verification failed.");
-        recaptchaRef.current.reset();
+        // setStatus("reCAPTCHA verification failed.");
+        // recaptchaRef.current.reset();
       }
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Failed to send message. Please try again later."
       );
       setStatus("Server error");
-      recaptchaRef.current.reset();
+      // recaptchaRef.current.reset();
     } finally {
       setLoading(false);
     }
@@ -160,12 +162,12 @@ function BookTrail() {
                 <FaCheckCircle />
               </span>
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               className="w-full bg-green-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-green-700 transition duration-300"

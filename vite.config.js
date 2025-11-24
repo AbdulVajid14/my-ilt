@@ -16,7 +16,9 @@ export default defineConfig({
 
   build: {
     cssCodeSplit: true,
-
+    minify: "terser",
+    cssMinify: true,
+    chunkSizeWarningLimit: 600,
     // --- IMPORTANT: Proper chunk splitting ---
     rollupOptions: {
       output: {

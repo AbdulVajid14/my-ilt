@@ -51,7 +51,8 @@ const Blog = () => {
   }, []);
 
   useEffect(() => {
-    document.title = "ILT Blog | Digital Marketing Insights, Trends & Learning Resources";
+    document.title =
+      "ILT Blog | Digital Marketing Insights, Trends & Learning Resources";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -164,15 +165,17 @@ const Blog = () => {
             {/* Pagination Controls */}
             {totalPages > 1 && (
               <div className="flex justify-center items-center space-x-4 mt-12">
+                {/* Previous Button */}
                 <button
                   onClick={handlePrev}
                   disabled={currentPage === 1}
+                  aria-label="Go to previous page"
                   className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 shadow-md
-    ${
-      currentPage === 1
-        ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-        : "bg-white text-green-700 border border-green-700 hover:bg-green-50 hover:shadow-lg"
-    }`}
+      ${
+        currentPage === 1
+          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+          : "bg-white text-green-700 border border-green-700 hover:bg-green-50 hover:shadow-lg"
+      }`}
                 >
                   <svg
                     className="w-5 h-5"
@@ -189,6 +192,7 @@ const Blog = () => {
                   </svg>
                 </button>
 
+                {/* Number Buttons */}
                 <div className="flex space-x-1">
                   {[...Array(totalPages)].map((_, i) => (
                     <button
@@ -205,15 +209,17 @@ const Blog = () => {
                   ))}
                 </div>
 
+                {/* Next Button */}
                 <button
                   onClick={handleNext}
                   disabled={currentPage === totalPages}
+                  aria-label="Go to next page"
                   className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 shadow-md 
-    ${
-      currentPage === totalPages
-        ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-        : "bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 transform hover:scale-105"
-    }`}
+      ${
+        currentPage === totalPages
+          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+          : "bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 transform hover:scale-105"
+      }`}
                 >
                   <svg
                     className="w-5 h-5"

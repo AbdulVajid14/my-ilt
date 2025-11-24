@@ -389,6 +389,8 @@ const CourseDetails = () => {
               src={course.videoImage}
               alt="Course Presentation"
               loading="lazy"
+              width="1280"
+              height="720"
               className="w-full h-full object-cover"
             />
           </div>

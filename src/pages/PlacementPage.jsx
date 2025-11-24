@@ -28,34 +28,35 @@ function PlacementPage() {
   }, [BASE_URL]);
 
   useEffect(() => {
-          document.title = "Placements at ILT | Career Support & Digital Marketing Jobs";
-          const metaDescription =
-            document.querySelector("meta[name='description']") ||
-            (() => {
-              const meta = document.createElement("meta");
-              meta.name = "description";
-              document.head.appendChild(meta);
-              return meta;
-            })();
-      
-          metaDescription.setAttribute(
-            "content",
-            "Grow your career with ILT’s placement program, offering real job opportunities, corporate connections, and hands-on digital marketing training support."
-          );
-          const metaKeywords =
-            document.querySelector("meta[name='keywords']") ||
-            (() => {
-              const meta = document.createElement("meta");
-              meta.name = "keywords";
-              document.head.appendChild(meta);
-              return meta;
-            })();
-      
-          metaKeywords.setAttribute(
-            "content",
-            "Placements at ILT | Career Support & Digital Marketing Jobs"
-          );
-        }, []);
+    document.title =
+      "Placements at ILT | Career Support & Digital Marketing Jobs";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Grow your career with ILT’s placement program, offering real job opportunities, corporate connections, and hands-on digital marketing training support."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "Placements at ILT | Career Support & Digital Marketing Jobs"
+    );
+  }, []);
 
   // Pagination Logic
   const totalPages = Math.ceil(placements.length / itemsPerPage);
@@ -126,7 +127,7 @@ function PlacementPage() {
       <section
         className="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-20 px-4 bg-cover bg-center h-100"
         style={{
-          backgroundImage: "url('/images/placement-banner.jpg')",
+          backgroundImage: "url('/images/placement-banner.webp')",
         }}
       >
         {/* Dark overlay (only on the background) */}
@@ -173,13 +174,18 @@ function PlacementPage() {
                     transition={{ duration: 0.4 }}
                   >
                     <div className="relative overflow-hidden">
-                      <img
-                        src={`${IMAGE_URL}${student.image}`}
-                        alt={student.name}
-                        className="w-full h-90 object-cover transition-transform duration-500 hover:scale-110"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <picture>
+                        <source
+                          srcset={`${IMAGE_URL}${student.image}`}
+                          type="image/webp"
+                        />
+                        <img
+                          src={`${IMAGE_URL}${student.image}`}
+                          alt={student.name}
+                          className="w-full h-[360px] object-cover transition-transform duration-500 hover:scale-110"
+                          loading="lazy"
+                        />
+                      </picture>
                     </div>
 
                     <div className="p-5 flex flex-col flex-grow">
@@ -206,7 +212,7 @@ function PlacementPage() {
           )}
         </div>
       </section>
-            <OurGraduates />
+      <OurGraduates />
     </>
   );
 }

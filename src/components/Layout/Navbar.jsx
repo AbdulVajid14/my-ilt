@@ -189,7 +189,7 @@ const Navbar = () => {
             aria-label="Facebook"
             className="hover:text-green-600 transition"
           >
-            <FaFacebookF size={20} />
+            <FaFacebookF size={20} className="w-5 h-5"/>
           </a>
 
           <a
@@ -199,7 +199,7 @@ const Navbar = () => {
             aria-label="Instagram"
             className="hover:text-green-600 transition"
           >
-            <FaInstagram size={20} />
+            <FaInstagram size={20} className="w-5 h-5"/>
           </a>
 
           <a
@@ -209,7 +209,7 @@ const Navbar = () => {
             aria-label="LinkedIn"
             className="hover:text-green-600 transition"
           >
-            <FaLinkedinIn size={20} />
+            <FaLinkedinIn size={20} className="w-5 h-5"/>
           </a>
           <a
             href="https://www.youtube.com/c/InternetLeadsTraining/featured"
@@ -218,7 +218,7 @@ const Navbar = () => {
             aria-label="YouTube"
             className="hover:text-green-600 transition"
           >
-            <FaYoutube size={20} />
+            <FaYoutube size={20} className="w-5 h-5"/>
           </a>
 
           <a
@@ -228,7 +228,7 @@ const Navbar = () => {
             aria-label="Blog"
             className="hover:text-green-600 transition"
           >
-            <FaBlog size={20} />
+            <FaBlog size={20} className="w-5 h-5"/>
           </a>
         </div>
 

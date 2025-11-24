@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import {
   FaBullseye,
@@ -10,8 +10,9 @@ import {
 } from "react-icons/fa";
 
 const About = () => {
-   useEffect(() => {
-    document.title = "About Us | Kerala’s Most Trusted Digital Marketing Institute in Cochin";
+  useEffect(() => {
+    document.title =
+      "About Us | Kerala’s Most Trusted Digital Marketing Institute in Cochin";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -46,15 +47,14 @@ const About = () => {
       <div
         className="relative w-full h-64 sm:h-96 flex items-center justify-start bg-center bg-cover"
         style={{
-          backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-03 at 16.09.27_906d37b7.jpg')",
+          backgroundImage: "url('/images/about-1.webp')",
         }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-8">
-    <h1 className="text-white text-4xl sm:text-5xl font-extrabold drop-shadow-lg">
-      About Us
-    </h1>
-  </div>
+          <h1 className="text-white text-4xl sm:text-5xl font-extrabold drop-shadow-lg">
+            About Us
+          </h1>
+        </div>
       </div>
 
       {/* Page Content - inside container */}
@@ -65,15 +65,17 @@ const About = () => {
           <div className="md:w-1/3 bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
             <div className="bg-green-600 p-6 text-white font-bold text-center text-xl sm:text-2xl">
               Jitto Jose
-              <div className="text-sm font-normal mt-1">
-                CEO & Founder
-              </div>
+              <div className="text-sm font-normal mt-1">CEO & Founder</div>
             </div>
             <img
-              src="/images/WhatsApp Image 2025-09-20 at 10.53.59_635566b4.jpg"
+              src="/images/about-jitto-jose.webp"
               alt="Jitto Jose"
-              className="w-full object-cover aspect-[3/4]"
+              loading="lazy"
+              fetchpriority="high"
+              decoding="async"
+              className="w-full h-[350px] object-cover"
             />
+
             <div className="flex border-t border-gray-300 text-gray-700">
               <div className="flex-1 p-4 border-r border-gray-300">
                 <p className="text-green-600 font-semibold mb-1">Experience</p>
@@ -131,7 +133,7 @@ const About = () => {
             {/* Mission */}
             <div className="border border-gray-300 rounded-lg p-6">
               <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                Our Mission <FaBullseye className="text-green-600" />
+                Our Mission <FaBullseye className="text-green-600 w-5 h-5" />
               </h4>
               <p className="text-gray-700">
                 To provide practical, career-oriented training through expert
@@ -143,7 +145,7 @@ const About = () => {
             {/* Vision */}
             <div className="border border-gray-300 rounded-lg p-6">
               <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                Our Vision <FaEye className="text-green-600" />
+                Our Vision <FaEye className="text-green-600 w-5 h-5" />
               </h4>
               <p className="text-gray-700">
                 To be a leading institute that empowers learners with digital
@@ -154,7 +156,7 @@ const About = () => {
             {/* Values */}
             <div className="border border-gray-300 rounded-lg p-6">
               <h4 className="text-xl font-bold mb-2 flex items-center gap-2">
-                Our Values <FaStar className="text-green-600" />
+                Our Values <FaStar className="text-green-600 w-5 h-5" />
               </h4>
               <p className="text-gray-700">
                 At ILT, our values of excellence, integrity, and student success
@@ -165,34 +167,31 @@ const About = () => {
         </section>
 
         {/* Why Choose ILT Section */}
-<section className="mt-20 py-12">
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
-    
-    {/* Left Side - Heading */}
-    <div className="md:w-1/3">
-      <h1 className="text-4xl font-bold text-black">
-        Why Choose ILT?
-      </h1>
-    </div>
+        <section className="mt-20 py-12">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
+            {/* Left Side - Heading */}
+            <div className="md:w-1/3">
+              <h1 className="text-4xl font-bold text-black">Why Choose ILT?</h1>
+            </div>
 
-    {/* Right Side - Paragraph */}
-    <div className="md:w-2/3">
-      <p className="text-lg text-gray-600">
-        We go beyond theory to deliver practical, career-focused training.
-        With expert mentors, real projects, and placement support, ILT ensures
-        you gain the skills and confidence to succeed in the digital world.
-      </p>
-    </div>
-  </div>
-</section>
-
+            {/* Right Side - Paragraph */}
+            <div className="md:w-2/3">
+              <p className="text-lg text-gray-600">
+                We go beyond theory to deliver practical, career-focused
+                training. With expert mentors, real projects, and placement
+                support, ILT ensures you gain the skills and confidence to
+                succeed in the digital world.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Features Section */}
         <section className="mt-20 max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 gap-10 text-gray-700 text-lg">
           <div>
             <h4 className="text-2xl font-bold flex items-center gap-3 mb-3 text-gray-900">
-              <FaBullseye className="text-green-600" size={28} /> Placement
-              Support
+              <FaBullseye className="text-green-600 w-8 h-8" size={28} />{" "}
+              Placement Support
             </h4>
             <p>
               We provide complete placement assistance with interview
@@ -203,7 +202,7 @@ const About = () => {
 
           <div>
             <h4 className="text-2xl font-bold flex items-center gap-3 mb-3 text-gray-900">
-              <FaLaptop className="text-green-600" size={28} /> Hands-On
+              <FaLaptop className="text-green-600 w-8 h-8" size={28} /> Hands-On
               Learning
             </h4>
             <p>
@@ -215,7 +214,8 @@ const About = () => {
 
           <div>
             <h4 className="text-2xl font-bold flex items-center gap-3 mb-3 text-gray-900">
-              <FaRibbon className="text-green-600" size={28} /> Expert Trainers
+              <FaRibbon className="text-green-600 w-8 h-8" size={28} /> Expert
+              Trainers
             </h4>
             <p>
               Our trainers are experienced digital marketing professionals who
@@ -226,8 +226,8 @@ const About = () => {
 
           <div>
             <h4 className="text-2xl font-bold flex items-center gap-3 mb-3 text-gray-900">
-              <FaCheckCircle className="text-green-600" size={28} /> Certified
-              Courses
+              <FaCheckCircle className="text-green-600 w-8 h-8" size={28} />{" "}
+              Certified Courses
             </h4>
             <p>
               Earn industry-recognized certifications that enhance your
@@ -252,8 +252,9 @@ const About = () => {
           </div>
           <div className="md:w-1/2">
             <img
-              src="/images/WhatsApp Image 2025-10-03 at 16.09.27_75214b43.jpg"
+              src="/images/about-2.webp"
               alt="Training Approach"
+              loading="lazy"
               className="rounded-lg shadow-lg w-full object-cover"
             />
           </div>
