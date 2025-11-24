@@ -336,7 +336,7 @@ import Questions from "../components/Home/Questions";
 const Courses = () => {
   useEffect(() => {
     document.title =
-      "SEO Training, Digital Marketing Class, Pay Per Click Certification & Social Media Class in Cochin, Kerala";
+      "Digital Marketing Courses | Internet Leads Training (ILT) Kerala";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -348,7 +348,7 @@ const Courses = () => {
 
     metaDescription.setAttribute(
       "content",
-      "ILT offers foundation class for digital marketing, advanced digital marketing training, social media marketing, Email Marketing class, Affiliate marketing training, Blogging Training & Google Analytics Class in Cochin, Kerala."
+      "Upgrade your skills with ILT’s digital marketing courses, designed by experts and delivered from our leading institute in Cochin, Kerala. Learn practical, real-world marketing."
     );
     const metaKeywords =
       document.querySelector("meta[name='keywords']") ||
@@ -359,7 +359,7 @@ const Courses = () => {
         return meta;
       })();
 
-    metaKeywords.setAttribute("content", "Training Courses");
+    metaKeywords.setAttribute("content", "Digital Marketing Courses | Internet Leads Training (ILT) Kerala");
   }, []);
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");

@@ -27,6 +27,36 @@ function PlacementPage() {
     fetchPlacements();
   }, [BASE_URL]);
 
+  useEffect(() => {
+          document.title = "Placements at ILT | Career Support & Digital Marketing Jobs";
+          const metaDescription =
+            document.querySelector("meta[name='description']") ||
+            (() => {
+              const meta = document.createElement("meta");
+              meta.name = "description";
+              document.head.appendChild(meta);
+              return meta;
+            })();
+      
+          metaDescription.setAttribute(
+            "content",
+            "Grow your career with ILT’s placement program, offering real job opportunities, corporate connections, and hands-on digital marketing training support."
+          );
+          const metaKeywords =
+            document.querySelector("meta[name='keywords']") ||
+            (() => {
+              const meta = document.createElement("meta");
+              meta.name = "keywords";
+              document.head.appendChild(meta);
+              return meta;
+            })();
+      
+          metaKeywords.setAttribute(
+            "content",
+            "Placements at ILT | Career Support & Digital Marketing Jobs"
+          );
+        }, []);
+
   // Pagination Logic
   const totalPages = Math.ceil(placements.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;

@@ -11,7 +11,7 @@ import {
 
 const About = () => {
    useEffect(() => {
-    document.title = "Kerala's Leading Digital Marketing Training Institute";
+    document.title = "About Us | Kerala’s Most Trusted Digital Marketing Institute in Cochin";
     const metaDescription =
       document.querySelector("meta[name='description']") ||
       (() => {
@@ -23,7 +23,7 @@ const About = () => {
 
     metaDescription.setAttribute(
       "content",
-      "More than 15 years of experience as a digital marketing consultant and trainer, Jitto is a proven authority in terms of digital marketing."
+      "Internet Leads Training (ILT) stands as Kerala’s trusted digital marketing institute, offering practical, career-oriented courses from Cochin with expert industry guidance."
     );
     const metaKeywords =
       document.querySelector("meta[name='keywords']") ||
@@ -36,7 +36,7 @@ const About = () => {
 
     metaKeywords.setAttribute(
       "content",
-      "SEO Training, google adwords training, ppc training"
+      "About Us | Kerala’s Most Trusted Digital Marketing Institute in Cochin"
     );
   }, []);
 

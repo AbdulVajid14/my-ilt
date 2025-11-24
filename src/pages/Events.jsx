@@ -125,6 +125,36 @@ function Events() {
     fetchEvents();
   }, [BASE_URL]);
 
+  useEffect(() => {
+          document.title = "Life at ILT Cochin | Digital Marketing Institute Culture & Experience";
+          const metaDescription =
+            document.querySelector("meta[name='description']") ||
+            (() => {
+              const meta = document.createElement("meta");
+              meta.name = "description";
+              document.head.appendChild(meta);
+              return meta;
+            })();
+      
+          metaDescription.setAttribute(
+            "content",
+            "Experience vibrant campus life at Internet Leads Training (ILT) in Cochin, offering hands-on learning, mentoring, and an inspiring digital marketing culture."
+          );
+          const metaKeywords =
+            document.querySelector("meta[name='keywords']") ||
+            (() => {
+              const meta = document.createElement("meta");
+              meta.name = "keywords";
+              document.head.appendChild(meta);
+              return meta;
+            })();
+      
+          metaKeywords.setAttribute(
+            "content",
+            "Life at ILT Cochin | Digital Marketing Institute Culture & Experience"
+          );
+        }, []);
+
   return (
     <div className="w-full">
       {/* Banner */}

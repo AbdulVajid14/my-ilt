@@ -119,7 +119,7 @@ const trainings = {
 
 function ModalPage() {
        useEffect(() => {
-      document.title = "Private and Group SEO and Digital Marketing Training in Cochin, Kerala";
+      document.title = "ILT Program Modes | Online & Classroom Digital Marketing Training";
       const metaDescription =
         document.querySelector("meta[name='description']") ||
         (() => {
@@ -131,7 +131,7 @@ function ModalPage() {
   
       metaDescription.setAttribute(
         "content",
-        "Internet Leads Training offers private seo training for individuals.  Corporate and Group training is also provided."
+        "Explore ILT’s digital marketing program formats: instructor-led classroom sessions, flexible online training, and specialized corporate modules."
       );
       const metaKeywords =
         document.querySelector("meta[name='keywords']") ||
@@ -144,7 +144,7 @@ function ModalPage() {
   
       metaKeywords.setAttribute(
         "content",
-        "Modes of Training"
+        "ILT Program Modes | Online & Classroom Digital Marketing Training"
       );
     }, []);
   const location = useLocation();

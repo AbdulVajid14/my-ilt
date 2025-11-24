@@ -13,7 +13,7 @@ const Trainers = () => {
   const [status, setStatus] = useState("");
 
        useEffect(() => {
-        document.title = "Title - Hire & Outsource Digital Marketers Experts in India | Internet Leads Training";
+        document.title = "Hire & Outsource Digital Marketers Experts in India | Internet Leads Training";
         const metaDescription =
           document.querySelector("meta[name='description']") ||
           (() => {
@@ -38,7 +38,7 @@ const Trainers = () => {
     
         metaKeywords.setAttribute(
           "content",
-          "seo training in kochi, google adwords training, google analytics training"
+          "Hire & Outsource Digital Marketers Experts in India | Internet Leads Training"
         );
       }, []);
       
