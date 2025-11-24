@@ -6,7 +6,7 @@ import AbroadCourses from "../components/CommonComponents/AbroadCourses";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import AbroadFaq from "../components/CommonComponents/AbroadFaq";
 import TopUniversities from "../components/CommonComponents/TopUniversities";
 
@@ -143,17 +143,16 @@ const ILTAbroad = () => {
     e.preventDefault();
     setFormStatus({ loading: true, success: null, error: null });
 
-    // Get token from reCAPTCHA
-    const token = recaptchaRef.current.getValue();
-    if (!token) {
-      setFormStatus({
-        loading: false,
-        success: null,
-        error: "Please complete the reCAPTCHA",
-      });
-      toast.error("Please complete the reCAPTCHA");
-      return;
-    }
+    // const token = recaptchaRef.current.getValue();
+    // if (!token) {
+    //   setFormStatus({
+    //     loading: false,
+    //     success: null,
+    //     error: "Please complete the reCAPTCHA",
+    //   });
+    //   toast.error("Please complete the reCAPTCHA");
+    //   return;
+    // }
 
     // Basic client-side validation
     if (
@@ -173,12 +172,12 @@ const ILTAbroad = () => {
     }
 
     // Log formData for debugging
-    console.log("Form Data Submitted:", { ...formData, token });
+    console.log("Form Data Submitted:", { ...formData });
 
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/InsertFranchise`,
-        { ...formData, token } // Include reCAPTCHA token
+        { ...formData }
       );
       setFormStatus({
         loading: false,
@@ -188,7 +187,6 @@ const ILTAbroad = () => {
       toast.success(
         response.data.message || "Application submitted successfully!"
       );
-      // Reset form and reCAPTCHA on success
       setFormData({
         name: "",
         email: "",
@@ -199,7 +197,7 @@ const ILTAbroad = () => {
         experience: "",
         massage: "",
       });
-      recaptchaRef.current.reset();
+      // recaptchaRef.current.reset();
     } catch (error) {
       console.error("Form Submission Error:", error.response?.data || error);
       setFormStatus({
@@ -212,7 +210,7 @@ const ILTAbroad = () => {
       toast.error(
         error.response?.data?.message || "Failed to submit the form."
       );
-      recaptchaRef.current.reset();
+      // recaptchaRef.current.reset();
     }
   };
 
@@ -221,10 +219,9 @@ const ILTAbroad = () => {
       <Toaster position="top-right" richColors />
       {/* Banner */}
       <section
-        className="w-full bg-cover bg-center h-[400px] flex items-center justify-start text-white text-4xl font-bold"
+        className="relative w-full bg-cover bg-center h-[400px] flex items-center justify-start text-white text-4xl font-bold"
         style={{
-          backgroundImage:
-            "url('/images/IMG-20251115-WA0049.jpg')",
+          backgroundImage: "url('/images/abroads.webp')",
         }}
       >
         <h1 className="text-left px-4 sm:px-12 lg:px-24">
@@ -260,14 +257,23 @@ const ILTAbroad = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <img
-                src="/images/IMG-20251115-WA0050.jpg"
+                src="/images/abroads-2.webp"
                 alt="Group meeting"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover rounded-md"
+                width={600}
+                height={400}
               />
+
               <img
-                src="/images/IMG-20251115-WA0047.jpg"
+                src="/images/abroads-3.webp"
                 alt="Working on laptop"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover rounded-md"
+                width={600}
+                height={400}
               />
             </div>
           </div>
@@ -322,8 +328,13 @@ const ILTAbroad = () => {
             <img
               src="/images/ceo.jpg"
               alt="CEO"
+              loading="lazy"
+              decoding="async"
+              width={256}
+              height={256}
               className="w-56 h-56 md:w-64 md:h-64 object-cover rounded-xl shadow-md"
             />
+
             <h1 className="text-xl font-semibold mt-4">
               Jitto Jose - CEO & Founder
             </h1>
@@ -357,7 +368,7 @@ const ILTAbroad = () => {
       <section
         className="px-6 py-28 md:py-24 bg-black text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/images/pointsBanner.jpg')",
+          backgroundImage: "url('/images/pointsBanner.webp')",
         }}
       >
         <div className="absolute top-0 left-0 w-48 h-32 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-green-600 rounded-full opacity-80 flex items-center justify-center -translate-y-[60%]">
@@ -434,8 +445,12 @@ const ILTAbroad = () => {
       <section className="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row items-center gap-12">
         <div className="w-full lg:w-1/2">
           <img
-            src="/images/WhatsApp Image 2025-10-09 at 12.16.37_21373de5.jpg"
+            src="/images/abroads-4.webp"
             alt="Graduates"
+            loading="lazy"
+            decoding="async"
+            width={1200}
+            height={700}
             className="w-full h-[350px] md:h-[450px] object-cover rounded-xl shadow-md"
           />
         </div>
@@ -528,12 +543,12 @@ const ILTAbroad = () => {
               className="p-3 border border-gray-300 rounded sm:col-span-2"
               required
             ></textarea>
-            <div className="mb-4 sm:col-span-2">
+            {/* <div className="mb-4 sm:col-span-2">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               disabled={formStatus.loading}

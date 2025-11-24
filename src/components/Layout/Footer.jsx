@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaYoutube 
+  FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -35,7 +35,7 @@ const Footer = () => {
             "Digital Marketing Course Kochi",
             "Core Python Course",
             "Data Driven AI Digital Marketing Course",
-            "Buisness Analytics Course"
+            "Buisness Analytics Course",
           ];
 
           const filteredNewCourses = allCourses
@@ -60,9 +60,10 @@ const Footer = () => {
           <div className="flex items-start gap-2.5 mb-4">
             <HiHome className="flex-shrink-0 mt-0.5 w-5 h-5 text-white" />
             <p className="text-sm leading-relaxed">
-              Internet Leads Training <br />Jigsaw Co-Working Space 6th Floor,
-              Kandamkulathy Towers,<br /> Mahatma Gandhi Rd, KPCC Junction, Opp
-              Maharaja's Ground, <br /> Ernakulam, Kerala 682011
+              Internet Leads Training <br />
+              Jigsaw Co-Working Space 6th Floor, Kandamkulathy Towers,
+              <br /> Mahatma Gandhi Rd, KPCC Junction, Opp Maharaja's Ground,{" "}
+              <br /> Ernakulam, Kerala 682011
             </p>
           </div>
           <div className="flex items-start gap-2.5 mb-3">
@@ -220,8 +221,10 @@ const Footer = () => {
               <img
                 src="/images/ilt logo 2.png"
                 alt="Internet Leads Training Logo"
-                // width="140"
-                // height="40"
+                loading="lazy"
+                width="150"
+                height="60"
+                className="w-[150px] h-[60px]"
               />
             </div>
           </ul>
@@ -251,12 +254,12 @@ const Footer = () => {
           Copyright © 2025–2026 Internet Leads Training (ILT) | Developed &
           Promoted by{" "}
           <a
-            href="https://ektova.com"
+            href="https://www.doptit.com"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
           >
-            Ektova Technologies Pvt Ltd
+            DOPTIT PVT LTD 
           </a>
         </div>
 
@@ -269,7 +272,7 @@ const Footer = () => {
             aria-label="Facebook"
             className="hover:text-green-300"
           >
-            <FaFacebookF size={20} />
+            <FaFacebookF size={20} className="w-5 h-5"/>
           </a>
           <a
             href="https://www.linkedin.com/company/internet-leads-training/"
@@ -278,7 +281,7 @@ const Footer = () => {
             aria-label="linkedIn"
             className="hover:text-green-300"
           >
-            <FaLinkedinIn size={20} />
+            <FaLinkedinIn size={20} className="w-5 h-5"/>
           </a>
           <a
             href="https://www.instagram.com/internet_leads_training/"
@@ -287,16 +290,16 @@ const Footer = () => {
             aria-label="Instagram"
             className="hover:text-green-300"
           >
-            <FaInstagram size={20} />
+            <FaInstagram size={20} className="w-5 h-5"/>
           </a>
-           <a
+          <a
             href="https://www.youtube.com/c/InternetLeadsTraining/featured"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="youtube"
             className="hover:text-green-300"
           >
-            <FaYoutube size={20} />
+            <FaYoutube size={20} className="w-5 h-5"/>
           </a>
         </div>
       </div>

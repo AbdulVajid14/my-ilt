@@ -58,7 +58,7 @@ const ContactPage = () => {
         className="relative h-64 md:h-100 w-full bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-08 at 17.29.14_a33a28ea.jpg')",
+            "url('/images/contact.webp')",
         }}
       >
         <div className="relative h-full flex flex-col justify-center items-start text-white pl-4 sm:pl-12 lg:pl-24">

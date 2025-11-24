@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import {
   FaLaptop,
@@ -18,11 +17,31 @@ import CommonCourses from "../components/CommonComponents/CommonCourses";
 import ModeFaq from "../components/CommonComponents/ModeFaq";
 const modes = [
   { id: "online", label: "Online", icon: <FaLaptop className="w-6 h-6" /> },
-  { id: "inhouse", label: "In-House Trainingline", icon: <FaHome className="w-6 h-6" /> },
-  { id: "individual", label: "Individual", icon: <FaUserAlt className="w-6 h-6" /> },
-  { id: "privateseo", label: "Private SEO Training", icon: <FaClock className="w-6 h-6" /> },
-  { id: "corporate", label: "Corporate", icon: <FaBuilding className="w-6 h-6" /> },
-  { id: "workshop", label: "Workshop", icon: <FaChalkboardTeacher className="w-6 h-6" /> },
+  {
+    id: "inhouse",
+    label: "In-House Trainingline",
+    icon: <FaHome className="w-6 h-6" />,
+  },
+  {
+    id: "individual",
+    label: "Individual",
+    icon: <FaUserAlt className="w-6 h-6" />,
+  },
+  {
+    id: "privateseo",
+    label: "Private SEO Training",
+    icon: <FaClock className="w-6 h-6" />,
+  },
+  {
+    id: "corporate",
+    label: "Corporate",
+    icon: <FaBuilding className="w-6 h-6" />,
+  },
+  {
+    id: "workshop",
+    label: "Workshop",
+    icon: <FaChalkboardTeacher className="w-6 h-6" />,
+  },
 ];
 
 const trainings = {
@@ -38,7 +57,6 @@ const trainings = {
       "Flexible schedules for working professionals",
       "Digital resources and support community",
     ],
-    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   inhouse: {
@@ -53,7 +71,6 @@ const trainings = {
       "Real-time project-based learning",
       "Instant doubt clarification and feedback",
     ],
-    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   individual: {
@@ -68,7 +85,6 @@ const trainings = {
       "Dedicated attention for better results",
       "Continuous performance tracking",
     ],
-    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   privateseo: {
@@ -83,7 +99,6 @@ const trainings = {
       "Hands-on implementation on live projects",
       "Improve overall digital marketing performance",
     ],
-    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   corporate: {
@@ -98,7 +113,6 @@ const trainings = {
       "Real-world business case studies",
       "Performance reports & certification",
     ],
-    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 
   workshop: {
@@ -113,40 +127,40 @@ const trainings = {
       "Interactive Q&A and feedback",
       "Certificate of completion",
     ],
-    image: "/images/WhatsApp Image 2025-10-08 at 15.14.00_eb1ba92e.jpg",
   },
 };
 
 function ModalPage() {
-       useEffect(() => {
-      document.title = "ILT Program Modes | Online & Classroom Digital Marketing Training";
-      const metaDescription =
-        document.querySelector("meta[name='description']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "description";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaDescription.setAttribute(
-        "content",
-        "Explore ILT’s digital marketing program formats: instructor-led classroom sessions, flexible online training, and specialized corporate modules."
-      );
-      const metaKeywords =
-        document.querySelector("meta[name='keywords']") ||
-        (() => {
-          const meta = document.createElement("meta");
-          meta.name = "keywords";
-          document.head.appendChild(meta);
-          return meta;
-        })();
-  
-      metaKeywords.setAttribute(
-        "content",
-        "ILT Program Modes | Online & Classroom Digital Marketing Training"
-      );
-    }, []);
+  useEffect(() => {
+    document.title =
+      "ILT Program Modes | Online & Classroom Digital Marketing Training";
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaDescription.setAttribute(
+      "content",
+      "Explore ILT’s digital marketing program formats: instructor-led classroom sessions, flexible online training, and specialized corporate modules."
+    );
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
+      (() => {
+        const meta = document.createElement("meta");
+        meta.name = "keywords";
+        document.head.appendChild(meta);
+        return meta;
+      })();
+
+    metaKeywords.setAttribute(
+      "content",
+      "ILT Program Modes | Online & Classroom Digital Marketing Training"
+    );
+  }, []);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const modeFromQuery = params.get("mode");
@@ -167,28 +181,27 @@ function ModalPage() {
     setShowRightArrow(el.scrollLeft + el.clientWidth < el.scrollWidth - 1); // -1 for floating point precision
   };
 
-useEffect(() => {
-  const el = scrollRef.current;
-  if (!el) return;
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
 
-  let ticking = false;
+    let ticking = false;
 
-  const onScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        handleScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  };
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-  el.addEventListener("scroll", onScroll);
-  handleScroll();
+    el.addEventListener("scroll", onScroll);
+    handleScroll();
 
-  return () => el.removeEventListener("scroll", onScroll);
-}, []);
-
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -150, behavior: "smooth" });
@@ -197,14 +210,18 @@ useEffect(() => {
   const scrollRight = () => {
     scrollRef.current?.scrollBy({ left: 150, behavior: "smooth" });
   };
-const handleModeChange = (modeId) => {
-  setSelectedMode(modeId);
+  const handleModeChange = (modeId) => {
+    setSelectedMode(modeId);
 
-  // update the URL without reloading
-  const searchParams = new URLSearchParams(location.search);
-  searchParams.set("mode", modeId);
-  window.history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`);
-};
+    // update the URL without reloading
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("mode", modeId);
+    window.history.pushState(
+      {},
+      "",
+      `${location.pathname}?${searchParams.toString()}`
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -212,20 +229,13 @@ const handleModeChange = (modeId) => {
       <div
         className="w-full bg-cover bg-center relative"
         style={{
-          backgroundImage:
-            "url('/images/WhatsApp Image 2025-10-08 at 15.14.00_18f25042.jpg')",
+          backgroundImage: "url('/images/mode-banner.webp')",
           height: "400px",
         }}
       >
-       <div
-  className="absolute inset-0 flex items-center justify-start pl-4 sm:pl-12 lg:pl-24"
->
-  <h1 className="text-white text-4xl font-bold">
-    Modes of Training
-  </h1>
-</div>
-
-
+        <div className="absolute inset-0 flex items-center justify-start pl-4 sm:pl-12 lg:pl-24">
+          <h1 className="text-white text-4xl font-bold">Modes of Training</h1>
+        </div>
       </div>
 
       {/* ===== Content ===== */}
@@ -301,23 +311,23 @@ const handleModeChange = (modeId) => {
             {/* Image Section */}
             <div className="flex-1 max-w-md rounded-lg overflow-hidden shadow-lg">
               <img
-                src={trainings[selectedMode].image}
-                alt={trainings[selectedMode].title}
+                src="/images/mode.webp"
+                alt="mode of ilt"
                 className="w-full h-auto object-cover"
               />
             </div>
           </div>
         )}
       </div>
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">  
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
         <CommonCourses />
         <div className="mt-15">
           <QueriesForm />
         </div>
       </div>
 
-      <OurGraduates/>
-      <ModeFaq/>
+      <OurGraduates />
+      <ModeFaq />
     </div>
   );
 }
