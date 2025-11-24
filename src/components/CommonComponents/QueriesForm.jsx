@@ -136,10 +136,10 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 function QueriesForm() {
-  const recaptchaRef = useRef(null);
+  // const recaptchaRef = useRef(null);
   const [formData, setFormData] = useState({
     subject: "",
     name: "",
@@ -164,19 +164,21 @@ function QueriesForm() {
     setStatus("Verifying...");
 
     // Get token from reCAPTCHA
-    const token = recaptchaRef.current.getValue();
-    if (!token) {
-      setStatus("Please complete the reCAPTCHA");
-      toast.error("Please complete the reCAPTCHA");
-      return;
-    }
+    // const token = recaptchaRef.current.getValue();
+    // if (!token) {
+    //   setStatus("Please complete the reCAPTCHA");
+    //   toast.error("Please complete the reCAPTCHA");
+    //   return;
+    // }
 
     setLoading(true);
 
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/InsertContact`,
-        { ...formData, token } // Include reCAPTCHA token in the request
+        { ...formData, 
+          // token 
+        }
       );
       if (response.data.success) {
         toast.success("Message sent successfully!");
@@ -187,19 +189,19 @@ function QueriesForm() {
           phone: "",
           message: "",
         });
-        recaptchaRef.current.reset(); // Reset reCAPTCHA after successful submission
+        // recaptchaRef.current.reset(); 
         setStatus("Form submitted successfully!");
       } else {
         toast.error("Failed to send message.");
         setStatus("reCAPTCHA verification failed.");
-        recaptchaRef.current.reset();
+        // recaptchaRef.current.reset();
       }
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Failed to send message. Please try again later."
       );
       setStatus("Server error");
-      recaptchaRef.current.reset();
+      // recaptchaRef.current.reset();
     } finally {
       setLoading(false);
     }
@@ -277,12 +279,12 @@ function QueriesForm() {
           required
         />
 
-        <div style={{ margin: "12px 0" }}>
+        {/* <div style={{ margin: "12px 0" }}>
           <ReCAPTCHA
             ref={recaptchaRef}
             sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
           />
-        </div>
+        </div> */}
 
         <button
           type="submit"

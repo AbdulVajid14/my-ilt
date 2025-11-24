@@ -220,9 +220,8 @@ const Footer = () => {
               <img
                 src="/images/ilt logo 2.png"
                 alt="Internet Leads Training Logo"
-                width="140"
-                height="40"
-                className="w-[140px] h-auto"
+                // width="140"
+                // height="40"
               />
             </div>
           </ul>

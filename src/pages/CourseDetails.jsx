@@ -170,7 +170,7 @@ const CourseDetails = () => {
             const careerOpportunities = found.opportunities
               ? found.opportunities
                   .split(/\r?\n/)
-                  .map(s => s.trim().replace(/\.$/, ""))
+                  .map((s) => s.trim().replace(/\.$/, ""))
                   .filter(Boolean)
               : [];
             const rawQuestions = found.question
@@ -321,6 +321,7 @@ const CourseDetails = () => {
         <img
           src="/images/course-detail.webp"
           alt="Course Banner"
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
@@ -331,19 +332,21 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10"
-      style={{ contentVisibility: "auto" }}>
+      <section
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10"
+        style={{ contentVisibility: "auto" }}
+      >
         {/* Left Column */}
         <div className="flex-1 space-y-8 lg:pr-6 order-1">
           {/* Trainer Info */}
           <div className="flex items-center space-x-3 sm:space-x-4">
-            <img
+            {/* <img
               src="/images/WhatsApp Image 2025-10-09 at 09.28.17_89e65d6b.jpg"
               alt="Trainer"
               className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover flex-shrink-0"
-            />
+            /> */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-sm font-medium text-gray-700 min-w-0">
-              <span className="truncate">ILT Certified Trainer</span>
+              {/* <span className="truncate">ILT Certified Trainer</span> */}
               <div className="flex items-center space-x-1 flex-shrink-0">
                 {[...Array(5)].map((_, i) => {
                   const ratingValue = parseFloat(course.rating) || 4.9;
@@ -371,11 +374,13 @@ const CourseDetails = () => {
           </div>
 
           {/* Course Overview */}
-          <div className="space-y-3">
+          <div style={{ contentVisibility: "auto" }} className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
               {course.title}
             </h2>
-            <p className="text-gray-700 leading-relaxed">{course.overview}</p>
+            <p className="text-gray-700 leading-relaxed notranslate">
+              {course.overview}
+            </p>
           </div>
 
           {/* Video/Image */}
@@ -383,6 +388,7 @@ const CourseDetails = () => {
             <img
               src={course.videoImage}
               alt="Course Presentation"
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>
@@ -423,13 +429,16 @@ const CourseDetails = () => {
         </div>
 
         {/* Right Column */}
-        <div className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2"
-        style={{ contentVisibility: "auto" }}>
+        <div
+          className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2"
+          style={{ contentVisibility: "auto" }}
+        >
           <QueriesForm />
           <div className="bg-gray-50 rounded-lg p-4 sm:p-6 flex flex-col items-center text-center space-y-4">
             <img
-              src="/images/CEO Pic.png"
+              src="/images/CEO Pic.webp"
               alt="CEO"
+              loading="lazy"
               className="w-60 h-55 sm:w-80 sm:h-70 object-cover rounded-lg"
             />
             <div className="w-full text-center">
@@ -488,8 +497,10 @@ const CourseDetails = () => {
       </section>
 
       {/* Weekly Course Schedule & Career Opportunities */}
-      <section className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12"
-      style={{ contentVisibility: "auto" }}>
+      <section
+        className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12"
+        style={{ contentVisibility: "auto" }}
+      >
         {/* Left Side - Weekly Schedule */}
         <div className="flex-1">
           <h3 className="font-semibold text-xl sm:text-2xl mb-4 sm:mb-5 text-gray-900">
@@ -497,14 +508,9 @@ const CourseDetails = () => {
           </h3>
           <ul className="space-y-2 sm:space-y-3 text-gray-800">
             {course.weeklySchedule.map(({ id, title }) => (
-              <li
-                key={id}
-                className="flex items-center space-x-2 sm:space-x-3"
-              >
+              <li key={id} className="flex items-center space-x-2 sm:space-x-3">
                 <span className="block w-2 h-2 sm:w-3 sm:h-3 bg-green-600 rounded-full flex-shrink-0"></span>
-                <p className="text-sm sm:text-lg leading-relaxed">
-                  {title}
-                </p>
+                <p className="text-sm sm:text-lg leading-relaxed">{title}</p>
               </li>
             ))}
           </ul>
@@ -533,8 +539,10 @@ const CourseDetails = () => {
       </section>
 
       {/* Digital Marketing Tools */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12"
-      style={{ contentVisibility: "auto" }}>
+      <section
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12"
+        style={{ contentVisibility: "auto" }}
+      >
         <h2 className="text-center font-semibold text-xl sm:text-2xl mb-6 sm:mb-8 text-gray-900">
           Digital Marketing Tools You’ll Master
         </h2>
@@ -549,6 +557,7 @@ const CourseDetails = () => {
               <img
                 src={src}
                 alt={alt}
+                loading="lazy"
                 className="h-8 sm:h-10 lg:h-12 w-auto max-h-12 object-contain"
               />
             </div>
@@ -572,8 +581,10 @@ const CourseDetails = () => {
 
       {/* FAQ Section - Only render if faqs exist and have valid Q&A */}
       {course.faqs && course.faqs.length > 0 && (
-        <section className="py-12 sm:py-16 px-4"
-        style={{ contentVisibility: "auto" }}>
+        <section
+          className="py-12 sm:py-16 px-4"
+          style={{ contentVisibility: "auto" }}
+        >
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
