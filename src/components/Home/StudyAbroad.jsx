@@ -131,7 +131,6 @@ function StudyAbroad() {
     backgroundImage: "url('/images/abroad-banner.webp')",
   }}
 >
-  {/* GRADIENT OVERLAY */}
   <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
 
   <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-14 px-4 md:px-8">
@@ -158,7 +157,7 @@ function StudyAbroad() {
   {/* BUTTON */}
   <div className="relative flex justify-start px-10">
     <Link to="/MBA-MSC-Digital-Marketing-Abroad">
-      <button className="bg-green-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-green-700 transition duration-300 text-base sm:text-lg">
+      <button className="bg-green-900 text-white font-semibold py-3 px-8 rounded-lg hover:bg-emerald-900 transition duration-300 text-base sm:text-lg">
         Apply Now
       </button>
     </Link>

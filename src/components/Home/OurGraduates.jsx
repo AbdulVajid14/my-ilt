@@ -37,14 +37,14 @@ const OurGraduates = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-800"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="p-6 bg-red-50 text-red-600 rounded-lg text-center">
+      <div className="p-6 bg-red text-red-800 rounded-lg text-center">
         Error loading graduates: {error}
       </div>
     );
@@ -60,7 +60,7 @@ const OurGraduates = () => {
           transition={{ duration: 0.5 }}
           className="w-full lg:w-2/5"
         >
-          <h2 className="text-left text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 leading-tight mb-6">
+          <h2 className="text-left text-2xl sm:text-3xl lg:text-4xl font-bold text-black leading-tight mb-6">
             Hear From Our Graduates
           </h2>
 
@@ -70,9 +70,9 @@ const OurGraduates = () => {
                 <FaStar key={i} size={28} /> 
               ))}
             </div>
-            <p className="text-gray-600 text-lg">
+            <p className="text-black text-lg">
               Based on{" "}
-              <span className="font-semibold text-gray-800 text-2xl">2000+ reviews</span>
+              <span className="font-semibold text-black text-2xl">2000+ reviews</span>
             </p>
             <div className="flex justify-start mt-3">
               <img
@@ -110,7 +110,7 @@ const OurGraduates = () => {
             {[...graduates, ...graduates].map((graduate, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl shadow-md p-5 flex flex-col text-left border border-gray-100
+                className="bg-white rounded-2xl shadow-md p-5 flex flex-col text-left border border-gray-900
              w-[260px] h-[280px] flex-shrink-0"
               >
                 {/* Header */}
@@ -125,7 +125,7 @@ const OurGraduates = () => {
                       loading="lazy"
                     />
                     <div>
-                      <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
+                      <h4 className="font-semibold text-black text-sm sm:text-base">
                         {graduate.name}
                       </h4>
                     </div>
@@ -158,7 +158,7 @@ const OurGraduates = () => {
                               return <FaRegStar key={i} size={18} />;
                             }
                           })}
-                        <span className="ml-2 text-sm text-gray-600">
+                        <span className="ml-2 text-sm text-black">
                           {rating > 0 ? rating.toFixed(1) : ""}
                         </span>
                       </>
@@ -167,7 +167,7 @@ const OurGraduates = () => {
                 </div>
 
                 {/* Review text – now uses the extra height */}
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-auto">
+                <p className="text-black text-sm sm:text-base leading-relaxed mt-auto">
                   {graduate.details ||
                     "ILT is truly a place for growth and learning."}
                 </p>

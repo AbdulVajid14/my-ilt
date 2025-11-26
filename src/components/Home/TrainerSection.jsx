@@ -16,10 +16,10 @@ function TrainerSection() {
             <div className="flex flex-col md:flex-row items-stretch w-full min-h-[500px]">
               <div className="w-full md:w-1/2 flex flex-col relative">
                 <div className="absolute top-0 left-0 w-full p-4 z-10 bg-white bg-opacity-90 md:bg-transparent md:static md:p-6 text-center">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-black">
                     Jitto Jose
                   </h2>
-                  <p className="text-green-600 font-medium">
+                  <p className="text-green-900 font-medium">
                     CEO & Founder <br />
                    <span className="text-black font-medium">MBA Digital Marketing in London</span> 
                   </p>
@@ -30,6 +30,7 @@ function TrainerSection() {
                     alt="Jitto Jose, Founder & Lead Trainer"
                     fetchpriority="high"
                     decoding="async"
+                    loading='lazy'
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -158,7 +159,7 @@ function TrainerSection() {
     
                 {/* Know More Button */}
                 <Link to="/about">
-                  <button className="w-full mt-6 bg-white text-green-700 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-colors text-base sm:text-lg">
+                  <button className="w-full mt-6 bg-white text-green-900 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-colors text-base sm:text-lg">
                     Know More About ILT
                   </button>
                 </Link>

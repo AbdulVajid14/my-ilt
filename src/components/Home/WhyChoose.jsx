@@ -398,7 +398,7 @@ function WhyChoose() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-green-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-green-700 transition duration-300"
+              className="w-full bg-green-700 text-white/90 font-semibold py-3 rounded-lg shadow-md hover:bg-emarald-800 transition duration-300"
               disabled={loading}
             >
               {loading ? "Sending..." : "Book Your Trial →"}

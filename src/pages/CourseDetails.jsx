@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, memo, useMemo, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {
@@ -14,29 +14,34 @@ import {
 } from "react-icons/fa";
 import { BiTimeFive } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
-// import OurGraduates from "../components/Home/OurGraduates";
-import Instructor from "../components/CommonComponents/Instructor";
 import QueriesForm from "../components/CommonComponents/QueriesForm";
-// import PlacementHighlights from "../components/Home/PlacementHighlights";
-// import OurTrainers from "../components/Home/OurTrainers";
+
 const OurTrainers = React.lazy(() => import("../components/Home/OurTrainers"));
-const OurGraduates = React.lazy(() =>
-  import("../components/Home/OurGraduates")
-);
-const PlacementHighlights = React.lazy(() =>
-  import("../components/Home/PlacementHighlights")
-);
+const OurGraduates = React.lazy(() => import("../components/Home/OurGraduates"));
+const PlacementHighlights = React.lazy(() => import("../components/Home/PlacementHighlights"));
+
+const ToolItem = memo(({ src, alt }) => (
+  <div
+    className="flex justify-center items-center p-2 sm:p-3 border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition w-full max-w-[120px] sm:max-w-none"
+    title={alt}
+  >
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className="h-8 sm:h-10 lg:h-12 w-auto max-h-12 object-contain"
+    />
+  </div>
+));
 
 const digitalMarketingTools = [
   {
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",
     alt: "Google",
   },
-  // { src: "/images/Benchmark.jpg", alt: "Benchmark" },
   { src: "/images/canva.jpg", alt: "Canva" },
   { src: "/images/google-trends.jpg", alt: "Google Trends" },
   { src: "/images/elemenator.jpg", alt: "Elementor" },
-  // { src: "/images/grammarly.jpg", alt: "Grammarly" },
   { src: "/images/google-ads.jpg", alt: "Google Ads Transparency Center" },
   {
     src: "/images/WhatsApp Image 2025-09-20 at 10.54.12_f4974b1e.jpg",
@@ -94,10 +99,6 @@ const digitalMarketingTools = [
     src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_cffc6d7d.jpg",
     alt: "Moz",
   },
-  // {
-  //   src: "/images/WhatsApp Image 2025-09-20 at 10.54.23_9aa2bf89.jpg",
-  //   alt: "YouTube",
-  // },
   {
     src: "/images/WhatsApp Image 2025-09-20 at 10.54.24_d7acfbb7.jpg",
     alt: "SEMRUSH",
@@ -143,6 +144,11 @@ const CourseDetails = () => {
   const [error, setError] = useState(null);
   const [openFaqId, setOpenFaqId] = useState(null);
 
+  // Memoized toggle function
+  const toggleFaq = useCallback((id) => {
+    setOpenFaqId((prev) => (prev === id ? null : id));
+  }, []);
+
   useEffect(() => {
     const fetchCourse = async () => {
       try {
@@ -155,107 +161,92 @@ const CourseDetails = () => {
           const found = result.data.find(
             (c) => c.name.toLowerCase().replace(/\s+/g, "-") === slug
           );
-          if (found) {
-            const learnPoints = found.program_modules
-              .split(".\r\n")
-              .map((s) => s.trim())
-              .filter((s) => s);
-            const outcomes = found.learning_outcomes
-              .split(".\r\n")
-              .map((s) => s.trim())
-              .filter((s) => s);
-            const weeklySchedule = outcomes.map((title, i) => ({
-              title,
-            }));
-            const careerOpportunities = found.opportunities
-              ? found.opportunities
-                  .split(/\r?\n/)
-                  .map((s) => s.trim().replace(/\.$/, ""))
-                  .filter(Boolean)
-              : [];
-            const rawQuestions = found.question
-              ? found.question
-                  .split('","')
-                  .map((q) => q.replace(/^"|"$/g, "").trim())
-              : [];
 
-            const rawAnswers = found.answer
-              ? found.answer
-                  .split('","')
-                  .map((a) => a.replace(/^"|"$/g, "").trim())
-              : [];
-
-            const faqs = rawQuestions
-              .map((q, i) => ({
-                id: i + 1,
-                question: q,
-                answer: rawAnswers[i] || "",
-              }))
-              .filter((faq) => faq.question && faq.answer);
-
-            const features = [
-              {
-                icon: <FaCalendarAlt />,
-                label: "Start date:",
-                value: found.date
-                  ? new Date(found.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })
-                  : "Soon",
-              },
-              { icon: <FaBook />, label: "Modules:", value: found.modules },
-              {
-                icon: <BiTimeFive />,
-                label: "Time:",
-                value: found.time,
-              },
-              {
-                icon: <FaClock />,
-                label: "Duration:",
-                value: `${found.duration}`,
-              },
-              {
-                icon: <FaRupeeSign />,
-                label: "Price:",
-                value: `${found.price.toLocaleString()}`,
-              },
-              {
-                icon: <FaLaptop />,
-                label: "Mode:",
-                value: found.mode,
-              },
-            ];
-            const processedCourse = {
-              title: found.name,
-              bannerImage: found.image,
-              videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${
-                found.image
-              }`,
-              overview: found.description,
-              learnPoints,
-              features,
-              certificationText: found.career_opportunities,
-              weeklySchedule,
-              careerOpportunities,
-              metaTitle: found.metaTitle,
-              metaDescription: found.metaDescription,
-              metaKeywords: found.metaKeywords,
-              faqs,
-              rating: found.rating,
-              reviews: found.reviews,
-            };
-            setCourse(processedCourse);
-          } else {
+          if (!found) {
             setError("Course not found.");
+            return;
           }
+
+          // Process all course data in one go — memoized below
+          const learnPoints = found.program_modules
+            .split(".\r\n")
+            .map((s) => s.trim())
+            .filter(Boolean);
+
+          const outcomes = found.learning_outcomes
+            .split(".\r\n")
+            .map((s) => s.trim())
+            .filter(Boolean);
+
+          const weeklySchedule = outcomes.map((title, i) => ({ id: i + 1, title }));
+
+          const careerOpportunities = found.opportunities
+            ? found.opportunities
+                .split(/\r?\n/)
+                .map((s) => s.trim().replace(/\.$/, ""))
+                .filter(Boolean)
+            : [];
+
+          const rawQuestions = found.question
+            ? found.question.split('","').map((q) => q.replace(/^"|"$/g, "").trim())
+            : [];
+
+          const rawAnswers = found.answer
+            ? found.answer.split('","').map((a) => a.replace(/^"|"$/g, "").trim())
+            : [];
+
+          const faqs = rawQuestions
+            .map((q, i) => ({
+              id: i + 1,
+              question: q,
+              answer: rawAnswers[i] || "",
+            }))
+            .filter((faq) => faq.question && faq.answer);
+
+          const features = [
+            {
+              icon: <FaCalendarAlt />,
+              label: "Start date:",
+              value: found.date
+                ? new Date(found.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })
+                : "Soon",
+            },
+            { icon: <FaBook />, label: "Modules:", value: found.modules },
+            { icon: <BiTimeFive />, label: "Time:", value: found.time },
+            { icon: <FaClock />, label: "Duration:", value: `${found.duration}` },
+            { icon: <FaRupeeSign />, label: "Price:", value: `${found.price.toLocaleString()}` },
+            { icon: <FaLaptop />, label: "Mode:", value: found.mode },
+          ];
+
+          const processedCourse = {
+            title: found.name,
+            bannerImage: found.image,
+            videoImage: `${import.meta.env.VITE_BASE_URL_IMAGE}${found.image}`,
+            overview: found.description,
+            learnPoints,
+            features,
+            certificationText: found.career_opportunities,
+            weeklySchedule,
+            careerOpportunities,
+            metaTitle: found.metaTitle,
+            metaDescription: found.metaDescription,
+            metaKeywords: found.metaKeywords,
+            faqs,
+            rating: found.rating,
+            reviews: found.reviews,
+          };
+
+          setCourse(processedCourse);
         } else {
           setError("Failed to fetch course data.");
         }
-      } catch (error) {
+      } catch (err) {
         setError("Error fetching course details.");
-        console.error("Error fetching courses:", error);
+        console.error("Error fetching courses:", err);
       } finally {
         setLoading(false);
       }
@@ -264,35 +255,41 @@ const CourseDetails = () => {
     fetchCourse();
   }, [slug]);
 
+  // Update meta tags only when course changes
   useEffect(() => {
     if (!course) return;
+
     document.title = course.metaTitle || course.title || "Course Details";
-    const metaDescription =
-      document.querySelector("meta[name='description']") ||
-      (() => {
-        const meta = document.createElement("meta");
-        meta.name = "description";
-        document.head.appendChild(meta);
-        return meta;
-      })();
 
-    metaDescription.setAttribute(
-      "content",
-      course.metaDescription || course.overview || ""
-    );
-    const metaKeywords =
-      document.querySelector("meta[name='keywords']") ||
-      (() => {
-        const meta = document.createElement("meta");
-        meta.name = "keywords";
-        document.head.appendChild(meta);
-        return meta;
-      })();
+    const metaDescription = document.querySelector("meta[name='description']") ||
+      document.createElement("meta");
+    if (!metaDescription.parentNode) {
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = course.metaDescription || course.overview || "";
 
-    metaKeywords.setAttribute("content", course.metaKeywords || "");
+    const metaKeywords = document.querySelector("meta[name='keywords']") ||
+      document.createElement("meta");
+    if (!metaKeywords.parentNode) {
+      metaKeywords.name = "keywords";
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.content = course.metaKeywords || "";
   }, [course]);
 
-  if (!course) {
+  // Memoize expensive computations
+  const filteredFeatures = useMemo(() => {
+    if (!course) return [];
+    return course.features.filter(
+      ({ value }) => value != null && value !== "" && value !== "Soon"
+    );
+  }, [course?.features]);
+
+  const ratingValue = useMemo(() => parseFloat(course?.rating) || 4.9, [course?.rating]);
+
+  // Render nothing while loading
+  if (loading) {
     return (
       <div>
         <section className="relative w-full h-64 sm:h-80 md:h-96 bg-gray-200 animate-pulse" />
@@ -300,19 +297,9 @@ const CourseDetails = () => {
     );
   }
 
-  if (loading) {
-    return <div className="text-center py-12">Loading...</div>;
-  }
-
   if (error || !course) {
-    return (
-      <div className="text-center py-12">{error || "Course not found"}</div>
-    );
+    return <div className="text-center py-12">{error || "Course not found"}</div>;
   }
-
-  const toggleFaq = (id) => {
-    setOpenFaqId(openFaqId === id ? null : id);
-  };
 
   return (
     <div className="mx-auto">
@@ -324,7 +311,6 @@ const CourseDetails = () => {
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
         />
-
         <div className="relative max-w-7xl mx-auto w-full px-6">
           <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
             {course.title}
@@ -332,55 +318,39 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      <section
-        className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10"
-        style={{ contentVisibility: "auto" }}
-      >
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col lg:flex-row gap-10">
         {/* Left Column */}
         <div className="flex-1 space-y-8 lg:pr-6 order-1">
-          {/* Trainer Info */}
+          {/* Rating */}
           <div className="flex items-center space-x-3 sm:space-x-4">
-            {/* <img
-              src="/images/WhatsApp Image 2025-10-09 at 09.28.17_89e65d6b.jpg"
-              alt="Trainer"
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover flex-shrink-0"
-            /> */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-sm font-medium text-gray-700 min-w-0">
-              {/* <span className="truncate">ILT Certified Trainer</span> */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-sm font-medium text-gray-900 min-w-0">
               <div className="flex items-center space-x-1 flex-shrink-0">
-                {[...Array(5)].map((_, i) => {
-                  const ratingValue = parseFloat(course.rating) || 4.9;
-                  return (
-                    <FaStar
-                      key={i}
-                      className={`${
-                        i < Math.round(ratingValue)
-                          ? "text-yellow-400"
-                          : "text-gray-300"
-                      } w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0`}
-                    />
-                  );
-                })}
+                {[...Array(5)].map((_, i) => (
+                  <FaStar
+                    key={i}
+                    className={`${
+                      i < Math.round(ratingValue) ? "text-yellow-900" : "text-gray-300"
+                    } w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0`}
+                  />
+                ))}
                 <span className="text-gray-900 font-semibold ml-1 sm:ml-2 text-xs sm:text-sm">
                   {course.rating ? `${course.rating}/5` : "4.9/5"}
                 </span>
                 {course.reviews && (
-                  <span className="text-gray-500 text-xs sm:text-sm ml-1">
-                    ({course.reviews ? course.reviews : "150"} reviews)
+                  <span className="text-gray-900 text-xs sm:text-sm ml-1">
+                    ({course.reviews} reviews)
                   </span>
                 )}
               </div>
             </div>
           </div>
 
-          {/* Course Overview */}
-          <div style={{ contentVisibility: "auto" }} className="space-y-3">
+          {/* Overview */}
+          <div className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
               {course.title}
             </h2>
-            <p className="text-gray-700 leading-relaxed notranslate">
-              {course.overview}
-            </p>
+            <p className="text-gray-900 leading-relaxed notranslate">{course.overview}</p>
           </div>
 
           {/* Video/Image */}
@@ -397,21 +367,15 @@ const CourseDetails = () => {
 
           {/* What You'll Learn */}
           <div className="space-y-4 sm:space-y-5">
-            <h2 className="text-2xl sm:text-3xl font-semibold">
-              What You’ll Learn
-            </h2>
-            <p className="text-gray-700 text-base sm:text-lg">
+            <h2 className="text-2xl sm:text-3xl font-semibold">What You’ll Learn</h2>
+            <p className="text-gray-900 text-base sm:text-lg">
               By the end of this course, you will be able to:
             </p>
-
             <ul className="space-y-3 sm:space-y-4">
               {course.learnPoints.map((text, index) => (
-                <li
-                  key={index}
-                  className="flex items-start space-x-3 sm:space-x-3"
-                >
-                  <FaCheck className="text-green-600 mt-1 flex-shrink-0 text-lg sm:text-xl" />
-                  <span className="font-semibold text-gray-800 text-sm sm:text-base leading-relaxed">
+                <li key={index} className="flex items-start space-x-3 sm:space-x-3">
+                  <FaCheck className="text-green-900 mt-1 flex-shrink-0 text-lg sm:text-xl" />
+                  <span className="font-semibold text-gray-900 text-sm sm:text-base leading-relaxed">
                     {text}
                   </span>
                 </li>
@@ -421,20 +385,15 @@ const CourseDetails = () => {
 
           {/* Details / Certification */}
           <div>
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">
-              Details
-            </h2>
-            <p className="text-gray-700 text-sm sm:text-lg leading-relaxed max-w-4xl">
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">Details</h2>
+            <p className="text-gray-900 text-sm sm:text-lg leading-relaxed max-w-4xl">
               {course.certificationText}
             </p>
           </div>
         </div>
 
         {/* Right Column */}
-        <div
-          className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2"
-          style={{ contentVisibility: "auto" }}
-        >
+        <div className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2">
           <QueriesForm />
           <div className="bg-gray-50 rounded-lg p-4 sm:p-6 flex flex-col items-center text-center space-y-4">
             <img
@@ -448,8 +407,7 @@ const CourseDetails = () => {
                 Jitto Jose - Founder & Lead Trainer
               </h3>
             </div>
-
-            <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
+            <ul className="space-y-2 text-gray-900 text-sm sm:text-base">
               {[
                 "20+ Years Experience",
                 "MBA with Digital Marketing London",
@@ -457,58 +415,48 @@ const CourseDetails = () => {
                 "50 Cr Ad Spend on Digital",
               ].map((point, index) => (
                 <li key={index} className="flex items-start space-x-2">
-                  <FaCheck className="text-green-600 mt-1 flex-shrink-0" />
+                  <FaCheck className="text-green-900 mt-1 flex-shrink-0" />
                   <span>{point}</span>
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="rounded-lg p-4 sm:p-6 w-full max-w-sm lg:max-w-md bg-gray-50">
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
               Course Features
             </h3>
-
-            <ul className="space-y-3 sm:space-y-4 text-gray-800">
-              {course.features
-                .filter(
-                  ({ value }) =>
-                    value != null && value !== "" && value !== "Soon"
-                )
-                .map(({ icon, label, value }) => (
-                  <li
-                    key={label}
-                    className="flex items-center justify-between space-x-2 sm:space-x-3"
-                  >
-                    <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
-                      <span className="text-green-600 text-lg sm:text-xl flex-shrink-0">
-                        {icon}
-                      </span>
-                      <span className="font-semibold text-sm sm:text-base truncate">
-                        {label}
-                      </span>
-                    </div>
-
-                    <span className="text-sm sm:text-base text-right min-w-0 truncate">
-                      {value}
+            <ul className="space-y-3 sm:space-y-4 text-gray-900">
+              {filteredFeatures.map(({ icon, label, value }) => (
+                <li
+                  key={label}
+                  className="flex items-center justify-between space-x-2 sm:space-x-3"
+                >
+                  <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+                    <span className="text-green-900 text-lg sm:text-xl flex-shrink-0">
+                      {icon}
                     </span>
-                  </li>
-                ))}
+                    <span className="font-semibold text-sm sm:text-base truncate">
+                      {label}
+                    </span>
+                  </div>
+                  <span className="text-sm sm:text-base text-right min-w-0 truncate">
+                    {value}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Weekly Course Schedule & Career Opportunities */}
-      <section
-        className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12"
-        style={{ contentVisibility: "auto" }}
-      >
-        {/* Left Side - Weekly Schedule */}
+      {/* Weekly Schedule & Career Opportunities */}
+      <section className="flex flex-col lg:flex-row gap-6 lg:gap-12 border border-gray-300 rounded-lg p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto my-8 sm:my-12">
         <div className="flex-1">
           <h3 className="font-semibold text-xl sm:text-2xl mb-4 sm:mb-5 text-gray-900">
             Course Topics
           </h3>
-          <ul className="space-y-2 sm:space-y-3 text-gray-800">
+          <ul className="space-y-2 sm:space-y-3 text-gray-900">
             {course.weeklySchedule.map(({ id, title }) => (
               <li key={id} className="flex items-center space-x-2 sm:space-x-3">
                 <span className="block w-2 h-2 sm:w-3 sm:h-3 bg-green-600 rounded-full flex-shrink-0"></span>
@@ -518,20 +466,16 @@ const CourseDetails = () => {
           </ul>
         </div>
 
-        {/* Right Side - Career Opportunities */}
         <div className="flex-1">
           <h3 className="font-semibold text-xl sm:text-2xl mb-4 sm:mb-5 text-gray-900">
             Career Opportunities
           </h3>
-          <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-lg">
+          <p className="text-gray-900 mb-3 sm:mb-4 text-sm sm:text-lg">
             After completing {course.title}, students can work as:
           </p>
           <ul className="space-y-2 sm:space-y-3 text-gray-900">
             {course.careerOpportunities.map((role, index) => (
-              <li
-                key={index}
-                className="flex items-center space-x-2 sm:space-x-3 font-semibold"
-              >
+              <li key={index} className="flex items-center space-x-2 sm:space-x-3 font-semibold">
                 <FaStar className="text-yellow-500 text-lg sm:text-xl flex-shrink-0" />
                 <span className="text-sm sm:text-lg">{role}</span>
               </li>
@@ -541,65 +485,42 @@ const CourseDetails = () => {
       </section>
 
       {/* Digital Marketing Tools */}
-      <section
-        className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12"
-        style={{ contentVisibility: "auto" }}
-      >
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <h2 className="text-center font-semibold text-xl sm:text-2xl mb-6 sm:mb-8 text-gray-900">
           Digital Marketing Tools You’ll Master
         </h2>
-
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 sm:gap-6 justify-items-center">
           {digitalMarketingTools.map(({ src, alt }) => (
-            <div
-              key={alt}
-              className="flex justify-center items-center p-2 sm:p-3 border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition w-full max-w-[120px] sm:max-w-none"
-              title={alt}
-            >
-              <img
-                src={src}
-                alt={alt}
-                loading="lazy"
-                className="h-8 sm:h-10 lg:h-12 w-auto max-h-12 object-contain"
-              />
-            </div>
+            <ToolItem key={alt} src={src} alt={alt} />
           ))}
         </div>
       </section>
 
-      {/* <Instructor /> */}
-      {/* <OurTrainers /> */}
       <Suspense fallback={null}>
         <OurTrainers />
       </Suspense>
-
       <Suspense fallback={null}>
         <PlacementHighlights />
       </Suspense>
       <Suspense fallback={null}>
         <OurGraduates />
       </Suspense>
-      {/* <OurGraduates /> */}
 
-      {/* FAQ Section - Only render if faqs exist and have valid Q&A */}
+      {/* FAQ Section */}
       {course.faqs && course.faqs.length > 0 && (
-        <section
-          className="py-12 sm:py-16 px-4"
-          style={{ contentVisibility: "auto" }}
-        >
+        <section className="py-12 sm:py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
             >
               Have Questions? We've Got Answers.
             </motion.h2>
-            <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12">
-              Here are some quick answers to help you choose the right course
-              and learning mode.
+            <p className="text-base sm:text-lg text-gray-900 mb-8 sm:mb-12">
+              Here are some quick answers to help you choose the right course and learning mode.
             </p>
 
             <div className="space-y-4 text-left">
@@ -609,13 +530,13 @@ const CourseDetails = () => {
                     className="flex justify-between items-center cursor-pointer"
                     onClick={() => toggleFaq(faq.id)}
                   >
-                    <h3 className="font-semibold text-base sm:text-lg md:text-xl text-gray-800">
+                    <h3 className="font-semibold text-base sm:text-lg md:text-xl text-gray-900">
                       {faq.question}
                     </h3>
                     {openFaqId === faq.id ? (
-                      <FaMinus className="text-green-600 text-lg sm:text-2xl" />
+                      <FaMinus className="text-green-900 text-lg sm:text-2xl" />
                     ) : (
-                      <FaPlus className="text-green-600 text-lg sm:text-2xl" />
+                      <FaPlus className="text-green-900 text-lg sm:text-2xl" />
                     )}
                   </div>
 
@@ -626,7 +547,7 @@ const CourseDetails = () => {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="mt-2 text-gray-600 text-sm sm:text-lg"
+                        className="mt-2 text-gray-900 text-sm sm:text-lg"
                       >
                         {faq.answer}
                       </motion.div>

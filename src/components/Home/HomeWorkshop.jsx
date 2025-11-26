@@ -22,7 +22,7 @@ function HomeWorkshop() {
       hands-on experience guided by industry experts.
     </p>
     <Link to="/workshop">
-      <button className="bg-white text-gray-900 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300">
+      <button className="bg-white text-black font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-green-900 transition duration-300">
         View Upcoming Workshops
       </button>
     </Link>
