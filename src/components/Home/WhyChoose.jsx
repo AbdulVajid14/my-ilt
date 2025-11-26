@@ -279,12 +279,12 @@ function WhyChoose() {
   };
 
   return (
-    <section className="bg-green-700 text-white py-12 sm:py-16 px-4">
+    <section className="bg-green-800 text-white py-12 sm:py-16 px-4">
       <Toaster position="top-right" richColors />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-stretch justify-between gap-10">
         {/* Left Section - Text */}
-<div className="w-full lg:w-1/2 space-y-6 flex flex-col justify-center">
+        <div className="w-full lg:w-1/2 space-y-6 flex flex-col justify-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold ">
             Data-Driven Digital Marketing Course in Kochi by Kerala’s Trusted
             Institute
@@ -314,7 +314,7 @@ function WhyChoose() {
                   onChange={handleInputChange}
                   required
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500">
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-900">
                   <FaCheckCircle />
                 </span>
               </div>
@@ -328,7 +328,7 @@ function WhyChoose() {
                   onChange={handleInputChange}
                   required
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500">
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-900">
                   <FaCheckCircle />
                 </span>
               </div>
@@ -346,7 +346,7 @@ function WhyChoose() {
                   onChange={handleInputChange}
                   required
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500">
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-900">
                   <FaCheckCircle />
                 </span>
               </div>
@@ -365,7 +365,7 @@ function WhyChoose() {
                   placeholder="Phone"
                   required
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500">
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-900">
                   <FaCheckCircle />
                 </span>
               </div>
@@ -382,7 +382,7 @@ function WhyChoose() {
                 onChange={handleInputChange}
                 required
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500">
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-900">
                 <FaCheckCircle />
               </span>
             </div>
@@ -398,7 +398,7 @@ function WhyChoose() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-green-700 text-white/90 font-semibold py-3 rounded-lg shadow-md hover:bg-emarald-800 transition duration-300"
+              className="w-full bg-green-900 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-emarald-900 transition duration-300"
               disabled={loading}
             >
               {loading ? "Sending..." : "Book Your Trial →"}
