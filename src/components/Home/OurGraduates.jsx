@@ -125,9 +125,9 @@ const OurGraduates = () => {
                       loading="lazy"
                     />
                     <div>
-                      <h4 className="font-semibold text-black text-sm sm:text-base">
+                      <h3 className="font-semibold text-black text-sm sm:text-base">
                         {graduate.name}
-                      </h4>
+                      </h3>
                     </div>
                   </div>
                   <img

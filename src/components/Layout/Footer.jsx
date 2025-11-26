@@ -124,7 +124,7 @@ const Footer = () => {
   }, [newCourses, loading]);
 
   return (
-    <footer className="bg-green-900 text-white px-14 py-10 font-sans">
+    <footer className="bg-green-900 text-white px-14 py-10 font-sans min-h-[200px]">
       <div className="max-w-[1200px] mx-auto flex flex-wrap justify-between">
         {/* Left Section - Contact Info */}
         <div className="flex-1 min-w-[280px] mb-10">
@@ -219,10 +219,9 @@ const Footer = () => {
             <img
               src="/images/ilt logo 2.png"
               alt="Internet Leads Training Logo"
-              loading="lazy"
               width="150"
               height="60"
-              className="w-[150px] h-[60px] object-contain"
+              className="w-[150px] h-[60px]"
             />
           </div>
         </div>

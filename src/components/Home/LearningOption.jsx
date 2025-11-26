@@ -62,9 +62,9 @@ function LearningOption() {
           <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
             <item.icon className="text-green-900 text-2xl sm:text-3xl" />
           </div>
-          <h4 className="font-bold text-base sm:text-lg mb-2 text-black">
+          <h2 className="font-bold text-base sm:text-lg mb-2 text-black">
             {item.title}
-          </h4>
+          </h2>
           <p className="text-xs sm:text-sm text-black">{item.desc}</p>
         </div>
       ))}

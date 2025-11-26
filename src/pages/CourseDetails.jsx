@@ -1,4 +1,11 @@
-import React, { useState, useEffect, Suspense, memo, useMemo, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  Suspense,
+  memo,
+  useMemo,
+  useCallback,
+} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {
@@ -14,11 +21,18 @@ import {
 } from "react-icons/fa";
 import { BiTimeFive } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
-import QueriesForm from "../components/CommonComponents/QueriesForm";
+// import QueriesForm from "../components/CommonComponents/QueriesForm";
 
+const QueriesForm = React.lazy(() =>
+  import("../components/CommonComponents/QueriesForm")
+);
 const OurTrainers = React.lazy(() => import("../components/Home/OurTrainers"));
-const OurGraduates = React.lazy(() => import("../components/Home/OurGraduates"));
-const PlacementHighlights = React.lazy(() => import("../components/Home/PlacementHighlights"));
+const OurGraduates = React.lazy(() =>
+  import("../components/Home/OurGraduates")
+);
+const PlacementHighlights = React.lazy(() =>
+  import("../components/Home/PlacementHighlights")
+);
 
 const ToolItem = memo(({ src, alt }) => (
   <div
@@ -178,7 +192,10 @@ const CourseDetails = () => {
             .map((s) => s.trim())
             .filter(Boolean);
 
-          const weeklySchedule = outcomes.map((title, i) => ({ id: i + 1, title }));
+          const weeklySchedule = outcomes.map((title, i) => ({
+            id: i + 1,
+            title,
+          }));
 
           const careerOpportunities = found.opportunities
             ? found.opportunities
@@ -188,11 +205,15 @@ const CourseDetails = () => {
             : [];
 
           const rawQuestions = found.question
-            ? found.question.split('","').map((q) => q.replace(/^"|"$/g, "").trim())
+            ? found.question
+                .split('","')
+                .map((q) => q.replace(/^"|"$/g, "").trim())
             : [];
 
           const rawAnswers = found.answer
-            ? found.answer.split('","').map((a) => a.replace(/^"|"$/g, "").trim())
+            ? found.answer
+                .split('","')
+                .map((a) => a.replace(/^"|"$/g, "").trim())
             : [];
 
           const faqs = rawQuestions
@@ -217,8 +238,16 @@ const CourseDetails = () => {
             },
             { icon: <FaBook />, label: "Modules:", value: found.modules },
             { icon: <BiTimeFive />, label: "Time:", value: found.time },
-            { icon: <FaClock />, label: "Duration:", value: `${found.duration}` },
-            { icon: <FaRupeeSign />, label: "Price:", value: `${found.price.toLocaleString()}` },
+            {
+              icon: <FaClock />,
+              label: "Duration:",
+              value: `${found.duration}`,
+            },
+            {
+              icon: <FaRupeeSign />,
+              label: "Price:",
+              value: `${found.price.toLocaleString()}`,
+            },
             { icon: <FaLaptop />, label: "Mode:", value: found.mode },
           ];
 
@@ -261,7 +290,8 @@ const CourseDetails = () => {
 
     document.title = course.metaTitle || course.title || "Course Details";
 
-    const metaDescription = document.querySelector("meta[name='description']") ||
+    const metaDescription =
+      document.querySelector("meta[name='description']") ||
       document.createElement("meta");
     if (!metaDescription.parentNode) {
       metaDescription.name = "description";
@@ -269,7 +299,8 @@ const CourseDetails = () => {
     }
     metaDescription.content = course.metaDescription || course.overview || "";
 
-    const metaKeywords = document.querySelector("meta[name='keywords']") ||
+    const metaKeywords =
+      document.querySelector("meta[name='keywords']") ||
       document.createElement("meta");
     if (!metaKeywords.parentNode) {
       metaKeywords.name = "keywords";
@@ -286,7 +317,10 @@ const CourseDetails = () => {
     );
   }, [course?.features]);
 
-  const ratingValue = useMemo(() => parseFloat(course?.rating) || 4.9, [course?.rating]);
+  const ratingValue = useMemo(
+    () => parseFloat(course?.rating) || 4.9,
+    [course?.rating]
+  );
 
   // Render nothing while loading
   if (loading) {
@@ -298,7 +332,9 @@ const CourseDetails = () => {
   }
 
   if (error || !course) {
-    return <div className="text-center py-12">{error || "Course not found"}</div>;
+    return (
+      <div className="text-center py-12">{error || "Course not found"}</div>
+    );
   }
 
   return (
@@ -308,13 +344,19 @@ const CourseDetails = () => {
         <img
           src="/images/course-detail.webp"
           alt="Course Banner"
-          loading="lazy"
+          fetchpriority="high"
+          width="1920"
+          height="900"
+          loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="relative max-w-7xl mx-auto w-full px-6">
-          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
-            {course.title}
-          </h1>
+        <div className="relative w-full px-6 flex justify-start">
+          <div className="max-w-3xl w-full">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg text-left">
+              {course.title}
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -329,7 +371,9 @@ const CourseDetails = () => {
                   <FaStar
                     key={i}
                     className={`${
-                      i < Math.round(ratingValue) ? "text-yellow-900" : "text-gray-300"
+                      i < Math.round(ratingValue)
+                        ? "text-yellow-900"
+                        : "text-gray-300"
                     } w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0`}
                   />
                 ))}
@@ -350,7 +394,11 @@ const CourseDetails = () => {
             <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
               {course.title}
             </h2>
-            <p className="text-gray-900 leading-relaxed notranslate">{course.overview}</p>
+            <p className="text-gray-900 leading-relaxed notranslate">
+              {course?.overview || (
+                <span className="opacity-0">placeholder text for LCP</span>
+              )}
+            </p>
           </div>
 
           {/* Video/Image */}
@@ -358,7 +406,9 @@ const CourseDetails = () => {
             <img
               src={course.videoImage}
               alt="Course Presentation"
-              loading="lazy"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
               width="1280"
               height="720"
               className="w-full h-full object-cover"
@@ -367,13 +417,18 @@ const CourseDetails = () => {
 
           {/* What You'll Learn */}
           <div className="space-y-4 sm:space-y-5">
-            <h2 className="text-2xl sm:text-3xl font-semibold">What You’ll Learn</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold">
+              What You’ll Learn
+            </h2>
             <p className="text-gray-900 text-base sm:text-lg">
               By the end of this course, you will be able to:
             </p>
             <ul className="space-y-3 sm:space-y-4">
               {course.learnPoints.map((text, index) => (
-                <li key={index} className="flex items-start space-x-3 sm:space-x-3">
+                <li
+                  key={index}
+                  className="flex items-start space-x-3 sm:space-x-3"
+                >
                   <FaCheck className="text-green-900 mt-1 flex-shrink-0 text-lg sm:text-xl" />
                   <span className="font-semibold text-gray-900 text-sm sm:text-base leading-relaxed">
                     {text}
@@ -385,7 +440,9 @@ const CourseDetails = () => {
 
           {/* Details / Certification */}
           <div>
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">Details</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">
+              Details
+            </h2>
             <p className="text-gray-900 text-sm sm:text-lg leading-relaxed max-w-4xl">
               {course.certificationText}
             </p>
@@ -394,7 +451,10 @@ const CourseDetails = () => {
 
         {/* Right Column */}
         <div className="lg:w-[35%] w-full flex-shrink-0 space-y-6 order-2">
-          <QueriesForm />
+          <Suspense fallback={<></>}>
+            <QueriesForm />
+          </Suspense>
+
           <div className="bg-gray-50 rounded-lg p-4 sm:p-6 flex flex-col items-center text-center space-y-4">
             <img
               src="/images/CEO Pic.webp"
@@ -475,7 +535,10 @@ const CourseDetails = () => {
           </p>
           <ul className="space-y-2 sm:space-y-3 text-gray-900">
             {course.careerOpportunities.map((role, index) => (
-              <li key={index} className="flex items-center space-x-2 sm:space-x-3 font-semibold">
+              <li
+                key={index}
+                className="flex items-center space-x-2 sm:space-x-3 font-semibold"
+              >
                 <FaStar className="text-yellow-500 text-lg sm:text-xl flex-shrink-0" />
                 <span className="text-sm sm:text-lg">{role}</span>
               </li>
@@ -496,13 +559,13 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<></>}>
         <OurTrainers />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<></>}>
         <PlacementHighlights />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<></>}>
         <OurGraduates />
       </Suspense>
 
@@ -520,7 +583,8 @@ const CourseDetails = () => {
               Have Questions? We've Got Answers.
             </motion.h2>
             <p className="text-base sm:text-lg text-gray-900 mb-8 sm:mb-12">
-              Here are some quick answers to help you choose the right course and learning mode.
+              Here are some quick answers to help you choose the right course
+              and learning mode.
             </p>
 
             <div className="space-y-4 text-left">
