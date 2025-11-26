@@ -67,8 +67,7 @@ function BlogPopularSection() {
     <div
       className="bg-cover bg-center bg-no-repeat py-12 px-4 sm:px-6 lg:px-8 relative"
       style={{
-        backgroundImage:
-          "url('/images/WhatsApp Image 2025-10-03 at 16.37.03_d5cbf303.jpg')",
+        backgroundImage: "url('/images/blog-banner-2.webp')",
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -82,25 +81,34 @@ function BlogPopularSection() {
         {/* Posts Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
           {currentPosts.map(({ id, image, title, description, date }) => (
-            <Link key={id} to={`/blog/${slugify(title)}`} className="w-full max-w-sm">
+            <Link
+              key={id}
+              to={`/blog/${slugify(title)}`}
+              className="w-full max-w-sm"
+            >
               <div className="bg-white rounded-lg shadow-md flex flex-col overflow-hidden h-full">
                 <img
                   src={image?.startsWith("http") ? image : image}
                   alt={title}
                   className="w-full h-48 object-cover rounded-t-lg"
-                  loading="lazy"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
                 />
+
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="font-bold text-lg mb-2 line-clamp-2">{title}</h3>
+                  <h3 className="font-bold text-lg mb-2 line-clamp-2">
+                    {title}
+                  </h3>
                   <p
-                    className="text-gray-700 flex-grow text-sm line-clamp-3"
+                    className="text-gray-800 flex-grow text-sm line-clamp-3"
                     dangerouslySetInnerHTML={{ __html: description }}
                   ></p>
 
                   <div className="flex justify-between items-center mt-4">
                     <button
                       type="button"
-                      className="border border-green-600 text-green-600 px-4 py-1 rounded text-sm hover:bg-green-50 transition"
+                      className="border border-green-800 text-green-900 px-4 py-1 rounded text-sm hover:bg-green-50 transition"
                     >
                       Read More
                     </button>
@@ -122,8 +130,18 @@ function BlogPopularSection() {
               className="p-2 rounded-full bg-green-100 text-green-700 hover:bg-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
               aria-label="Previous page"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
 
@@ -149,8 +167,18 @@ function BlogPopularSection() {
               className="p-2 rounded-full bg-green-100 text-green-700 hover:bg-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
               aria-label="Next page"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </nav>

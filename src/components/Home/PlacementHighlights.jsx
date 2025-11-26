@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 
@@ -6,6 +6,27 @@ function PlacementHighlights() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
   const IMAGE_URL = import.meta.env.VITE_BASE_URL_IMAGE;
   const [placements, setPlacements] = useState([]);
+  const styleRef = useRef(null);
+
+  useEffect(() => {
+    if (styleRef.current) return;
+
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes scrollX {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    `;
+    document.head.appendChild(style);
+    styleRef.current = style;
+
+    return () => {
+      if (styleRef.current) {
+        document.head.removeChild(styleRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const fetchPlacements = async () => {
@@ -21,7 +42,7 @@ function PlacementHighlights() {
     fetchPlacements();
   }, [BASE_URL]);
 
-  const repeatedPlacements = [...placements, ...placements];
+  const repeatedPlacements = useMemo(() => [...placements, ...placements], [placements]);
 
   return (
     <section className="py-12 sm:py-16 px-4 bg-white overflow-hidden">
@@ -34,16 +55,6 @@ function PlacementHighlights() {
           <p className="text-black">Loading placement highlights...</p>
         ) : (
           <div className="relative w-full overflow-hidden">
-            {/* Add keyframes for continuous scroll */}
-            <style>
-              {`
-                @keyframes scrollX {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(-50%); }
-                }
-              `}
-            </style>
-
             {/* Scrolling container */}
             <div
               className="flex gap-6"

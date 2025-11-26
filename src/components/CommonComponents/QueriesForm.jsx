@@ -222,7 +222,7 @@ function QueriesForm() {
           type="text"
           name="subject"
           placeholder="Program interested"
-          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+          className="w-full border border-gray-900 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-900"
           value={formData.subject}
           onChange={handleInputChange}
           required
@@ -232,7 +232,7 @@ function QueriesForm() {
           type="text"
           name="name"
           placeholder="Name"
-          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+          className="w-full border border-gray-900 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-900"
           value={formData.name}
           onChange={handleInputChange}
           required
@@ -242,26 +242,26 @@ function QueriesForm() {
           type="email"
           name="email"
           placeholder="Email"
-          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+          className="w-full border border-gray-900 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-900"
           value={formData.email}
           onChange={handleInputChange}
           required
         />
 
-        <div className="border border-gray-300 rounded-md">
+        <div className="border border-gray-800 rounded-md">
           <PhoneInput
             country={"in"}
             value={formData.phone}
             onChange={handlePhoneChange}
-            inputClass="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border-2 border-green-200 bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
-            buttonClass="border-2 border-green-200 bg-green-100 rounded-l-md"
+            inputClass="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border-2 border-green-900 bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-900 text-sm"
+            buttonClass="border-2 border-green-900 bg-green-900 rounded-l-md"
             containerClass="w-full"
-            dropdownClass="rounded-md border border-green-200 bg-white"
+            dropdownClass="rounded-md border border-green-900 bg-white"
             specialLabel=""
             inputStyle={{
               width: "100%",
               borderRadius: "0.375rem",
-              border: "2px solid #bbf7d0",
+              border: "2px solid #5f5f5fff",
             }}
             enableSearch
             placeholder="Phone"
@@ -273,7 +273,7 @@ function QueriesForm() {
           name="message"
           rows="3"
           placeholder="Message"
-          className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
+          className="w-full border border-gray-900 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-900 resize-none"
           value={formData.message}
           onChange={handleInputChange}
           required
@@ -288,7 +288,7 @@ function QueriesForm() {
 
         <button
           type="submit"
-          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 text-sm rounded-md transition"
+          className="w-full bg-green-900 hover:bg-emerald-900 text-white font-semibold py-2 text-sm rounded-md transition"
           disabled={loading}
         >
           {loading ? "Sending..." : "Send Message >"}

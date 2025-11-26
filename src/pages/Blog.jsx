@@ -248,7 +248,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import QueriesForm from "../components/CommonComponents/QueriesForm";
 
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
@@ -331,8 +330,13 @@ const Blog = () => {
       {/* Hero Section */}
       <div className="relative w-full h-60 sm:h-72 md:h-96 overflow-hidden mb-10">
         <img
-          src="/images/WhatsApp Image 2025-10-03 at 16.37.02_e97c9c84.jpg"
+          src="/images/blog-banner.webp"
           alt="Blogs"
+          fetchpriority="high"
+          width="1920"
+          height="900"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <h1 className="absolute inset-0 flex items-center justify-start text-white text-2xl sm:text-3xl md:text-5xl font-extrabold bg-opacity-40 px-4 sm:px-12 lg:px-24">
@@ -364,18 +368,18 @@ const Blog = () => {
                       loading="lazy"
                     />
                     <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="font-bold text-lg mb-2 text-gray-900">
+                      <h2 className="font-bold text-lg mb-2 text-gray-900">
                         {title}
-                      </h3>
+                      </h2>
                       <p
-                        className="text-gray-600 flex-grow text-sm"
+                        className="text-gray-900 flex-grow text-sm"
                         dangerouslySetInnerHTML={{ __html: description }}
                       ></p>
                       <div className="flex justify-between items-center mt-4">
                         <button
                           type="button"
-                          className="bg-green-600 text-white px-5 py-2 rounded-md text-sm font-medium 
-             hover:bg-green-700 transition-all duration-300 transform hover:scale-105 
+                          className="bg-green-900 text-white px-5 py-2 rounded-md text-sm font-medium 
+             hover:bg-emerald-900 transition-all duration-300 transform hover:scale-105 
              shadow-md truncate max-w-[130px]"
                         >
                           Read More – {title}

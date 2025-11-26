@@ -110,8 +110,7 @@ const Trainers = () => {
         }}
       >
         <h1 className="text-white text-3xl md:text-5xl font-bold px-4 sm:px-12 lg:px-24 py-2 rounded">
-          Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute –
-          Internet Leads Training (ILT), Kochi
+          Hire Digital Marketers
         </h1>
       </section>
 
@@ -119,7 +118,8 @@ const Trainers = () => {
       <div className="max-w-7xl mx-auto px-6 py-16 space-y-20">
         <section className="text-left">
           <h2 className="text-3xl font-semibold mb-6">
-            Internet Leads Training (ILT)
+            Hire Digital Marketers from Kerala’s #1 Digital Marketing Institute –
+          Internet Leads Training (ILT), Kochi
           </h2>
 
           <p className="text-gray-800 text-lg leading-relaxed max-w-7xl">
@@ -210,7 +210,7 @@ const Trainers = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="border border-gray-900 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-900"
                 required
               />
 
@@ -218,7 +218,7 @@ const Trainers = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="border border-gray-900 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-900"
                 required
               />
 
@@ -228,7 +228,7 @@ const Trainers = () => {
                 placeholder="Mobile Number"
                 inputMode="numeric"
                 maxLength="12"
-                className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="border border-gray-900 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-900"
                 onInput={(e) => {
                   e.target.value = e.target.value.replace(/[^0-9]/g, "");
                 }}
@@ -236,14 +236,14 @@ const Trainers = () => {
               />
 
               <div>
-                <label className="block text-gray-700 mb-1 text-sm font-medium">
+                <label className="block text-gray-900 mb-1 text-sm font-medium">
                   CV
                 </label>
                 <input
                   type="file"
                   name="cv"
                   accept=".pdf,.doc,.docx"
-                  className="border border-gray-300 rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-green-400"
+                  className="border border-gray-900 rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-green-900"
                 />
               </div>
             </div>
@@ -253,7 +253,7 @@ const Trainers = () => {
                 name="experience"
                 rows="4"
                 placeholder="Training Experience Details"
-                className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="w-full border border-gray-900 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-900"
               ></textarea>
             </div>
 
@@ -266,7 +266,7 @@ const Trainers = () => {
 
             <button
               type="submit"
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded inline-flex items-center"
+              className="bg-green-900 hover:bg-emerald-900 text-white font-semibold px-6 py-3 rounded inline-flex items-center"
               disabled={loading}
             >
               {loading ? "Submitting..." : "Submit"}
