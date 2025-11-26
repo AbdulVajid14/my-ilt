@@ -30,6 +30,7 @@ function TrainerSection() {
                     alt="Jitto Jose, Founder & Lead Trainer"
                     fetchpriority="high"
                     decoding="async"
+                    loading='lazy'
                     className="w-full h-full object-cover"
                   />
                 </div>

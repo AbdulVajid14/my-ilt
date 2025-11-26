@@ -189,7 +189,7 @@ const Navbar = () => {
             aria-label="Facebook"
             className="hover:text-green-600 transition"
           >
-            <FaFacebookF size={20} className="w-5 h-5"/>
+            <FaFacebookF size={20} className="w-5 h-5" />
           </a>
 
           <a
@@ -199,7 +199,7 @@ const Navbar = () => {
             aria-label="Instagram"
             className="hover:text-green-600 transition"
           >
-            <FaInstagram size={20} className="w-5 h-5"/>
+            <FaInstagram size={20} className="w-5 h-5" />
           </a>
 
           <a
@@ -209,7 +209,7 @@ const Navbar = () => {
             aria-label="LinkedIn"
             className="hover:text-green-600 transition"
           >
-            <FaLinkedinIn size={20} className="w-5 h-5"/>
+            <FaLinkedinIn size={20} className="w-5 h-5" />
           </a>
           <a
             href="https://www.youtube.com/c/InternetLeadsTraining/featured"
@@ -218,18 +218,16 @@ const Navbar = () => {
             aria-label="YouTube"
             className="hover:text-green-600 transition"
           >
-            <FaYoutube size={20} className="w-5 h-5"/>
+            <FaYoutube size={20} className="w-5 h-5" />
           </a>
 
-          <a
-            href="https://ilt.ektova.com/blog"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/blog"
             aria-label="Blog"
             className="hover:text-green-600 transition"
           >
-            <FaBlog size={20} className="w-5 h-5"/>
-          </a>
+            <FaBlog size={20} className="w-5 h-5" />
+          </Link>
         </div>
 
         <div className="lg:hidden">
