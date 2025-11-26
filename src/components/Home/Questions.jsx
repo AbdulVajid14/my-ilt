@@ -37,14 +37,14 @@ const Questions = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-900"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="p-6 bg-red-50 text-red-600 rounded-lg text-center">
+      <div className="p-6 bg-red text-red-900 rounded-lg text-center">
         Error loading FAQs: {error}
       </div>
     );
@@ -57,11 +57,11 @@ const Questions = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4"
         >
           Have Questions? We've Got Answers.
         </motion.h2>
-        <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12">
+        <p className="text-base sm:text-lg text-black mb-8 sm:mb-12">
           Here are some quick answers to help you choose the right course and
           learning mode.
         </p>
@@ -72,13 +72,13 @@ const Questions = () => {
                 className="flex justify-between items-center cursor-pointer"
                 onClick={() => toggleFaq(faq.id)}
               >
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl text-gray-800">
+                <h3 className="font-semibold text-base sm:text-lg md:text-xl text-black">
                   {faq.question}
                 </h3>
                 {openFaqId === faq.id ? (
-                  <FaMinus className="text-green-600 text-lg sm:text-2xl" />
+                  <FaMinus className="text-green-900 text-lg sm:text-2xl" />
                 ) : (
-                  <FaPlus className="text-green-600 text-lg sm:text-2xl" />
+                  <FaPlus className="text-green-900 text-lg sm:text-2xl" />
                 )}
               </div>
               <AnimatePresence>
@@ -88,7 +88,7 @@ const Questions = () => {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-2 text-gray-600 text-sm sm:text-base"
+                    className="mt-2 text-black text-sm sm:text-base"
                   >
                     {faq.answer}
                   </motion.div>

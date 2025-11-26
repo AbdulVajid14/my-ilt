@@ -10,25 +10,26 @@ function AppSection() {
               <img
                 src="/images/WhatsApp Image 2025-09-20 at 10.54.01_f6b5cbe5.jpg"
                 alt="Laptop showing job portal"
+                loading="lazy"
                 className="w-48 h-48 sm:w-64 sm:h-64 rounded-lg object-cover"
               />
             </div>
             <div className="flex flex-col">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4">
                 Exclusive Job Portal for Digital Marketers
               </h2>
-              <p className="text-sm sm:text-lg text-gray-700 font-medium">
+              <p className="text-sm sm:text-lg text-black font-medium">
                 Internet Leads Training (ILT), Kerala's #1 Digital Marketing
                 Institute, provides expert training along with dedicated
                 placement support. Our exclusive job platform{" "}
-                <span className="font-bold text-green-600">iltjobs.com</span>
+                <span className="font-bold text-green-900">iltjobs.com</span>
                 connects skilled digital marketers with top companies across
                 India and overseas.
               </p>
             </div>
           </div>
           <div>
-            <h3 className="font-bold text-base sm:text-lg mb-4 text-gray-900">
+            <h3 className="font-bold text-base sm:text-lg mb-4 text-black">
               Key Highlights:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-lg">
@@ -40,10 +41,10 @@ function AppSection() {
                 "Backed by 20+ years of ILT expertise.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start">
-                  <span className="text-green-600 text-lg sm:text-lg mr-2 mt-1 flex-shrink-0">
+                  <span className="text-green-900 text-lg sm:text-lg mr-2 mt-1 flex-shrink-0">
                     ✓
                   </span>
-                  <p className="text-gray-700">{item}</p>
+                  <p className="text-black">{item}</p>
                 </div>
               ))}
             </div>
@@ -51,7 +52,7 @@ function AppSection() {
         </div>
         <div className="hidden lg:block border-l border-gray-300 mx-4"></div>
         <div className="w-full lg:w-[70%] flex flex-col pt-4 lg:pt-0">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4">
             India's First Digital Marketing Learning App
           </h2>
           <img
@@ -83,6 +84,7 @@ function AppSection() {
               <img
                 src="/images/WhatsApp Image 2025-09-20 at 10.54.36_d69e2bc6.jpg"
                 alt="third"
+                loading="lazy"
                 className="h-15 object-contain hover:opacity-90 transition"
               />
             </a>

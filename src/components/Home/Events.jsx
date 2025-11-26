@@ -22,7 +22,7 @@ const Events = () => {
           </p>
 
           <Link to="/events">
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md">
+            <button className="bg-green-800 hover:bg-green-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md">
               View All Events
             </button>
           </Link>

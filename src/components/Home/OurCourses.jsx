@@ -61,7 +61,7 @@ function OurCourses() {
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">
             Become a Digital Marketing Pro
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 sm:mb-8">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 sm:mb-8">
             From fundamentals to advanced strategies, learn how to grow brands
             online.
           </h3>
@@ -91,7 +91,7 @@ function OurCourses() {
                     <div className="flex items-center justify-between mt-4">
                       <Link to={`/courses/${slug}`}>
                         <button
-                          className="bg-green-600 hover:bg-green-700 text-white py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:shadow-md hover:scale-105 
+                          className="bg-green-900 hover:bg-emerald-900 text-white py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:shadow-md hover:scale-105 
              w-28 sm:w-32 truncate"
                         >
                           Learn More {course.title}
@@ -123,7 +123,7 @@ function OurCourses() {
               return (
                 <div
                   key={idx}
-                  className="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-md"
+                  className="flex flex-col items-center text-center p-4 rounded-lg shadow-md"
                 >
                   <img
                     src={course.image}
@@ -133,19 +133,18 @@ function OurCourses() {
                   <h4 className="font-bold text-base sm:text-lg mb-1">
                     {course.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 mb-2">
+                  <p className="text-xs sm:text-sm text-black mb-2">
                     {course.desc}
                   </p>
-                  <div className="flex items-center justify-between w-full text-xs text-gray-500 mb-2">
-                    <span>
-                      {/* <FaRupeeSign className="text-green-600" /> */}₹{" "}
-                      {course.price}{" "}
+                  <div className="flex items-center justify-between w-full text-xs mb-2">
+                    <span className="text-black font-semibold">
+                      ₹ {course.price}
                     </span>
-                    <span>{course.duration}</span>
+                    <span className="text-black">{course.duration}</span>
                   </div>
                   <Link to={`/courses/${slug}`}>
                     <button
-                      className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg 
+                      className="bg-green-900 hover:bg-emerald-900 text-white py-2 px-4 rounded-lg 
                text-xs sm:text-sm transition-all duration-300 hover:shadow-md 
                hover:scale-105 w-28 truncate"
                     >
@@ -157,7 +156,7 @@ function OurCourses() {
             })}
             <div className="flex justify-center items-center">
               <Link to="/courses">
-                <button className="flex items-center text-green-600 font-semibold text-sm sm:text-lg hover:underline">
+                <button className="flex items-center text-green-900 font-semibold text-sm sm:text-lg hover:underline">
                   View Courses &rarr;
                 </button>
               </Link>
