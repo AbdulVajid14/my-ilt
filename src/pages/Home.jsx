@@ -48,42 +48,41 @@ const Home = () => {
       "seo training in kochi, google adwords training, google analytics training"
     );
 
-      // ------------------ FIX RENDER BLOCKING CSS ------------------
-  const preloadCSS = document.createElement("link");
-  preloadCSS.rel = "preload";
-  preloadCSS.as = "style";
-  preloadCSS.href = "/assets/index-COcQ2lkp.css";
+    // ------------------ FIX RENDER BLOCKING CSS ------------------
+    const preloadCSS = document.createElement("link");
+    preloadCSS.rel = "preload";
+    preloadCSS.as = "style";
+    preloadCSS.href = "/assets/index-COcQ2lkp.css";
 
-  const asyncCSS = document.createElement("link");
-  asyncCSS.rel = "stylesheet";
-  asyncCSS.href = "/assets/index-COcQ2lkp.css";
-  asyncCSS.media = "print";
-  asyncCSS.onload = () => (asyncCSS.media = "all");
+    const asyncCSS = document.createElement("link");
+    asyncCSS.rel = "stylesheet";
+    asyncCSS.href = "/assets/index-COcQ2lkp.css";
+    asyncCSS.media = "print";
+    asyncCSS.onload = () => (asyncCSS.media = "all");
 
-  document.head.appendChild(preloadCSS);
-  document.head.appendChild(asyncCSS);
+    document.head.appendChild(preloadCSS);
+    document.head.appendChild(asyncCSS);
 
-  // ------------------ FIX GOOGLE FONTS BLOCKING ------------------
-  const preconnect1 = document.createElement("link");
-  preconnect1.rel = "preconnect";
-  preconnect1.href = "https://fonts.googleapis.com";
+    // ------------------ FIX GOOGLE FONTS BLOCKING ------------------
+    const preconnect1 = document.createElement("link");
+    preconnect1.rel = "preconnect";
+    preconnect1.href = "https://fonts.googleapis.com";
 
-  const preconnect2 = document.createElement("link");
-  preconnect2.rel = "preconnect";
-  preconnect2.href = "https://fonts.gstatic.com";
-  preconnect2.crossOrigin = "true";
+    const preconnect2 = document.createElement("link");
+    preconnect2.rel = "preconnect";
+    preconnect2.href = "https://fonts.gstatic.com";
+    preconnect2.crossOrigin = "true";
 
-  const fontLink = document.createElement("link");
-  fontLink.rel = "stylesheet";
-  fontLink.href =
-    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap";
-  fontLink.media = "print";
-  fontLink.onload = () => (fontLink.media = "all");
+    const fontLink = document.createElement("link");
+    fontLink.rel = "stylesheet";
+    fontLink.href =
+      "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap";
+    fontLink.media = "print";
+    fontLink.onload = () => (fontLink.media = "all");
 
-  document.head.appendChild(preconnect1);
-  document.head.appendChild(preconnect2);
-  document.head.appendChild(fontLink);
-  
+    document.head.appendChild(preconnect1);
+    document.head.appendChild(preconnect2);
+    document.head.appendChild(fontLink);
   }, []);
 
   return (
@@ -91,11 +90,13 @@ const Home = () => {
       <section className="relative text-white h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/hero-banner.webp" 
+            src="/images/hero-banner.webp"
             alt="Hero background"
             fetchpriority="high"
+            width="1920"
+            height="900"
+            loading="eager"
             decoding="async"
-            loading="lazy"
             className="w-full h-full object-cover"
           />
         </div>
@@ -106,7 +107,7 @@ const Home = () => {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl mb-6">
-           10,000+ Students | 2000+ Reviews | 15+ Years Experience
+            10,000+ Students | 2000+ Reviews | 15+ Years Experience
           </p>
 
           <Link to="/courses/digital-marketing-course-kochi">
