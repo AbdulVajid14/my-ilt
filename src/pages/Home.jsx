@@ -103,7 +103,7 @@ const Home = () => {
 
         <div className="relative z-10 flex flex-col justify-center text-left px-6 sm:px-10 md:px-16 lg:px-24 py-8 sm:py-12 md:py-20 max-w-3xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
-            Kerala's #1 Practical Digital Marketing Training Institute
+            India's #1 Practical Digital Marketing and Data Analytics Institute
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl mb-6">
