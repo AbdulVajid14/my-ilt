@@ -96,12 +96,50 @@ const metaMap = {
     keywords:
       "ILT Blog | Digital Marketing Insights, Trends & Learning Resources",
   },
-    "/courses": {
+  "/courses": {
     title: "Digital Marketing Courses | Internet Leads Training (ILT) Kerala",
     description:
       "Upgrade your skills with ILT’s digital marketing courses, designed by experts and delivered from our leading institute in Cochin, Kerala. Learn practical, real-world marketing.",
     keywords:
       "Digital Marketing Courses | Internet Leads Training (ILT) Kerala",
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy | Internet Leads Training (ILT) Kerala",
+    description:
+      "Read the Privacy Policy of Internet Leads Training (ILT) to understand how we collect, use, and protect your data across our courses and services in Kerala.",
+    keywords: "Privacy Policy | Internet Leads Training (ILT) Kerala",
+  },
+  "/terms-and-conditions": {
+    title:
+      "Terms & Conditions | Internet Leads Training (ILT) Digital Marketing Institute",
+    description:
+      "Review the Terms and Conditions of Internet Leads Training (ILT). Learn about our policies, course guidelines, user responsibilities, and institute regulations.",
+    keywords:
+      "Terms & Conditions | Internet Leads Training (ILT) Digital Marketing Institute",
+  },
+  "/cookie-policy": {
+    title: "Cookie Policy | Internet Leads Training (ILT)",
+    description:
+      "Read the Cookie Policy of Internet Leads Training (ILT) to understand how cookies enhance your browsing experience and support site performance.",
+    keywords: "Cookie Policy | Internet Leads Training (ILT)",
+  },
+  "/website-disclaimer": {
+    title: "Website Disclaimer | Internet Leads Training (ILT)",
+    description:
+      "Internet Leads Training (ILT) Website Disclaimer outlines content accuracy, responsibilities, and limitations of liability for users accessing our official site.",
+    keywords: "Website Disclaimer | Internet Leads Training (ILT)",
+  },
+  "/refund-cancellation-policy": {
+    title: "Refund & Cancellation Policy | Internet Leads Training (ILT)",
+    description:
+      "Read Internet Leads Training (ILT)’s refund and cancellation policy for all course enrollments. Clear, transparent terms to help students understand payment and refund procedures.",
+    keywords: "Refund & Cancellation Policy | Internet Leads Training (ILT)",
+  },
+    "/certificate": {
+    title: "Digital Marketing Course Certificate | Internet Leads Training (ILT)",
+    description:
+      "Get your verified digital marketing certification from Internet Leads Training (ILT). Our course certificate validates your skills and supports better career opportunities.",
+    keywords: "Digital Marketing Course Certificate | Internet Leads Training (ILT)",
   },
 };
 
