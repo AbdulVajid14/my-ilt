@@ -19,34 +19,34 @@ import ILTSection from "../components/Home/ILTSection";
 
 const Home = () => {
   useEffect(() => {
-    document.title =
-      "Digital Marketing Course in Kochi(Cochin) | Kerala's Best Training Institute";
-    const metaDescription =
-      document.querySelector("meta[name='description']") ||
-      (() => {
-        const meta = document.createElement("meta");
-        meta.name = "description";
-        document.head.appendChild(meta);
-        return meta;
-      })();
+    // document.title =
+    //   "Digital Marketing Course in Kochi(Cochin) | Kerala's Best Training Institute";
+    // const metaDescription =
+    //   document.querySelector("meta[name='description']") ||
+    //   (() => {
+    //     const meta = document.createElement("meta");
+    //     meta.name = "description";
+    //     document.head.appendChild(meta);
+    //     return meta;
+    //   })();
 
-    metaDescription.setAttribute(
-      "content",
-      "Internet Leads Training (ILT)is Kerala's best Digital Marketing training institute in Kochi, offering 100% practical course training for career and business growth"
-    );
-    const metaKeywords =
-      document.querySelector("meta[name='keywords']") ||
-      (() => {
-        const meta = document.createElement("meta");
-        meta.name = "keywords";
-        document.head.appendChild(meta);
-        return meta;
-      })();
+    // metaDescription.setAttribute(
+    //   "content",
+    //   "Internet Leads Training (ILT)is Kerala's best Digital Marketing training institute in Kochi, offering 100% practical course training for career and business growth"
+    // );
+    // const metaKeywords =
+    //   document.querySelector("meta[name='keywords']") ||
+    //   (() => {
+    //     const meta = document.createElement("meta");
+    //     meta.name = "keywords";
+    //     document.head.appendChild(meta);
+    //     return meta;
+    //   })();
 
-    metaKeywords.setAttribute(
-      "content",
-      "seo training in kochi, google adwords training, google analytics training"
-    );
+    // metaKeywords.setAttribute(
+    //   "content",
+    //   "seo training in kochi, google adwords training, google analytics training"
+    // );
 
     // ------------------ FIX RENDER BLOCKING CSS ------------------
     const preloadCSS = document.createElement("link");
