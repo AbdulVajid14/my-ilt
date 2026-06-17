@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = "production";
 const API_BASE = process.env.VITE_BASE_URL;
 
 const app = express();
