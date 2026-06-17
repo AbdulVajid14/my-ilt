@@ -54,7 +54,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), tailwindcss()],
   ssr: {
     noExternal: [],
@@ -68,14 +68,17 @@ export default defineConfig({
     cssMinify: true,
     chunkSizeWarningLimit: 600,
     target: "esnext",
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-          router: ["react-router-dom"],
-          vendor: ["axios"],
+    // Only apply manualChunks for client build, NOT SSR build
+    rollupOptions: isSsrBuild
+      ? {}
+      : {
+          output: {
+            manualChunks: {
+              react: ["react", "react-dom"],
+              router: ["react-router-dom"],
+              vendor: ["axios"],
+            },
+          },
         },
-      },
-    },
   },
-});
+}));
