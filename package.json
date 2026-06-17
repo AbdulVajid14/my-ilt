@@ -7,6 +7,7 @@
     "dev": "node server.js",
     "build": "vite build && vite build --ssr src/entry-server.jsx",
     "prerender": "node prerender.js",
+    "build:full": "npm run build && npm run prerender",
     "lint": "eslint .",
     "serve": "NODE_ENV=production node server.js",
     "preview": "vite preview"
