@@ -1,3 +1,36 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig(({ isSsrBuild }) => ({
+  plugins: [react(), tailwindcss()],
+  ssr: {
+    noExternal: [],
+  },
+  resolve: {
+    conditions: ["module", "browser", "default"],
+  },
+  build: {
+    // ✅ Add this — SSR output goes to dist/server, client to dist/client
+    outDir: isSsrBuild ? "dist/server" : "dist/client",
+    cssCodeSplit: true,
+    minify: "esbuild",
+    cssMinify: true,
+    chunkSizeWarningLimit: 600,
+    target: "esnext",
+    rollupOptions: isSsrBuild
+      ? {}
+      : {
+          output: {
+            manualChunks: {
+              react: ["react", "react-dom"],
+              router: ["react-router-dom"],
+              vendor: ["axios"],
+            },
+          },
+        },
+  },
+}));
 // import { defineConfig } from 'vite'
 // import react from '@vitejs/plugin-react'
 // import tailwindcss from '@tailwindcss/vite'
@@ -50,35 +83,35 @@
 //     },
 //   },
 // });
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
+// import { defineConfig } from "vite";
+// import react from "@vitejs/plugin-react";
+// import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), tailwindcss()],
-  ssr: {
-    noExternal: [],
-  },
-  resolve: {
-    conditions: ["module", "browser", "default"],
-  },
-  build: {
-    cssCodeSplit: true,
-    minify: "esbuild",
-    cssMinify: true,
-    chunkSizeWarningLimit: 600,
-    target: "esnext",
-    // Only apply manualChunks for client build, NOT SSR build
-    rollupOptions: isSsrBuild
-      ? {}
-      : {
-          output: {
-            manualChunks: {
-              react: ["react", "react-dom"],
-              router: ["react-router-dom"],
-              vendor: ["axios"],
-            },
-          },
-        },
-  },
-}));
+// export default defineConfig(({ isSsrBuild }) => ({
+//   plugins: [react(), tailwindcss()],
+//   ssr: {
+//     noExternal: [],
+//   },
+//   resolve: {
+//     conditions: ["module", "browser", "default"],
+//   },
+//   build: {
+//     cssCodeSplit: true,
+//     minify: "esbuild",
+//     cssMinify: true,
+//     chunkSizeWarningLimit: 600,
+//     target: "esnext",
+//     // Only apply manualChunks for client build, NOT SSR build
+//     rollupOptions: isSsrBuild
+//       ? {}
+//       : {
+//           output: {
+//             manualChunks: {
+//               react: ["react", "react-dom"],
+//               router: ["react-router-dom"],
+//               vendor: ["axios"],
+//             },
+//           },
+//         },
+//   },
+// }));
