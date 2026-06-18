@@ -170,4 +170,3 @@ const WorkshopDetails = () => {
 };
 
 export default WorkshopDetails;
-
