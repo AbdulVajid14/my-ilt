@@ -6,8 +6,42 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "react-snap",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false
+    },
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/about",
+      "/courses",
+      "/courses/digital-marketing-course-kochi",
+      "/placements",
+      "/events",
+      "/events/podcast-training-2025",
+      "/events/ilt-onam-celebrations-2025",
+      "/hire-digital-marketers-in-india",
+      "/contact",
+      "/mode",
+      "/MBA-MSC-Digital-Marketing-Abroad",
+      "/workshop",
+      "/blog",
+      "/certificate",
+      "/privacy-policy",
+      "/terms-and-conditions",
+      "/cookie-policy",
+      "/website-disclaimer",
+      "/refund-cancellation-policy"
+    ]
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
@@ -35,6 +69,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
+    "react-snap": "^1.23.0",
     "vite": "^7.1.6",
     "vite-plugin-prerender": "^1.0.8"
   }
