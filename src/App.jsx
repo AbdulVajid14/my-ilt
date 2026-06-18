@@ -25,7 +25,10 @@ import RefundPolicy from "./pages/RefundPolicy";
 import PlacementPage from "./pages/PlacementPage";
 import Disclaimer from "./pages/Disclaimer";
 import CookiePolicy from "./pages/CookiePolicy";
+import useMetaTags from "./hooks/useMetaTags";
+
 function App() {
+  useMetaTags();
   return (
     <>
       <ScrollToTop />
